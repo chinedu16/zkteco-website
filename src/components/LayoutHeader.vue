@@ -1,0 +1,266 @@
+<template>
+  <div class="border-ui-primary">
+    <div class="container">
+      <div
+        class="md:flex hidden justify-end px-4 lg:px-10 py-2 text-white header-nav-sub"
+      >
+        <g-link to="/about" class="pl-2 pr-2 hover">About us </g-link>
+        | <g-link to="/blog" class="pl-2 pr-2 hover"> News Center </g-link>|
+        <g-link to="/contact" class="pl-2 pr-2 hover">Contact us </g-link> |
+        <g-link class="pl-2 pr-2 flex hover items-center">
+          <World class="mr-2" /> Region/Language |</g-link
+        >
+        <g-link class="pl-2 pr-2 hover">Login</g-link>
+        <g-link class="pl-2 pr-2 hover">Register</g-link>
+        <ToggleDarkMode class="ml-2 hover sm:ml-8">
+          <template slot="default" slot-scope="{ dark }">
+            <MoonIcon v-if="dark" size="1.5x" />
+            <SunIcon v-else size="1.5x" />
+          </template>
+        </ToggleDarkMode>
+      </div>
+
+      <nav class="flex items-center px-4 py-5 lg:py-5 lg:px-10 flex-wrap">
+        <div
+          class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"
+        >
+          <g-link to="/" class="flex items-center text-ui-primary" title="Home">
+            <Logo :width="40" class="text-ui-primary" />
+          </g-link>
+          <div
+            class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+            id="navigation"
+          >
+            <div class="flex items-start ml-5 navigation-dropdown">
+              <v-menu open-on-hover offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    class="tracking-normal normal-case text-base"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Product
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item v-for="(item, index) in product" :key="index">
+                    <g-link to="/product/">
+                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                    </g-link>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+              <v-menu open-on-hover offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    class="tracking-normal normal-case text-base"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Solution
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item v-for="(item, index) in solution" :key="index">
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+
+              <v-menu open-on-hover offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    class="tracking-normal normal-case text-base"
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    Support
+                  </v-btn>
+                </template>
+
+                <v-list>
+                  <v-list-item v-for="(item, index) in support" :key="index">
+                    <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2 hidden relative text-gray-600 md:block">
+          <input
+            class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+            type="search"
+            name="search"
+            placeholder="Search"
+          />
+          <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+            <SearchIcon />
+          </button>
+        </div>
+        <button
+          class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto  outline-none nav-toggler"
+          data-target="#navigation"
+          @click.stop="drawer = true"
+        >
+          <AlignJustifyIcon size="2x" class="custom-class"/>
+        </button>
+      </nav>
+    </div>
+
+    <v-dialog
+      v-model="drawer"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+    >
+      <v-toolbar-side-icon dark slot="activator"></v-toolbar-side-icon>
+      <v-card class="m-4">
+        <v-toolbar flat color="">
+          
+          <v-spacer></v-spacer>
+          <v-btn icon @click.native="drawer = false">
+            <XIcon size="2x" class="custom-class"/>
+          </v-btn>
+        </v-toolbar>
+
+        <v-list>
+          <v-list-tile v-for="(item, index) in nav" :key="index" to="#">
+            <v-list-tile-action>
+              <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title :title="item.title">{{
+                item.text
+              }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-card>
+    </v-dialog>
+  </div>
+</template>
+
+<static-query>
+query {
+  metadata {
+    siteName
+    settings {
+      web
+      github
+      twitter
+      nav {
+        links {
+          path
+          title
+        }
+      }
+    }
+  }
+}
+</static-query>
+
+<script>
+import ToggleDarkMode from "@/components/ToggleDarkMode";
+import Logo from "@/components/Logo";
+import World from "@/components/Vectors/World";
+import SearchIcon from "@/components/Vectors/Search";
+import {
+  SunIcon,
+  MoonIcon,
+  GlobeIcon,
+  GithubIcon,
+  TwitterIcon,
+  AlignJustifyIcon,
+  XIcon
+} from "vue-feather-icons";
+
+const Search = () =>
+  import(/* webpackChunkName: "search" */ "@/components/Search").catch(
+    (error) => console.warn(error)
+  );
+
+export default {
+  components: {
+    Logo,
+    World,
+    SearchIcon,
+    Search,
+    ToggleDarkMode,
+    SunIcon,
+    MoonIcon,
+    AlignJustifyIcon,
+    XIcon,
+    GlobeIcon,
+    GithubIcon,
+    TwitterIcon,
+  },
+
+  data() {
+    return {
+      drawer: null,
+      product: [
+        { title: "Time Management" },
+        { title: "Access Control" },
+        { title: "Green Label" },
+        { title: "Video Surveillance" },
+        { title: "Smart Lock" },
+        { title: "Multi-purpose Integration" },
+        { title: "POS" },
+        { title: "Biometrics" },
+        { title: "Entrance Control" },
+        { title: "Security Inspection" },
+        { title: "ECO Product" },
+      ],
+      solution: [
+        { title: "Classified by Industry" },
+        { title: "Classified by Application" },
+      ],
+      support: [
+        { title: "Training Center" },
+        { title: "Download Center" },
+        { title: "After-sales Service" },
+        { title: "Service & Bulletins" },
+      ],
+    };
+  },
+
+  computed: {
+    meta() {
+      return this.$static.metadata;
+    },
+    settings() {
+      return this.meta.settings;
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+
+.custom-class {
+  color: black!important;
+}
+.v-application {
+  .v-menu__content {
+    .v-list {
+      .v-list-item {
+        cursor: pointer;
+        border-bottom: 1px solid #e2e8f0;
+        .v-list-item__title {
+          font-size: 16px !important;
+        }
+
+        &:hover {
+          .v-list-item__title {
+            color: #82bb31 !important;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
