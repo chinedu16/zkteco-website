@@ -1,0 +1,88 @@
+<template>
+  <div class="md:m-0 mb-10" id="product-categories" style="width:28%;">
+    <div>
+      <div class="border">
+        <v-card class="mx-auto">
+          <v-list
+            style="background: white!important"
+            class="sidebar-border"
+            v-for="item in productCategories"
+            :key="item.id"
+          >
+            <v-list-group style="color: #78bc27!important;">
+              <template v-slot:activator>
+                <g-link :to="`/product-categories/${item.node.slug}`">
+                  <v-list-item-title>{{
+                    item.node.name
+                  }}</v-list-item-title></g-link
+                >
+              </template>
+
+              <v-list-group
+                style="color: #78bc27!important;"
+                sub-group
+                v-for="product in item.node.products"
+                :key="product.id"
+              >
+                <template v-slot:activator>
+                  <v-list-item-content>
+                    <g-link
+                      :to="`/product/${product.slug}`"
+                      ><v-list-item-title>{{
+                        product.name
+                      }}</v-list-item-title></g-link
+                    >
+                  </v-list-item-content>
+                </template>
+              </v-list-group>
+            </v-list-group>
+          </v-list>
+        </v-card>
+      </div>
+    </div>
+  </div>
+</template>
+
+<static-query>
+query {
+  allStrapiProductCategories {
+    edges {
+      node {
+        id
+        name
+        slug
+				products {
+          id
+          slug
+          name
+        }
+      }
+    } 
+  }
+}
+</static-query>
+
+<script>
+export default {
+  props: {
+    toggle: {
+      type: String,
+    },
+  },
+  data() {
+    return {};
+  },
+  components: {},
+  computed: {
+    productCategories() {
+      return this.$static.allStrapiProductCategories.edges;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.sidebar-border {
+  border-bottom: 1px solid #f5f5f5;
+}
+</style>

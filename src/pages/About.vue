@@ -1,14 +1,13 @@
 <template>
   <layout>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10">
+    <div class="headline">
+      <img class="w-full object-cover" style="height: 20rem" src="../assets/about.us.jpg" alt="">
+    </div>
+    <div class="container px-4 md:px-12 py-5 lg:py-5 ">
+      
       <section class="about-zk flex flex-col lg:flex-row py-10 justify-between align-end">
         <div class=" lg:w-7/12">
-          <div
-            class="flex items-center mb-10 justify-center w-64 h-16 border-page text-color-zkteco-green font-black text-xl"
-          >
-            ABOUT ZKTECO
-          </div>
-          <div>
+          <div data-aos="fade-right" data-aos-duration="3000">
             <div class="header-title">We give the best Services</div>
             <p class="mt-5">
               ZKTeco is a leading global provider of biometric verification
@@ -37,16 +36,16 @@
             </p>
           </div>
         </div>
-        <div class="lg:w-5/12 xl:w-4/12 md:w-9/12  hidden md:block">
+        <div data-aos="fade-left" data-aos-duration="4000" class="lg:w-5/12 xl:w-4/12 md:w-9/12  hidden md:block">
           <div class="mb-4 justify-end">
             <div class="md:flex items-end">
-              <span class="small-circle bg-zkteco-black mr-4">
-                <div class="flex align-center flex-col text-center">
+              <span class="small-circle swing bg-zkteco-black mr-4">
+                <div class="flex align-center  flex-col text-center">
                   <span class="font-black text-xl ">3500+</span>
                   Global employees
                 </div>
               </span>
-              <span class="big-circle bg-zkteco-green"
+              <span class="big-circle swing  bg-zkteco-green"
                 ><div class="flex align-center flex-col text-center">
                   <span class="font-black text-xl ">48+</span>
                   Overseas Branches and Offices
@@ -56,13 +55,13 @@
           </div>
           <div>
             <div class="md:flex items-end">
-              <span class="big-circle bg-zkteco-green mr-4"
+              <span class="big-circle swing bg-zkteco-green mr-4"
                 ><div class="flex align-center flex-col text-center">
                   <span class="font-black text-xl">80%+</span>
                   Employee Expartriates overseas
                 </div></span
               >
-              <span class="small-circle bg-zkteco-black "
+              <span class="small-circle swing  bg-zkteco-black "
                 ><div class="flex align-center flex-col text-center">
                   <span class="font-black text-xl">100+</span>
                   Global employees
@@ -72,20 +71,20 @@
           </div>
         </div>
       </section>
-
+      
       <section class="mission-zk py-10">
         <div class="header-title">
           Our Mission
         </div>
 
         <div class="flex justify-between mt-10 flex-col lg:flex-row">
-          <div class="lg:w-2/4">
+          <div data-aos="fade-right" data-aos-duration="3000" class="lg:w-2/4">
 						<g-image class="h-full object-cover" src="../assets/zkteco_headquarter_r 1.png">
 
 						</g-image>
 					</div>
 
-          <div class="mt-10 lg:w-2/4 lg:ml-5 lg:mt-0">
+          <div data-aos="fade-left" data-aos-duration="3000" class="mt-10 lg:w-2/4 lg:ml-5 lg:mt-0">
             <p>
               To be the world recognized leaders in innovation and pioneering
               technologies in security and time management solutions.
@@ -120,37 +119,39 @@
 
       <section class="team-zk py-10 ">
         <div>
-					<h1 class="text-color-zkteco-green text-center mb-15">The Team</h1>
+					<div class="header-title mb-10">
+          Our Team
+        </div>
 					<div class="flex flex-col md:grid md:grid-cols-3 lg:grid-cols-5 row-gap-3">
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
 								<span>CEO/Founder</span>
 							</div>
 						</div>
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
 								<span>CEO/Founder</span>
 							</div>
 						</div>
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
 								<span>CEO/Founder</span>
 							</div>
 						</div>
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
 								<span>CEO/Founder</span>
 							</div>
 						</div>
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
@@ -158,7 +159,7 @@
 							</div>
 						</div>
 
-						<div class="flex justify-center mb-10 md:m-0">
+						<div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex justify-center mb-10 md:m-0">
 							<div class="flex align-center flex-col text-center">
 								<g-image class="rounded-full" src="../assets/Biola 1.png"></g-image>
 								<h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>

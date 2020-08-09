@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="">
-      <v-carousel hide-delimiters>
+      <v-carousel cycle interval="4000" hide-delimiters>
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
@@ -10,12 +10,12 @@
       </v-carousel>
 
       <div class="container mt-6">
-        <h2 class="text-center">ZKTeco Insight into the Market</h2>
-        <div class="index-ms text-center my-10">
-          <span style="font-size:18px;">Hybrid Biometric. Smart Security</span>
+        <h2 class="text-center" data-aos="fade-down">ZKTeco Insight into the Market</h2>
+        <div class="index-ms text-center my-10" >
+          <span style="font-size:18px;" data-aos="fade-up">Hybrid Biometric. Smart Security</span>
         </div>
         <div class="features flex items-center justify-center">
-          <div class="customer-logos__content w-10/12">
+          <div  data-aos="zoom-in-down" class="customer-logos__content w-full md:w-10/12">
             <swiper class="swiper" :options="swiperOption">
               <swiper-slide v-for="feature in features" :key="feature.id">
                 <div class="feature-text">
@@ -35,57 +35,98 @@
         </div>
       </div>
 
-      <section class=" mt-8">
-        <h1 class="p-3">News Center</h1>
-        <v-row class="mb-40">
-          <v-col
-            cols="12"
-            style="height: 400px;"
-            sm="6"
-            md="3"
-            v-for="newsItem in news"
-            :key="newsItem.id"
-          >
-            <v-card
-              class="pa-2 mx-auto img-hover-zoom--brightness"
-              outlined
-              tile
-            >
-              <div class="image-hover-zoom">
-                <g-image
-                  class="white--text align-end hover g-image-grow"
-                  height="200px"
-                  :src="newsItem.src"
+      <section class="px-0 md:px-10 mt-8">
+        <div class="flex justify-center">
+          <div class="w-full max-w-screen-xxl">
+            <h1 class="p-3" data-aos="fade-left" >News Center</h1>
+            <v-row class="mb-40">
+              <v-col
+                cols="12"
+                style="height: 400px; margin-top: 40px;"
+                sm="6"
+                md="3"
+                v-for="article in articles"
+                :key="article.id"
+              >
+                <v-card
+                  class="pa-2 mx-auto img-hover-zoom--brightness"
+                  outlined
+                  tile
                 >
-                </g-image>
-              </div>
-
-              <div class="flex items-center justify-center relative">
-                <div class="w-9/12 h-32 shadow absolute bg-white">
-                  <div class="h-full relative">
-                    <v-card-text class="text--primary">
-                      <div class="text-xl font-semibold">
-                        {{ newsItem.title }}
-                      </div>
-                    </v-card-text>
-
-                    <v-card-actions class="absolute bottom-0">
-                      <v-btn class="tracking-normal hover capitalize" text>
-                        Learn More
-                      </v-btn>
-                    </v-card-actions>
+                  <div class="image-hover-zoom">
+                    <g-image
+                      class="white--text align-end hover g-image-grow"
+                      height="200px"
+                      :src="article.node.image[0].formats.thumbnail.url"
+                    >
+                    </g-image>
                   </div>
-                </div>
-              </div>
-            </v-card>
-          </v-col>
-        </v-row>
+
+                  <div class="flex items-center justify-center relative">
+                    <div
+                      class="w-10/12 h-40 cursor-pointer shadow absolute bg-white"
+                    >
+                      <div class="h-full relative">
+                        <g-link
+                          class="hover-box"
+                          :to="`/blog/${article.node.slug}`"
+                        >
+                          <v-card-text class="text--primary">
+                            <div class="text-xl font-semibold">
+                              {{ article.node.title }}
+                            </div>
+                          </v-card-text>
+
+                          <v-card-actions class="absolute bottom-0">
+                            <v-btn
+                              class="tracking-normal hover capitalize"
+                              style="color: #333!important;"
+                              text
+                            >
+                              Learn More >
+                            </v-btn>
+                          </v-card-actions>
+                        </g-link>
+                      </div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
+        </div>
       </section>
 
       <LogoContainer />
     </div>
   </Layout>
 </template>
+
+<page-query>
+query {
+  allStrapiArticles {
+    edges {
+      node {
+        id
+        title
+        slug
+        categories {
+          name
+        }
+        image {
+          url
+          name
+          formats {
+            thumbnail  {
+              url
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+</page-query>
 
 <script>
 import Logo from "@/components/Logo";
@@ -234,12 +275,25 @@ export default {
       ],
     };
   },
+  computed: {
+    articles() {
+      return this.$page.allStrapiArticles.edges;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .home-links a {
   margin-right: 1rem;
+}
+.hover-box {
+  &:hover {
+    .text-xl,
+    span {
+      color: #82bb31;
+    }
+  }
 }
 
 .feature-text {

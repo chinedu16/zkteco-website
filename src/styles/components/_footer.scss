@@ -1,3 +1,10 @@
 .footer-container {
-    background-color: $brown-1;
+    background-color: $brown-2;
+    color: $color-text;
+}
+
+.footer-copy {
+    background-color: $brown-2;
+    color: $color-text;
+    border-top: 1px solid #444;
 }

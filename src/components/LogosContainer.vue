@@ -1,7 +1,7 @@
 <template>
   <section class="h-32 mt-20 mb-10">
-    <div class="customer-logos flex items-center justify-center">
-      <div class="customer-logos__content w-3/6 flex">
+    <div data-aos="fade-up" data-aos-duration="3000" class="customer-logos flex items-center justify-center">
+      <div class="customer-logos__content w-full lg:w-3/6   flex">
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide
             ><g-image

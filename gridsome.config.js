@@ -11,39 +11,6 @@ module.exports = {
     touchicon: './src/assets/favicon.png'
   },
   siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
-  settings: {
-    web: process.env.URL_WEB || false,
-    twitter: process.env.URL_TWITTER || false,
-    github: process.env.URL_GITHUB || false,
-    nav: {
-      links: [
-        { path: '/docs/', title: 'Docs' }
-      ]
-    },
-    sidebar: [
-      {
-        name: 'docs',
-        sections: [
-          {
-            title: 'Getting Started',
-            items: [
-              '/docs/',
-              '/docs/installation/',
-              '/docs/writing-content/',
-              '/docs/deploying/',
-            ]
-          },
-          {
-            title: 'Configuration',
-            items: [
-              '/docs/settings/',
-              '/docs/sidebar/',
-            ]
-          }
-        ]
-      }
-    ]
-  },
   plugins: [
     {
       use: '@gridsome/source-filesystem',
@@ -60,27 +27,33 @@ module.exports = {
         }
       }
     },
-
+    {
+      use: '@gridsome/source-strapi',
+      options: {
+        apiURL: 'https://533c22c6ac5e.ngrok.io/',
+        queryLimit: 1000,
+        contentTypes: ['articles', 'products', 'categories', "product-categories"],
+        singleTypes: ['menu'],
+        
+      }
+    },
     {
       use: 'gridsome-plugin-tailwindcss',
       options: {
         tailwindConfig: './tailwind.config.js',
         purgeConfig: {
-          // Prevent purging of prism classes.
           whitelistPatternsChildren: [
             /token$/
           ]
         }
       }
     },
-
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
         id: (process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9')
       }
     },
-
     {
       use: '@gridsome/plugin-sitemap',
       options: {  
@@ -89,8 +62,17 @@ module.exports = {
 
   ],
   templates: {
-    BlogDetails: [{
-      path: '/blogs/:slug'
+    StrapiArticles: [{
+      path: '/blog/:slug'
+    }],
+    StrapiCategories: [{
+      path: '/category/:slug'
+    }],
+    StrapiProductCategories: [{
+      path: '/product-categories/:slug'
+    }],
+    StrapiProducts: [{
+      path: '/product/:slug'
     }]
   }
 }

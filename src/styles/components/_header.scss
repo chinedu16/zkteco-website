@@ -2,3 +2,45 @@
     background: #C4C4C4;
     color: #70705C!important;
 }
+
+.header-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 10; 
+    color: white;
+    transition: all 1s;
+}
+
+.header-fixed-top {
+    margin-bottom: -1px;;
+    width: 100%;
+    z-index: 10; 
+    color: white;
+    transition: all 0.2s;
+    background: rgba(0,0,0,0.2);
+    height: 40px;
+    line-height: 40px;
+    transition: all 1s;
+}
+
+.header-trans {
+    background: rgba(0,0,0,0.7);
+}
+
+.header-trans-top {
+    background: #f5f5f5!important;
+    color: #484748!important;
+}
+
+
+.globalnavcontainer {
+    &:hover {
+        .header-fixed-top {
+            background: #f5f5f5!important;
+            color: #484748!important;
+        }
+        .header-fixed {
+            background: rgba(0,0,0,0.7);
+        }
+    }
+}

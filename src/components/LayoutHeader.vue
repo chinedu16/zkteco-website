@@ -1,12 +1,16 @@
 <template>
   <div class="border-ui-primary">
-    <div class="container">
+    <div class="container globalnavcontainer">
       <div
-        class="md:flex hidden justify-end px-4 lg:px-10 py-2 text-white header-nav-sub"
+        id="globalnavtop"
+        data-aos="fade-left"
+        data-aos-duration="3000"
+        class="header-fixed-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
       >
-        <g-link to="/about" class="pl-2 pr-2 hover">About us </g-link>
-        | <g-link to="/blog" class="pl-2 pr-2 hover"> News Center </g-link>|
-        <g-link to="/contact" class="pl-2 pr-2 hover">Contact us </g-link> |
+        <g-link to="/about" class="px-4 hover">About us </g-link>
+        |
+        <g-link to="/category/events" class="px-4 hover"> News Center </g-link>|
+        <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
         <g-link class="pl-2 pr-2 flex hover items-center">
           <World class="mr-2" /> Region/Language |</g-link
         >
@@ -20,12 +24,17 @@
         </ToggleDarkMode>
       </div>
 
-      <nav class="flex items-center px-4 py-5 lg:py-5 lg:px-10 flex-wrap">
+      <nav
+        class="globalnav header-fixed flex items-center px-2 md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
+        id="globalnav"
+      >
         <div
+          data-aos="fade-right"
+          data-aos-duration="3000"
           class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"
         >
           <g-link to="/" class="flex items-center text-ui-primary" title="Home">
-            <Logo :width="40" class="text-ui-primary" />
+            <Logo :width="40" color1="white" class="text-ui-primary" />
           </g-link>
           <div
             class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
@@ -44,9 +53,11 @@
                 </template>
 
                 <v-list>
-                  <v-list-item v-for="(item, index) in product" :key="index">
-                    <g-link to="/product/">
-                      <v-list-item-title>{{ item.title }}</v-list-item-title>
+                  <v-list-item v-for="(item, index) in products" :key="index">
+                    <g-link :to="`/product-categories/${item.node.slug}`">
+                      <v-list-item-title>{{
+                        item.node.name
+                      }}</v-list-item-title>
                     </g-link>
                   </v-list-item>
                 </v-list>
@@ -92,7 +103,7 @@
 
         <div class="pt-2 hidden relative text-gray-600 md:block">
           <input
-            class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+            class="border-1 search-input bg-none h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
             type="search"
             name="search"
             placeholder="Search"
@@ -106,7 +117,7 @@
           data-target="#navigation"
           @click.stop="drawer = true"
         >
-          <AlignJustifyIcon size="2x" class="custom-class"/>
+          <AlignJustifyIcon size="2x" class="custom-class" />
         </button>
       </nav>
     </div>
@@ -120,10 +131,9 @@
       <v-toolbar-side-icon dark slot="activator"></v-toolbar-side-icon>
       <v-card class="m-4">
         <v-toolbar flat color="">
-          
           <v-spacer></v-spacer>
           <v-btn icon @click.native="drawer = false">
-            <XIcon size="2x" class="custom-class"/>
+            <XIcon size="2x" class="custom-class" />
           </v-btn>
         </v-toolbar>
 
@@ -146,19 +156,14 @@
 
 <static-query>
 query {
-  metadata {
-    siteName
-    settings {
-      web
-      github
-      twitter
-      nav {
-        links {
-          path
-          title
-        }
+  allStrapiProductCategories {
+    edges {
+      node {
+        id
+        name
+        slug
       }
-    }
+    } 
   }
 }
 </static-query>
@@ -175,7 +180,7 @@ import {
   GithubIcon,
   TwitterIcon,
   AlignJustifyIcon,
-  XIcon
+  XIcon,
 } from "vue-feather-icons";
 
 const Search = () =>
@@ -229,27 +234,48 @@ export default {
   },
 
   computed: {
-    meta() {
-      return this.$static.metadata;
+    products() {
+      return this.$static.allStrapiProductCategories.edges;
     },
-    settings() {
-      return this.meta.settings;
-    },
+  },
+  async mounted() {
+    window.onscroll = function() {
+      "use strict";
+      const myHeader = document.getElementById("globalnav");
+      const myHeaderTop = document.getElementById("globalnavtop");
+      if (document.documentElement.scrollTop >= 10) {
+        myHeader.classList.add("header-trans");
+        myHeaderTop.classList.add("header-trans-top");
+      } else {
+        myHeader.classList.remove("header-trans");
+        myHeaderTop.classList.remove("header-trans-top");
+      }
+    };
+    window.onmouseenter = function() {
+      "use strict";
+      const global = document.getElementById("globalnavcontainer");
+      console.log(global);
+    };
   },
 };
 </script>
 
 <style lang="scss">
-
 .custom-class {
-  color: black!important;
+  color: black !important;
+}
+
+.search-input {
+  color: #78bc27;
+  border: 1px solid #78bc27;
 }
 .v-application {
   .v-menu__content {
     .v-list {
       .v-list-item {
         cursor: pointer;
-        border-bottom: 1px solid #e2e8f0;
+        // border-bottom: 1px solid #e2e8f0;
+        color: white !important;
         .v-list-item__title {
           font-size: 16px !important;
         }

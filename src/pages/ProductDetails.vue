@@ -1,38 +1,47 @@
 <template>
-  <layout>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10">
-      <section class="about-zk flex flex-col lg:flex-row justify-between">
-        <div class=" lg:w-2/5">
-          <div
-            class="flex items-center mb-10 mt-10 justify-center w-64 h-16 border-page text-color-zkteco-green font-black text-xl"
-          >
-            DS5
-          </div>
-        </div>
-      </section>
-
+  <SemiLayout>
+    <div class="container px-12 py-5 mt-32 lg:py-5 lg:px-10">
       <section class="mt-6 mb-16">
         <div class="md:flex justify-between">
-          <div class="md:w-3/6 mb-10 md:m-0">
-            <g-image
-              src="../assets/D2S 1.png"
-              width="504"
-              height="288"
-            ></g-image>
-            <swiper class="swiper" :options="swiperOption">
-              <swiper-slide v-for="feature in features" :key="feature.id">
-                <g-image
-                  class="white--text align-end"
-                  height="128"
-                  :src="feature.src"
-                >
-                </g-image>
-              </swiper-slide>
-              <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
+          <div class="md:w-6/12 mb-10 md:m-0">
+            <div class="thumb-example">
+              <!-- swiper1 -->
+              <swiper
+                class="swiper gallery-top"
+                :options="swiperOptionTop"
+                ref="swiperTop"
+              >
+                <swiper-slide class="slide-1"></swiper-slide>
+                <swiper-slide class="slide-2"></swiper-slide>
+                <swiper-slide class="slide-3"></swiper-slide>
+                <swiper-slide class="slide-4"></swiper-slide>
+                <swiper-slide class="slide-5"></swiper-slide>
+                <div
+                  class="swiper-button-next swiper-button-white"
+                  slot="button-next"
+                ></div>
+                <div
+                  class="swiper-button-prev swiper-button-white"
+                  slot="button-prev"
+                ></div>
+              </swiper>
+              <!-- swiper2 Thumbs -->
+              <swiper
+                class="swiper gallery-thumbs"
+                :options="swiperOptionThumbs"
+                ref="swiperThumbs"
+              >
+                <swiper-slide class="slide-1"></swiper-slide>
+                <swiper-slide class="slide-2"></swiper-slide>
+                <swiper-slide class="slide-3"></swiper-slide>
+                <swiper-slide class="slide-4"></swiper-slide>
+                <swiper-slide class="slide-5"></swiper-slide>
+              </swiper>
+            </div>
           </div>
-          <div class="md:w-6/12">
-            <p>
+          <div class="" style="width: 40%;">
+            <h1>SLK20S</h1>
+            <p class="description">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               aliquam, enim at laoreet malesuada, arcu ligula hendrerit risus,
               sed iaculis quam justo eget enim. Etiam volutpat faucibus
@@ -47,22 +56,35 @@
               Vestibulum vitae ante at tellus imperdiet cursus.
             </p>
 
+            <div class="share relative md:mt-10">Share the Website to</div>
             <div class="flex mt-5">
-              <g-link><Twitter /></g-link>
-              <g-link class="ml-8"><Facebook /></g-link>
-              <g-link class="ml-8"><Linkedin /></g-link>
-              <g-link class="ml-8 hover"><GooglePlus /></g-link>
+              <g-link><Twitter color="#777" width="34" height="34"/></g-link>
+              <g-link class="ml-8"
+                ><Facebook color="#777" width="34" height="34"
+              /></g-link>
+              <g-link class="ml-8"
+                ><Linkedin color="#777" width="34" height="34"
+              /></g-link>
+              <g-link class="ml-8 hover"
+                ><GooglePlus color="#777" width="34" height="34"
+              /></g-link>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="mt-32">
         <v-card>
-          <v-tabs background-color="white" color="#82bb31">
-            <v-tab>Product Details</v-tab>
-            <v-tab>Related Products</v-tab>
-            <v-tab>Download</v-tab>
+          <v-tabs background-color="white" color="#78bc27">
+            <v-tab style="letter-spacing: 0px;" class="font-bold"
+              >Product Details</v-tab
+            >
+            <v-tab style="letter-spacing: 0px;" class="font-bold"
+              >Related Products</v-tab
+            >
+            <v-tab style="letter-spacing: 0px;" class="font-bold"
+              >Download</v-tab
+            >
 
             <v-tab-item :key="1" class="mt-10">
               <v-container fluid>
@@ -105,9 +127,8 @@
               <v-container fluid>
                 <v-row>
                   <v-col cols="12" sm="6" md="3" v-for="n in 6" :key="n">
-										<g-image height="200px" src="../assets/Product/D2S 1.png">
-
-										</g-image>
+                    <g-image height="200px" src="../assets/Product/D2S 1.png">
+                    </g-image>
                   </v-col>
                 </v-row>
               </v-container>
@@ -116,39 +137,40 @@
               <v-container fluid>
                 <v-row class="border-b mb-5">
                   <div class="flex w-5/12 justify-between">
-										<div class="flex">
-											<Pdf/>
-											<h4 class="ml-4">DS5 User Manuel</h4>
-										</div>
-										<div class="flex ml-5">
-											<span class="mr-5">1.45MB</span>
-											<Download/>
-										</div>
-									</div>
+                    <div class="flex">
+                      <Pdf />
+                      <h4 class="ml-4">DS5 User Manuel</h4>
+                    </div>
+                    <div class="flex ml-5">
+                      <span class="mr-5">1.45MB</span>
+                      <Download />
+                    </div>
+                  </div>
                 </v-row>
-								<v-row class="border-b mb-5">
+                <v-row class="border-b mb-5">
                   <div class="flex w-5/12 justify-between">
-										<div class="flex">
-											<Pdf/>
-											<h4 class="ml-4">DS5 User Manuel</h4>
-										</div>
-										<div class="flex ml-5">
-											<span class="mr-5">1.45MB</span>
-											<Download/>
-										</div>
-									</div>
+                    <div class="flex">
+                      <Pdf />
+                      <h4 class="ml-4">DS5 User Manuel</h4>
+                    </div>
+                    <div class="flex ml-5">
+                      <span class="mr-5">1.45MB</span>
+                      <Download />
+                    </div>
+                  </div>
                 </v-row>
-								
               </v-container>
             </v-tab-item>
           </v-tabs>
         </v-card>
       </section>
     </div>
-  </layout>
+  </SemiLayout>
 </template>
 
 <script>
+import SemiLayout from "../layouts/SemiDefault";
+
 import Office from "../components/Vectors/Office";
 import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
@@ -173,18 +195,37 @@ export default {
     Facebook,
     Twitter,
     Linkedin,
-    GooglePlus
+    GooglePlus,
+    SemiLayout,
   },
 
   data() {
     return {
       swiperOption: {
-        slidesPerView: 3,
+        slidesPerView: 4,
 
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
         },
+      },
+      swiperOptionTop: {
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+      swiperOptionThumbs: {
+        loop: true,
+        loopedSlides: 5, // looped slides should be the same
+        spaceBetween: 30,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        touchRatio: 0.2,
+        slideToClickedSlide: true,
       },
       page: 1,
       features: [
@@ -206,6 +247,15 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      const swiperTop = this.$refs.swiperTop.swiper;
+      const swiperThumbs = this.$refs.swiperThumbs.swiper;
+      console.log(this.$refs)
+      swiperTop.controller.control = swiperThumbs;
+      swiperThumbs.controller.control = swiperTop;
+    });
+  },
 };
 </script>
 
@@ -220,9 +270,89 @@ a {
   &:hover {
     svg {
       path {
-        fill: yellow!important;
+        fill: yellow !important;
       }
     }
+  }
+}
+
+.description {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+.share {
+  &::after {
+    content: "";
+    margin-left: 20px;
+    display: inline-block;
+    width: 70%;
+    border-top: 1px solid #ccc;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #78bc27;
+}
+</style>
+
+<style lang="scss" scoped>
+.thumb-example {
+  height: 361px;
+  background-color: transparent;
+}
+
+.swiper {
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+
+    &.slide-1 {
+      background-image: url("../assets/D2S 1.png");
+    }
+    &.slide-2 {
+      background-image: url("../assets/D2S 1.png");
+    }
+    &.slide-3 {
+      background-image: url("../assets/D2S 1.png");
+    }
+    &.slide-4 {
+      background-image: url("../assets/D2S 1.png");
+    }
+    &.slide-5 {
+      background-image: url("../assets/D2S 1.png");
+    }
+  }
+
+  &.gallery-top {
+    height: 80%;
+    width: 100%;
+  }
+  &.gallery-thumbs {
+    height: 40%;
+    box-sizing: border-box;
+    padding: 40px 0;
+  }
+  &.gallery-thumbs .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+  &.gallery-thumbs .swiper-slide-active {
+    opacity: 1;
   }
 }
 </style>

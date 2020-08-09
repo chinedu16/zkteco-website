@@ -5,6 +5,10 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const fs = require('fs');
+const http = require('http');
+const path = require('path');
+
 module.exports = function (api) {
   api.loadSource(({ addCollection, addMetadata }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
@@ -14,4 +18,9 @@ module.exports = function (api) {
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   });
+
+
+  api.createPages(async ({ graphql, createPage }) => {
+    
+  })
 }

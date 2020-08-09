@@ -8,29 +8,15 @@
           @resize="setHeaderHeight"
         >
           <LayoutHeader />
-          
         </header>
 
         <main
           class="container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background"
         >
-          <aside
-            v-if="hasSidebar"
-            class="sidebar"
-            :class="{ open: sidebarOpen }"
-            :style="sidebarStyle"
-          >
-            <div class="w-full pb-16 bg-ui-background">
-              <Sidebar @navigate="sidebarOpen = false" />
-            </div>
-          </aside>
-
-          <div
-            class="w-full pb-24"
-            :class="{ 'pl-0 lg:pl-12 lg:w-3/4': hasSidebar }"
-          >
+          <div class="w-full pb-1">
             <slot />
           </div>
+
           <Footer />
         </main>
       </div>
@@ -133,13 +119,25 @@ export default {
 </script>
 
 <style lang="scss">
-
 .v-application {
   a {
-    color: inherit!important;
+    color: inherit !important;
   }
-  .v-btn {
-    color: inherit!important;
+
+  .theme--light.v-list {
+    color: white;
+    background: rgba(0,0,0,0.85);
+    
+  }
+
+  .theme--light.v-btn {
+      color:white!important;
+    &:hover {
+      color: #78bc27!important;
+    }
+  }
+  .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+    color: #78bc27;    
   }
 }
 
@@ -148,12 +146,12 @@ export default {
 }
 
 input {
-  border-style: solid!important;
+  border-style: solid !important;
 }
 
 .v-btn {
   box-shadow: none;
-  background-color: transparent!important;
+  background-color: transparent !important;
   &::before {
     background-color: transparent;
   }
@@ -301,7 +299,7 @@ blockquote {
 }
 
 .font-sans {
-  font-family: "Lato"!important;
+  font-family: "Lato" !important;
 }
 
 code {
