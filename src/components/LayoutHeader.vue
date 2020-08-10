@@ -244,7 +244,7 @@ export default {
       const myHeaderTop = document.getElementById("globalnavtop");
       if (document.documentElement.scrollTop >= 10) {
         myHeader ? myHeader.classList.add("header-trans"): null;
-        myHeaderTop.classList.add("header-trans-top");
+        myHeaderTop ? myHeaderTop.classList.add("header-trans-top"): null;
       } else {
         myHeader ? myHeader.classList.remove("header-trans") : null;
         // myHeaderTop.classList.remove("header-trans-top");

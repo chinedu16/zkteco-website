@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="">
-      <v-carousel  hide-delimiters>
+      <v-carousel cycle interval="4000" hide-delimiters>
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
