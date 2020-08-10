@@ -1,33 +1,14 @@
 <template>
   <layout>
-    <!-- <div class="headline relative">
-      <img
-        class="w-full object-cover h-64"
-        src="../assets/newsHeadline.jpg"
-        alt=""
-      />
-
-      <h1 class="absolute">BLOG</h1>
-    </div> -->
-    <!-- <div class="footer-image headline h-64">
-      <div class="footer-image-overlay">
-        <div class="flex h-full w-full align-center">
-          <div class="footer-icon-container w-full">
-            <h2 class="mb-10 mt-16 ">BLOG</h2>
-          </div>
-        </div>
-      </div>
-      
-    </div> -->
     <div class="blogs-headline-image headline" style="height: 20rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div class="container px-4 md:px-12 py-5 lg:py-5 lg:px-10">
+    <div class="container  md:px-12 lg:px-10 lg:py-5">
       <section class="about-zk flex flex-col lg:flex-row justify-between">
         <div class=" lg:w-2/5"></div>
       </section>
-      <section>
-        <div class="md:flex mt-6 justify-between">
+      <section class="flex justify-center">
+        <div class="md:flex w-full max-w-screen-xxl mt-6 justify-between">
           <CategoriesSidebar />
           <div class="w-full md:w-3/5 mt-12 md:mt-0 ">
             <div>

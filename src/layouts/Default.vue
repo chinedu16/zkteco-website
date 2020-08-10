@@ -21,7 +21,7 @@
         </main>
       </div>
 
-      <div v-if="hasSidebar" class="fixed bottom-0 right-0 z-50 p-8 lg:hidden">
+      <!-- <div v-if="hasSidebar" class="fixed bottom-0 right-0 z-50 p-8 lg:hidden">
         <button
           class="p-3 text-white rounded-full shadow-lg bg-ui-primary hover:text-white"
           @click="sidebarOpen = !sidebarOpen"
@@ -29,7 +29,7 @@
           <XIcon v-if="sidebarOpen" />
           <MenuIcon v-else />
         </button>
-      </div>
+      </div> -->
     </div>
   </v-app>
 </template>

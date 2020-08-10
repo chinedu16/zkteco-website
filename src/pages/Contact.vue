@@ -3,8 +3,6 @@
     <div class="container px-4 py-5 lg:py-5 lg:px-10">
       <section class="about-zk flex flex-col lg:flex-row justify-between">
         <div class=" lg:w-2/5">
-          
-
           <div class="contact-box w-full mb-10 p-10 lg:w-2/6 lg:absolute text-white">
             <div>
               <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex mb-7">

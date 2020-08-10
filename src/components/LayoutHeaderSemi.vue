@@ -24,7 +24,7 @@
       </div>
 
       <nav
-        class="globalnav header-trans header-fixed flex items-center px-2 md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
+        class="globalnav header-trans header-fixed flex items-center md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
       >
         <div
           data-aos="fade-right"
@@ -126,7 +126,6 @@
       hide-overlay
       transition="dialog-bottom-transition"
     >
-      <v-toolbar-side-icon dark slot="activator"></v-toolbar-side-icon>
       <v-card class="m-4">
         <v-toolbar flat color="">
           <v-spacer></v-spacer>
@@ -136,14 +135,33 @@
         </v-toolbar>
 
         <v-list>
-          <v-list-tile v-for="(item, index) in nav" :key="index" to="#">
-            <v-list-tile-action>
-              <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title :title="item.title">{{
-                item.text
-              }}</v-list-tile-title>
+          <v-list-tile >
+            
+            <v-list-tile-content class="grid">
+              <v-list-tile-title>
+                Product
+              </v-list-tile-title>
+              <v-list-tile-title>
+                Solution
+              </v-list-tile-title>
+              <v-list-tile-title>
+                Support
+              </v-list-tile-title>
+              <v-list-tile-title>
+                About us
+              </v-list-tile-title>
+              <v-list-tile-title>
+                News Centere
+              </v-list-tile-title>
+              <v-list-tile-title>
+                Contact us
+              </v-list-tile-title>
+               <v-list-tile-title>
+                 Login
+              </v-list-tile-title>
+               <v-list-tile-title>
+                Register
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>

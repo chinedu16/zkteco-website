@@ -22,7 +22,8 @@
   }
 
   .v-carousel {
-    height: 720px !important;
+    height: unset !important;
+    // min-height: 1234px !important;
 
     .v-carousel__item {
       height: inherit !important;
@@ -201,4 +202,14 @@
 
 .max-w-screen-xxl {
   max-width: 1500px !important;
+}
+
+.max-h-screen-xxl {
+  max-height: 1234px !important;
+}
+
+.breadcrumb {
+  &:hover {
+    color: $base_color!important;
+  }
 }

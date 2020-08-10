@@ -1,21 +1,19 @@
 <template>
   <layout>
     <div class="product-headline-image headline" style="height: 28rem;">
-      <div class="footer-image-overlay">
-        
-      </div>
+      <div class="footer-image-overlay"></div>
     </div>
     <div
-      class="container px-4 md:px-12 py-5 lg:py-5 lg:px-10"
+      class="container md:px-12 lg:px-10 lg:py-5"
       style="background: #f5f5f5;"
     >
-      <section>
-        <div class="pro-search clearfix">
+      <section class="flex justify-center">
+        <div class="pro-search  w-full max-w-screen-xxl clearfix">
           <img src="../assets/roadmap.png" alt="" />
         </div>
       </section>
-      <section class="mt-6">
-        <div class="md:flex justify-between">
+      <section class="mt-6 flex justify-center">
+        <div class="md:flex w-full max-w-screen-xxl justify-between">
           <ProductSidebar toggle="true" />
           <div class="bg-white" style="width:70%">
             <div>
@@ -30,13 +28,16 @@
                   <div
                     class="flex product-container relative w-full flex-col text-center"
                   >
-                    <g-image
-                      class=""
-                      width="201"
-                      height="105"
-                      :src="product.images[0].url"
-                    >
-                    </g-image>
+                    <div class="h-32">
+                      <g-image
+                        class="w-full h-full object-contain"
+                        width="201"
+                        
+                        height="105"
+                        :src="product.images[0].url"
+                      >
+                      </g-image>
+                    </div>
                     <span class="label-new"
                       ><img src="../assets/new.png" alt="BioTime 8.0"
                     /></span>
@@ -44,7 +45,7 @@
                       <v-btn
                         class="mt-8"
                         style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
-                        >{{product.name}}</v-btn
+                        >{{ product.name }}</v-btn
                       >
                     </g-link>
                     <g-link class="more" :to="`/product/${product.slug}`"
@@ -106,7 +107,7 @@ export default {
   data() {
     return {
       page: 1,
-      
+
       products: [
         { id: 1 },
         { id: 2 },

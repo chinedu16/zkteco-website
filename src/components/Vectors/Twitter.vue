@@ -39,12 +39,10 @@
 export default {
   props: {
     width: {
-      type: Number,
-      default: 40,
+      type: String,
     },
     height: {
-      type: Number,
-      default: 40,
+      type: String,
     },
     color: {
       type: String,

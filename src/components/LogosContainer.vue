@@ -1,6 +1,6 @@
 <template>
   <section class="h-32 mt-20 mb-10">
-    <div data-aos="fade-up" data-aos-duration="3000" class="customer-logos flex items-center justify-center">
+    <div data-aos="zoom-in" data-aos-duration="3000" class="customer-logos flex items-center justify-center">
       <div class="customer-logos__content w-full lg:w-3/6   flex">
         <swiper class="swiper" :options="swiperOption">
           <swiper-slide
@@ -66,6 +66,10 @@ export default {
   data() {
     return {
       swiperOption: {
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false
+        },
         slidesPerView: 3,
         spaceBetween: 50,
         pagination: {

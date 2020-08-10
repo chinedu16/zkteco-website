@@ -1,14 +1,14 @@
 <template>
   <SemiLayout>
     <div class="h-32"></div>
-    <div class="container px-2 md:px-12 py-5 lg:py-5 lg:px-10">
-      <section>
-        <div class="md:flex justify-between">
+    <div class="container md:px-12 py-5 lg:py-5 lg:px-10">
+      <section class="flex justify-center">
+        <div class="md:flex justify-between w-full max-w-screen-xxl">
           <CategoriesSidebar />
           <div class="" style="width: 71%;">
             <div class="border">
               <g-image
-                data-aos="zoom-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000"
+                data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="3000"
                 class="w-full"
                 :src="article.image[0].url"
                 width="821"
@@ -16,8 +16,8 @@
                 style="height: 30rem; object-fit: cover;"
               ></g-image>
               <div class="p-10">
-                <h3 data-aos="fade-left" data-aos-easing="ease-out-cubic">{{ article.title }}</h3>
-                <p data-aos="fade-right" data-aos-easing="ease-out-cubic" v-html="article.body"></p>
+                <h3>{{ article.title }}</h3>
+                <p data-aos="fade-up" data-aos-duration="4000" data-aos-easing="ease-out-cubic" v-html="article.body"></p>
               </div>
             </div>
 
@@ -78,8 +78,6 @@
                     <v-col cols="12" md="6">
                       <v-text-field
                         outlined
-                        v-model="email"
-                        :rules="emailRules"
                         label="Name"
                         required
                       ></v-text-field>
@@ -87,8 +85,6 @@
                     <v-col cols="12" md="6">
                       <v-text-field
                         outlined
-                        v-model="name"
-                        :rules="emailRules"
                         label="E-mail"
                         required
                       ></v-text-field>

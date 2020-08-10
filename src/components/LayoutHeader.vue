@@ -5,7 +5,7 @@
         id="globalnavtop"
         data-aos="fade-left"
         data-aos-duration="3000"
-        class="header-fixed-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
+        class="header-fixed-top header-trans-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
       >
         <g-link to="/about" class="px-4 hover">About us </g-link>
         |
@@ -25,7 +25,7 @@
       </div>
 
       <nav
-        class="globalnav header-fixed flex items-center px-2 md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
+        class="globalnav header-fixed flex items-center md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
         id="globalnav"
       >
         <div
@@ -128,7 +128,6 @@
       hide-overlay
       transition="dialog-bottom-transition"
     >
-      <v-toolbar-side-icon dark slot="activator"></v-toolbar-side-icon>
       <v-card class="m-4">
         <v-toolbar flat color="">
           <v-spacer></v-spacer>
@@ -138,14 +137,14 @@
         </v-toolbar>
 
         <v-list>
-          <v-list-tile v-for="(item, index) in nav" :key="index" to="#">
+          <v-list-tile>
             <v-list-tile-action>
-              <v-icon v-if="item.icon">{{ item.icon }}</v-icon>
+              <v-icon></v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title :title="item.title">{{
-                item.text
-              }}</v-list-tile-title>
+              <v-list-tile-title>
+                test
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -244,11 +243,11 @@ export default {
       const myHeader = document.getElementById("globalnav");
       const myHeaderTop = document.getElementById("globalnavtop");
       if (document.documentElement.scrollTop >= 10) {
-        myHeader.classList.add("header-trans");
+        myHeader ? myHeader.classList.add("header-trans"): null;
         myHeaderTop.classList.add("header-trans-top");
       } else {
-        myHeader.classList.remove("header-trans");
-        myHeaderTop.classList.remove("header-trans-top");
+        myHeader ? myHeader.classList.remove("header-trans") : null;
+        // myHeaderTop.classList.remove("header-trans-top");
       }
     };
     window.onmouseenter = function() {

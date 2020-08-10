@@ -1,8 +1,16 @@
 <template>
   <SemiLayout>
-    <div class="container px-12 py-5 mt-32 lg:py-5 lg:px-10">
-      <section class="mt-6 mb-16">
-        <div class="md:flex justify-between">
+    <div class="container px-12 py-5 lg:py-5 lg:px-10" style="margin-top: 5.5rem">
+      <section class="md:mb-20 flex justify-center">
+        <div class="md:flex justify-between w-full max-w-screen-xxl">
+          <div class="breadcrumb" @click="goBack">
+            &lt; <g-link to="">Back</g-link> 
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-6 mb-16  flex justify-center">
+        <div class="md:flex justify-between w-full max-w-screen-xxl">
           <div class="md:w-6/12 mb-10 md:m-0">
             <div class="thumb-example">
               <!-- swiper1 -->
@@ -16,12 +24,19 @@
                 <swiper-slide class="slide-3"></swiper-slide>
                 <swiper-slide class="slide-4"></swiper-slide>
                 <swiper-slide class="slide-5"></swiper-slide>
+                <!-- <div class="swiper-button-prev">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
+                    <path
+                      d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z"
+                    />
+                  </svg>
+                </div> -->
                 <div
-                  class="swiper-button-next swiper-button-white"
+                  class="swiper-button-next swiper-button-black"
                   slot="button-next"
                 ></div>
                 <div
-                  class="swiper-button-prev swiper-button-white"
+                  class="swiper-button-prev swiper-button-black"
                   slot="button-prev"
                 ></div>
               </swiper>
@@ -40,13 +55,36 @@
             </div>
           </div>
           <div class="" style="width: 40%;">
-            <h1 data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">{{ product.name }}</h1>
-            <p data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="3000" class="description">
+            <h1
+              data-aos="fade-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+            >
+              {{ product.name }}
+            </h1>
+            <p
+              data-aos="fade-right"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="3000"
+              class="description"
+            >
               {{ product.description }}
             </p>
 
-            <div data-aos="fade-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="share relative md:mt-10">Share the Website to</div>
-            <div data-aos="fade-right" data-aos-easing="ease-out-cubic" data-aos-duration="2000" class="flex mt-5">
+            <div
+              data-aos="fade-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              class="share relative md:mt-10"
+            >
+              Share the Website to
+            </div>
+            <div
+              data-aos="fade-right"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              class="flex mt-5"
+            >
               <g-link><Twitter color="#777" width="34" height="34"/></g-link>
               <g-link class="ml-8"
                 ><Facebook color="#777" width="34" height="34"
@@ -62,8 +100,8 @@
         </div>
       </section>
 
-      <section class="mt-32">
-        <v-card>
+      <section class="mt-32 flex xxl:justify-center">
+        <v-card class="max-w-screen-xxl w-full">
           <v-tabs background-color="white" color="#78bc27">
             <v-tab style="letter-spacing: 0px;" class="font-bold"
               >Product Details</v-tab
@@ -102,15 +140,14 @@
                   <div class="flex w-5/12 justify-between">
                     <div class="flex">
                       <Pdf />
-                      <h4 class="ml-4">{{download.name}}</h4>
+                      <h4 class="ml-4">{{ download.name }}</h4>
                     </div>
                     <div class="flex ml-5">
-                      <span class="mr-5">{{download.file[0].size}}MB</span>
+                      <span class="mr-5">{{ download.file[0].size }}MB</span>
                       <Download />
                     </div>
                   </div>
                 </v-row>
-              
               </v-container>
             </v-tab-item>
           </v-tabs>
@@ -225,11 +262,15 @@ export default {
       ],
     };
   },
+  methods: {
+    goBack () {
+      this.$router.go(-1)
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       const swiperTop = this.$refs.swiperTop.swiper;
       const swiperThumbs = this.$refs.swiperThumbs.swiper;
-      console.log(this.$refs);
       swiperTop.controller.control = swiperThumbs;
       swiperThumbs.controller.control = swiperTop;
     });
@@ -259,6 +300,8 @@ a {
   }
 }
 
+
+
 .description {
   height: 200px;
   overflow-y: scroll;
@@ -274,6 +317,20 @@ a {
     position: absolute;
     top: 50%;
   }
+}
+
+// .swiper-button-next,
+// .swiper-container-rtl .swiper-button-prev,
+// .swiper-button-prev,
+// .swiper-container-rtl .swiper-button-next {
+//   background-image: none;
+// }
+
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  fill: green;
 }
 
 /* width */

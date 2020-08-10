@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="">
-      <v-carousel cycle interval="4000" hide-delimiters>
+      <v-carousel  hide-delimiters>
         <v-carousel-item
           v-for="(item, i) in items"
           :key="i"
@@ -38,8 +38,8 @@
       <section class="px-0 md:px-10 mt-8">
         <div class="flex justify-center">
           <div class="w-full max-w-screen-xxl">
-            <h1 class="p-3" data-aos="fade-left" >News Center</h1>
-            <v-row class="mb-40">
+            <h1 class="md:px-12 lg:px-10" data-aos="fade-left" >News Center</h1>
+            <v-row class="mb-0 md:px-12 lg:px-10">
               <v-col
                 cols="12"
                 style="height: 400px; margin-top: 40px;"
