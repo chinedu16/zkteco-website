@@ -3,9 +3,9 @@
     <div class="">
       <v-carousel cycle interval="4000" hide-delimiters>
         <v-carousel-item
-          v-for="(item, i) in items"
+          v-for="(item, i) in sliders"
           :key="i"
-          :src="item.src"
+          :src="item.image.url"
         ></v-carousel-item>
       </v-carousel>
 
@@ -97,7 +97,7 @@
         </div>
       </section>
 
-      <LogoContainer />
+      <LogoContainer :logoData="partners" />
     </div>
   </Layout>
 </template>
@@ -124,6 +124,24 @@ query {
         }
       }
     } 
+  }
+  allStrapiHomePages {
+    edges {
+      node{
+        sliders {
+          name
+         image {
+          url
+        	} 
+        }
+        partners {
+          name
+          image {
+            url
+          }
+        }
+      }
+    }
   }
 }
 </page-query>
@@ -279,6 +297,12 @@ export default {
     articles() {
       return this.$page.allStrapiArticles.edges;
     },
+    sliders () {
+      return this.$page.allStrapiHomePages.edges[0].node.sliders
+    },
+    partners () {
+      return this.$page.allStrapiHomePages.edges[0].node.partners
+    }
   },
 };
 </script>

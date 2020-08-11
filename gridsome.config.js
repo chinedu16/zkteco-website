@@ -1,78 +1,87 @@
-// This is where project configuration and plugin options are located. 
+// This is where project configuration and plugin options are located.
 // Learn more: https://gridsome.org/docs/config
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'ZkTeco West Africa',
+  siteName: "ZkTeco West Africa",
   icon: {
-    favicon: './src/assets/favicon.png',
-    touchicon: './src/assets/favicon.png'
+    favicon: "./src/assets/favicon.png",
+    touchicon: "./src/assets/favicon.png",
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://example.com'),
+  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://example.com",
   plugins: [
     {
-      use: '@gridsome/source-filesystem',
+      use: "@gridsome/source-filesystem",
       options: {
-        baseDir: './content',
-        path: '**/*.md',
-        typeName: 'MarkdownPage',
+        baseDir: "./content",
+        path: "**/*.md",
+        typeName: "MarkdownPage",
         remark: {
-          externalLinksTarget: '_blank',
-          externalLinksRel: ['noopener', 'noreferrer'],
-          plugins: [
-            '@gridsome/remark-prismjs'
-          ]
-        }
-      }
+          externalLinksTarget: "_blank",
+          externalLinksRel: ["noopener", "noreferrer"],
+          plugins: ["@gridsome/remark-prismjs"],
+        },
+      },
     },
     {
-      use: '@gridsome/source-strapi',
+      use: "@gridsome/source-strapi",
       options: {
-        apiURL: 'https://533c22c6ac5e.ngrok.io/',
+        apiURL: "https://08f7effd48d5.ngrok.io/",
         queryLimit: 1000,
-        contentTypes: ['articles', 'products', 'categories', "product-categories"],
-        singleTypes: ['menu'],
-        
-      }
+        contentTypes: [
+          "articles",
+          "products",
+          "categories",
+          "product-categories",
+          "home-pages",
+          "about-uses",
+          "contact-uses",
+        ],
+        singleTypes: ["menu"],
+      },
     },
     {
-      use: 'gridsome-plugin-tailwindcss',
+      use: "gridsome-plugin-tailwindcss",
       options: {
-        tailwindConfig: './tailwind.config.js',
+        tailwindConfig: "./tailwind.config.js",
         purgeConfig: {
-          whitelistPatternsChildren: [
-            /token$/
-          ]
-        }
-      }
+          whitelistPatternsChildren: [/token$/],
+        },
+      },
     },
     {
-      use: '@gridsome/plugin-google-analytics',
+      use: "@gridsome/plugin-google-analytics",
       options: {
-        id: (process.env.GA_ID ? process.env.GA_ID : 'XX-999999999-9')
-      }
+        id: process.env.GA_ID ? process.env.GA_ID : "XX-999999999-9",
+      },
     },
     {
-      use: '@gridsome/plugin-sitemap',
-      options: {  
-      }
-    }
-
+      use: "@gridsome/plugin-sitemap",
+      options: {},
+    },
   ],
   templates: {
-    StrapiArticles: [{
-      path: '/blog/:slug'
-    }],
-    StrapiCategories: [{
-      path: '/category/:slug'
-    }],
-    StrapiProductCategories: [{
-      path: '/product-categories/:slug'
-    }],
-    StrapiProducts: [{
-      path: '/product/:slug'
-    }]
-  }
-}
+    StrapiArticles: [
+      {
+        path: "/blog/:slug",
+      },
+    ],
+    StrapiCategories: [
+      {
+        path: "/category/:slug",
+      },
+    ],
+    StrapiProductCategories: [
+      {
+        path: "/product-categories/:slug",
+      },
+    ],
+    StrapiProducts: [
+      {
+        path: "/product/:slug",
+      },
+    ],
+  },
+};

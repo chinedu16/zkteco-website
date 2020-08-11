@@ -3,49 +3,13 @@
     <div data-aos="zoom-in" data-aos-duration="3000" class="customer-logos flex items-center justify-center">
       <div class="customer-logos__content w-full lg:w-3/6   flex">
         <swiper class="swiper" :options="swiperOption">
-          <swiper-slide
+          <swiper-slide v-for="logo in logoData" :key="logo.name"
             ><g-image
               class="white--text align-end"
-              src="../../src/assets/Logos/Toyota.png"
+              :src="logo.image.url"
             >
             </g-image>
           </swiper-slide>
-          <swiper-slide
-            ><g-image
-              class="white--text align-end"
-              src="../../src/assets/Logos/kfc.png"
-            >
-            </g-image
-          ></swiper-slide>
-          <swiper-slide
-            ><g-image
-              class="white--text align-end"
-              src="../../src/assets/Logos/Samsung.png"
-            >
-            </g-image
-          ></swiper-slide>
-          <swiper-slide
-            ><g-image
-              class="white--text align-end"
-              src="../../src/assets/Logos/McDonald's.png"
-            >
-            </g-image
-          ></swiper-slide>
-          <swiper-slide
-            ><g-image
-              class="white--text align-end"
-              src="../../src/assets/Logos/mercedes.png"
-            >
-            </g-image
-          ></swiper-slide>
-          <swiper-slide
-            ><g-image
-              class="white--text align-end"
-              src="../../src/assets/Logos/Adidas Logo.png"
-            >
-            </g-image
-          ></swiper-slide>
-
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
       </div>
@@ -61,6 +25,11 @@ export default {
   components: {
     swiper,
     swiperSlide,
+  },
+  props: {
+    logoData: {
+      type: Array,
+    },
   },
 
   data() {

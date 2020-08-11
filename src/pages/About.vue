@@ -15,32 +15,9 @@
         <div class="flex w-full max-w-screen-xxl flex-col lg:flex-row py-10 justify-between align-end">
           <div class="lg:w-7/12">
             <div data-aos="fade-right" data-aos-duration="3000">
-              <div class="header-title">We give the best Services</div>
+              <div class="header-title">{{about.title}}</div>
               <p class="mt-5">
-                ZKTeco is a leading global provider of biometric verification
-                technology, with a focus on hybrid biometric verification. Our
-                solutions include Access Control, Time and Attendance and Entry
-                Control equipment - pedestrian and vehicular - Security
-                Inspection, POS, wide variety of software and soon a new line of
-                IoT products. Adapting to the needs of the market, in the last
-                year ZKTeco incorporated body temperature measurement into its
-                offer in its TD (temperature detection) and TI (thermal images)
-                product line. The founders of ZKTeco Co., Limited (ZKTeco) since
-                1998 have strived for independent research and development of
-                biometric verification algorithms and production of the SDK,
-                which was initially widely applied in the fields of computer
-                security and identity authentication . With continuous
-                improvement in development and a host of market applications, we
-                have gradually built a smart security and identity
-                authentication ecosystem based on biometric verification
-                techniques. With years of experience, ZKTeco was officially
-                established in 2007 and is one of the world's leading biometric
-                verification companies. With Headquarters established in
-                Dongguan, and factory in Xiamen, ZKTeco strives to integrate its
-                in-house developed hybrid biometric verification technology with
-                the Internet of Things (IoT) and applies this technology to
-                smart office, smart financing, smart traffic and smart security
-                solutions.
+                {{about.description}}
               </p>
             </div>
           </div>
@@ -157,14 +134,16 @@
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
               class="flex justify-center mb-10 md:m-0"
+              v-for="team in about.the_team"
+              :key="team.id"
             >
               <div class="flex align-center flex-col text-center">
                 <g-image
                   class="rounded-full"
                   src="../assets/Biola 1.png"
                 ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
+                <h4 class="text-color-zkteco-green mt-2">{{team.name}}</h4>
+                <span>{{team.position}}</span>
               </div>
             </div>
             <div
@@ -250,8 +229,50 @@
   </layout>
 </template>
 
+
+<page-query>
+query {
+  allStrapiAboutUses {
+    edges {
+      node {
+        id
+        title
+        description
+        infos {
+          id
+          name
+          figure
+        }
+        our_missioin {
+          id
+          description
+          image {
+            url
+          }
+        }
+        the_team {
+          id
+          name
+          position
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
+
+
 <script>
-export default {};
+export default {
+  computed: {
+    about () {
+      return this.$page.allStrapiAboutUses.edges[0].node
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
