@@ -142,86 +142,12 @@
                   class="rounded-full"
                   src="../assets/Biola 1.png"
                 ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">{{team.name}}</h4>
-                <span>{{team.position}}</span>
-              </div>
-            </div>
-            <div
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
-            >
-              <div class="flex align-center flex-col text-center">
-                <g-image
-                  class="rounded-full"
-                  src="../assets/Biola 1.png"
-                ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
-              </div>
-            </div>
-            <div
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
-            >
-              <div class="flex align-center flex-col text-center">
-                <g-image
-                  class="rounded-full"
-                  src="../assets/Biola 1.png"
-                ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
-              </div>
-            </div>
-            <div
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
-            >
-              <div class="flex align-center flex-col text-center">
-                <g-image
-                  class="rounded-full"
-                  src="../assets/Biola 1.png"
-                ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
-              </div>
-            </div>
-            <div
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
-            >
-              <div class="flex align-center flex-col text-center">
-                <g-image
-                  class="rounded-full"
-                  src="../assets/Biola 1.png"
-                ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
+                <h4 class="text-color-zkteco-green mt-2">{{team.name || "None"}}</h4>
+                <span>{{team.position || "None"}}</span>
               </div>
             </div>
 
-            <div
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
-            >
-              <div class="flex align-center flex-col text-center">
-                <g-image
-                  class="rounded-full"
-                  src="../assets/Biola 1.png"
-                ></g-image>
-                <h4 class="text-color-zkteco-green mt-2">Abiola Bright</h4>
-                <span>CEO/Founder</span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>

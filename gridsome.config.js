@@ -28,7 +28,7 @@ module.exports = {
     {
       use: "@gridsome/source-strapi",
       options: {
-        apiURL: "https://08f7effd48d5.ngrok.io/",
+        apiURL: process.env.API_URL,
         queryLimit: 1000,
         contentTypes: [
           "articles",
