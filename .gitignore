@@ -7,4 +7,4 @@ dist
 !.env.example
 .env
 .env.*
-.ngrok
+ngrok
