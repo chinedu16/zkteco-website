@@ -5,16 +5,17 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import "./styles/_main.scss";
 import DefaultLayout from "~/layouts/Default.vue";
-import "./zopim";
 import "aos/dist/aos.css";
 import "swiper/dist/css/swiper.css";
 
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (process.isClient) {
+    const Zopim = require("./zopim");
     const VueAwesomeSwiper = require("vue-awesome-swiper")
     const AOS = require("aos");
     Vue.use(AOS.init({once: true}));
     Vue.use(VueAwesomeSwiper)
+    Vue.use(Zopim)
   }
 
   Vue.component("Layout", DefaultLayout);
