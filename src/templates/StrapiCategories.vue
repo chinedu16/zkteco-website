@@ -3,7 +3,7 @@
     <div class="blogs-headline-image headline" style="height: 20rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div class="container  md:px-10 lg:py-5">
+    <div class="container px-4 py-5 lg:py-5 lg:px-10">
       <section class="about-zk flex flex-col lg:flex-row justify-between">
         <div class=" lg:w-2/5"></div>
       </section>

@@ -3,8 +3,10 @@
     <div class="container globalnavcontainer">
       <div
         data-aos="fade-left"
-        data-aos-duration="3000"
-        class="header-fixed-top header-trans-top md:flex hidden justify-end px-12 lg:px-10 py-2 text-white align-center"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+        id="globalnavtop"
+        class="header-fixed-top header-trans-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
       >
         <g-link to="/about" class="px-4 hover">About us </g-link>
         |
@@ -23,12 +25,14 @@
         </ToggleDarkMode>
       </div>
 
-      <nav
+      <div
         class="globalnav header-trans header-fixed flex items-center md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
+        id="globalnav"
       >
         <div
           data-aos="fade-right"
-          data-aos-duration="3000"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
           class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"
         >
           <g-link to="/" class="flex items-center text-ui-primary" title="Home">
@@ -42,7 +46,7 @@
               <v-menu open-on-hover offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                    class="top-nav tracking-normal normal-case text-base"
+                    class="tracking-normal normal-case text-base"
                     v-bind="attrs"
                     v-on="on"
                   >
@@ -63,7 +67,7 @@
               <v-menu open-on-hover offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                    class="top-nav tracking-normal normal-case text-base"
+                    class="tracking-normal normal-case text-base"
                     v-bind="attrs"
                     v-on="on"
                   >
@@ -81,7 +85,7 @@
               <v-menu open-on-hover offset-y>
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
-                    class="top-nav tracking-normal normal-case text-base"
+                    class="tracking-normal normal-case text-base"
                     v-bind="attrs"
                     v-on="on"
                   >
@@ -117,7 +121,7 @@
         >
           <AlignJustifyIcon size="2x" class="custom-class" />
         </button>
-      </nav>
+      </div>
     </div>
 
     <v-dialog
@@ -135,11 +139,12 @@
         </v-toolbar>
 
         <v-list>
-          <v-list-tile >
-            
+          <v-list-tile>
             <v-list-tile-content class="grid">
               <v-list-tile-title>
-                Product
+                <g-link :to="`/product-categories/${products[0].node.slug}`"
+                  >Product</g-link
+                >
               </v-list-tile-title>
               <v-list-tile-title>
                 Solution
@@ -148,18 +153,18 @@
                 Support
               </v-list-tile-title>
               <v-list-tile-title>
-                About us
+                <g-link to="/about">About us</g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                News Centere
+                <g-link to="/category/events"> News Center </g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                Contact us
+                <g-link to="/contact">Contact us</g-link>
               </v-list-tile-title>
-               <v-list-tile-title>
-                 Login
+              <v-list-tile-title>
+                Login
               </v-list-tile-title>
-               <v-list-tile-title>
+              <v-list-tile-title>
                 Register
               </v-list-tile-title>
             </v-list-tile-content>
@@ -199,17 +204,11 @@ import {
   XIcon,
 } from "vue-feather-icons";
 
-const Search = () =>
-  import(/* webpackChunkName: "search" */ "@/components/Search").catch(
-    (error) => console.warn(error)
-  );
-
 export default {
   components: {
     Logo,
     World,
     SearchIcon,
-    Search,
     ToggleDarkMode,
     SunIcon,
     MoonIcon,
@@ -262,12 +261,6 @@ export default {
   color: black !important;
 }
 
-.top-nav {
-  &:hover {
-    color: #78bc27 !important;
-  }
-}
-
 .search-input {
   color: #78bc27;
   border: 1px solid #78bc27;
@@ -278,17 +271,38 @@ export default {
       .v-list-item {
         cursor: pointer;
         // border-bottom: 1px solid #e2e8f0;
+        color: white !important;
         .v-list-item__title {
           font-size: 16px !important;
         }
 
         &:hover {
           .v-list-item__title {
-            color: #82bb31 !important;
+            color: #78bc27 !important;
           }
         }
       }
     }
+  }
+}
+
+.v-dialog {
+  .v-card {
+    background: rgba(0, 0, 0, 0.85) !important;
+    .theme--light.v-toolbar.v-sheet {
+      background-color: rgba(120, 188, 39, 0.5) !important;
+    }
+  }
+}
+v-list-tile-title {
+  padding: 20px 24px;
+
+  transition: all 0.5s;
+  &:hover {
+    color: #78bc27;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #666;
   }
 }
 </style>

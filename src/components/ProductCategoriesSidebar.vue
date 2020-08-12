@@ -1,5 +1,5 @@
 <template>
-  <div class="md:m-0 mb-10" id="product-categories" style="width:28%;">
+  <div class="md:m-0 mb-10 leftside-product " id="product-categories" >
     <div>
       <div class="border">
         <v-card class="mx-auto">
@@ -84,5 +84,11 @@ export default {
 <style lang="scss" scoped>
 .sidebar-border {
   border-bottom: 1px solid #f5f5f5;
+}
+
+@media (min-width: 640px) {
+  .leftside-product {
+    width: 28%;
+  }
 }
 </style>

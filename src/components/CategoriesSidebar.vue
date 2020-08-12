@@ -1,5 +1,5 @@
 <template>
-  <div class=" md:m-0 w-full md:w-1/4">
+  <div class="px-4 py-5 lg:py-5 lg:px-10 md:m-0 w-full md:w-1/4">
     <div>
       <div class="header-title">
         Categories

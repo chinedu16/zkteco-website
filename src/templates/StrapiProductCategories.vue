@@ -4,7 +4,7 @@
       <div class="footer-image-overlay"></div>
     </div>
     <div
-      class="container md:px-12 lg:px-10 lg:py-5"
+      class="container px-4 py-5 lg:py-5 lg:px-10"
       style="background: #f5f5f5;"
     >
       <section class="flex justify-center">
@@ -15,7 +15,7 @@
       <section class="mt-6 flex justify-center">
         <div class="md:flex w-full max-w-screen-xxl justify-between">
           <ProductSidebar toggle="true" />
-          <div class="bg-white" style="width:70%">
+          <div class="bg-white rightside-product">
             <div>
               <div
                 class="flex mb-10 flex-col md:grid md:grid-cols-3 lg:grid-cols-3"
@@ -182,5 +182,11 @@ export default {
   position: absolute;
   top: 21px;
   left: 20px;
+}
+
+@media (min-width: 640px) {
+  .rightside-product {
+    width: 70%;
+  }
 }
 </style>

@@ -8,7 +8,7 @@
         alt=""
       />
     </div>
-    <div class="container md:px-12 lg:px-10 lg:py-5 ">
+    <div class="container px-4 py-5 lg:py-5 lg:px-10 ">
       <section
         class="about-zk flex justify-center "
       >
@@ -76,7 +76,7 @@
             >
               <g-image
                 class="h-full object-cover"
-                src="../assets/zkteco_headquarter_r 1.png"
+                :src="about.our_missioin.image.url"
               >
               </g-image>
             </div>
@@ -86,36 +86,7 @@
               data-aos-duration="3000"
               class="mt-10 lg:w-2/4 lg:ml-5 lg:mt-0"
             >
-              <p>
-                To be the world recognized leaders in innovation and pioneering
-                technologies in security and time management solutions.
-              </p>
-              <p>
-                ZKTeco is a world-renowned provider of basic techniques, smart
-                terminals and software platforms based on intelligent "car +
-                person + object" input and output applications, and owns a large
-                number of copyrighted software products and solutions
-                proprietary smart terminal software and techniques, and strives
-                to integrate hybrid biometric verification techniques and
-                computer vision techniques with the Internet, IoT, big data, and
-                cloud computing, and creates a system platform that includes
-                ZKBioSecurity. ZKTeco owns professional development and supply
-                chain teams for smart people, car and object passenger
-                terminals,
-              </p>
-              <p>
-                ZKTeco is a world-renowned provider of basic techniques, smart
-                terminals and software platforms based on intelligent "car +
-                person + object" input and output applications, and owns a large
-                number of copyrighted software products and solutions
-                proprietary smart terminal software and techniques, and strives
-                to integrate hybrid biometric verification techniques and
-                computer vision techniques with the Internet, IoT, big data, and
-                cloud computing, and creates a system platform that includes
-                ZKBioSecurity. ZKTeco owns professional development and supply
-                chain teams for smart people, car and object passenger
-                terminals,
-              </p>
+             <p>{{about.our_missioin.description}}</p>
             </div>
           </div>
         </div>
@@ -147,7 +118,6 @@
               </div>
             </div>
 
-            
           </div>
         </div>
       </section>

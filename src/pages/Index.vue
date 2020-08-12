@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="">
+    <div>
       <v-carousel cycle interval="4000" hide-delimiters>
         <v-carousel-item
           v-for="(item, i) in sliders"
@@ -9,15 +9,35 @@
         ></v-carousel-item>
       </v-carousel>
 
-      <div class="container mt-6">
-        <h2 class="text-center" data-aos="fade-down">ZKTeco Insight into the Market</h2>
-        <div class="index-ms text-center my-10" >
-          <span style="font-size:18px;" data-aos="fade-up">Hybrid Biometric. Smart Security</span>
+      <div class="container mt-6 md:block">
+        <h1
+          class="text-center text-3xl"
+          data-aos="fade-up"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
+        >
+          ZKTeco Insight into the Market
+        </h1>
+        <div class="index-ms text-center my-10">
+          <span
+            style="font-size:18px;"
+            data-aos="fade-down"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            >Hybrid Biometric. Smart Security</span
+          >
         </div>
         <div class="features flex items-center justify-center">
-          <div  data-aos="zoom-in-down" class="customer-logos__content w-full md:w-10/12">
+          <div
+            data-aos="zoom-in-down"
+            class="customer-logos__content w-full md:w-10/12"
+          >
             <swiper class="swiper" :options="swiperOption">
-              <swiper-slide v-for="feature in features" :key="feature.id">
+              <swiper-slide
+                class=""
+                v-for="feature in features"
+                :key="feature.id"
+              >
                 <div class="feature-text">
                   <div class="icons"><Search /></div>
                   <h1>{{ feature.title }}</h1>
@@ -35,24 +55,19 @@
         </div>
       </div>
 
-      <section class="px-0 md:px-10 mt-8">
-        <div class="flex justify-center">
+      <section class="px-4 py-5 lg:py-5 lg:px-10 mt-8 w-full">
+        <div class="flex justify-center ">
           <div class="w-full max-w-screen-xxl">
-            <h1 class="md:px-12 lg:px-10" data-aos="fade-left" >News Center</h1>
-            <v-row class="mb-0 md:px-12 lg:px-10">
-              <v-col
-                cols="12"
+            <h1 class="md:px-12 lg:px-10" data-aos="fade-left">News Center</h1>
+
+            <div class="grid col-gap-4 grid-cols-none md:grid-cols-4">
+              <div
                 style="height: 400px; margin-top: 40px;"
-                sm="6"
-                md="3"
+                class=""
                 v-for="article in articles"
                 :key="article.id"
               >
-                <v-card
-                  class="pa-2 mx-auto img-hover-zoom--brightness"
-                  outlined
-                  tile
-                >
+                <v-card class="pa-2  img-hover-zoom--brightness" outlined tile>
                   <div class="image-hover-zoom">
                     <g-image
                       class="white--text align-end hover g-image-grow"
@@ -91,8 +106,8 @@
                     </div>
                   </div>
                 </v-card>
-              </v-col>
-            </v-row>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -150,8 +165,6 @@ query {
 import Logo from "@/components/Logo";
 import Search from "../components/Vectors/Call";
 import LogoContainer from "../components/LogosContainer";
-import "swiper/dist/css/swiper.css";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
 
 import {
   ArrowRightCircleIcon,
@@ -170,8 +183,6 @@ export default {
     MoonIcon,
     SearchIcon,
     LogoContainer,
-    swiper,
-    swiperSlide,
     Search,
   },
 
@@ -187,19 +198,16 @@ export default {
       },
       items: [
         {
-          src: require("../assets/Hero/Bio time 1.png"),
+          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
         },
         {
-          src: require("../assets/Hero/Blade 100100 1.png"),
+          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
         },
         {
-          src: require("../assets/Hero/Horus 1.png"),
+          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
         },
         {
-          src: require("../assets/Hero/ProFace X 1.png"),
-        },
-        {
-          src: require("../assets/Hero/Visible light 1.png"),
+          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
         },
       ],
       features: [
@@ -259,7 +267,7 @@ export default {
     };
   },
   metaInfo() {
-    const title = "Great Documentation starts here";
+    const title = "ZkTeco";
     const description =
       "DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!";
 
@@ -297,12 +305,12 @@ export default {
     articles() {
       return this.$page.allStrapiArticles.edges;
     },
-    sliders () {
-      return this.$page.allStrapiHomePages.edges[0].node.sliders
+    sliders() {
+      return this.$page.allStrapiHomePages.edges[0].node.sliders;
     },
-    partners () {
-      return this.$page.allStrapiHomePages.edges[0].node.partners
-    }
+    partners() {
+      return this.$page.allStrapiHomePages.edges[0].node.partners;
+    },
   },
 };
 </script>

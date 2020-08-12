@@ -1,11 +1,11 @@
 <template>
   <SemiLayout>
     <div class="h-32"></div>
-    <div class="container md:px-12 py-5 lg:py-5 lg:px-10">
+    <div class="container px-4 py-5 lg:py-5 lg:px-10">
       <section class="flex justify-center">
         <div class="md:flex justify-between w-full max-w-screen-xxl">
           <CategoriesSidebar />
-          <div class="" style="width: 71%;">
+          <div class="rightside-article">
             <div class="border">
               <g-image
                 data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="3000"
@@ -17,7 +17,7 @@
               ></g-image>
               <div class="p-10">
                 <h3>{{ article.title }}</h3>
-                <p data-aos="fade-up" data-aos-duration="4000" data-aos-easing="ease-out-cubic" v-html="article.body"></p>
+                <p data-aos="fade-up" data-aos-duration="4000" class="hidden md:block" data-aos-easing="ease-out-cubic" v-html="article.body"></p>
               </div>
             </div>
 
@@ -188,5 +188,11 @@ export default {
   background-color: green !important;
   width: 100%;
   color: white !important;
+}
+
+@media (min-width: 640px) {
+  .rightside-article {
+    width: 71%;
+  }
 }
 </style>

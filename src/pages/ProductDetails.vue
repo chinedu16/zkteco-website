@@ -181,15 +181,11 @@ import Twitter from "../components/Vectors/Twitter";
 import Linkedin from "../components/Vectors/Linkedin";
 import GooglePlus from "../components/Vectors/GooglePlus";
 
-import "swiper/dist/css/swiper.css";
-import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   components: {
     Office,
     Message,
     Call,
-    swiper,
-    swiperSlide,
     Download,
     Pdf,
     Facebook,
