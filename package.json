@@ -4,7 +4,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "@gridsome/source-strapi": "^0.1.0",
