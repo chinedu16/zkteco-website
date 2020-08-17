@@ -22,7 +22,7 @@ export default function(Vue, { appOptions, router, head, isClient }) {
 
   head.link.push({
     rel: "stylesheet",
-    href: "http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext",
+    href: "https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext",
   });
 
   head.link.push({
@@ -35,11 +35,6 @@ export default function(Vue, { appOptions, router, head, isClient }) {
     rel: "stylesheet",
     href:
       "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900",
-  });
-
-  head.script.push({
-    src:
-      "https://static.zdassets.com/ekr/snippet.js?key=ebd1d5ac-b3c0-4bfe-a265-02e961779c67",
   });
 
   const opts = {};

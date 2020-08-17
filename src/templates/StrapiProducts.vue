@@ -19,18 +19,11 @@
                 :options="swiperOptionTop"
                 ref="swiperTop"
               >
-                <swiper-slide class="slide-1"></swiper-slide>
-                <swiper-slide class="slide-2"></swiper-slide>
-                <swiper-slide class="slide-3"></swiper-slide>
-                <swiper-slide class="slide-4"></swiper-slide>
-                <swiper-slide class="slide-5"></swiper-slide>
-                <!-- <div class="swiper-button-prev">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 44">
-                    <path
-                      d="M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z"
-                    />
-                  </svg>
-                </div> -->
+               
+                <swiper-slide v-for="image in product.images" :key="image.id">
+                  <img :src="image.url" :alt="image.name">
+                </swiper-slide>
+                
                 <div
                   class="swiper-button-next swiper-button-black"
                   slot="button-next"
@@ -42,15 +35,14 @@
               </swiper>
               <!-- swiper2 Thumbs -->
               <swiper
-                class="swiper gallery-thumbs"
+                class="swiper gallery-thumbs thumb-swiper"
                 :options="swiperOptionThumbs"
                 ref="swiperThumbs"
               >
-                <swiper-slide class="slide-1"></swiper-slide>
-                <swiper-slide class="slide-2"></swiper-slide>
-                <swiper-slide class="slide-3"></swiper-slide>
-                <swiper-slide class="slide-4"></swiper-slide>
-                <swiper-slide class="slide-5"></swiper-slide>
+                <swiper-slide v-for="image in product.images" :key="image.id">
+                  <img :src="image.url" :alt="image.name">
+                </swiper-slide>
+                
               </swiper>
               
             </div>
@@ -178,6 +170,7 @@ query Products($path: String!) {
     }
     images {
       id
+      name
       url
     }
   }
@@ -357,21 +350,11 @@ a {
   .swiper-slide {
     background-size: cover;
     background-position: center;
-
-    &.slide-1 {
-      background-image: url("../assets/D2S 1.png");
-    }
-    &.slide-2 {
-      background-image: url("../assets/D2S 1.png");
-    }
-    &.slide-3 {
-      background-image: url("../assets/D2S 1.png");
-    }
-    &.slide-4 {
-      background-image: url("../assets/D2S 1.png");
-    }
-    &.slide-5 {
-      background-image: url("../assets/D2S 1.png");
+    
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
   }
 
@@ -380,7 +363,7 @@ a {
     width: 100%;
   }
   &.gallery-thumbs {
-    height: 40%;
+    height: 47%;
     box-sizing: border-box;
     padding: 40px 0;
   }
@@ -393,4 +376,5 @@ a {
     opacity: 1;
   }
 }
+
 </style>
