@@ -25,7 +25,7 @@
         <div class="footer-container ">
           <div class="flex align-center justify-center">
             <div
-              class="w-full max-w-screen-xxl mt-20 md:mt-0 px-4 py-5 lg:py-5 lg:px-10 flex flex-col-reverse justify-between lg:flex-row"
+              class="w-full max-w-screen-xxl mt-20 md:mt-0 px-4  lg:py-10 lg:px-10 flex flex-col-reverse justify-between lg:flex-row"
             >
               <div
                 class="left lg:w-7/12 flex flex-col justify-between mr-auto w-full sm:flex-row"

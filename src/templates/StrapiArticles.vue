@@ -1,6 +1,6 @@
 <template>
   <SemiLayout>
-    <div class="h-32"></div>
+    <div class="h-32 "></div>
     <div class="container px-4 py-5 lg:py-5 lg:px-10">
       <section class="flex justify-center">
         <div class="md:flex justify-between w-full max-w-screen-xxl">

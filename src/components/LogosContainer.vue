@@ -1,5 +1,5 @@
 <template>
-  <section class="h-32 mt-20 mb-10 px-4 py-5 lg:py-5 lg:px-10 ">
+  <section class="h-42 mt-20 mb-10 px-4 py-5 lg:py-5 lg:px-10 ">
     <div data-aos="zoom-in" data-aos-duration="3000" class="customer-logos flex items-center justify-center">
       <div class="customer-logos__content w-full lg:w-3/6   flex">
         <swiper class="swiper" :options="swiperOption">
@@ -21,6 +21,14 @@
 
 export default {
   components: {
+    swiper: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiper)
+        .catch(),
+    swiperSlide: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiperSlide)
+        .catch(),
   },
   props: {
     logoData: {

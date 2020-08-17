@@ -1,10 +1,13 @@
 <template>
   <SemiLayout>
-    <div class="container px-12 py-5 lg:py-5 lg:px-10" style="margin-top: 5.5rem">
+    <div
+      class="container px-12 py-5 lg:py-5 lg:px-10"
+      
+    >
       <section class="md:mb-20 flex justify-center">
         <div class="md:flex justify-between w-full max-w-screen-xxl">
           <div class="breadcrumb" @click="goBack">
-            &lt; <g-link to="">Back</g-link> 
+            &lt; <g-link to="">Back</g-link>
           </div>
         </div>
       </section>
@@ -14,37 +17,38 @@
           <div class="md:w-6/12 mb-10 md:m-0">
             <div class="thumb-example">
               <!-- swiper1 -->
-              <swiper
-                class="swiper gallery-top"
-                :options="swiperOptionTop"
-                ref="swiperTop"
-              >
-               
-                <swiper-slide v-for="image in product.images" :key="image.id">
-                  <img :src="image.url" :alt="image.name">
-                </swiper-slide>
-                
-                <div
-                  class="swiper-button-next swiper-button-black"
-                  slot="button-next"
-                ></div>
-                <div
-                  class="swiper-button-prev swiper-button-black"
-                  slot="button-prev"
-                ></div>
-              </swiper>
+              <ClientOnly>
+                <swiper
+                  class="swiper gallery-top"
+                  :options="swiperOptionTop"
+                  ref="swiperTop"
+                >
+                  <swiper-slide v-for="image in product.images" :key="image.id">
+                    <img :src="image.url" :alt="image.name" />
+                  </swiper-slide>
+
+                  <div
+                    class="swiper-button-next swiper-button-black"
+                    slot="button-next"
+                  ></div>
+                  <div
+                    class="swiper-button-prev swiper-button-black"
+                    slot="button-prev"
+                  ></div>
+                </swiper>
+              </ClientOnly>
               <!-- swiper2 Thumbs -->
-              <swiper
-                class="swiper gallery-thumbs thumb-swiper"
-                :options="swiperOptionThumbs"
-                ref="swiperThumbs"
-              >
-                <swiper-slide v-for="image in product.images" :key="image.id">
-                  <img :src="image.url" :alt="image.name">
-                </swiper-slide>
-                
-              </swiper>
-              
+              <ClientOnly>
+                <swiper
+                  class="swiper gallery-thumbs thumb-swiper"
+                  :options="swiperOptionThumbs"
+                  ref="swiperThumbs"
+                >
+                  <swiper-slide v-for="image in product.images" :key="image.id">
+                    <img :src="image.url" :alt="image.name" />
+                  </swiper-slide>
+                </swiper>
+              </ClientOnly>
             </div>
           </div>
           <div class="" style="width: 40%;">
@@ -190,7 +194,6 @@ import Twitter from "../components/Vectors/Twitter";
 import Linkedin from "../components/Vectors/Linkedin";
 import GooglePlus from "../components/Vectors/GooglePlus";
 
-
 export default {
   components: {
     Office,
@@ -203,6 +206,14 @@ export default {
     Linkedin,
     GooglePlus,
     SemiLayout,
+    swiper: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiper)
+        .catch(),
+    swiperSlide: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiperSlide)
+        .catch(),
   },
 
   data() {
@@ -254,9 +265,9 @@ export default {
     };
   },
   methods: {
-    goBack () {
-      this.$router.go(-1)
-    }
+    goBack() {
+      this.$router.go(-1);
+    },
   },
   mounted() {
     this.$nextTick(() => {
@@ -290,8 +301,6 @@ a {
     }
   }
 }
-
-
 
 .description {
   height: 200px;
@@ -350,7 +359,7 @@ a {
   .swiper-slide {
     background-size: cover;
     background-position: center;
-    
+
     img {
       height: 100%;
       width: 100%;
@@ -376,5 +385,4 @@ a {
     opacity: 1;
   }
 }
-
 </style>

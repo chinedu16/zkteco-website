@@ -1,13 +1,21 @@
 <template>
   <Layout>
     <div>
-      <v-carousel cycle interval="4000" hide-delimiters>
-        <v-carousel-item
-          v-for="(item, i) in sliders"
-          :key="i"
-          :src="item.image.url"
-        ></v-carousel-item>
-      </v-carousel>
+      <div class="mt-24 lg:-mt-1">
+        <v-carousel
+          class=""
+          height="auto"
+          cycle
+          interval="4000"
+          hide-delimiters
+        >
+          <v-carousel-item
+            v-for="(item, i) in sliders"
+            :key="i"
+            :src="item.image.url"
+          ></v-carousel-item>
+        </v-carousel>
+      </div>
 
       <div class="container mt-6 md:block">
         <h1
@@ -32,25 +40,27 @@
             data-aos="zoom-in-down"
             class="customer-logos__content w-full md:w-10/12"
           >
-            <swiper class="swiper" :options="swiperOption">
-              <swiper-slide
-                class=""
-                v-for="feature in features"
-                :key="feature.id"
-              >
-                <div class="feature-text">
-                  <div class="icons"><Search /></div>
-                  <h1>{{ feature.title }}</h1>
-                </div>
-                <g-image
-                  class="white--text align-end"
-                  height="200px"
-                  :src="feature.src"
+            <ClientOnly>
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide
+                  class=""
+                  v-for="feature in features"
+                  :key="feature.id"
                 >
-                </g-image>
-              </swiper-slide>
-              <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
+                  <div class="feature-text">
+                    <div class="icons"><Search /></div>
+                    <h1>{{ feature.title }}</h1>
+                  </div>
+                  <g-image
+                    class="white--text align-end"
+                    height="200px"
+                    :src="feature.src"
+                  >
+                  </g-image>
+                </swiper-slide>
+                <div class="swiper-pagination" slot="pagination"></div>
+              </swiper>
+            </ClientOnly>
           </div>
         </div>
       </div>
@@ -145,8 +155,15 @@ query {
       node{
         sliders {
           name
-         image {
-          url
+          image {
+            url
+            formats {
+              large {
+                height
+                width
+                url
+              }
+            }
         	} 
         }
         partners {
@@ -184,9 +201,18 @@ export default {
     SearchIcon,
     LogoContainer,
     Search,
+    swiper: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiper)
+        .catch(),
+    swiperSlide: () =>
+      import("vue-awesome-swiper")
+        .then((m) => m.swiperSlide)
+        .catch(),
   },
   metaInfo: {
-    title: "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
+    title:
+      "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
   },
 
   data() {
@@ -272,7 +298,7 @@ export default {
   metaInfo() {
     const title = "ZkTeco";
     const description =
-      "DOCC is a starter theme with instant search and dark mode for writing great technical documentation. Based on Gridsome!";
+      "ZKTeco is a globally-renowned provider of security, access control and time management solutions";
 
     return {
       title: title,
@@ -357,5 +383,9 @@ export default {
     align-items: center;
     border-radius: 50%;
   }
+}
+
+.v-responsive__content {
+  // height: 1100px !important;
 }
 </style>

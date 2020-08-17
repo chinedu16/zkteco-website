@@ -6,6 +6,7 @@
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
         id="globalnavtop"
+        style="color: #333!important;"
         class="header-fixed-top header-trans-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
       >
         <g-link to="/about" class="px-4 hover">About us </g-link>

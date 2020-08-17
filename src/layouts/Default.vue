@@ -3,9 +3,7 @@
     <div class="font-sans antialiased text-ui-typo bg-ui-background">
       <div class="flex flex-col justify-start min-w-screen min-h-screen">
         <header
-          ref="header"
-
-          class="sticky top-0 z-10 w-full border-b bg-ui-background "
+          class="sticky top-0 z-10 bg-ui-background "
         >
           <LayoutHeader />
         </header>

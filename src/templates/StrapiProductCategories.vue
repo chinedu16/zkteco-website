@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <div class="product-headline-image headline" style="height: 28rem;">
+    <div class="product-headline-image headline md:-mt-24" style="height: 28rem;">
       <div class="footer-image-overlay"></div>
     </div>
     <div
