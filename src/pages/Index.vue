@@ -185,6 +185,9 @@ export default {
     LogoContainer,
     Search,
   },
+  metaInfo: {
+    title: "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
+  },
 
   data() {
     return {

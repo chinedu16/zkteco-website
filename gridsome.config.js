@@ -6,11 +6,13 @@
 
 module.exports = {
   siteName: "ZkTeco West Africa",
+  siteDescription: "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
+  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://example.com",
+  titleTemplate: `%s | ZkTeco West Africa`,
   icon: {
     favicon: "./src/assets/favicon.png",
     touchicon: "./src/assets/favicon.png",
   },
-  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://example.com",
   plugins: [
     {
       use: "@gridsome/source-filesystem",

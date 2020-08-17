@@ -1,31 +1,35 @@
 <template>
   <SemiLayout>
     <div class="container px-4 py-5 lg:py-5 lg:px-10">
-      <section class="mt-24 md:mt-0 about-zk flex flex-col lg:flex-row justify-between">
-        <div class="lg:w-2/5">
-          <div
-            class="contact-box w-full mb-10 p-10 lg:w-2/6 lg:absolute text-white"
-          >
-            <div>  
+      <section class="mt-24 md:mt-0 about-zk">
+        <div class="-mb-8 -mr-1 flex align-cente justify-center" >
+          <div class="w-full max-w-screen-xxl flex flex-col lg:flex-row ">
+            <div class="lg:w-3/6">
               <div
-                v-for="item in contact"
-                :key="item.id"
-                data-aos="fade-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                class="flex mb-7 "
+                class="contact-box w-full mb-10 p-10 lg:w-2/6 lg:absolute text-white"
               >
-                <Office />
-                <div class="ml-6">
-                  <div class="font-bold text-xl">{{ item.name }}:</div>
-                  <span>{{ item.description }}</span>
+                <div>
+                  <div
+                    v-for="item in contact"
+                    :key="item.id"
+                    data-aos="fade-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000"
+                    class="flex mb-7 "
+                  >
+                    <Office />
+                    <div class="ml-6">
+                      <div class="font-bold text-xl">{{ item.name }}:</div>
+                      <span>{{ item.description }}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="xl:m-0">
+              <g-image src="../assets/map-image.png"> </g-image>
+            </div>
           </div>
-        </div>
-        <div class="lg:-m-24">
-          <g-image src="../assets/map-image.png"> </g-image>
         </div>
       </section>
     </div>
@@ -74,8 +78,8 @@ export default {
 
 <style lang="scss" scoped>
 .contact-box {
-  left: 190px;
-  top: 130px;
+  left: 25%;
+  top: 13%;
   background: #1a130c;
   border-radius: 0px 70px 70px 0px;
 }

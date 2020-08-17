@@ -5,7 +5,7 @@
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        id="globalnavtop"
+        id=""
         class="header-fixed-top header-trans-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
       >
         <g-link to="/about" class="px-4 hover">About us </g-link>
@@ -27,7 +27,7 @@
 
       <div
         class="globalnav header-trans header-fixed flex items-center md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
-        id="globalnav"
+        id=""
       >
         <div
           data-aos="fade-right"
