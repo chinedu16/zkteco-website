@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import "swiper/dist/css/swiper.css";
 
 export default function(Vue, { appOptions, router, head, isClient }) {
-  if (process.isClient) {
+  if (isClient) {
     const Zopim = require("./zopim");
     const VueAwesomeSwiper = require("vue-awesome-swiper")
     const AOS = require("aos");
