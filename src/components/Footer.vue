@@ -173,19 +173,6 @@ export default {
 </script>
 
 <style lang="scss">
-header {
-  svg:not(.feather-search) {
-    &:hover {
-      @apply text-ui-primary;
-    }
-  }
-}
-
-.nav-link {
-  &.active {
-    @apply text-ui-primary font-bold border-ui-primary;
-  }
-}
 
 .footer-image {
   background-image: url("../assets/pens-near-keyboard-and-paper-clips-1558690 1.png");
