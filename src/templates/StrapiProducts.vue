@@ -199,44 +199,10 @@ export default {
     GooglePlus,
     SemiLayout,
     VueSlickCarousel,
-    swiper: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiper)
-        .catch(),
-    swiperSlide: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiperSlide)
-        .catch(),
   },
 
   data() {
     return {
-      swiperOption: {
-        slidesPerView: 4,
-
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      },
-      swiperOptionTop: {
-        loop: true,
-        loopedSlides: 5, // looped slides should be the same
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      },
-      swiperOptionThumbs: {
-        loop: true,
-        loopedSlides: 5, // looped slides should be the same
-        spaceBetween: 30,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        touchRatio: 0.2,
-        slideToClickedSlide: true,
-      },
       page: 1,
       features: [
         {
@@ -310,20 +276,6 @@ a {
     position: absolute;
     top: 50%;
   }
-}
-
-// .swiper-button-next,
-// .swiper-container-rtl .swiper-button-prev,
-// .swiper-button-prev,
-// .swiper-container-rtl .swiper-button-next {
-//   background-image: none;
-// }
-
-.swiper-button-next,
-.swiper-button-prev,
-.swiper-container-rtl .swiper-button-prev,
-.swiper-container-rtl .swiper-button-next {
-  fill: green;
 }
 
 /* width */

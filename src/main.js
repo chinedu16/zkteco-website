@@ -6,7 +6,6 @@ import "vuetify/dist/vuetify.min.css";
 import "./styles/_main.scss";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
-import "swiper/dist/css/swiper.css";
 
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
