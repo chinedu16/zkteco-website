@@ -1,11 +1,11 @@
 <template>
   <SemiLayout>
     <div class="h-32 "></div>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10">
+    <div class="container breathing">
       <section class="flex justify-center">
-        <div class="md:flex justify-between w-full max-w-screen-xxl">
-          <CategoriesSidebar />
-          <div class="rightside-article">
+        <div class="" id="categories-blogs">
+          <CategoriesSidebar class="article__sidebar" />
+          <div class="w-full article__item rightside-article" >
             <div class="border">
               <g-image
                 data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="3000"
@@ -193,6 +193,19 @@ export default {
 @media (min-width: 640px) {
   .rightside-article {
     width: 71%;
+  }
+}
+
+#categories-blogs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7rem;
+  margin-bottom: 3rem;
+  .article__sidebar {
+    width: 30%;
+  }
+  .article__item {
+    width: 60%;
   }
 }
 </style>

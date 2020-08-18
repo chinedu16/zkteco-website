@@ -4,8 +4,9 @@
       <div class="footer-image-overlay"></div>
     </div>
     <div
-      class="container px-4 py-5 lg:py-5 lg:px-10"
+      class="container breathing "
       style="background: #f5f5f5;"
+
     >
       <section class="flex justify-center">
         <div class="pro-search  w-full max-w-screen-xxl clearfix">
@@ -13,22 +14,22 @@
         </div>
       </section>
       <section class="mt-6 flex justify-center">
-        <div class="md:flex w-full max-w-screen-xxl justify-between">
+        <div class="flex w-full max-w-screen-xxl justify-between">
           <ProductSidebar toggle="true" />
-          <div class="bg-white rightside-product">
+          <div class="rightside-product">
             <div>
               <div
-                class="flex mb-10 flex-col md:grid md:grid-cols-3 lg:grid-cols-3"
+                class="flex"
               >
                 <div
-                  class="flex justify-center md:m-0"
+                  class="flex"
                   v-for="product in productCategory.products"
                   :key="product.id"
                 >
                   <div
-                    class="flex product-container relative w-full flex-col text-center"
+                    class="flex product-container "
                   >
-                    <div class="h-32">
+                    <div class="h-32 product-image-container">
                       <g-image
                         class="w-full h-full object-contain"
                         width="201"
@@ -141,6 +142,7 @@ export default {
   border-radius: 5px;
   height: 260px;
   display: flex !important;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -187,6 +189,16 @@ export default {
 @media (min-width: 640px) {
   .rightside-product {
     width: 70%;
+    background: white;
+  }
+}
+
+.product-image-container {
+  width: 211px;
+  height: 151px;
+
+  img {
+    object-fit: cover;
   }
 }
 </style>

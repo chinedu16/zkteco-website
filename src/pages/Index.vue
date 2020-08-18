@@ -9,7 +9,7 @@
         </VueSlickCarousel>
       </div>
 
-      <div class="container mt-6 md:block">
+      <div class="container breathing">
         <h1
           class="text-center text-3xl"
           data-aos="fade-up"
@@ -51,15 +51,15 @@
         </div>
       </div>
 
-      <section class="px-4 py-5 lg:py-5 lg:px-10 mt-8 w-full">
+      <section class="w-full breathing" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full max-w-screen-xxl">
             <h1 class="md:px-12 lg:px-10" data-aos="fade-left">News Center</h1>
 
-            <div class="grid col-gap-4 grid-cols-none md:grid-cols-4">
+            <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
-                class=""
+                class="news_container__item"
                 v-for="article in articles"
                 :key="article.id"
               >
@@ -206,7 +206,7 @@ export default {
         infinite: false,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
       },
       settings: {
         arrows: false,
@@ -414,6 +414,19 @@ export default {
           }
         }
       }
+    }
+  }
+}
+
+#news-container__section {
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    .news-container__item {
     }
   }
 }

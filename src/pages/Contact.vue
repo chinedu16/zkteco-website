@@ -4,9 +4,9 @@
       <section class="mt-24 md:mt-0 about-zk">
         <div class="-mb-8 -mr-1 flex align-cente justify-center" >
           <div class="w-full max-w-screen-xxl flex flex-col lg:flex-row ">
-            <div class="lg:w-3/6">
+            <div class="">
               <div
-                class="contact-box w-full mb-10 p-10 lg:w-2/6 lg:absolute text-white"
+                class="contact-box w-full"
               >
                 <div>
                   <div

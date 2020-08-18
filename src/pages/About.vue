@@ -8,7 +8,7 @@
         alt=""
       />
     </div>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10 ">
+    <div class="container breathing ">
       <section
         class="about-zk flex justify-center "
       >
@@ -24,10 +24,10 @@
           <div
             data-aos="fade-left"
             data-aos-duration="4000"
-            class="lg:w-5/12 xl:w-4/12 md:w-9/12  hidden md:block"
+            class=""
           >
             <div class="mb-4 justify-end">
-              <div class="md:flex items-end">
+              <div class="flex items-end">
                 <span class="small-circle swing bg-zkteco-black mr-4">
                   <div class="flex align-center  flex-col text-center">
                     <span class="font-black text-xl ">3500+</span>
@@ -43,7 +43,7 @@
               </div>
             </div>
             <div>
-              <div class="md:flex items-end">
+              <div class="flex items-end">
                 <span class="big-circle swing bg-zkteco-green mr-4"
                   ><div class="flex align-center flex-col text-center">
                     <span class="font-black text-xl">80%+</span>
@@ -98,17 +98,17 @@
             Our Team
           </div>
           <div
-            class="flex flex-col md:grid md:grid-cols-3 lg:grid-cols-5 row-gap-3"
+            class="team-container"
           >
             <div
               data-aos="flip-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
-              class="flex justify-center mb-10 md:m-0"
+              class="flex"
               v-for="team in about.the_team"
               :key="team.id"
             >
-              <div class="flex align-center flex-col text-center">
+              <div class="flex team-container__item">
                 <g-image
                   class="rounded-full"
                   src="../assets/Biola 1.png"
@@ -191,5 +191,14 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  .team-container__item {
+    flex-direction: column;
+  }
+  
 }
 </style>

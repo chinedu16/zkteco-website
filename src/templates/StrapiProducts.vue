@@ -1,17 +1,17 @@
 <template>
   <SemiLayout>
-    <div class="container px-12 py-5 lg:py-5 lg:px-10">
-      <section class="md:mb-20 flex justify-center">
-        <div class="md:flex justify-between w-full max-w-screen-xxl">
+    <div class="container breathing" id="product-details">
+      <section class="">
+        <div class="">
           <div class="breadcrumb" @click="goBack">
             &lt; <g-link to="">Back</g-link>
           </div>
         </div>
       </section>
 
-      <section class="mt-6 mb-16  flex justify-center">
-        <div class="md:flex justify-between w-full max-w-screen-xxl">
-          <div class="md:w-6/12 mb-10 md:m-0">
+      <section class="  flex justify-center">
+        <div class="flex justify-between w-full max-w-screen-xxl">
+          <div class="">
             <div class="thumb-example" id="products_carousel">
               <div id="navFor1">
                 <VueSlickCarousel
@@ -370,5 +370,10 @@ a {
       }
     }
   }
+}
+
+
+#product-details {
+  margin-top: 6rem;
 }
 </style>

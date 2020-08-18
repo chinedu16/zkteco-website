@@ -3,14 +3,14 @@
     <div class="blogs-headline-image headline" style="height: 20rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10">
+    <div class="breathing">
       <section class="about-zk flex flex-col lg:flex-row justify-between">
         <div class=" lg:w-2/5"></div>
       </section>
-      <section class="flex justify-center">
-        <div class="md:flex w-full max-w-screen-xxl mt-6 justify-between">
-          <CategoriesSidebar />
-          <div class="w-full md:w-3/5 mt-12 md:mt-0 ">
+      <section >
+        <div id="categories-blogs" class="flex w-full max-w-screen-xxl">
+          <CategoriesSidebar class="article__sidebar" />
+          <div class="w-full article__item">
             <div>
               <div
                 class="flex border-solid card-blog w-full md:w-full lg:w-full xl:w-4/5 mb-10"
@@ -147,6 +147,7 @@ export default {
   }
 }
 
+
 .subscriber-box {
   padding: 28px;
   background: #1a130c;
@@ -167,6 +168,18 @@ export default {
   .v-btn {
     background-color: green !important;
     width: 100%;
+  }
+}
+
+#categories-blogs {
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .article__sidebar {
+    width: 30%;
+  }
+  .article__item {
+    width: 60%;
   }
 }
 </style>
