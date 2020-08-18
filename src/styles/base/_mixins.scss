@@ -1,0 +1,38 @@
+// Generating Media Query Rule Blocks
+$breakpoint-xs: 375px;
+$breakpoint: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+
+@mixin mq($break) {
+  @if $break == "xs" {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if $break == "sm" {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $break == "md" {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $break == "lg" {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $break == "xl" {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $break == "xxl" {
+    @media (min-width: $breakpoint-xxl) {
+      @content;
+    }
+  } @else {
+    @error "Whoops! No value could be retrieved for #{$break}.";
+  }
+}

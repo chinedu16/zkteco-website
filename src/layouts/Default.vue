@@ -1,22 +1,15 @@
 <template>
   <v-app>
-    <div class="font-sans antialiased text-ui-typo bg-ui-background">
-      <div class="flex flex-col justify-start min-h-screen">
-        <header
-          class="top-0 z-10 "
-        >
-          <LayoutHeader />
-        </header>
-        <main
-          class="container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background"
-        >
-          <div class="w-full pb-1">
-            <slot />
-          </div>
-          <Footer />
-        </main>
+    <v-content>
+      <LayoutHeader />
+      <div class="w-full pb-1">
+        <slot />
       </div>
-    </div>
+      <!-- <Footer /> -->
+      <Footer />
+
+      <!-- End of Mobile Navigation Bar -->
+    </v-content>
   </v-app>
 </template>
 

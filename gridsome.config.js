@@ -45,12 +45,6 @@ module.exports = {
         singleTypes: ["menu"],
       },
     },
-    // {
-    //   use: "gridsome-plugin-tailwindcss",
-    //   options: {
-    //     tailwindConfig: "./tailwind.config.js",
-    //   },
-    // },
     {
       use: "@gridsome/plugin-google-analytics",
       options: {

@@ -1,17 +1,23 @@
 <template>
-  <section class="w-full">
+  <section id="footer-main" class="footer-main w-full  b-0">
     <div class="footer-image">
       <div class="footer-image-overlay">
-        <div class="flex h-full w-full align-center">
+        <div class="flex h-full align-center">
           <div class="footer-icon-container w-full">
-            <h2 class="mb-10" data-aos="fade-down" data-aos-duration="3000">Learn how ZKTeco helps you</h2>
+            <h2 class="mb-10" data-aos="fade-down" data-aos-duration="3000">
+              Learn how ZKTeco helps you
+            </h2>
 
             <p data-aos="zoom-out-up" data-aos-duration="4000">
               ZKTeco is a globally-renowned provider of security, access control
               and time management solutions
             </p>
 
-            <div  data-aos="fade-up" data-aos-duration="5000" class="footer-image-icon justify-center mt-10 flex">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="5000"
+              class="footer-image-icon justify-center mt-10 flex"
+            >
               <span class="mx-2 md:mx-20"><Call /></span>
               <span class="mx-2 md:mx-20"><User /></span>
               <span class="mx-2 md:mx-20"><Consultation /></span>
@@ -20,48 +26,39 @@
         </div>
       </div>
     </div>
-    <div class="">
-      <div class="">
-        <div class="footer-container ">
-          <div class="flex align-center justify-center">
-            <div
-              class="w-full max-w-screen-xxl mt-20 md:mt-0 px-4  lg:py-10 lg:px-10 flex flex-col-reverse justify-between lg:flex-row"
+
+    <div class="footer-container">
+      <div class="flex align-center justify-center">
+        <div class="breathing w-full footer-item-container">
+          <div class="left-side">
+            <ul
+              class="w-full text-white"
+              v-for="nav in navlinks"
+              :key="nav.title"
             >
-              <div
-                class="left lg:w-7/12 flex flex-col justify-between mr-auto w-full sm:flex-row"
+              <li class="flex mb-6 font-bold text-base">{{ nav.title }}</li>
+              <g-link
+                class="flex mb-4 hover"
+                v-for="subNav in nav.items"
+                :key="subNav.title"
+                :to="subNav.path"
+                >{{ subNav.title }}</g-link
               >
-                <ul
-                  class="w-full text-white"
-                  v-for="nav in navlinks"
-                  :key="nav.title"
-                >
-                  <li class="flex mb-6 font-bold text-base">{{ nav.title }}</li>
-                  <g-link
-                    class="flex mb-4 hover"
-                    v-for="subNav in nav.items"
-                    :key="subNav.title"
-                    :to="subNav.path"
-                    >{{ subNav.title }}</g-link
-                  >
-                </ul>
+            </ul>
+          </div>
+          <div class="right-side">
+            <div class="w-full">
+              <div class="mb-5">Follow Us</div>
+              <div class="flex align-center justify-between">
+                <Facebook color="white" height="24" width="20" />
+                <Twitter color="white" height="24" width="20" />
+                <Linkedin color="white" height="24" width="20" />
+                <GooglePlus color="white" height="24" width="20" />
+                <Youtube color="white" height="24" width="20" />
               </div>
-              <div
-                class="right align-center md:w-4/12 lg:w-2/12 mb-20 text-white"
-              >
-                <div class="w-full">
-                  <div class="mb-5">Follow Us</div>
-                  <div class="flex align-center justify-between">
-                    <Facebook color="white" height="24" width="20" />
-                    <Twitter color="white" height="24" width="20" />
-                    <Linkedin color="white" height="24" width="20" />
-                    <GooglePlus color="white" height="24" width="20" />
-                    <Youtube color="white" height="24" width="20" />
-                  </div>
-                  <button class="footer-cta" icon>
-                    <MessageCircleIcon /> Online Consultation
-                  </button>
-                </div>
-              </div>
+              <button class="footer-cta" icon>
+                <MessageCircleIcon /> Online Consultation
+              </button>
             </div>
           </div>
         </div>
@@ -173,7 +170,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .footer-image {
   background-image: url("../assets/pens-near-keyboard-and-paper-clips-1558690 1.png");
   height: 361px;

@@ -1,10 +1,55 @@
 .footer-container {
-    background-color: $brown-2;
-    color: $color-text;
+  background-color: $brown-2;
+  color: $color-text;
 }
 
 .footer-copy {
-    background-color: $brown-2;
-    color: $color-text;
-    border-top: 1px solid #444;
+  background-color: $brown-2;
+  color: $color-text;
+  border-top: 1px solid #444;
+}
+
+.breathing {
+  padding: 0px 10px;
+  @include mq(md) {
+    padding: 0px 80px;
+  }
+}
+
+#footer-main {
+  .footer-icon-container {
+    margin-top: 4rem;
+  }
+  .footer-item-container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    @include mq(md) {
+      display: flex;
+
+      justify-content: space-between;
+    }
+    .right-side {
+      @include mq(md) {
+        width: 20%;
+      }
+    }
+    .left-side {
+      display: grid;
+      @include mq(md) {
+        width: 60%;
+
+        display: flex;
+      }
+
+      ul {
+        li {
+          font-weight: bolder;
+          font-size: 18px;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }

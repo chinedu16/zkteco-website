@@ -1,19 +1,18 @@
 <template>
-  <div class="border-ui-primary">
+  <div id="header-main" class="border-ui-primary">
     <div class="container globalnavcontainer">
       <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
         id="globalnavtop"
-        style="color: #333!important;"
-        class="header-fixed-top header-trans-top md:flex hidden justify-end md:px-12 lg:px-10 py-2 text-white align-center"
+        class="header-fixed-top breathing header-trans-top flex"
       >
         <g-link to="/about" class="px-4 hover">About us </g-link>
         |
         <g-link to="/category/events" class="px-4 hover"> News Center </g-link>|
         <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
-        <g-link class="pl-2 pr-2 flex hover items-center">
+        <g-link class="pl-2 pr-2 hover">
           <World class="mr-2" /> Region/Language |</g-link
         >
         <g-link class="pl-2 pr-2 hover">Login</g-link>
@@ -26,21 +25,18 @@
         </ToggleDarkMode>
       </div>
 
-      <div
-        class="globalnav header-fixed flex items-center md:px-12 py-5 lg:py-5 lg:px-10 flex-wrap"
-        id="globalnav"
-      >
+      <div class="globalnav breathing header-fixed" id="globalnav">
         <div
           data-aos="fade-right"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
-          class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"
+          class="flex logo-menu"
         >
-          <g-link to="/" class="flex items-center text-ui-primary" title="Home">
-            <Logo :width="40" color1="white" class="text-ui-primary" />
+          <g-link to="/" title="Home">
+            <Logo :width="40" color1="white" />
           </g-link>
           <div
-            class="hidden top-navbar w-full lg:inline-flex lg:flex-grow lg:w-auto"
+            class=" top-navbar"
             id="navigation"
           >
             <div class="flex items-start ml-5 navigation-dropdown">
@@ -104,19 +100,19 @@
           </div>
         </div>
 
-        <div class="pt-2 hidden relative text-gray-600 md:block">
+        <div class="search-header relative">
           <input
-            class="border-1 search-input bg-none h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+            class="search-input"
             type="search"
             name="search"
             placeholder="Search"
           />
-          <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
-            <SearchIcon />
-          </button>
+          <button type="submit" class=""></button>
         </div>
+
+
         <button
-          class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml-auto  outline-none nav-toggler"
+          class="hamburger-header"
           data-target="#navigation"
           @click.stop="drawer = true"
         >
