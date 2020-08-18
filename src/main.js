@@ -7,6 +7,8 @@ import "./styles/_main.scss";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
 
+import './main.css'
+
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
     const Zopim = require("./zopim");
