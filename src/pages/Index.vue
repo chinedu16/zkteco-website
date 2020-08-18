@@ -2,7 +2,7 @@
   <Layout>
     <div>
       <div id="slide-container" class="mt-24 mb-12 lg:-mt-1">
-        <VueSlickCarousel class="w-full" v-bind="settings_hero">
+        <VueSlickCarousel v-bind="settings_hero">
           <div v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>
           </div>
@@ -33,7 +33,7 @@
             class="customer-logos__content w-full md:w-10/12"
             id="menu_feature_carousel"
           >
-            <VueSlickCarousel  v-bind="settings">
+            <VueSlickCarousel v-bind="settings">
               <div v-for="feature in features" :key="feature.id">
                 <div class="feature-text">
                   <div class="icons"><Search /></div>
@@ -192,7 +192,7 @@ export default {
     SearchIcon,
     LogoContainer,
     Search,
-    VueSlickCarousel
+    VueSlickCarousel,
   },
   metaInfo: {
     title:
@@ -202,22 +202,18 @@ export default {
   data() {
     return {
       settings_hero: {
-        arrows: true,
-        speed: 1000,
-        infinite: true,
-        autoplaySpeed: 5000,
-        cssEase: "linear",
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        "dotsClass": "slick-dots custom-dot-class",
+        "edgeFriction": 0.35,
+        "infinite": false,
+        "speed": 500,
+        "slidesToShow": 1,
+        "slidesToScroll": 1
       },
       settings: {
         arrows: false,
         dots: true,
         slidesToShow: 3,
         slidesToScroll: 3,
-        speed: 2000,
-        autoplaySpeed: 2000,
-        cssEase: "linear",
       },
 
       features: [
@@ -344,43 +340,49 @@ export default {
   }
 }
 
-.slick-slide img {
-  width: inherit !important;
-  height: inherit;
-  object-fit: cover;
-}
+#slide-container {
+  .slick-slider {
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          position: relative !important;
+          img {
+            object-fit: cover;
+            width: inherit !important;
+            height: inherit;
+          }
+        }
+      }
+    }
+    .slick-next {
+      right: 6rem;
+      @media only screen and (max-width: 600px) {
+        right: 0rem;
+      }
+      &::before {
+        color: #82bb31;
+        font-size: 5rem;
+        @media only screen and (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
+    }
 
-.slick-next {
-  right: 6rem;
-  @media only screen and (max-width: 600px) {
-    right: 0rem;
-  }
-  &::before {
-    color: #82bb31;
-    font-size: 5rem;
-    @media only screen and (max-width: 600px) {
-      font-size: 2rem;
+    .slick-prev {
+      left: 3rem;
+      z-index: 1000000;
+      @media only screen and (max-width: 600px) {
+        left: 0rem;
+      }
+      &::before {
+        color: #82bb31;
+        font-size: 5rem;
+        @media only screen and (max-width: 600px) {
+          font-size: 2rem;
+        }
+      }
     }
   }
-}
-
-.slick-prev {
-  left: 3rem;
-  z-index: 1000000;
-  @media only screen and (max-width: 600px) {
-    left: 0rem;
-  }
-  &::before {
-    color: #82bb31;
-    font-size: 5rem;
-    @media only screen and (max-width: 600px) {
-      font-size: 2rem;
-    }
-  }
-}
-
-.slick-initialized .slick-slide {
-  position: relative!important;
 }
 
 #menu_feature_carousel {
@@ -404,9 +406,11 @@ export default {
     .slick-list {
       .slick-track {
         .slick-slide {
-          position: relative!important;
+          position: relative !important;
           img {
             object-fit: cover;
+            width: inherit !important;
+            height: inherit;
             border-bottom: 10px solid #82bb31;
           }
         }

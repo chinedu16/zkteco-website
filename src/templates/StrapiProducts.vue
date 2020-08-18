@@ -228,14 +228,6 @@ export default {
       this.$router.go(-1);
     },
   },
-  mounted() {
-    this.$nextTick(() => {
-      const swiperTop = this.$refs.swiperTop.swiper;
-      const swiperThumbs = this.$refs.swiperThumbs.swiper;
-      swiperTop.controller.control = swiperThumbs;
-      swiperThumbs.controller.control = swiperTop;
-    });
-  },
   computed: {
     product() {
       return this.$page.strapiProducts;
