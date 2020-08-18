@@ -203,7 +203,6 @@ export default {
     return {
       settings_hero: {
         arrows: true,
-        autoplay: true,
         speed: 1000,
         infinite: true,
         autoplaySpeed: 5000,
