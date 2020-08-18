@@ -1,13 +1,13 @@
 <template>
   <Layout>
     <div>
-      <div id="slide-container" class="mt-24 mb-12 lg:-mt-1">
+      <!-- <div id="slide-container" class="mt-24 mb-12 lg:-mt-1">
         <VueSlickCarousel v-bind="settings_hero">
           <div v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>
           </div>
         </VueSlickCarousel>
-      </div>
+      </div> -->
 
       <div class="container mt-6 md:block">
         <h1
@@ -28,7 +28,7 @@
           >
         </div>
         <div class="features flex items-center justify-center">
-          <div
+          <!-- <div
             data-aos="zoom-in-down"
             class="customer-logos__content w-full md:w-10/12"
             id="menu_feature_carousel"
@@ -48,7 +48,7 @@
                 </g-image>
               </div>
             </VueSlickCarousel>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -109,7 +109,7 @@
         </div>
       </section>
 
-      <LogoContainer :logoData="partners" />
+      <!-- <LogoContainer :logoData="partners" /> -->
     </div>
   </Layout>
 </template>
@@ -202,12 +202,12 @@ export default {
   data() {
     return {
       settings_hero: {
-        "dotsClass": "slick-dots custom-dot-class",
-        "edgeFriction": 0.35,
-        "infinite": false,
-        "speed": 500,
-        "slidesToShow": 1,
-        "slidesToScroll": 1
+        dotsClass: "slick-dots custom-dot-class",
+        edgeFriction: 0.35,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1
       },
       settings: {
         arrows: false,
