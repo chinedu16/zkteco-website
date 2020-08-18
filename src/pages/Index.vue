@@ -28,7 +28,7 @@
           >
         </div>
         <div class="features flex items-center justify-center">
-          <!-- <div
+          <div
             data-aos="zoom-in-down"
             class="customer-logos__content w-full md:w-10/12"
             id="menu_feature_carousel"
@@ -48,7 +48,7 @@
                 </g-image>
               </div>
             </VueSlickCarousel>
-          </div> -->
+          </div>
         </div>
       </div>
 
@@ -109,7 +109,7 @@
         </div>
       </section>
 
-      <!-- <LogoContainer :logoData="partners" /> -->
+      <LogoContainer :logoData="partners" />
     </div>
   </Layout>
 </template>
