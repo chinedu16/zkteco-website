@@ -33,7 +33,7 @@
             class="customer-logos__content w-full md:w-10/12"
             id="menu_feature_carousel"
           >
-            <VueSlickCarousel class="relative" :dots="true" v-bind="settings">
+            <VueSlickCarousel  v-bind="settings">
               <div v-for="feature in features" :key="feature.id">
                 <div class="feature-text">
                   <div class="icons"><Search /></div>
@@ -192,15 +192,7 @@ export default {
     SearchIcon,
     LogoContainer,
     Search,
-    VueSlickCarousel,
-    swiper: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiper)
-        .catch(),
-    swiperSlide: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiperSlide)
-        .catch(),
+    VueSlickCarousel
   },
   metaInfo: {
     title:
@@ -211,7 +203,7 @@ export default {
     return {
       settings_hero: {
         arrows: true,
-        autoplay: true,
+        // autoplay: true,
         speed: 1000,
         autoplaySpeed: 2000,
         cssEase: "linear",
@@ -388,36 +380,38 @@ export default {
 }
 
 .slick-initialized .slick-slide {
-  position: relative;
+  position: relative!important;
 }
 
 #menu_feature_carousel {
   .slick-slider {
-    .slick-dots {
-      li {
-        button {
-          &::before {
-            font-size: 26px;
-          }
-        }
-      }
-      .slick-active {
-        button {
-          &::before {
-            color: #82bb31;
-          }
-        }
-      }
-    }
+    // .slick-dots {
+    //   li {
+    //     button {
+    //       &::before {
+    //         font-size: 26px;
+    //       }
+    //     }
+    //   }
+    //   .slick-active {
+    //     button {
+    //       &::before {
+    //         color: #82bb31;
+    //       }
+    //     }
+    //   }
+    // }
     .slick-list {
-      .slick-track {
-        .slick-slide {
-          img {
-            object-fit: cover;
-            border-bottom: 10px solid #82bb31;
-          }
-        }
-      }
+      display: none!important;
+      // .slick-track {
+      //   .slick-slide {
+      //     position: relative!important;
+      //     img {
+      //       object-fit: cover;
+      //       border-bottom: 10px solid #82bb31;
+      //     }
+      //   }
+      // }
     }
   }
 }
