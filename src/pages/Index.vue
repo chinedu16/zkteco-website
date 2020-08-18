@@ -109,7 +109,7 @@
         </div>
       </section>
 
-      <LogoContainer :logoData="partners" />
+      <!-- <LogoContainer :logoData="partners" /> -->
     </div>
   </Layout>
 </template>
