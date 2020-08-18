@@ -1,20 +1,12 @@
 <template>
   <Layout>
     <div>
-      <div class="mt-24 lg:-mt-1">
-        <v-carousel
-          class=""
-          height="auto"
-          cycle
-          interval="4000"
-          hide-delimiters
-        >
-          <v-carousel-item
-            v-for="(item, i) in sliders"
-            :key="i"
-            :src="item.image.url"
-          ></v-carousel-item>
-        </v-carousel>
+      <div id="slide-container" class="mt-24 mb-12 lg:-mt-1">
+        <VueSlickCarousel class="w-full" v-bind="settings_hero">
+          <div v-for="(item, i) in sliders" :key="i">
+            <g-image :src="item.image.url"> </g-image>
+          </div>
+        </VueSlickCarousel>
       </div>
 
       <div class="container mt-6 md:block">
@@ -39,28 +31,23 @@
           <div
             data-aos="zoom-in-down"
             class="customer-logos__content w-full md:w-10/12"
+            id="menu_feature_carousel"
           >
-            <ClientOnly>
-              <swiper class="swiper" :options="swiperOption">
-                <swiper-slide
-                  class=""
-                  v-for="feature in features"
-                  :key="feature.id"
+            <VueSlickCarousel class="relative" :dots="true" v-bind="settings">
+              <div v-for="feature in features" :key="feature.id">
+                <div class="feature-text">
+                  <div class="icons"><Search /></div>
+                  <h1>{{ feature.title }}</h1>
+                </div>
+                <g-image
+                  class="white--text align-end"
+                  height="200px"
+                  style="border-bottom: 10px solid #82bb31;"
+                  :src="feature.src"
                 >
-                  <div class="feature-text">
-                    <div class="icons"><Search /></div>
-                    <h1>{{ feature.title }}</h1>
-                  </div>
-                  <g-image
-                    class="white--text align-end"
-                    height="200px"
-                    :src="feature.src"
-                  >
-                  </g-image>
-                </swiper-slide>
-                <div class="swiper-pagination" slot="pagination"></div>
-              </swiper>
-            </ClientOnly>
+                </g-image>
+              </div>
+            </VueSlickCarousel>
           </div>
         </div>
       </div>
@@ -182,6 +169,10 @@ query {
 import Logo from "@/components/Logo";
 import Search from "../components/Vectors/Call";
 import LogoContainer from "../components/LogosContainer";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 import {
   ArrowRightCircleIcon,
@@ -201,6 +192,7 @@ export default {
     SearchIcon,
     LogoContainer,
     Search,
+    VueSlickCarousel,
     swiper: () =>
       import("vue-awesome-swiper")
         .then((m) => m.swiper)
@@ -217,28 +209,25 @@ export default {
 
   data() {
     return {
-      swiperOption: {
-        slidesPerView: 3,
-
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
+      settings_hero: {
+        arrows: true,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+        slidesToShow: 1,
+        slidesToScroll: 1,
       },
-      items: [
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/sky.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/bird.jpg",
-        },
-        {
-          src: "https://cdn.vuetifyjs.com/images/carousel/planet.jpg",
-        },
-      ],
+      settings: {
+        arrows: false,
+        dots: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
+      },
+
       features: [
         {
           id: 1,
@@ -269,28 +258,6 @@ export default {
           id: 6,
           title: "Time Solution",
           src: require("../assets/Feature/High availability 1.png"),
-        },
-      ],
-      news: [
-        {
-          id: 1,
-          title: "BioTime 8.0",
-          src: require("../assets/News/Bio time 1.png"),
-        },
-        {
-          id: 2,
-          title: "ZKTeco North Africa amazing show-up at ICT Cairo",
-          src: require("../assets/News/North Africa 1.png"),
-        },
-        {
-          id: 3,
-          title: "John Che Chairman ZKTeco visits Indian Research Institute",
-          src: require("../assets/News/Chairman 1.png"),
-        },
-        {
-          id: 4,
-          title: "Blade 100100",
-          src: require("../assets/News/Bio time 1.png"),
         },
       ],
     };
@@ -344,7 +311,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .home-links a {
   margin-right: 1rem;
 }
@@ -385,7 +352,73 @@ export default {
   }
 }
 
-.v-responsive__content {
-  // height: 1100px !important;
+.slick-slide img {
+  width: inherit !important;
+  height: inherit;
+  object-fit: cover;
+}
+
+.slick-next {
+  right: 6rem;
+  @media only screen and (max-width: 600px) {
+    right: 0rem;
+  }
+  &::before {
+    color: #82bb31;
+    font-size: 5rem;
+    @media only screen and (max-width: 600px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.slick-prev {
+  left: 3rem;
+  z-index: 1000000;
+  @media only screen and (max-width: 600px) {
+    left: 0rem;
+  }
+  &::before {
+    color: #82bb31;
+    font-size: 5rem;
+    @media only screen and (max-width: 600px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.slick-initialized .slick-slide {
+  position: relative;
+}
+
+#menu_feature_carousel {
+  .slick-slider {
+    .slick-dots {
+      li {
+        button {
+          &::before {
+            font-size: 26px;
+          }
+        }
+      }
+      .slick-active {
+        button {
+          &::before {
+            color: #82bb31;
+          }
+        }
+      }
+    }
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          img {
+            object-fit: cover;
+            border-bottom: 10px solid #82bb31;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

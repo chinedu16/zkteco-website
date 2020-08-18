@@ -1,9 +1,6 @@
 <template>
   <SemiLayout>
-    <div
-      class="container px-12 py-5 lg:py-5 lg:px-10"
-      
-    >
+    <div class="container px-12 py-5 lg:py-5 lg:px-10">
       <section class="md:mb-20 flex justify-center">
         <div class="md:flex justify-between w-full max-w-screen-xxl">
           <div class="breadcrumb" @click="goBack">
@@ -15,43 +12,33 @@
       <section class="mt-6 mb-16  flex justify-center">
         <div class="md:flex justify-between w-full max-w-screen-xxl">
           <div class="md:w-6/12 mb-10 md:m-0">
-            <div class="thumb-example">
-              <!-- swiper1 -->
-              <ClientOnly>
-                <swiper
-                  class="swiper gallery-top"
-                  :options="swiperOptionTop"
-                  ref="swiperTop"
+            <div class="thumb-example" id="products_carousel">
+              <div id="navFor1">
+                <VueSlickCarousel
+                  ref="c1"
+                  :asNavFor="$refs.c2"
+                  :focusOnSelect="true"
                 >
-                  <swiper-slide v-for="image in product.images" :key="image.id">
-                    <img :src="image.url" :alt="image.name" />
-                  </swiper-slide>
-
-                  <div
-                    class="swiper-button-next swiper-button-black"
-                    slot="button-next"
-                  ></div>
-                  <div
-                    class="swiper-button-prev swiper-button-black"
-                    slot="button-prev"
-                  ></div>
-                </swiper>
-              </ClientOnly>
-              <!-- swiper2 Thumbs -->
-              <ClientOnly>
-                <swiper
-                  class="swiper gallery-thumbs thumb-swiper"
-                  :options="swiperOptionThumbs"
-                  ref="swiperThumbs"
+                  <div v-for="image in product.images" :key="image.id">
+                    <g-image :src="image.url" :alt="image.name"> </g-image>
+                  </div>
+                </VueSlickCarousel>
+              </div>
+              <div id="navFor2">
+                <VueSlickCarousel
+                  ref="c2"
+                  :asNavFor="$refs.c1"
+                  :slidesToShow="4"
+                  :focusOnSelect="true"
                 >
-                  <swiper-slide v-for="image in product.images" :key="image.id">
-                    <img :src="image.url" :alt="image.name" />
-                  </swiper-slide>
-                </swiper>
-              </ClientOnly>
+                  <div v-for="image in product.images" :key="image.id">
+                    <g-image :src="image.url" :alt="image.name"> </g-image>
+                  </div>
+                </VueSlickCarousel>
+              </div>
             </div>
           </div>
-          <div class=""  style="width: 40%;">
+          <div class="" style="width: 40%;">
             <h1
               data-aos="fade-left"
               data-aos-easing="ease-out-cubic"
@@ -194,6 +181,11 @@ import Twitter from "../components/Vectors/Twitter";
 import Linkedin from "../components/Vectors/Linkedin";
 import GooglePlus from "../components/Vectors/GooglePlus";
 
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
   components: {
     Office,
@@ -206,6 +198,7 @@ export default {
     Linkedin,
     GooglePlus,
     SemiLayout,
+    VueSlickCarousel,
     swiper: () =>
       import("vue-awesome-swiper")
         .then((m) => m.swiper)
@@ -383,6 +376,55 @@ a {
   }
   &.gallery-thumbs .swiper-slide-active {
     opacity: 1;
+  }
+}
+
+#products_carousel {
+  .slick-slider {
+    height: inherit;
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          img {
+            width: unset !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+#navFor1 {
+  .slick-slider {
+    height: inherit;
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          img {
+            width: 100% !important;
+            height: 326px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+#navFor2 {
+  .slick-slider {
+    height: inherit;
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          img {
+            width: unset !important;
+            height: 100px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
   }
 }
 </style>

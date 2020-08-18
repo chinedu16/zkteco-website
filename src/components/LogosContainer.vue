@@ -5,16 +5,16 @@
       data-aos-duration="3000"
       class="customer-logos flex items-center justify-center"
     >
-      <div class="customer-logos__content w-full lg:w-3/6   flex">
-        <ClientOnly>
-          <swiper class="swiper" :options="swiperOption">
-            <swiper-slide v-for="logo in logoData" :key="logo.name"
-              ><g-image class="white--text align-end" :src="logo.image.url">
-              </g-image>
-            </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
-          </swiper>
-        </ClientOnly>
+      <div
+        id="logos_carousel"
+        class="customer-logos__content w-full lg:w-3/12 flex"
+      >
+        <VueSlickCarousel class="w-full" :dots="true" v-bind="settings">
+          <div v-for="logo in logoData" :key="logo.name">
+            <g-image class="white--text align-end" :src="logo.image.url">
+            </g-image>
+          </div>
+        </VueSlickCarousel>
       </div>
     </div>
   </section>
@@ -23,19 +23,11 @@
 <script>
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   components: {
-    swiper: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiper)
-        .catch(),
-    swiperSlide: () =>
-      import("vue-awesome-swiper")
-        .then((m) => m.swiperSlide)
-        .catch(),
+    VueSlickCarousel,
   },
   props: {
     logoData: {
@@ -45,18 +37,35 @@ export default {
 
   data() {
     return {
-      swiperOption: {
-        autoplay: {
-          delay: 4000,
-        },
-        slidesPerView: 3,
-        spaceBetween: 50,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
+      settings: {
+        arrows: false,
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 2000,
+        cssEase: "linear",
       },
     };
   },
 };
 </script>
+
+<style lang="scss" scoped>
+
+#logos_carousel {
+  .slick-slider {
+    .slick-list {
+      .slick-track {
+        .slick-slide {
+          img {
+            width: unset !important;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

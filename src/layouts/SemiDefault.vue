@@ -21,15 +21,6 @@
         </main>
       </div>
 
-      <!-- <div v-if="hasSidebar" class="fixed bottom-0 right-0 z-50 p-8 lg:hidden">
-        <button
-          class="p-3 text-white rounded-full shadow-lg bg-ui-primary hover:text-white"
-          @click="sidebarOpen = !sidebarOpen"
-        >
-          <XIcon v-if="sidebarOpen" />
-          <MenuIcon v-else />
-        </button>
-      </div> -->
     </div>
   </v-app>
 </template>
@@ -43,14 +34,12 @@ query {
 </static-query>
 
 <script>
-import Sidebar from "@/components/Sidebar";
 import LayoutHeader from "../components/LayoutHeaderSemi";
 import Footer from "@/components/Footer";
 import { MenuIcon, XIcon } from "vue-feather-icons";
 
 export default {
   components: {
-    Sidebar,
     LayoutHeader,
     Footer,
     MenuIcon,
@@ -59,14 +48,8 @@ export default {
   data() {
     return {
       headerHeight: 0,
-      sidebarOpen: false,
       drawer: null,
     };
-  },
-  watch: {
-    sidebarOpen: function(isOpen) {
-      document.body.classList.toggle("overflow-hidden", isOpen);
-    },
   },
   methods: {
     setHeaderHeight() {
@@ -74,20 +57,6 @@ export default {
         this.headerHeight = this.$refs.header.offsetHeight;
       });
     },
-  },
-  computed: {
-    sidebarStyle() {
-      return {
-        top: this.headerHeight + "px",
-        height: `calc(100vh - ${this.headerHeight}px)`,
-      };
-    },
-    hasSidebar() {
-      return this.$page && this.headerHeight > 0;
-    },
-  },
-  mounted() {
-    this.setHeaderHeight();
   },
   metaInfo() {
     return {

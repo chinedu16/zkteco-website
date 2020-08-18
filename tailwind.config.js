@@ -6,7 +6,6 @@ module.exports = {
       colors: {
         ui: {
           background: 'var(--color-ui-background)',
-          sidebar: 'var(--color-ui-sidebar)',
           typo: 'var(--color-ui-typo)',
           primary: 'var(--color-ui-primary)',
           border: 'var(--color-ui-border)'

@@ -29,13 +29,11 @@ query {
 </static-query>
 
 <script>
-import Sidebar from "@/components/Sidebar";
 import LayoutHeader from "@/components/LayoutHeader";
 import Footer from "@/components/Footer";
 
 export default {
   components: {
-    Sidebar,
     LayoutHeader,
     Footer,
   },
