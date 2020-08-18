@@ -2,6 +2,7 @@
   "name": "my-project-1",
   "private": true,
   "scripts": {
+    "start": "node server.js",
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
