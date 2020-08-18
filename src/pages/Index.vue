@@ -203,9 +203,10 @@ export default {
     return {
       settings_hero: {
         arrows: true,
-        // autoplay: true,
+        autoplay: true,
         speed: 1000,
-        autoplaySpeed: 2000,
+        infinite: true,
+        autoplaySpeed: 5000,
         cssEase: "linear",
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -303,7 +304,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .home-links a {
   margin-right: 1rem;
 }
@@ -385,33 +386,32 @@ export default {
 
 #menu_feature_carousel {
   .slick-slider {
-    // .slick-dots {
-    //   li {
-    //     button {
-    //       &::before {
-    //         font-size: 26px;
-    //       }
-    //     }
-    //   }
-    //   .slick-active {
-    //     button {
-    //       &::before {
-    //         color: #82bb31;
-    //       }
-    //     }
-    //   }
-    // }
+    .slick-dots {
+      li {
+        button {
+          &::before {
+            font-size: 26px;
+          }
+        }
+      }
+      .slick-active {
+        button {
+          &::before {
+            color: #82bb31;
+          }
+        }
+      }
+    }
     .slick-list {
-      display: none!important;
-      // .slick-track {
-      //   .slick-slide {
-      //     position: relative!important;
-      //     img {
-      //       object-fit: cover;
-      //       border-bottom: 10px solid #82bb31;
-      //     }
-      //   }
-      // }
+      .slick-track {
+        .slick-slide {
+          position: relative!important;
+          img {
+            object-fit: cover;
+            border-bottom: 10px solid #82bb31;
+          }
+        }
+      }
     }
   }
 }
