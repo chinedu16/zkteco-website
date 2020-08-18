@@ -51,7 +51,7 @@
               </ClientOnly>
             </div>
           </div>
-          <div class="" style="width: 40%;">
+          <div class=""  style="width: 40%;">
             <h1
               data-aos="fade-left"
               data-aos-easing="ease-out-cubic"

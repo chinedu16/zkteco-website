@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <div class="headline md:-mt-24">
+    <div class="headline">
       <img
         class="w-full object-cover"
         style="height: 20rem"

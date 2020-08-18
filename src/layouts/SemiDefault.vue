@@ -2,13 +2,13 @@
   <v-app>
     <div class="font-sans antialiased text-ui-typo bg-ui-background">
       <div class="flex flex-col justify-start min-h-screen">
-        <!-- <header
+        <header
           ref="header"
           class="sticky top-0 z-10 w-full border-b bg-ui-background "
           @resize="setHeaderHeight"
         >
           <LayoutHeader />
-        </header> -->
+        </header>
 
         <main
           class="container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background"

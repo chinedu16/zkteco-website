@@ -11,10 +11,8 @@ import "swiper/dist/css/swiper.css";
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
     const Zopim = require("./zopim");
-    const VueAwesomeSwiper = require("vue-awesome-swiper")
     const AOS = require("aos");
     Vue.use(AOS.init({once: true}));
-    Vue.use(VueAwesomeSwiper)
     Vue.use(Zopim)
   }
 

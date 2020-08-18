@@ -1,6 +1,6 @@
 <template>
   <layout>
-    <div class="blogs-headline-image headline md:-mt-24" style="height: 20rem;">
+    <div class="blogs-headline-image headline" style="height: 20rem;">
       <div class="footer-image-overlay"></div>
     </div>
     <div class="container px-4 py-5 lg:py-5 lg:px-10">
