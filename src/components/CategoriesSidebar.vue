@@ -11,11 +11,11 @@
           :key="category.node.id"
           :to="`/category/${category.node.slug}`"
         >
-          <h6>
+          <h4>
             <g-link :to="`/category/${category.node.slug}`" class="hover">{{
               category.node.name
             }}</g-link>
-          </h6>
+          </h4>
           <span class="number-categories flex justify-center h-6 w-6">{{
             category.node.articles.length
           }}</span>
@@ -139,6 +139,7 @@ export default {
 <style lang="scss" scoped>
 .number-categories {
   background: gainsboro;
+  padding: 3px 12px;
 }
 
 /* Style the active class, and buttons on mouse-over */
@@ -187,5 +188,6 @@ export default {
   width: 81px !important;
   height: 81px !important;
   object-fit: cover;
+  border-radius: 9999%;
 }
 </style>

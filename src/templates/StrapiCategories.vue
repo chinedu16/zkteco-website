@@ -3,7 +3,8 @@
     <div class="blogs-headline-image headline" style="height: 20rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div class="breathing">
+    <div class="w-full flex justify-center align-center">
+      <div class="breathing">
       <section class="about-zk flex flex-col lg:flex-row justify-between">
         <div class=" lg:w-2/5"></div>
       </section>
@@ -51,6 +52,7 @@
           </div>
         </div>
       </section>
+    </div>
     </div>
   </layout>
 </template>

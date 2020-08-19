@@ -3,60 +3,51 @@
     <div class="product-headline-image headline" style="height: 28rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div
-      class=" breathing "
-      id=""
-      style="background: #f5f5f5;"
-
-    >
-      <section class="flex justify-center">
-        <div class="pro-search  w-full max-w-screen-xxl clearfix">
-          <img class="w-full" src="../assets/roadmap.png" alt="" />
-        </div>
-      </section>
-      <section class="mt-6 mb-6 flex justify-center">
-        <div class="product-cat__container w-full ">
-          <ProductSidebar toggle="true" />
-          <div class="rightside-product">
-            <div>
-              <div
-                class="rightside-product__item"
-              >
-                <div
-                  class="flex"
-                  v-for="product in productCategory.products"
-                  :key="product.id"
-                >
+    <div class="flex justify-center align-center w-full" style="background: #f5f5f5;">
+      <div class=" breathing" id="" style="background: #f5f5f5;">
+        <section class=" pt-4 flex justify-center">
+          <div class="pro-search  w-full max-w-screen-xxl clearfix">
+            <img class="w-full" src="../assets/roadmap.png" alt="" />
+          </div>
+        </section>
+        <section class="flex pb-12 pt-10 justify-center">
+          <div class="product-cat__container w-full ">
+            <ProductSidebar toggle="true" />
+            <div class="rightside-product">
+              <div>
+                <div class="rightside-product__item">
                   <div
-                    class="flex product-container "
+                    class="flex"
+                    v-for="product in productCategory.products"
+                    :key="product.id"
                   >
-                    <div class="h-32 product-image-container">
-                      <g-image
-                        class="w-full h-full object-contain"
-                        width="201"
-                        
-                        height="105"
-                        :src="product.images[0].url"
+                    <div class="flex product-container ">
+                      <div class="h-32 product-image-container">
+                        <g-image
+                          class="w-full h-full object-contain"
+                          width="201"
+                          height="105"
+                          :src="product.images[0].url"
+                        >
+                        </g-image>
+                      </div>
+                      <span class="label-new"
+                        ><img src="../assets/new.png" alt="BioTime 8.0"
+                      /></span>
+                      <g-link :to="`/product/${product.slug}`">
+                        <v-btn
+                          class="mt-8"
+                          style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
+                          >{{ product.name }}</v-btn
+                        >
+                      </g-link>
+                      <g-link class="more" :to="`/product/${product.slug}`"
+                        >Learn more</g-link
                       >
-                      </g-image>
                     </div>
-                    <span class="label-new"
-                      ><img src="../assets/new.png" alt="BioTime 8.0"
-                    /></span>
-                    <g-link :to="`/product/${product.slug}`">
-                      <v-btn
-                        class="mt-8"
-                        style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
-                        >{{ product.name }}</v-btn
-                      >
-                    </g-link>
-                    <g-link class="more" :to="`/product/${product.slug}`"
-                      >Learn more</g-link
-                    >
                   </div>
                 </div>
-              </div>
-              <!-- <div class="text-center">
+                <!-- <div class="text-center">
                 <v-pagination
                   color="#82BB31"
                   circle
@@ -64,10 +55,11 @@
                   :length="5"
                 ></v-pagination>
               </div> -->
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </layout>
 </template>
@@ -149,7 +141,7 @@ export default {
   text-align: center;
   margin-bottom: 20px;
   transition: all 0.5s;
-  padding: 40px;
+  padding: 20px;
   height: 309px;
 
   &:hover {

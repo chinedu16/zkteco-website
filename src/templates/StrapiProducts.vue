@@ -1,142 +1,144 @@
 <template>
   <SemiLayout>
-    <div class="container breathing" id="product-details">
-      <section class="">
-        <div class="">
-          <div class="breadcrumb" @click="goBack">
-            &lt; <g-link to="">Back</g-link>
-          </div>
-        </div>
-      </section>
-
-      <section class="  flex justify-center">
-        <div class="flex justify-between w-full max-w-screen-xxl">
+    <div class="flex justify-center align-center">
+      <div class="breathing" id="product-details">
+        <section class="">
           <div class="">
-            <div class="thumb-example" id="products_carousel">
-              <div id="navFor1">
-                <VueSlickCarousel
-                  ref="c1"
-                  :asNavFor="$refs.c2"
-                  :focusOnSelect="true"
-                >
-                  <div v-for="image in product.images" :key="image.id">
-                    <g-image :src="image.url" :alt="image.name"> </g-image>
-                  </div>
-                </VueSlickCarousel>
+            <div class="breadcrumb" @click="goBack">
+              &lt; <g-link to="">Back</g-link>
+            </div>
+          </div>
+        </section>
+
+        <section class="flex justify-center">
+          <div class="flex justify-between w-full">
+            <div class="">
+              <div class="thumb-example" id="products_carousel">
+                <div id="navFor1">
+                  <VueSlickCarousel
+                    ref="c1"
+                    :asNavFor="$refs.c2"
+                    :focusOnSelect="true"
+                  >
+                    <div v-for="image in product.images" :key="image.id">
+                      <g-image :src="image.url" :alt="image.name"> </g-image>
+                    </div>
+                  </VueSlickCarousel>
+                </div>
+                <div id="navFor2">
+                  <VueSlickCarousel
+                    ref="c2"
+                    :asNavFor="$refs.c1"
+                    :slidesToShow="4"
+                    :focusOnSelect="true"
+                  >
+                    <div v-for="image in product.images" :key="image.id">
+                      <g-image :src="image.url" :alt="image.name"> </g-image>
+                    </div>
+                  </VueSlickCarousel>
+                </div>
               </div>
-              <div id="navFor2">
-                <VueSlickCarousel
-                  ref="c2"
-                  :asNavFor="$refs.c1"
-                  :slidesToShow="4"
-                  :focusOnSelect="true"
-                >
-                  <div v-for="image in product.images" :key="image.id">
-                    <g-image :src="image.url" :alt="image.name"> </g-image>
-                  </div>
-                </VueSlickCarousel>
+            </div>
+            <div class="" style="width: 40%;">
+              <h1
+                data-aos="fade-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
+                {{ product.name }}
+              </h1>
+              <p
+                data-aos="fade-right"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="3000"
+                class="description"
+              >
+                {{ product.description }}
+              </p>
+
+              <div
+                data-aos="fade-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                class="share relative md:mt-10"
+              >
+                Share the Website to
+              </div>
+              <div
+                data-aos="fade-right"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                class="flex mt-5"
+              >
+                <g-link><Twitter color="#777" width="34" height="34"/></g-link>
+                <g-link class="ml-8"
+                  ><Facebook color="#777" width="34" height="34"
+                /></g-link>
+                <g-link class="ml-8"
+                  ><Linkedin color="#777" width="34" height="34"
+                /></g-link>
+                <g-link class="ml-8 hover"
+                  ><GooglePlus color="#777" width="34" height="34"
+                /></g-link>
               </div>
             </div>
           </div>
-          <div class="" style="width: 40%;">
-            <h1
-              data-aos="fade-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-            >
-              {{ product.name }}
-            </h1>
-            <p
-              data-aos="fade-right"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="3000"
-              class="description"
-            >
-              {{ product.description }}
-            </p>
+        </section>
 
-            <div
-              data-aos="fade-left"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="share relative md:mt-10"
-            >
-              Share the Website to
-            </div>
-            <div
-              data-aos="fade-right"
-              data-aos-easing="ease-out-cubic"
-              data-aos-duration="2000"
-              class="flex mt-5"
-            >
-              <g-link><Twitter color="#777" width="34" height="34"/></g-link>
-              <g-link class="ml-8"
-                ><Facebook color="#777" width="34" height="34"
-              /></g-link>
-              <g-link class="ml-8"
-                ><Linkedin color="#777" width="34" height="34"
-              /></g-link>
-              <g-link class="ml-8 hover"
-                ><GooglePlus color="#777" width="34" height="34"
-              /></g-link>
-            </div>
-          </div>
-        </div>
-      </section>
+        <section class="mt-32 flex xxl:justify-center">
+          <v-card class="max-w-screen-xxl w-full">
+            <v-tabs background-color="white" color="#78bc27">
+              <v-tab style="letter-spacing: 0px;" class="font-bold"
+                >Product Details</v-tab
+              >
+              <v-tab style="letter-spacing: 0px;" class="font-bold"
+                >Related Products</v-tab
+              >
+              <v-tab style="letter-spacing: 0px;" class="font-bold"
+                >Download</v-tab
+              >
 
-      <section class="mt-32 flex xxl:justify-center">
-        <v-card class="max-w-screen-xxl w-full">
-          <v-tabs background-color="white" color="#78bc27">
-            <v-tab style="letter-spacing: 0px;" class="font-bold"
-              >Product Details</v-tab
-            >
-            <v-tab style="letter-spacing: 0px;" class="font-bold"
-              >Related Products</v-tab
-            >
-            <v-tab style="letter-spacing: 0px;" class="font-bold"
-              >Download</v-tab
-            >
-
-            <v-tab-item :key="1" class="mt-10">
-              <v-container fluid>
-                <v-row>
-                  <p v-html="product.product_details"></p>
-                </v-row>
-              </v-container>
-            </v-tab-item>
-            <v-tab-item :key="2" class="mt-10">
-              <v-container fluid>
-                <v-row>
-                  <v-col cols="12" sm="6" md="3" v-for="n in 6" :key="n">
-                    <g-image height="200px" src="../assets/Product/D2S 1.png">
-                    </g-image>
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-tab-item>
-            <v-tab-item :key="3" class="mt-10">
-              <v-container fluid>
-                <v-row
-                  class="border-b mb-5"
-                  v-for="download in product.downloads"
-                  :key="download.id"
-                >
-                  <div class="flex w-5/12 justify-between">
-                    <div class="flex">
-                      <Pdf />
-                      <h4 class="ml-4">{{ download.name }}</h4>
+              <v-tab-item :key="1" class="mt-10">
+                <v-container fluid>
+                  <v-row>
+                    <p v-html="product.product_details"></p>
+                  </v-row>
+                </v-container>
+              </v-tab-item>
+              <v-tab-item :key="2" class="mt-10">
+                <v-container fluid>
+                  <v-row>
+                    <v-col cols="12" sm="6" md="3" v-for="n in 6" :key="n">
+                      <g-image height="200px" src="../assets/Product/D2S 1.png">
+                      </g-image>
+                    </v-col>
+                  </v-row>
+                </v-container>
+              </v-tab-item>
+              <v-tab-item :key="3" class="mt-10">
+                <v-container fluid>
+                  <v-row
+                    class="border-b mb-5"
+                    v-for="download in product.downloads"
+                    :key="download.id"
+                  >
+                    <div class="flex w-5/12 justify-between">
+                      <div class="flex">
+                        <Pdf />
+                        <h4 class="ml-4">{{ download.name }}</h4>
+                      </div>
+                      <div class="flex ml-5">
+                        <span class="mr-5">{{ download.file[0].size }}MB</span>
+                        <Download />
+                      </div>
                     </div>
-                    <div class="flex ml-5">
-                      <span class="mr-5">{{ download.file[0].size }}MB</span>
-                      <Download />
-                    </div>
-                  </div>
-                </v-row>
-              </v-container>
-            </v-tab-item>
-          </v-tabs>
-        </v-card>
-      </section>
+                  </v-row>
+                </v-container>
+              </v-tab-item>
+            </v-tabs>
+          </v-card>
+        </section>
+      </div>
     </div>
   </SemiLayout>
 </template>
@@ -372,8 +374,7 @@ a {
   }
 }
 
-
 #product-details {
-  margin-top: 6rem;
+  margin-top: 9rem;
 }
 </style>

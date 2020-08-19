@@ -1,28 +1,30 @@
 <template>
   <div id="header-main" class="border-ui-primary">
-    <div class=" globalnavcontainer">
+    <div class="globalnavcontainer">
       <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
         id="globalnavtop"
-        class="header-fixed-top breathing header-trans-top flex"
+        class="header-fixed-top  header-trans-top flex"
       >
-        <g-link to="/about" class="px-4 hover">About us </g-link>
-        |
-        <g-link to="/category/events" class="px-4 hover"> News Center </g-link>|
-        <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
-        <g-link class="pl-2 pr-2 hover">
-          <World class="mr-2" /> Region/Language |</g-link
-        >
-        <g-link class="pl-2 pr-2 hover">Login</g-link>
-        <g-link class="pl-2 pr-2 hover">Register</g-link>
-        <ToggleDarkMode class="ml-2 hover sm:ml-8">
-          <template slot="default" slot-scope="{ dark }">
-            <MoonIcon v-if="dark" size="1.5x" />
-            <SunIcon v-else size="1.5x" />
-          </template>
-        </ToggleDarkMode>
+        <div class="breathing">
+          <g-link to="/about" class="px-4 hover">About us </g-link>
+          |
+          <g-link to="/category/events" class="px-4 hover"> News Center </g-link
+          >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
+          <g-link class="pl-2 pr-2 hover">
+            <World class="mr-2" /> Region/Language |</g-link
+          >
+          <g-link class="pl-2 pr-2 hover">Login</g-link>
+          <g-link class="pl-2 pr-2 hover">Register</g-link>
+          <ToggleDarkMode class="ml-2 hover sm:ml-8">
+            <template slot="default" slot-scope="{ dark }">
+              <MoonIcon v-if="dark" size="1.5x" />
+              <SunIcon v-else size="1.5x" />
+            </template>
+          </ToggleDarkMode>
+        </div>
       </div>
 
       <div class="globalnav breathing header-fixed" id="globalnav">
@@ -35,10 +37,7 @@
           <g-link to="/" title="Home">
             <Logo :width="40" color1="white" />
           </g-link>
-          <div
-            class="top-navbar logo-menu__menu"
-            id="navigation"
-          >
+          <div class="top-navbar logo-menu__menu" id="navigation">
             <div class="flex items-start ml-5 navigation-dropdown">
               <v-menu open-on-hover offset-y>
                 <template v-slot:activator="{ on, attrs }">
@@ -109,7 +108,6 @@
           />
           <button type="submit" class=""></button>
         </div>
-
 
         <button
           class="hamburger-header"

@@ -1,37 +1,40 @@
 <template>
   <SemiLayout>
-    <div class="container px-4 py-5 lg:py-5 lg:px-10">
-      <section class="mt-24 md:mt-0 about-zk">
-        <div class="-mb-8 -mr-1 flex align-cente justify-center" >
-          <div class="w-full max-w-screen-xxl flex flex-col lg:flex-row ">
-            <div class="">
-              <div
-                class="contact-box w-full"
-              >
-                <div>
-                  <div
-                    v-for="item in contact"
-                    :key="item.id"
-                    data-aos="fade-left"
-                    data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000"
-                    class="flex mb-7 "
-                  >
-                    <Office />
-                    <div class="ml-6">
-                      <div class="font-bold text-xl">{{ item.name }}:</div>
-                      <span>{{ item.description }}</span>
+    <div class="flex align-center justify-center">
+      <div class="breathing">
+        <section class="contact-zk">
+          <div class="flex align-center justify-center">
+            <div class="w-full justify-between contact_container flex ">
+              <div class="contact-right flex">
+                <div class="flex justify-center align-center">
+                  <div class="contact-box w-full">
+                    <div>
+                      <div
+                        v-for="item in contact"
+                        :key="item.id"
+                        data-aos="fade-left"
+                        data-aos-easing="ease-out-cubic"
+                        data-aos-duration="2000"
+                        class="flex mb-7 "
+                      >
+                        <Office />
+                        <div class="ml-6">
+                          <div class="font-bold text-xl">{{ item.name }}:</div>
+                          <span>{{ item.description }}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="xl:m-0">
-              <g-image src="../assets/map-image.png"> </g-image>
+              <div class="contact-left">
+                <g-image src="../assets/map-image.png" class="w-full">
+                </g-image>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   </SemiLayout>
 </template>
@@ -78,9 +81,20 @@ export default {
 
 <style lang="scss" scoped>
 .contact-box {
-  left: 25%;
-  top: 13%;
   background: #1a130c;
   border-radius: 0px 70px 70px 0px;
+  padding: 40px;
+  color: white;
+  width: 80%;
+}
+
+.contact_container {
+  .contact-right {
+    width: 40%;
+  }
+
+  .contact-left {
+    width: 60%;
+  }
 }
 </style>
