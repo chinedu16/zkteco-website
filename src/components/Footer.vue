@@ -2,8 +2,8 @@
   <section id="footer-main" class="footer-main w-full  b-0">
     <div class="footer-image">
       <div class="footer-image-overlay">
-        <div class="flex h-full align-center">
-          <div class="footer-icon-container w-full">
+        <div class="flex justify-center h-full align-center">
+          <div class="footer-icon-container breathing w-full">
             <h2 class="mb-10" data-aos="fade-down" data-aos-duration="3000">
               Learn how ZKTeco helps you
             </h2>

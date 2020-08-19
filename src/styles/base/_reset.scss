@@ -1,5 +1,6 @@
 .v-application {
-  font-family: 'Lato'!important;
+  font-family: "Lato" !important;
+  color: #484748 !important;
 }
 
 .container {
@@ -8,17 +9,16 @@
 }
 
 .v-application {
-
   .primary {
     background-color: $base_color !important;
     border-color: unset !important;
   }
-	.px-4 {
-		padding-right: 0px;
+  .px-4 {
+    padding-right: 0px;
     padding-left: 0px;
-	}
+  }
   ul {
-    padding-left: 0px;
+    padding-left: 0px!important;
   }
   .py-5 {
     padding-top: 0px;
@@ -58,8 +58,7 @@
   .v-card {
     padding: 0px !important;
     border: none;
-    box-shadow: none!important;
-
+    box-shadow: none !important;
 
     .image-hover-zoom {
       overflow: hidden;
@@ -104,11 +103,11 @@
         }
       }
       .swiper-pagination-bullet {
-        width: 20px!important;
-        height: 20px!important;
+        width: 20px !important;
+        height: 20px !important;
       }
       .swiper-pagination-bullet-active {
-        background: $base_color!important;
+        background: $base_color !important;
       }
     }
   }
@@ -122,11 +121,11 @@
       }
 
       .swiper-pagination-bullet {
-        width: 10px!important;
-        height: 10px!important;
+        width: 10px !important;
+        height: 10px !important;
       }
       .swiper-pagination-bullet-active {
-        background: $base_color!important;
+        background: $base_color !important;
       }
     }
   }
@@ -168,12 +167,11 @@
 }
 
 .text-color-zkteco-green {
-  color: $base_color!important;
+  color: $base_color !important;
 }
 
-
 .display-none {
-	display: none!important;
+  display: none !important;
 }
 
 .border-page {
@@ -182,26 +180,24 @@
   border-radius: 5px;
 }
 
-
 .hover {
   transition: all 0.4s;
   &:hover {
     .v-btn__content {
-      color: $base_color!important;
+      color: $base_color !important;
     }
-    
   }
 }
 
 .hover {
   transition: all 0.4s;
   &:hover {
-    color: $base_color!important;
+    color: $base_color !important;
   }
 }
 
 .v-pagination__item--active {
-  background: $base_color!important;
+  background: $base_color !important;
 }
 
 .max-w-screen-xxl {
@@ -214,7 +210,7 @@
 
 .breadcrumb {
   &:hover {
-    color: $base_color!important;
+    color: $base_color !important;
   }
 }
 
@@ -224,6 +220,10 @@
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .position-fixed {
@@ -242,10 +242,49 @@
   bottom: 0;
 }
 
-// position: fixed;
-//     left: 0;
-//     bottom: 0;
-//     width: 100%;
-//     background-color: red;
-//     color: white;
-//     text-align: center;
+#news-container__section {
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+
+  .news-container {
+    
+    @include mq(md) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 40px;
+    }
+    .news-container__item {
+    }
+  }
+}
+
+
+
+
+#feature_container {
+  display: none;
+  @include mq(md) {
+    display: block;
+  }
+}
+
+
+
+
+.product-cat__container {
+  display: grid;
+  @include mq(md) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rightside-product {
+    .rightside-product__item {
+      display: grid;
+      @include mq(md) {
+        display: flex;
+      }
+    }
+  }
+}
+

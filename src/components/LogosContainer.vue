@@ -1,13 +1,13 @@
 <template>
-  <section class="h-42 mt-20 mb-10 px-4 py-5 lg:py-5 lg:px-10 ">
+  <section id="customer__logo" class="breathing">
     <div
       data-aos="zoom-in"
       data-aos-duration="3000"
       class="customer-logos flex items-center justify-center"
     >
       <div
-        id="logos_carousel"
-        class="customer-logos__content w-full lg:w-3/12 flex"
+        id=""
+        class="logos_carousel customer-logos__content w-full flex"
       >
         <VueSlickCarousel class="w-full" :dots="true" v-bind="settings">
           <div v-for="logo in logoData" :key="logo.name">
@@ -50,14 +50,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-#logos_carousel {
-  .slick-slider {
-    .slick-list {
-      .slick-track {
-        .slick-slide {
-          img {
-            width: unset !important;
+#customer__logo {
+  margin-bottom: 6rem;
+  margin-top: 6rem;
+  .logos_carousel {
+    width: 500px;
+    .slick-slider {
+      .slick-list {
+        .slick-track {
+          .slick-slide {
+            img {
+              width: unset !important;
+              height: 84px;
+              object-fit: cover;
+            }
           }
         }
       }

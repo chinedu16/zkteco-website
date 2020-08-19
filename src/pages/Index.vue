@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div>
-      <div id="slide-container" class="mt-24 mb-12 lg:-mt-1">
+      <div id="slide-container" class="">
         <VueSlickCarousel v-bind="settings_hero">
           <div v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>
@@ -9,16 +9,16 @@
         </VueSlickCarousel>
       </div>
 
-      <div class="container breathing">
-        <h1
+      <div id="feature_container" class="container breathing">
+        <h2
           class="text-center text-3xl"
           data-aos="fade-up"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="2000"
         >
           ZKTeco Insight into the Market
-        </h1>
-        <div class="index-ms text-center my-10">
+        </h2>
+        <div class="index-ms text-center my-5">
           <span
             style="font-size:18px;"
             data-aos="fade-down"
@@ -59,11 +59,10 @@
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
-                class="news_container__item"
                 v-for="article in articles"
                 :key="article.id"
               >
-                <v-card class="pa-2  img-hover-zoom--brightness" outlined tile>
+                <v-card class=" img-hover-zoom--brightness">
                   <div class="image-hover-zoom">
                     <g-image
                       class="white--text align-end hover g-image-grow"
@@ -73,11 +72,9 @@
                     </g-image>
                   </div>
 
-                  <div class="flex items-center justify-center relative">
-                    <div
-                      class="w-10/12 h-40 cursor-pointer shadow absolute bg-white"
-                    >
-                      <div class="h-full relative">
+                  <div class="relative">
+                    <div class="news-card__">
+                      <div class="news-card__tile">
                         <g-link
                           class="hover-box"
                           :to="`/blog/${article.node.slug}`"
@@ -203,10 +200,13 @@ export default {
       settings_hero: {
         dotsClass: "slick-dots custom-dot-class",
         edgeFriction: 0.35,
-        infinite: false,
-        speed: 500,
+        infinite: true,
+        autoplay: true,
         slidesToShow: 1,
         slidesToScroll: 1,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        cssEase: "linear"
       },
       settings: {
         arrows: false,
@@ -354,9 +354,9 @@ export default {
       }
     }
     .slick-next {
-      right: 6rem;
+      right: 5rem;
       @media only screen and (max-width: 600px) {
-        right: 0rem;
+        right: 1rem;
       }
       &::before {
         color: #82bb31;
@@ -368,7 +368,7 @@ export default {
     }
 
     .slick-prev {
-      left: 3rem;
+      left: 1rem;
       z-index: 1000000;
       @media only screen and (max-width: 600px) {
         left: 0rem;
@@ -418,15 +418,26 @@ export default {
   }
 }
 
-#news-container__section {
-  margin-bottom: 4rem;
-  margin-top: 4rem;
+.news-card__ {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .news-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    .news-container__item {
+.news-card__tile {
+  width: 74%;
+  height: 141px;
+  background: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: absolute;
+
+  a {
+    position: relative;
+
+    .v-card__actions {
+      position: absolute;
+      top: 6rem;
     }
   }
 }

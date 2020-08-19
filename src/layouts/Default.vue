@@ -5,10 +5,7 @@
       <div class="w-full pb-1">
         <slot />
       </div>
-      <!-- <Footer /> -->
       <Footer />
-
-      <!-- End of Mobile Navigation Bar -->
     </v-content>
   </v-app>
 </template>
@@ -40,6 +37,7 @@ export default {
 .v-application {
   a {
     color: inherit !important;
+    text-decoration: none;
   }
 
   .theme--light.v-list {
@@ -49,6 +47,9 @@ export default {
 
   .theme--light.v-btn {
     color: white !important;
+    letter-spacing: 0px;
+    font-size: 16px;
+    text-transform: inherit;
     &:hover {
       color: #78bc27 !important;
     }

@@ -4,22 +4,23 @@
       <div class="footer-image-overlay"></div>
     </div>
     <div
-      class="container breathing "
+      class=" breathing "
+      id=""
       style="background: #f5f5f5;"
 
     >
       <section class="flex justify-center">
         <div class="pro-search  w-full max-w-screen-xxl clearfix">
-          <img src="../assets/roadmap.png" alt="" />
+          <img class="w-full" src="../assets/roadmap.png" alt="" />
         </div>
       </section>
-      <section class="mt-6 flex justify-center">
-        <div class="flex w-full max-w-screen-xxl justify-between">
+      <section class="mt-6 mb-6 flex justify-center">
+        <div class="product-cat__container w-full ">
           <ProductSidebar toggle="true" />
           <div class="rightside-product">
             <div>
               <div
-                class="flex"
+                class="rightside-product__item"
               >
                 <div
                   class="flex"

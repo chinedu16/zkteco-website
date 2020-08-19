@@ -1,6 +1,6 @@
 <template>
   <div id="header-main" class="border-ui-primary">
-    <div class="container globalnavcontainer">
+    <div class="globalnavcontainer">
       <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"

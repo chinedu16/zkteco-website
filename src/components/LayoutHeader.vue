@@ -1,6 +1,6 @@
 <template>
   <div id="header-main" class="border-ui-primary">
-    <div class="container globalnavcontainer">
+    <div class=" globalnavcontainer">
       <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
@@ -36,7 +36,7 @@
             <Logo :width="40" color1="white" />
           </g-link>
           <div
-            class=" top-navbar"
+            class="top-navbar logo-menu__menu"
             id="navigation"
           >
             <div class="flex items-start ml-5 navigation-dropdown">
@@ -260,7 +260,7 @@ export default {
         myHeaderTop ? myHeaderTop.classList.add("header-trans-top") : null;
       } else {
         myHeader ? myHeader.classList.remove("header-trans") : null;
-        // myHeaderTop.classList.remove("header-trans-top");
+        myHeaderTop ? myHeaderTop.classList.remove("header-trans-top") : null;
       }
     };
   },
@@ -275,6 +275,11 @@ export default {
 .search-input {
   color: #78bc27;
   border: 1px solid #78bc27;
+  border-radius: 5px;
+  height: 40px;
+  overflow: hidden;
+  padding: 0px 10px;
+  width: 223px;
 }
 .v-application {
   .v-menu__content {
