@@ -11,8 +11,8 @@
         </section>
 
         <section class="flex justify-center">
-          <div class="flex justify-between w-full">
-            <div class="">
+          <div class="product-carousel-container justify-between w-full">
+            <div class="product-images left-product" >
               <div class="thumb-example" id="products_carousel">
                 <div id="navFor1">
                   <VueSlickCarousel
@@ -29,7 +29,7 @@
                   <VueSlickCarousel
                     ref="c2"
                     :asNavFor="$refs.c1"
-                    :slidesToShow="4"
+                    :slidesToShow="3"
                     :focusOnSelect="true"
                   >
                     <div v-for="image in product.images" :key="image.id">
@@ -39,7 +39,7 @@
                 </div>
               </div>
             </div>
-            <div class="" style="width: 40%;">
+            <div class="right-product">
               <h1
                 data-aos="fade-left"
                 data-aos-easing="ease-out-cubic"
@@ -85,7 +85,7 @@
           </div>
         </section>
 
-        <section class="mt-32 flex xxl:justify-center">
+        <section class="mt-10 flex">
           <v-card class="max-w-screen-xxl w-full">
             <v-tabs background-color="white" color="#78bc27">
               <v-tab style="letter-spacing: 0px;" class="font-bold"
@@ -377,4 +377,5 @@ a {
 #product-details {
   margin-top: 9rem;
 }
+
 </style>

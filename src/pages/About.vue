@@ -11,7 +11,7 @@
     <div class="flex justify-center align-center">
       <div class="breathing ">
         <section class="about-zk flex justify-center " id="about-zk">
-          <div class="flex w-full service justify-between">
+          <div class="w-full service justify-between">
             <div class="left-service">
               <div data-aos="fade-right" data-aos-duration="3000">
                 <div class="header-title">{{ about.title }}</div>
@@ -67,14 +67,14 @@
               Our Mission
             </div>
 
-            <div class="flex justify-between mt-10 ">
+            <div class="mission justify-between mt-10 ">
               <div
                 data-aos="fade-right"
                 data-aos-duration="3000"
-                class="lg:w-2/4"
+                class="left-mission"
               >
                 <g-image
-                  class="h-full object-cover"
+                  class="h-full w-full object-cover"
                   :src="about.our_missioin.image.url"
                 >
                 </g-image>
@@ -83,8 +83,8 @@
               <div
                 data-aos="fade-left"
                 data-aos-duration="3000"
-                class=""
-                style="width: 41%;"
+                class="right-mission"
+                
               >
                 <p>{{ about.our_missioin.description }}</p>
               </div>
@@ -191,22 +191,6 @@ export default {
   align-items: center;
 }
 
-.team-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  .team-container__item {
-    flex-direction: column;
-  }
-}
 
-#about-zk {
-  .service {
-    .left-service {
-      width: 60%;
-    }
 
-    .right-service {
-    }
-  }
-}
 </style>

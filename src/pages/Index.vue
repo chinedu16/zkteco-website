@@ -1,59 +1,72 @@
 <template>
   <Layout>
     <div>
-      <div id="slide-container" class="">
-        <VueSlickCarousel v-bind="settings_hero">
+      <div id="slide-container">
+        <VueSlickCarousel
+          :edgeFriction="0.35"
+          :slidesToShow="1"
+          :slidesToScroll="1"
+          :autoplay="true"
+          :cssEase="linear"
+          :speed="2000"
+          :autoplaySpeed="4000"
+          :infinite="true"
+        >
           <div v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>
           </div>
         </VueSlickCarousel>
       </div>
 
-      <div id="feature_container" class="container breathing">
-        <h2
-          class="text-center text-3xl"
-          data-aos="fade-up"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
-        >
-          ZKTeco Insight into the Market
-        </h2>
-        <div class="index-ms text-center my-5">
-          <span
-            style="font-size:18px;"
-            data-aos="fade-down"
-            data-aos-easing="ease-out-cubic"
-            data-aos-duration="2000"
-            >Hybrid Biometric. Smart Security</span
-          >
-        </div>
-        <div class="features flex items-center justify-center">
-          <div
-            class="customer-logos__content w-full md:w-10/12"
-            id="menu_feature_carousel"
-          >
-            <VueSlickCarousel v-bind="settings">
-              <div v-for="feature in features" :key="feature.id">
-                <div class="feature-text">
-                  <div class="icons"><Search /></div>
-                  <h1>{{ feature.title }}</h1>
-                </div>
-                <g-image
-                  class="white--text align-end"
-                  height="200px"
-                  style="border-bottom: 10px solid #82bb31;"
-                  :src="feature.src"
-                >
-                </g-image>
+      <div id="feature_container" class="">
+        <div class="flex justify-center align-center">
+          <div class="breathing w-full ">
+            <h2
+              class="text-center text-3xl"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+            >
+              ZKTeco Insight into the Market
+            </h2>
+            <div class="index-ms text-center my-5">
+              <span
+                style="font-size:18px;"
+                data-aos="fade-down"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+                >Hybrid Biometric. Smart Security</span
+              >
+            </div>
+            <div class="features flex items-center justify-center">
+              <div
+                class="customer-logos__content w-full md:w-10/12"
+                id="menu_feature_carousel"
+              >
+                <VueSlickCarousel v-bind="settings">
+                  <div v-for="feature in features" :key="feature.id">
+                    <div class="feature-text">
+                      <div class="icons"><Search /></div>
+                      <h1>{{ feature.title }}</h1>
+                    </div>
+                    <g-image
+                      class="white--text align-end"
+                      height="200px"
+                      style="border-bottom: 10px solid #82bb31;"
+                      :src="feature.src"
+                    >
+                    </g-image>
+                  </div>
+                </VueSlickCarousel>
               </div>
-            </VueSlickCarousel>
+            </div>
           </div>
         </div>
       </div>
 
-      <section class="w-full breathing" id="news-container__section">
+      <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
-          <div class="w-full max-w-screen-xxl">
+          <div class="w-full breathing">
             <h1 class="md:px-12 lg:px-10" data-aos="fade-left">News Center</h1>
 
             <div class="news-container">
@@ -206,7 +219,7 @@ export default {
         slidesToScroll: 1,
         speed: 2000,
         autoplaySpeed: 2000,
-        cssEase: "linear"
+        cssEase: "linear",
       },
       settings: {
         arrows: false,
@@ -336,51 +349,6 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-  }
-}
-
-#slide-container {
-  .slick-slider {
-    .slick-list {
-      .slick-track {
-        .slick-slide {
-          position: relative !important;
-          img {
-            object-fit: cover;
-            width: inherit !important;
-            height: inherit;
-          }
-        }
-      }
-    }
-    .slick-next {
-      right: 5rem;
-      @media only screen and (max-width: 600px) {
-        right: 1rem;
-      }
-      &::before {
-        color: #82bb31;
-        font-size: 5rem;
-        @media only screen and (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-    }
-
-    .slick-prev {
-      left: 1rem;
-      z-index: 1000000;
-      @media only screen and (max-width: 600px) {
-        left: 0rem;
-      }
-      &::before {
-        color: #82bb31;
-        font-size: 5rem;
-        @media only screen and (max-width: 600px) {
-          font-size: 2rem;
-        }
-      }
-    }
   }
 }
 

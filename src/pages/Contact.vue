@@ -4,7 +4,7 @@
       <div class="breathing">
         <section class="contact-zk">
           <div class="flex align-center justify-center">
-            <div class="w-full justify-between contact_container flex ">
+            <div class="w-full justify-between contact_container ">
               <div class="contact-right flex">
                 <div class="flex justify-center align-center">
                   <div class="contact-box w-full">
@@ -80,21 +80,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.contact-box {
-  background: #1a130c;
-  border-radius: 0px 70px 70px 0px;
-  padding: 40px;
-  color: white;
-  width: 80%;
-}
 
-.contact_container {
-  .contact-right {
-    width: 40%;
-  }
-
-  .contact-left {
-    width: 60%;
-  }
-}
 </style>

@@ -63,7 +63,7 @@ export default {
 }
 
 input {
-  border-style: solid !important;
+  // border-style: solid !important;
 }
 
 .v-btn {

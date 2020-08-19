@@ -263,7 +263,5 @@ export default {
   color: #82bb31 !important;
 }
 
-.v-application .primary--text {
-  color: #82bb31 !important;
-}
+
 </style>

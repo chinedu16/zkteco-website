@@ -4,7 +4,7 @@
     <div class="flex justify-center align-center">
       <div class="breathing">
         <section class="flex justify-center">
-          <div class="" id="categories-blogs">
+          <div class="" id="categories-blogs-details">
             <CategoriesSidebar class="article__sidebar" />
             <div class="w-full article__item rightside-article">
               <div class="border">
@@ -36,6 +36,7 @@
                 </div>
 
                 <div class="mt-10">
+                  
                   <div class="flex mb-7 justify-between align-center">
                     <g-image
                       src="../assets/North Africa 1.png"
@@ -43,7 +44,7 @@
                       width="71"
                       height="71"
                     ></g-image>
-                    <div class="border">
+                    <div class="border py-3 px-7 ml-10">
                       <h5 class="text-bold">Sarah Bright</h5>
                       <span>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -206,20 +207,13 @@ export default {
   }
 }
 
-#categories-blogs {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10rem;
-  margin-bottom: 3rem;
-  .article__sidebar {
-    width: 30%;
-  }
-  .article__item {
-    width: 66%;
-  }
-}
+
 
 .article-body {
   padding: 40px;
+}
+
+.theme--light.v-input:not(.v-input--is-disabled) input{
+  color:#fff;
 }
 </style>

@@ -9,7 +9,7 @@
         <div class=" lg:w-2/5"></div>
       </section>
       <section >
-        <div id="categories-blogs" class="flex w-full max-w-screen-xxl">
+        <div id="categories-blogs" class=" w-full max-w-screen-xxl">
           <CategoriesSidebar class="article__sidebar" />
           <div class="w-full article__item">
             <div>
@@ -173,15 +173,5 @@ export default {
   }
 }
 
-#categories-blogs {
-  justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  .article__sidebar {
-    width: 30%;
-  }
-  .article__item {
-    width: 60%;
-  }
-}
+
 </style>

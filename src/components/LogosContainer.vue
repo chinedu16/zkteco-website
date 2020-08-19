@@ -1,5 +1,5 @@
 <template>
-  <section id="customer__logo" class="breathing">
+  <section id="customer__logo" class="container breathing">
     <div
       data-aos="zoom-in"
       data-aos-duration="3000"

@@ -6,118 +6,134 @@
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
         id="globalnavtop"
-        class="header-fixed-top breathing header-trans-top flex"
+        class="header-fixed-top header-trans-top flex"
       >
-        <g-link to="/about" class="px-4 hover">About us </g-link>
-        |
-        <g-link to="/category/events" class="px-4 hover"> News Center </g-link>|
-        <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
-        <g-link class="pl-2 pr-2 hover">
-          <World class="mr-2" /> Region/Language |</g-link
-        >
-        <g-link class="pl-2 pr-2 hover">Login</g-link>
-        <g-link class="pl-2 pr-2 hover">Register</g-link>
-        <ToggleDarkMode class="ml-2 hover sm:ml-8">
-          <template slot="default" slot-scope="{ dark }">
-            <MoonIcon v-if="dark" size="1.5x" />
-            <SunIcon v-else size="1.5x" />
-          </template>
-        </ToggleDarkMode>
-      </div>
-
-      <div class="globalnav breathing header-trans header-fixed" id="">
-        <div
-          data-aos="fade-right"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="2000"
-          class="flex logo-menu"
-        >
-          <g-link to="/" title="Home">
-            <Logo :width="40" color1="white" />
-          </g-link>
-          <div
-            class=" top-navbar"
-            id="navigation"
-          >
-            <div class="flex items-start ml-5 navigation-dropdown">
-              <v-menu open-on-hover offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    class="tracking-normal normal-case text-base"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    Product
-                  </v-btn>
+        <div class="flex justify-center align-center w-full">
+          <div class="breathing w-full">
+            <div class="flex" style="justify-content: flex-end;">
+              <g-link to="/about" class="px-4 hover">About us </g-link>
+              |
+              <g-link to="/category/events" class="px-4 hover">
+                News Center </g-link
+              >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
+              <g-link class="pl-2 pr-2 hover">
+                <World class="mr-2" /> Region/Language |</g-link
+              >
+              <g-link class="pl-2 pr-2 hover">Login</g-link>
+              <g-link class="pl-2 pr-2 hover">Register</g-link>
+              <ToggleDarkMode class="ml-2 hover sm:ml-8">
+                <template slot="default" slot-scope="{ dark }">
+                  <MoonIcon v-if="dark" size="1.5x" />
+                  <SunIcon v-else size="1.5x" />
                 </template>
-
-                <v-list>
-                  <v-list-item v-for="(item, index) in products" :key="index">
-                    <g-link :to="`/product-categories/${item.node.slug}`">
-                      <v-list-item-title>{{
-                        item.node.name
-                      }}</v-list-item-title>
-                    </g-link>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-              <v-menu open-on-hover offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    class="tracking-normal normal-case text-base"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    Solution
-                  </v-btn>
-                </template>
-
-                <v-list>
-                  <v-list-item v-for="(item, index) in solution" :key="index">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-
-              <v-menu open-on-hover offset-y>
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    class="tracking-normal normal-case text-base"
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    Support
-                  </v-btn>
-                </template>
-
-                <v-list>
-                  <v-list-item v-for="(item, index) in support" :key="index">
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+              </ToggleDarkMode>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="search-header relative">
-          <input
-            class="search-input"
-            type="search"
-            name="search"
-            placeholder="Search"
-          />
-          <button type="submit" class=""></button>
+      <div class="header-trans" id="">
+        <div class=" flex justify-center ">
+          <div class="globalnav breathing w-full">
+            <div
+              data-aos="fade-right"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="2000"
+              class="flex logo-menu"
+            >
+              <g-link to="/" title="Home">
+                <Logo :width="40" color1="white" />
+              </g-link>
+              <div class="top-navbar logo-menu__menu" id="navigation">
+                <div class="flex items-start ml-5 navigation-dropdown">
+                  <v-menu open-on-hover offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="tracking-normal normal-case text-base"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        Product
+                      </v-btn>
+                    </template>
+
+                    <v-list>
+                      <v-list-item
+                        v-for="(item, index) in products"
+                        :key="index"
+                      >
+                        <g-link :to="`/product-categories/${item.node.slug}`">
+                          <v-list-item-title>{{
+                            item.node.name
+                          }}</v-list-item-title>
+                        </g-link>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                  <v-menu open-on-hover offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="tracking-normal normal-case text-base"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        Solution
+                      </v-btn>
+                    </template>
+
+                    <v-list>
+                      <v-list-item
+                        v-for="(item, index) in solution"
+                        :key="index"
+                      >
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+
+                  <v-menu open-on-hover offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        class="tracking-normal normal-case text-base"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        Support
+                      </v-btn>
+                    </template>
+
+                    <v-list>
+                      <v-list-item
+                        v-for="(item, index) in support"
+                        :key="index"
+                      >
+                        <v-list-item-title>{{ item.title }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+                </div>
+              </div>
+            </div>
+
+            <div class="search-header relative">
+              <input
+                class="search-input"
+                type="search"
+                name="search"
+                placeholder="Search"
+              />
+              <button type="submit" class=""></button>
+            </div>
+
+            <button
+              class="hamburger-header"
+              data-target="#navigation"
+              @click.stop="drawer = true"
+            >
+              <AlignJustifyIcon size="2x" class="custom-class" />
+            </button>
+          </div>
         </div>
-
-
-        <button
-          class="hamburger-header"
-          data-target="#navigation"
-          @click.stop="drawer = true"
-        >
-          <AlignJustifyIcon size="2x" class="custom-class" />
-        </button>
       </div>
     </div>
 

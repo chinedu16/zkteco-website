@@ -44,15 +44,12 @@
     </div>
 
     <div>
-      <div class="subscriber-box">
+      <div id="subscriber-box" class="subscriber-box">
         <div class="flex">
           <MailOpen />
           <h4 class="ml-3">Subscribe</h4>
         </div>
-        <input
-          class="w-full my-4 text-black p-1 bg-white rounded-sm"
-          type="text"
-        />
+        <v-text-field class="mt-5 mb-5" outlined="" :rules="rules"></v-text-field>
         <v-btn dark>Subscribe</v-btn>
       </div>
     </div>
@@ -109,7 +106,16 @@ query {
 import MailOpen from "../components/Vectors/MailOpen";
 export default {
   data() {
-    return {};
+    return {
+      rules: [
+        value => !!value || 'Required.',
+        value => (value || '').length <= 20 || 'Max 20 characters',
+        value => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return pattern.test(value) || 'Invalid e-mail.'
+        },
+      ],
+    };
   },
   components: {
     MailOpen,
@@ -137,6 +143,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+#subscriber-box {
+  .v-input {
+    .v-input__control {
+      .v-input__slot {
+        color: white!important;
+      }
+    }
+  }
+}
 .number-categories {
   background: gainsboro;
   padding: 3px 12px;
