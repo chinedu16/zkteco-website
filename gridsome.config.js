@@ -41,6 +41,7 @@ module.exports = {
           "home-pages",
           "about-uses",
           "contact-uses",
+          "sub-product-categories"
         ],
         singleTypes: ["menu"],
       },
@@ -73,10 +74,15 @@ module.exports = {
         path: "/product-categories/:slug",
       },
     ],
-    // StrapiProducts: [
-    //   {
-    //     path: "/product/:slug",
-    //   },
-    // ],
+    StrapiProducts: [
+      {
+        path: "/product/:slug",
+      },
+    ],
+    StrapiSubProductCategories: [
+      {
+        path: "/sub-categories/:slug",
+      },
+    ],
   },
 };

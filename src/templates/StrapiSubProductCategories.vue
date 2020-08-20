@@ -34,18 +34,19 @@
                         >
                         </g-image>
                       </div>
+
                       <span
                         v-if="dateWithinWeek(product.updated_at)"
                         class="label-new"
                         ><img src="../assets/new.png" alt="BioTime 8.0"
                       /></span>
-                      <!-- <g-link :to="`/product/${product.slug}`">
+                      <g-link :to="`/product/${product.slug}`">
                         <v-btn
                           class="mt-8"
                           style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
                           >{{ product.name }}</v-btn
                         >
-                      </g-link> -->
+                      </g-link>
                       <g-link class="more" :to="`/product/${product.slug}`"
                         >Learn more</g-link
                       >
@@ -62,11 +63,19 @@
 </template>
 
 <page-query>
-query ProductCategories($path: String!) {
-  strapiProductCategories (path: $path) {
+query SubProductCategories($path: String!) {
+  strapiSubProductCategories (path: $path) {
     id
     name
     slug
+    products{
+      id
+      name
+      slug
+      images {
+        url
+      }
+    }
   }
 }
 </page-query>
@@ -112,7 +121,7 @@ export default {
   },
   computed: {
     productCategory() {
-      return this.$page.strapiProductCategories;
+      return this.$page.strapiSubProductCategories;
     },
   },
 };

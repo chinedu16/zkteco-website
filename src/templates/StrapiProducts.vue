@@ -5,9 +5,9 @@
         <section class="">
           <div class="">
             <div class="breadcrumb" @click="goBack">
-              &lt; <g-link to="">Back</g-link>
+              &lt; <a to>Back</a>
             </div>
-          </div>
+          </div> 
         </section>
 
         <section class="flex justify-center">

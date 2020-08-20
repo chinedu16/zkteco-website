@@ -21,13 +21,13 @@
               <v-list-group
                 style="color: #78bc27!important;"
                 sub-group
-                v-for="product in item.node.products"
+                v-for="product in item.node.product_sub_categories"
                 :key="product.id"
               >
                 <template v-slot:activator>
                   <v-list-item-content>
                     <g-link
-                      :to="`/product/${product.slug}`"
+                      :to="`/sub-categories/${product.slug}`"
                       ><v-list-item-title>{{
                         product.name
                       }}</v-list-item-title></g-link
