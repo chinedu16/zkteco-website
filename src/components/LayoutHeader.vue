@@ -1,7 +1,7 @@
 <template>
   <div id="header-main" class="border-ui-primary">
     <div id="globalnavcontainer" class="globalnavcontainer">
-      <!-- <div
+      <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
       <div id="globalnav" class="header-fixed ">
         <div class="flex justify-center align-center">
@@ -112,7 +112,7 @@
                     </v-list>
                   </v-menu>
 
-                  <v-btn
+                  <!-- <v-btn
                   >
                     <g-link to="/about" class="hover">About us </g-link>
                   </v-btn>
@@ -123,7 +123,7 @@
                     <g-link to="/category/events" class=" hover">
                       News Center
                     </g-link>
-                  </v-btn>
+                  </v-btn> -->
                 </div>
               </div>
             </div>
@@ -340,7 +340,6 @@ export default {
   height: 40px;
   overflow: hidden;
   padding: 0px 10px;
-  width: 223px;
 }
 .v-application {
   .v-menu__content {

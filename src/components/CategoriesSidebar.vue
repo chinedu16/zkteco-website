@@ -49,7 +49,8 @@
           <MailOpen />
           <h4 class="ml-3">Subscribe</h4>
         </div>
-        <v-text-field class="mt-5 mb-5" outlined="" :rules="rules"></v-text-field>
+        <input type="search" name="search" placeholder="Name" class="search-input mt-5 w-full">
+        <input type="search" name="search" placeholder="Email" class="search-input mt-5 mb-5 w-full">
         <v-btn dark>Subscribe</v-btn>
       </div>
     </div>

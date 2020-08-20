@@ -6,7 +6,7 @@
           :edgeFriction="0.35"
           :slidesToShow="1"
           :slidesToScroll="1"
-          :autoplay="false"
+          :autoplay="true"
           :cssEase="linear"
           :speed="2000"
           :autoplaySpeed="4000"
@@ -123,10 +123,9 @@
 
       <div id="newletter-modal">
         <v-dialog v-model="dialog" persistent max-width="800px">
-          <v-card>
+          <v-card sytle="background: white;!important;" >
             <div class="flex">
               <div
-                class=""
                 style="width: 40%; display: flex; padding: 2px 10px;
     justify-content: center;
     align-items: center;"
@@ -389,8 +388,6 @@ export default {
         name: this.name,
         email: this.email,
       };
-      // if (validate) {
-      // }
       axios({
         method: "post",
         url: "http://admin.zkteco-wa.com/maillists",
