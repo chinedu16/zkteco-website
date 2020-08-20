@@ -84,7 +84,6 @@
                 data-aos="fade-left"
                 data-aos-duration="3000"
                 class="right-mission"
-                
               >
                 <p>{{ about.our_missioin.description }}</p>
               </div>
@@ -97,8 +96,47 @@
             <div class="header-title mb-10">
               Our Team
             </div>
+
+            <div class="logos_carousel-1">
+              <VueSlickCarousel v-bind="settings">
+                <div class="flex" v-for="team in about.the_team" :key="team.id">
+                  <div class="align-center flex justify-center flex-column team-container__item">
+                    <g-image
+                      class="rounded-full"
+                      src="../assets/Biola 1.png"
+                    ></g-image>
+                    <h4 class="text-color-zkteco-green mt-2">
+                      {{ team.name || "None" }}
+                    </h4>
+                    <span>{{ team.position || "None" }}</span>
+                  </div>
+                </div>
+              </VueSlickCarousel>
+            </div>
             <div class="team-container">
-              <div
+              <!-- <VueSlickCarousel v-bind="settings">
+                <div
+                  data-aos="flip-left"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="2000"
+                  class="flex"
+                  v-for="team in about.the_team"
+                  :key="team.id"
+                >
+                  <div class="flex align-center team-container__item">
+                    <g-image
+                      class="rounded-full"
+                      src="../assets/Biola 1.png"
+                    ></g-image>
+                    <h4 class="text-color-zkteco-green mt-2">
+                      {{ team.name || "None" }}
+                    </h4>
+                    <span>{{ team.position || "None" }}</span>
+                  </div>
+                </div>
+              </VueSlickCarousel> -->
+
+              <!-- <div
                 data-aos="flip-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
@@ -116,7 +154,7 @@
                   </h4>
                   <span>{{ team.position || "None" }}</span>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
@@ -160,7 +198,30 @@ query {
 </page-query>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
+  data() {
+    return {
+      settings: {
+        dots: true,
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnDotsHover: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
+      },
+    };
+  },
+  components: {
+    VueSlickCarousel,
+  },
   computed: {
     about() {
       return this.$page.allStrapiAboutUses.edges[0].node;
@@ -191,6 +252,28 @@ export default {
   align-items: center;
 }
 
-
-
+.logos_carousel-1 {
+  // width: 500px;
+  // height: 250px;
+  .slick-slider {
+    .slick-list {
+      .slick-track {
+        .slick-center {
+          width: 200px;
+        }
+        .slick-slide {
+          width: 200px !important;
+          .flex {
+            // flex-direction: column;
+          }
+          img {
+            // width: unset !important;
+            // height: 84px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

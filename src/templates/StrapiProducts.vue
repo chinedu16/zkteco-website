@@ -75,11 +75,9 @@
                   ><Facebook color="#777" width="34" height="34"
                 /></g-link>
                 <g-link class="ml-8"
-                  ><Linkedin color="#777" width="34" height="34"
+                  ><Instagram color="#777" width="34" height="34"
                 /></g-link>
-                <g-link class="ml-8 hover"
-                  ><GooglePlus color="#777" width="34" height="34"
-                /></g-link>
+                
               </div>
             </div>
           </div>
@@ -180,6 +178,7 @@ import Download from "../components/Vectors/Download";
 import Pdf from "../components/Vectors/Pdf";
 import Facebook from "../components/Vectors/Facebook";
 import Twitter from "../components/Vectors/Twitter";
+import Instagram from "../components/Vectors/Instagram";
 import Linkedin from "../components/Vectors/Linkedin";
 import GooglePlus from "../components/Vectors/GooglePlus";
 
@@ -197,8 +196,7 @@ export default {
     Pdf,
     Facebook,
     Twitter,
-    Linkedin,
-    GooglePlus,
+    Instagram,
     SemiLayout,
     VueSlickCarousel,
   },

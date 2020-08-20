@@ -1,7 +1,7 @@
 <template>
   <div id="header-main" class="border-ui-primary">
     <div id="globalnavcontainer" class="globalnavcontainer">
-      <div
+      <!-- <div
         data-aos="fade-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
@@ -16,9 +16,8 @@
               <g-link to="/category/events" class="px-4 hover">
                 News Center </g-link
               >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
-              <g-link class="pl-2 pr-2 hover">
-                <World class="mr-2" /> Region/Language |</g-link
-              >
+              <g-link class="pl-2 pr-2 hover"> <World class="mr-2" /> |</g-link>
+              <div id="google_translate_element"></div>
               <g-link class="pl-2 pr-2 hover">Login</g-link>
               <g-link class="pl-2 pr-2 hover">Register</g-link>
               <ToggleDarkMode class="ml-2 hover sm:ml-8">
@@ -30,7 +29,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div id="globalnav" class="header-fixed ">
         <div class="flex justify-center align-center">
@@ -70,6 +69,7 @@
                       </v-list-item>
                     </v-list>
                   </v-menu>
+
                   <v-menu open-on-hover offset-y>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn
@@ -111,18 +111,34 @@
                       </v-list-item>
                     </v-list>
                   </v-menu>
+
+                  <v-btn
+                  >
+                    <g-link to="/about" class="hover">About us </g-link>
+                  </v-btn>
+                  <v-btn>
+                    <g-link to="/contact" class="hover">Contact</g-link>
+                  </v-btn>
+                  <v-btn>
+                    <g-link to="/category/events" class=" hover">
+                      News Center
+                    </g-link>
+                  </v-btn>
                 </div>
               </div>
             </div>
 
-            <div class="search-header relative">
+            <div class="search-header">
               <input
                 class="search-input"
                 type="search"
                 name="search"
                 placeholder="Search"
               />
-              <button type="submit" class=""></button>
+              <v-btn
+              >
+                <div id="google_translate_element"></div>
+              </v-btn>
             </div>
 
             <button
@@ -196,6 +212,11 @@ query {
         id
         name
         slug
+        product_sub_categories {
+          id
+          name
+          slug
+        }
       }
     } 
   }
@@ -267,6 +288,9 @@ export default {
     },
   },
   async mounted() {
+    this.$nextTick(() => {
+      this.googleTranslateInit();
+    });
     window.onscroll = function() {
       "use strict";
       const myHeader = document.getElementById("globalnav");
@@ -279,6 +303,27 @@ export default {
         myHeaderTop ? myHeaderTop.classList.remove("header-trans-top") : null;
       }
     };
+  },
+  methods: {
+    googleTranslateInit: function() {
+      let checkIfGoogleLoaded = setInterval(() => {
+        if (google.translate.TranslateElement != null) {
+          clearInterval(checkIfGoogleLoaded);
+          this.googleTranslateElement("google_translate_element");
+        }
+      }, 100);
+    },
+
+    googleTranslateElement: function(id) {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "en",
+          includedLanguages: "es,fr",
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        },
+        id
+      );
+    },
   },
 };
 </script>
@@ -320,7 +365,7 @@ export default {
 
 .v-dialog {
   .v-card {
-    background: rgba(0, 0, 0, 0.85) !important;
+    // background: rgba(0, 0, 0, 0.85) !important; 
     .theme--light.v-toolbar.v-sheet {
       background-color: rgba(120, 188, 39, 0.5) !important;
     }

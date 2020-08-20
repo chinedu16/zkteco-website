@@ -46,7 +46,7 @@ export default {
   }
 
   .theme--light.v-btn {
-    color: white !important;
+    color: white;
     letter-spacing: 0px;
     font-size: 16px;
     text-transform: inherit;

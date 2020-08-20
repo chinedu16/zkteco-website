@@ -31,7 +31,7 @@ module.exports = {
     {
       use: "@gridsome/source-strapi",
       options: {
-        apiURL: 'http://admin.zkteco-wa.com/',
+        apiURL: process.env.API_URL,
         queryLimit: 1000,
         contentTypes: [
           "articles",
@@ -73,10 +73,10 @@ module.exports = {
         path: "/product-categories/:slug",
       },
     ],
-    StrapiProducts: [
-      {
-        path: "/product/:slug",
-      },
-    ],
+    // StrapiProducts: [
+    //   {
+    //     path: "/product/:slug",
+    //   },
+    // ],
   },
 };

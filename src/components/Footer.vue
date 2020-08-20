@@ -18,9 +18,32 @@
               data-aos-duration="5000"
               class="footer-image-icon justify-center mt-10 flex"
             >
-              <span class="mx-2 md:mx-20"><Call /></span>
-              <span class="mx-2 md:mx-20"><User /></span>
-              <span class="mx-2 md:mx-20"><Consultation /></span>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <span dark v-bind="attrs" v-on="on" class="mx-2">
+                    <a href="2348175555512"><Call /></a>
+                  </span>
+                </template>
+                <span>Call Us</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <span dark v-bind="attrs" v-on="on" class="mx-2">
+                    <a href="https://wa.me/2348175555512?text=I'm%20interested">
+                  <User/></a>
+                  </span>
+                </template>
+                <span>Whatsapp</span>
+              </v-tooltip>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on, attrs }">
+                  <span dark v-bind="attrs" v-on="on" class="mx-2">
+                    <a href="mailto:sales@zkteco-wa.com"> <Consultation /></a>
+                  </span>
+                </template>
+                <span>Email</span>
+              </v-tooltip>
+              
             </div>
           </div>
         </div>
@@ -52,9 +75,8 @@
               <div class="flex align-center justify-between">
                 <Facebook color="white" height="24" width="20" />
                 <Twitter color="white" height="24" width="20" />
-                <Linkedin color="white" height="24" width="20" />
-                <GooglePlus color="white" height="24" width="20" />
-                <Youtube color="white" height="24" width="20" />
+                <Instagram color="white" height="24" width="20" />
+                <Whatsapp color="white" height="24" width="20" />
               </div>
               <button class="footer-cta" icon>
                 <MessageCircleIcon /> Online Consultation
@@ -77,9 +99,8 @@ import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from "@/components/Logo";
 import Facebook from "../components/Vectors/Facebook";
 import Twitter from "../components/Vectors/Twitter";
-import Linkedin from "../components/Vectors/Linkedin";
-import GooglePlus from "../components/Vectors/GooglePlus";
-import Youtube from "../components/Vectors/Youtube";
+import Instagram from "../components/Vectors/Instagram";
+import Whatsapp from "../components/Vectors/Whatsapp";
 import { MessageCircleIcon } from "vue-feather-icons";
 import Call from "../components/Vectors/light/Call";
 import Consultation from "../components/Vectors/light/Consultation";
@@ -158,10 +179,9 @@ export default {
     GithubIcon,
     TwitterIcon,
     Facebook,
+    Instagram,
     Twitter,
-    Youtube,
-    Linkedin,
-    GooglePlus,
+    Whatsapp,
     Call,
     Consultation,
     User,

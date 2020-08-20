@@ -2,16 +2,18 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import "./styles/_main.scss";
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
+
+
 
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
     // const Zopim = require("./zopim");
     const AOS = require("aos");
-    Vue.use(AOS.init({once: true}));
+    Vue.use(AOS.init({ once: true }));
     // Vue.use(Zopim)
   }
 
@@ -34,9 +36,14 @@ export default function(Vue, { appOptions, router, head, isClient }) {
       "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900",
   });
 
-  const opts = {} //opts includes, vuetify themes, icons, etc.
-  Vue.use(Vuetify)
-  
-  appOptions.vuetify = new Vuetify(opts);
+  head.script.push({
+    src:
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
+    body: true,
+  });
 
+  const opts = {}; //opts includes, vuetify themes, icons, etc.
+  Vue.use(Vuetify);
+
+  appOptions.vuetify = new Vuetify(opts);
 }

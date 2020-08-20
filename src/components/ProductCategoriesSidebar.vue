@@ -51,10 +51,10 @@ query {
         id
         name
         slug
-				products {
+				product_sub_categories {
           id
-          slug
           name
+          slug
         }
       }
     } 

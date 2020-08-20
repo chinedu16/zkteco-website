@@ -6,13 +6,13 @@
           :edgeFriction="0.35"
           :slidesToShow="1"
           :slidesToScroll="1"
-          :autoplay="true"
+          :autoplay="false"
           :cssEase="linear"
           :speed="2000"
           :autoplaySpeed="4000"
           :infinite="true"
         >
-          <div v-for="(item, i) in sliders" :key="i">
+          <div class="container-hero" v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>
           </div>
         </VueSlickCarousel>
@@ -22,7 +22,7 @@
         <div class="flex justify-center align-center">
           <div class="breathing w-full ">
             <h2
-              class="text-center text-3xl"
+              class="text-center  heading"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
@@ -67,8 +67,7 @@
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full breathing">
-            <h1 class="md:px-12 lg:px-10" data-aos="fade-left">News Center</h1>
-
+            <h1 class="heading" data-aos="fade-left">News Center</h1>
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
@@ -118,7 +117,71 @@
         </div>
       </section>
 
-      <LogoContainer :logoData="partners" />
+      <section>
+        <LogoContainer :logoData="partners" />
+      </section>
+
+      <div id="newletter-modal">
+        <v-dialog v-model="dialog" persistent max-width="800px">
+          <v-card>
+            <div class="flex">
+              <div
+                class=""
+                style="width: 40%; display: flex; padding: 2px 10px;
+    justify-content: center;
+    align-items: center;"
+              >
+                <g-image src="../assets/Logo-2.png"></g-image>
+              </div>
+              <div style="width: 60%; padding: 2px 10px;">
+                <v-card-title class="headline"
+                  >Subscribe for Email Updates</v-card-title
+                >
+
+                <v-card-text>
+                  Get the latest updates on Time Attendance, Access Control,
+                  Security Inspection and Other Biometric Solutions Newsletter.
+                </v-card-text>
+
+                <v-form ref="form" v-model="valid" lazy-validation>
+                  <v-col cols="12">
+                    <v-text-field
+                      label="Legal name*"
+                      hint="Enter your full name"
+                      required
+                      v-model="name"
+                      :rules="nameRules"
+                      color="#82bb31"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      label="Email"
+                      hint="none@none.com"
+                      color="#82bb31"
+                      :rules="emailRules"
+                      v-model="email"
+                    ></v-text-field>
+                  </v-col>
+                  <div class="my-2">
+                    <v-btn @click="sendEmail" style="width: 100%;" color="green"
+                      >Primary</v-btn
+                    >
+                  </div>
+                </v-form>
+
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+
+                  <v-btn color="green darken-1" text @click="dialog = false">
+                    Close
+                  </v-btn>
+                </v-card-actions>
+              </div>
+            </div>
+          </v-card>
+        </v-dialog>
+      </div>
     </div>
   </Layout>
 </template>
@@ -183,6 +246,10 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
+import axios from "axios";
+
+
+
 import {
   ArrowRightCircleIcon,
   ZapIcon,
@@ -207,20 +274,20 @@ export default {
     title:
       "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
   },
-
   data() {
     return {
-      settings_hero: {
-        dotsClass: "slick-dots custom-dot-class",
-        edgeFriction: 0.35,
-        infinite: true,
-        autoplay: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        speed: 2000,
-        autoplaySpeed: 2000,
-        cssEase: "linear",
-      },
+      name: "",
+      nameRules: [
+        (v) => !!v || "Name is required",
+        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+      ],
+      email: "",
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      ],
+      dialog: false,
+      timer: "",
       settings: {
         arrows: false,
         dots: true,
@@ -308,6 +375,30 @@ export default {
       return this.$page.allStrapiHomePages.edges[0].node.partners;
     },
   },
+  created() {
+    const local = localStorage.getItem("NEWS_LETTER");
+    this.timer = setInterval(this.fetchEventsList, 1000);
+  },
+  methods: {
+    fetchEventsList() {
+      this.dialog = true;
+      clearInterval(this.timer);
+    },
+    sendEmail() {
+      const validate = this.$refs.form.validate();
+      const payload = {
+        name: this.name,
+        email: this.email,
+      };
+      // if (validate) {
+      // }
+      axios({
+        method: "post",
+        url: "http://admin.zkteco-wa.com/maillists",
+        data: payload
+      });
+    },
+  },
 };
 </script>
 
@@ -384,6 +475,32 @@ export default {
       }
     }
   }
+}
+
+#slide-container {
+  .slick-slider {
+    .slick-list {
+      .slick-track {
+        display: flex !important;
+        .slick-slide {
+          height: inherit;
+          img {
+            object-fit: cover;
+            width: inherit !important;
+            height: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: auto;
 }
 
 .news-card__ {

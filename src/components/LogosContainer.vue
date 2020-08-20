@@ -1,20 +1,22 @@
 <template>
-  <section id="customer__logo" class="container breathing">
-    <div
-      data-aos="zoom-in"
-      data-aos-duration="3000"
-      class="customer-logos flex items-center justify-center"
-    >
-      <div
-        id=""
-        class="logos_carousel customer-logos__content w-full flex"
-      >
-        <VueSlickCarousel class="w-full" :dots="true" v-bind="settings">
-          <div v-for="logo in logoData" :key="logo.name">
-            <g-image class="white--text align-end" :src="logo.image.url">
-            </g-image>
+  <section id="customer__logo" class=" ">
+    <div class="flex justify-center">
+      <div  class="breathing w-full">
+         <h1 class="heading mb-10" data-aos="fade-left">Our Partners</h1>
+        <div
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          class="customer-logos mt-10 flex items-center justify-center"
+        >
+          <div class="logos_carousel customer-logos__content w-full flex">
+            <VueSlickCarousel class="w-full" :dots="true" v-bind="settings">
+              <div v-for="logo in logoData" :key="logo.name">
+                <g-image class="white--text align-end" :src="logo.image.url">
+                </g-image>
+              </div>
+            </VueSlickCarousel>
           </div>
-        </VueSlickCarousel>
+        </div>
       </div>
     </div>
   </section>

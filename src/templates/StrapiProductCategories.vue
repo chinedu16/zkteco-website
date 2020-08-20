@@ -3,7 +3,10 @@
     <div class="product-headline-image headline" style="height: 28rem;">
       <div class="footer-image-overlay"></div>
     </div>
-    <div class="flex justify-center align-center w-full" style="background: #f5f5f5;">
+    <div
+      class="flex justify-center align-center w-full"
+      style="background: #f5f5f5;"
+    >
       <div class=" breathing" id="" style="background: #f5f5f5;">
         <section class=" pt-4 flex justify-center">
           <div class="pro-search  w-full max-w-screen-xxl clearfix">
@@ -21,7 +24,7 @@
                     v-for="product in productCategory.products"
                     :key="product.id"
                   >
-                    <div class="flex product-container ">
+                    <div class="flex product-container relative">
                       <div class="h-32 product-image-container">
                         <g-image
                           class="w-full h-full object-contain"
@@ -31,7 +34,9 @@
                         >
                         </g-image>
                       </div>
-                      <span class="label-new"
+                      <span
+                        v-if="dateWithinWeek(product.updated_at)"
+                        class="label-new"
                         ><img src="../assets/new.png" alt="BioTime 8.0"
                       /></span>
                       <g-link :to="`/product/${product.slug}`">
@@ -47,14 +52,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- <div class="text-center">
-                <v-pagination
-                  color="#82BB31"
-                  circle
-                  v-model="page"
-                  :length="5"
-                ></v-pagination>
-              </div> -->
               </div>
             </div>
           </div>
@@ -70,17 +67,6 @@ query ProductCategories($path: String!) {
     id
     name
     slug
-      products {
-        id
-        slug
-        name
-        description
-        product_details
-        slug
-        images {
-          url
-        }
-      }
   }
 }
 </page-query>
@@ -90,6 +76,7 @@ import Office from "../components/Vectors/Office";
 import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
+import moment from "moment";
 export default {
   components: {
     Office,
@@ -101,7 +88,8 @@ export default {
   data() {
     return {
       page: 1,
-
+      todayDate: new Date(),
+      theTime: false,
       products: [
         { id: 1 },
         { id: 2 },
@@ -112,6 +100,15 @@ export default {
         { id: 7 },
       ],
     };
+  },
+  methods: {
+    dateWithinWeek(date) {
+      const checkDateWithinWeek = moment(date).isSame(new Date(), "week");
+      return checkDateWithinWeek;
+    },
+  },
+  mounted() {
+    this.theTime = moment().isoWeek();
   },
   computed: {
     productCategory() {
