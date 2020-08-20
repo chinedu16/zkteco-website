@@ -376,7 +376,6 @@ export default {
     },
   },
   created() {
-    const local = localStorage.getItem("NEWS_LETTER");
     this.timer = setInterval(this.fetchEventsList, 1000);
   },
   methods: {
