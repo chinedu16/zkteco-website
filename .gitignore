@@ -8,3 +8,4 @@ dist
 .env
 .env.*
 ngrok
+yarn.lock
