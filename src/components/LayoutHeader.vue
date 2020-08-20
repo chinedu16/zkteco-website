@@ -364,7 +364,7 @@ export default {
 
 .v-dialog {
   .v-card {
-    // background: rgba(0, 0, 0, 0.85) !important; 
+    background:white !important; 
     .theme--light.v-toolbar.v-sheet {
       background-color: rgba(120, 188, 39, 0.5) !important;
     }

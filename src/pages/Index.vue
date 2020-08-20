@@ -247,8 +247,6 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 import axios from "axios";
 
-
-
 import {
   ArrowRightCircleIcon,
   ZapIcon,
@@ -278,7 +276,7 @@ export default {
       name: "",
       nameRules: [
         (v) => !!v || "Name is required",
-        (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+        (v) => (v && v.length <= 30) || "Name must be less than 10 characters",
       ],
       email: "",
       emailRules: [
@@ -393,6 +391,7 @@ export default {
         url: "http://admin.zkteco-wa.com/maillists",
         data: payload
       });
+      this.dialog = false
     },
   },
 };

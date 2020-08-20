@@ -77,7 +77,12 @@
                 <g-link class="ml-8"
                   ><Instagram color="#777" width="34" height="34"
                 /></g-link>
-                
+                <g-link class="ml-8"
+                  ><Linkedin color="#777" width="34" height="34"
+                /></g-link>
+                <g-link class="ml-8"
+                  ><Whatsapp color="#777" width="34" height="34"
+                /></g-link>
               </div>
             </div>
           </div>
@@ -178,9 +183,10 @@ import Download from "../components/Vectors/Download";
 import Pdf from "../components/Vectors/Pdf";
 import Facebook from "../components/Vectors/Facebook";
 import Twitter from "../components/Vectors/Twitter";
-import Instagram from "../components/Vectors/Instagram";
 import Linkedin from "../components/Vectors/Linkedin";
+import Instagram from "../components/Vectors/Instagram";
 import GooglePlus from "../components/Vectors/GooglePlus";
+import Whatsapp from "../components/Vectors/Whatsapp";
 
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
@@ -196,7 +202,9 @@ export default {
     Pdf,
     Facebook,
     Twitter,
+    Linkedin,
     Instagram,
+    Whatsapp,
     SemiLayout,
     VueSlickCarousel,
   },
