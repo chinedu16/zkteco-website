@@ -160,7 +160,7 @@
                   </v-col>
                   <div class="my-2">
                     <v-btn @click="sendEmail" style="width: 100%;" color="green"
-                      >Primary</v-btn
+                      >Subscribe</v-btn
                     >
                   </div>
                 </v-form>
