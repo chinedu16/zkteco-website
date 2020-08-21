@@ -123,12 +123,9 @@
 
       <div id="newletter-modal">
         <v-dialog v-model="dialog" persistent max-width="600px">
-          <v-card sytle="background: white;!important;" >
+          <v-card sytle="background: white;!important;">
             <div class="flex">
-              <div
-              id="leftside-newsletter"
-                style=""
-              >
+              <div id="leftside-newsletter" style="">
                 <g-image src="../assets/Logo-2.png"></g-image>
               </div>
               <div style="width: 60%; padding: 2px 10px;">
@@ -171,7 +168,12 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
 
-                  <span style="cursor: pointer;" color="green darken-1" text @click="dialog = false">
+                  <span
+                    style="cursor: pointer;"
+                    color="green darken-1"
+                    text
+                    @click="dialog = false"
+                  >
                     Close
                   </span>
                 </v-card-actions>
@@ -374,10 +376,10 @@ export default {
     },
   },
   created() {
-    const areYouSubscribed = this.hasInStorage()
-    console.log(areYouSubscribed)
+    const areYouSubscribed = this.hasInStorage();
+    console.log(areYouSubscribed);
     if (areYouSubscribed) {
-      return
+      return;
     } else {
       this.timer = setInterval(this.fetchEventsList, 1000);
     }
@@ -390,14 +392,18 @@ export default {
     },
 
     hasInStorage() {
-      const check = localStorage.getItem("SUBSCRIBER");
-      return check;
+      if (process.isClient) {
+        const check = localStorage.getItem("SUBSCRIBER");
+        return check;
+      }
     },
 
     writeToStorage(preferNotification) {
-      localStorage.setItem("SUBSCRIBER", preferNotification);
+      if (process.isClient) {
+        localStorage.setItem("SUBSCRIBER", preferNotification);
+      }
     },
-    
+
     sendEmail() {
       const validate = this.$refs.form.validate();
       const payload = {
@@ -407,9 +413,9 @@ export default {
       axios({
         method: "post",
         url: "http://admin.zkteco-wa.com/maillists",
-        data: payload
+        data: payload,
       });
-      this.dialog = false
+      this.dialog = false;
     },
   },
 };
@@ -541,12 +547,61 @@ export default {
 }
 
 #leftside-newsletter {
-  background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#15ffa5, #00ced1);
+  background: radial-gradient(
+        1.5em 6.28571em at 1.95em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.25) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      0 0,
+    radial-gradient(
+        1.5em 6.28571em at -0.45em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.25) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      1.5em 5.5em,
+    radial-gradient(
+        2.3em 4.57143em at 2.99em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.3) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      0 0,
+    radial-gradient(
+        2.3em 4.57143em at -0.69em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.3) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      2.3em 4em,
+    radial-gradient(
+        3.5em 6.28571em at 4.55em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.25) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      0 0,
+    radial-gradient(
+        3.5em 6.28571em at -1.05em,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.25) 55%,
+        rgba(255, 255, 255, 0) 55%
+      )
+      3.5em 5.5em,
+    radial-gradient(#15ffa5, #00ced1);
   background-color: mediumspringgreen;
-  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em,
+    3.5em 11em, 100% 100%;
   background-repeat: repeat;
-  width: 40%; 
-  display: flex; 
+  width: 40%;
+  display: flex;
   padding: 2px 10px;
   justify-content: center;
   align-items: center;
