@@ -4,8 +4,8 @@
       <div class="breathing" id="product-details">
         <section class="">
           <div class="">
-            <div class="breadcrumb" @click="goBack">
-              &lt; <a to>Back</a>
+            <div class="breadcrumb flex" @click="goBack">
+              <LeftCaret /> <a to>Back</a>
             </div>
           </div> 
         </section>
@@ -19,6 +19,12 @@
                     ref="c1"
                     :asNavFor="$refs.c2"
                     :focusOnSelect="true"
+                    :slidesToShow="1"
+                    :autoplay="true"
+                    :cssEase="linear"
+                    :speed="2000"
+                    :autoplaySpeed="1000"
+                    :infinite="true"
                   >
                     <div v-for="image in product.images" :key="image.id">
                       <g-image :src="image.url" :alt="image.name"> </g-image>
@@ -44,6 +50,7 @@
                 data-aos="fade-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
+                style="color: #7cbd27; font-size: 47px; font-weight: bolder;"
               >
                 {{ product.name }}
               </h1>
@@ -181,6 +188,7 @@ import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import Download from "../components/Vectors/Download";
 import Pdf from "../components/Vectors/Pdf";
+import LeftCaret from "../components/Vectors/LeftCaret";
 import Facebook from "../components/Vectors/Facebook";
 import Twitter from "../components/Vectors/Twitter";
 import Linkedin from "../components/Vectors/Linkedin";
@@ -200,6 +208,7 @@ export default {
     Call,
     Download,
     Pdf,
+    LeftCaret,
     Facebook,
     Twitter,
     Linkedin,
@@ -346,39 +355,6 @@ a {
   }
 }
 
-#navFor1 {
-  .slick-slider {
-    height: inherit;
-    .slick-list {
-      .slick-track {
-        .slick-slide {
-          img {
-            width: 100% !important;
-            height: 326px;
-            object-fit: cover;
-          }
-        }
-      }
-    }
-  }
-}
-
-#navFor2 {
-  .slick-slider {
-    height: inherit;
-    .slick-list {
-      .slick-track {
-        .slick-slide {
-          img {
-            width: unset !important;
-            height: 100px;
-            object-fit: cover;
-          }
-        }
-      }
-    }
-  }
-}
 
 #product-details {
   margin-top: 9rem;

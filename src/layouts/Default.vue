@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <v-content>
+    <v-main>
       <LayoutHeader />
       <div class="w-full pb-1">
         <slot />
       </div>
       <Footer />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

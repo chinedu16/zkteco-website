@@ -2,7 +2,7 @@
   <div id="instagram">
     <svg
       :width="width"
-      :height="hight"
+      :height="height"
       viewBox="0 0 98 98"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

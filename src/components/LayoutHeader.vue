@@ -135,8 +135,7 @@
                 name="search"
                 placeholder="Search"
               />
-              <v-btn
-              >
+              <v-btn>
                 <div id="google_translate_element"></div>
               </v-btn>
             </div>
@@ -307,9 +306,13 @@ export default {
   methods: {
     googleTranslateInit: function() {
       let checkIfGoogleLoaded = setInterval(() => {
-        if (google.translate.TranslateElement != null) {
-          clearInterval(checkIfGoogleLoaded);
-          this.googleTranslateElement("google_translate_element");
+        if (google) {
+          if (google.translate.TranslateElement != null) {
+            clearInterval(checkIfGoogleLoaded);
+            this.googleTranslateElement("google_translate_element");
+          }
+        } else {
+          return;
         }
       }, 100);
     },
@@ -364,7 +367,8 @@ export default {
 
 .v-dialog {
   .v-card {
-    background:white !important; 
+    background: white !important;
+    color: black;
     .theme--light.v-toolbar.v-sheet {
       background-color: rgba(120, 188, 39, 0.5) !important;
     }

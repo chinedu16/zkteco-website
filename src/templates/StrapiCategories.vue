@@ -32,9 +32,10 @@
                   </p>
                   <g-link
                     :to="`/blog/${item.slug}`"
-                    class="text-color-zkteco-green hover absolute"
+                    class="text-color-zkteco-green hover absolute flex"
                     style="bottom: 30px;"
-                    >Read More</g-link
+                    >Read More  <RightCaret />
+                    </g-link
                   >
                 </div>
               </div>
@@ -85,11 +86,13 @@ query Categories($path: String!) {
 
 <script>
 import MailOpen from "../components/Vectors/MailOpen";
+import RightCaret from "../components/Vectors/RightCaret";
 import CategoriesSidebar from "../components/CategoriesSidebar";
 export default {
   components: {
     MailOpen,
     CategoriesSidebar,
+    RightCaret,
   },
 
   data() {

@@ -134,12 +134,12 @@ export default {
         {
           title: "News Center",
           items: [
-            { title: "News", path: "blog" },
-            { title: "Security Bulletins", path: "blog" },
-            { title: "Notice", path: "blog" },
-            { title: "Events", path: "blog" },
-            { title: "Newsletter", path: "blog" },
-            { title: "New Realease", path: "blog" },
+            { title: "News", path: "/category/events" },
+            { title: "Security Bulletins", path: "/category/events" },
+            { title: "Notice", path: "/category/events" },
+            { title: "Events", path: "/category/events" },
+            { title: "Newsletter", path: "/category/events" },
+            { title: "New Realease", path: "/category/events" },
           ],
         },
         {

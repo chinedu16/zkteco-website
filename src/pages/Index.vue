@@ -92,7 +92,7 @@
                           :to="`/blog/${article.node.slug}`"
                         >
                           <v-card-text class="text--primary">
-                            <div class="text-xl font-semibold">
+                            <div class="" style="font-weight: bold;">
                               {{ article.node.title }}
                             </div>
                           </v-card-text>
@@ -103,7 +103,7 @@
                               style="color: #333!important;"
                               text
                             >
-                              Learn More >
+                              Learn More <RightCaret />
                             </v-btn>
                           </v-card-actions>
                         </g-link>
@@ -122,13 +122,12 @@
       </section>
 
       <div id="newletter-modal">
-        <v-dialog v-model="dialog" persistent max-width="800px">
+        <v-dialog v-model="dialog" persistent max-width="600px">
           <v-card sytle="background: white;!important;" >
             <div class="flex">
               <div
-                style="width: 40%; display: flex; padding: 2px 10px;
-    justify-content: center;
-    align-items: center;"
+              id="leftside-newsletter"
+                style=""
               >
                 <g-image src="../assets/Logo-2.png"></g-image>
               </div>
@@ -172,9 +171,9 @@
                 <v-card-actions>
                   <v-spacer></v-spacer>
 
-                  <v-btn color="green darken-1" text @click="dialog = false">
+                  <span style="cursor: pointer;" color="green darken-1" text @click="dialog = false">
                     Close
-                  </v-btn>
+                  </span>
                 </v-card-actions>
               </div>
             </div>
@@ -239,6 +238,7 @@ query {
 <script>
 import Logo from "@/components/Logo";
 import Search from "../components/Vectors/Call";
+import RightCaret from "../components/Vectors/RightCaret";
 import LogoContainer from "../components/LogosContainer";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
@@ -258,6 +258,7 @@ import {
 export default {
   components: {
     Logo,
+    RightCaret,
     ArrowRightCircleIcon,
     ZapIcon,
     CodeIcon,
@@ -373,13 +374,30 @@ export default {
     },
   },
   created() {
-    this.timer = setInterval(this.fetchEventsList, 1000);
+    const areYouSubscribed = this.hasInStorage()
+    console.log(areYouSubscribed)
+    if (areYouSubscribed) {
+      return
+    } else {
+      this.timer = setInterval(this.fetchEventsList, 1000);
+    }
   },
   methods: {
     fetchEventsList() {
       this.dialog = true;
       clearInterval(this.timer);
+      this.writeToStorage(true);
     },
+
+    hasInStorage() {
+      const check = localStorage.getItem("SUBSCRIBER");
+      return check;
+    },
+
+    writeToStorage(preferNotification) {
+      localStorage.setItem("SUBSCRIBER", preferNotification);
+    },
+    
     sendEmail() {
       const validate = this.$refs.form.validate();
       const payload = {
@@ -472,23 +490,23 @@ export default {
   }
 }
 
-#slide-container {
-  .slick-slider {
-    .slick-list {
-      .slick-track {
-        display: flex !important;
-        .slick-slide {
-          height: inherit;
-          img {
-            object-fit: cover;
-            width: inherit !important;
-            height: inherit;
-          }
-        }
-      }
-    }
-  }
-}
+// #slide-container {
+//   .slick-slider {
+//     .slick-list {
+//       .slick-track {
+//         display: flex !important;
+//         .slick-slide {
+//           height: inherit;
+//           img {
+//             object-fit: cover;
+//             width: inherit !important;
+//             height: inherit;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 .slick-track {
   display: flex !important;
@@ -520,5 +538,17 @@ export default {
       top: 6rem;
     }
   }
+}
+
+#leftside-newsletter {
+  background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#15ffa5, #00ced1);
+  background-color: mediumspringgreen;
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat;
+  width: 40%; 
+  display: flex; 
+  padding: 2px 10px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
