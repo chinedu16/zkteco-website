@@ -246,7 +246,7 @@ import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 // optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-
+import moment from "moment";
 import axios from "axios";
 
 import {
@@ -377,9 +377,16 @@ export default {
   },
   created() {
     const areYouSubscribed = this.hasInStorage();
-    console.log(areYouSubscribed);
+    const hoursCreated = areYouSubscribed
+      ? moment().diff(moment(areYouSubscribed.timeSaved), "hours")
+      : null;
+
     if (areYouSubscribed) {
-      return;
+      if (hoursCreated < 5) {
+        return;
+      } else {
+        this.clearInStorage();
+      }
     } else {
       this.timer = setInterval(this.fetchEventsList, 1000);
     }
@@ -394,13 +401,25 @@ export default {
     hasInStorage() {
       if (process.isClient) {
         const check = localStorage.getItem("SUBSCRIBER");
-        return check;
+        return JSON.parse(check);
+      }
+    },
+
+    clearInStorage() {
+      if (process.isClient) {
+        localStorage.clear();
+        location.reload();
       }
     },
 
     writeToStorage(preferNotification) {
       if (process.isClient) {
-        localStorage.setItem("SUBSCRIBER", preferNotification);
+        let timeFrame = moment().format();
+        let subcriberData = {
+          timeSaved: timeFrame,
+          dataSaved: preferNotification,
+        };
+        localStorage.setItem("SUBSCRIBER", JSON.stringify(subcriberData));
       }
     },
 
