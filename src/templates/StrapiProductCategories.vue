@@ -14,19 +14,6 @@
           </div>
         </section>
 
-        <!-- <section>
-          <div class="mt-10 mb-10">
-            Meet the our lines The ZKTeco has a portfolio of over 400 products
-            and digital security solutions based on biometric verification
-            techniques, including face, palm, iris, finger vein, and additional
-            options such as password and RFID card. The equipment is based on
-            the latest technologies and can be installed separately or in an
-            integrated manner, including systems, in companies, schools, homes,
-            airports, among many other segments, to promote highly intelligent,
-            complete and safe solutions. Check out all the segments and products
-            of ZKTeco and learn more about our solutions.
-          </div>
-        </section> -->
         <section class="flex pb-12 pt-10 justify-center">
           <div class="product-cat__container w-full ">
             <ProductSidebar toggle="true" />
@@ -69,22 +56,6 @@
               </div>
             </div>
 
-            <!-- <div>
-              <div class="product-list">
-                <g-link
-                  v-for="categories in allProductCategory"
-                  :key="categories.node.id"
-                  :to="`/sub-categories/${categories.node.slug}`"
-                >
-                  <img
-                    src="https://www.zkteco.com.br/wp-content/uploads/2020/04/produtos_softwares.jpg"
-                  />
-                  <h2 id="headline-136-3905" class="ct-headline">
-                    {{categories.node.name}}
-                  </h2>
-                </g-link>
-              </div>
-            </div> -->
           </div>
         </section>
       </div>

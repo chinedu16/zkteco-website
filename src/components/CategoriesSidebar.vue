@@ -28,17 +28,19 @@
       </div>
       <div class="my-10">
         <div
-          class="flex mb-7  align-center"
+          class=" mb-7  align-center"
           v-for="article in articles.slice(0, 3)"
           :key="article.id"
         >
-          <g-image
-            :src="article.node.image[0].formats.thumbnail.url"
-            class="rounded-full rounded-image "
-            width="71"
-            height="71"
-          ></g-image>
-          <p class="ml-5">{{ article.node.title }}</p>
+          <g-link class="flex align-center" :to="`/blog/${article.node.slug}`">
+            <g-image
+              :src="article.node.image[0].formats.thumbnail.url"
+              class="rounded-full rounded-image "
+              width="71"
+              height="71"
+            ></g-image>
+            <p class="ml-5">{{ article.node.title }}</p>
+          </g-link>
         </div>
       </div>
     </div>
@@ -49,9 +51,21 @@
           <MailOpen />
           <h4 class="ml-3">Subscribe</h4>
         </div>
-        <input type="text" v-model="name" placeholder="Name" class="search-input mt-5 w-full">
-        <input type="text" v-model="email" placeholder="Email" class="search-input mt-5 mb-5 w-full">
+        <input
+          type="text"
+          v-model="name"
+          placeholder="Name"
+          class="search-input mt-5 w-full"
+        />
+        <input
+          type="text"
+          v-model="email"
+          placeholder="Email"
+          class="search-input mt-5 mb-5 w-full"
+        />
         <v-btn @click="sendEmail" dark>Subscribe</v-btn>
+
+        <div v-if="showResponse" class="flex justify-center mt-3">Email Sent</div>
       </div>
     </div>
   </div>
@@ -113,6 +127,7 @@ export default {
     return {
       name: "",
       email: "",
+      showResponse: false
     };
   },
   components: {
@@ -124,9 +139,10 @@ export default {
         name: this.name,
         email: this.email,
       };
-      const response = api.subscriberEmail(payload)
-      console.log(response)
-      this.dialog = false
+      const response = api.subscriberEmail(payload);
+      if (response) {
+        this.showResponse = true
+      }
     },
   },
   async mounted() {
@@ -152,12 +168,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 #subscriber-box {
   .v-input {
     .v-input__control {
       .v-input__slot {
-        color: white!important;
+        color: white !important;
       }
     }
   }

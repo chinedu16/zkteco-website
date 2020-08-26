@@ -7,12 +7,12 @@
             <div class="breadcrumb flex" @click="goBack">
               <LeftCaret /> <a to>Back</a>
             </div>
-          </div> 
+          </div>
         </section>
 
         <section class="flex justify-center">
           <div class="product-carousel-container justify-between w-full">
-            <div class="product-images left-product" >
+            <div class="product-images left-product">
               <div class="thumb-example" id="products_carousel">
                 <div id="navFor1">
                   <VueSlickCarousel
@@ -77,17 +77,38 @@
                 data-aos-duration="2000"
                 class="flex mt-5"
               >
-                <g-link><Twitter color="#777" width="34" height="34"/></g-link>
-                <g-link class="ml-8"
+                <g-link
+                  :to="
+                    `https://twitter.com/intent/tweet?text=Click%20to%20View%20Our%20%20ZkTeco%20Products%20-${
+                      product.name
+                    }%20${url}`
+                  "
+                  ><Twitter color="#777" width="34" height="34"
+                /></g-link>
+                <g-link
+                  :to="`https://www.facebook.com/sharer/sharer.php?u=${url}`"
+                  class="ml-8"
                   ><Facebook color="#777" width="34" height="34"
                 /></g-link>
-                <g-link class="ml-8"
+                <g-link to="https://www.instagram.com" class="ml-8"
                   ><Instagram color="#777" width="34" height="34"
                 /></g-link>
-                <g-link class="ml-8"
+                <g-link
+                  :to="
+                    `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${
+                      product.name
+                    }&summary=${product.description}`
+                  "
+                  class="ml-8"
                   ><Linkedin color="#777" width="34" height="34"
                 /></g-link>
-                <g-link class="ml-8"
+                <g-link
+                  :to="
+                    `https://api.whatsapp.com/send?url=${url}?title=${
+                      product.name
+                    }?description=${product.description}`
+                  "
+                  class="ml-8"
                   ><Whatsapp color="#777" width="34" height="34"
                 /></g-link>
               </div>
@@ -137,9 +158,15 @@
                         <Pdf />
                         <h4 class="ml-4">{{ download.name }}</h4>
                       </div>
-                      <div class="flex ml-5">
-                        <span class="mr-5">{{ download.file[0].size }}MB</span>
-                        <Download />
+                      <div
+                        class="flex ml-5"
+                        v-for="item in download.file"
+                        :key="item.id"
+                      >
+                        <g-link :to="item.url" download>
+                          <span class="mr-5">{{ item.size }}MB</span>
+                          <Download />
+                        </g-link>
                       </div>
                     </div>
                   </v-row>
@@ -217,10 +244,10 @@ export default {
     SemiLayout,
     VueSlickCarousel,
   },
-
   data() {
     return {
       page: 1,
+      url: "",
       features: [
         {
           id: 1,
@@ -244,6 +271,9 @@ export default {
     goBack() {
       this.$router.go(-1);
     },
+  },
+  mounted() {
+    this.url = window.location.href;
   },
   computed: {
     product() {
@@ -355,9 +385,7 @@ a {
   }
 }
 
-
 #product-details {
   margin-top: 9rem;
 }
-
 </style>

@@ -77,6 +77,7 @@
                 <Twitter color="white" height="24" width="20" />
                 <Instagram color="white" height="24" width="20" />
                 <Whatsapp color="white" height="24" width="20" />
+                <Linkedin color="white" height="24" width="20" />
               </div>
               <button class="footer-cta" icon>
                 <MessageCircleIcon /> Online Consultation
@@ -101,6 +102,7 @@ import Facebook from "../components/Vectors/Facebook";
 import Twitter from "../components/Vectors/Twitter";
 import Instagram from "../components/Vectors/Instagram";
 import Whatsapp from "../components/Vectors/Whatsapp";
+import Linkedin from "../components/Vectors/Linkedin";
 import { MessageCircleIcon } from "vue-feather-icons";
 import Call from "../components/Vectors/light/Call";
 import Consultation from "../components/Vectors/light/Consultation";
@@ -180,6 +182,7 @@ export default {
     TwitterIcon,
     Facebook,
     Instagram,
+    Linkedin,
     Twitter,
     Whatsapp,
     Call,

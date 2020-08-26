@@ -137,6 +137,7 @@ export default {
 }
 
 .card-blog {
+  min-width: 804px;
   background: #ffffff;
   box-shadow: 0px 8px 24px rgba(112, 112, 92, 0.15);
   border-radius: 5px;

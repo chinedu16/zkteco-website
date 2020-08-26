@@ -22,7 +22,7 @@
         <div class="flex justify-center align-center">
           <div class="breathing w-full ">
             <h2
-              class="text-center  heading"
+              class="text-center heading"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
@@ -67,7 +67,7 @@
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full breathing">
-            <h1 class="heading" data-aos="fade-left">News Center</h1>
+            <h1 class="heading flex justify-center" data-aos="fade-left">News Center</h1>
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
@@ -141,7 +141,7 @@
                 <v-form ref="form" v-model="valid" lazy-validation>
                   <v-col cols="12">
                     <v-text-field
-                      label="Legal name*"
+                      label="Name*"
                       hint="Enter your full name"
                       required
                       v-model="name"

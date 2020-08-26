@@ -2,7 +2,7 @@
   <section id="customer__logo" class=" ">
     <div class="flex justify-center">
       <div  class="breathing w-full">
-         <h1 class="heading mb-10" data-aos="fade-left">Our Clients</h1>
+         <h1 class="heading mb-10 flex justify-center" data-aos="fade-left">Our Clients</h1>
         <div
           data-aos="zoom-in"
           data-aos-duration="3000"
@@ -10,6 +10,18 @@
         >
           <div class="logos_carousel customer-logos__content w-full flex">
             <VueSlickCarousel class="w-full" :dots="true" v-bind="settings">
+              <div v-for="logo in logoData" :key="logo.name">
+                <g-image class="white--text align-end" :src="logo.image.url">
+                </g-image>
+              </div>
+              <div v-for="logo in logoData" :key="logo.name">
+                <g-image class="white--text align-end" :src="logo.image.url">
+                </g-image>
+              </div>
+              <div v-for="logo in logoData" :key="logo.name">
+                <g-image class="white--text align-end" :src="logo.image.url">
+                </g-image>
+              </div>
               <div v-for="logo in logoData" :key="logo.name">
                 <g-image class="white--text align-end" :src="logo.image.url">
                 </g-image>
@@ -43,8 +55,9 @@ export default {
         arrows: false,
         dots: true,
         infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        autoplay: true,
+        slidesToShow: 5,
+        slidesToScroll: 1,
       },
     };
   },
@@ -56,7 +69,7 @@ export default {
   margin-bottom: 6rem;
   margin-top: 6rem;
   .logos_carousel {
-    width: 500px;
+    width: 900px;
     .slick-slider {
       .slick-list {
         .slick-track {

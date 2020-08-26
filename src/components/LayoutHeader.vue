@@ -13,7 +13,7 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <g-link to="/category/events" class="px-4 hover">
+              <g-link :to="`/category/${articles[0].node.slug}`" class="px-4 hover">
                 News Center </g-link
               >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
               <g-link class="pl-2 pr-2 hover"> <World class="mr-2" /> |</g-link>
@@ -52,7 +52,8 @@
                         v-bind="attrs"
                         v-on="on"
                       >
-                        Product
+                      <g-link>Product </g-link>
+                        
                       </v-btn>
                     </template>
 
@@ -219,6 +220,15 @@ query {
       }
     } 
   }
+  allStrapiCategories {
+    edges{
+      node{
+        id
+        name
+        slug
+      }
+    }
+  }
 }
 </static-query>
 
@@ -285,6 +295,9 @@ export default {
     products() {
       return this.$static.allStrapiProductCategories.edges;
     },
+    articles() {
+      return this.$static.allStrapiCategories.edges;
+    }
   },
   async mounted() {
     this.$nextTick(() => {
