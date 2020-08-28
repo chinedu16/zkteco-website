@@ -52,7 +52,7 @@
                         v-bind="attrs"
                         v-on="on"
                       >
-                        Product
+                        <g-link to="/product">Product </g-link>
                       </v-btn>
                     </template>
 

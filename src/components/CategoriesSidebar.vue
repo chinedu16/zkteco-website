@@ -65,7 +65,12 @@
         />
         <v-btn @click="sendEmail" dark>Subscribe</v-btn>
 
-        <div v-if="showResponse" class="flex justify-center mt-3">Email Sent</div>
+        <div v-if="showResponse" class="flex justify-center mt-3">
+          Email Sent
+        </div>
+        <div v-if="showResponseError" class="flex justify-center mt-3">
+          Something Went Wrong
+        </div>
       </div>
     </div>
   </div>
@@ -127,21 +132,28 @@ export default {
     return {
       name: "",
       email: "",
-      showResponse: false
+      showResponse: false,
+      showResponseError: false,
     };
   },
   components: {
     MailOpen,
   },
   methods: {
-    sendEmail() {
+    async sendEmail() {
       const payload = {
         name: this.name,
         email: this.email,
       };
-      const response = api.subscriberEmail(payload);
-      if (response) {
-        this.showResponse = true
+      try {
+        const response = await api.subscriberEmail(payload);
+        if (response) {
+          this.showResponse = true;
+          this.showResponseError = false;
+        }
+      } catch (error) {
+        this.showResponse = false
+        this.showResponseError = true
       }
     },
   },

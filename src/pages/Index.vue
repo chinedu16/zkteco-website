@@ -67,7 +67,9 @@
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full breathing">
-            <h1 class="heading flex justify-center" data-aos="fade-left">News Center</h1>
+            <h1 class="heading flex justify-center" data-aos="fade-left">
+              News Center
+            </h1>
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
@@ -163,6 +165,10 @@
                       >Subscribe</v-btn
                     >
                   </div>
+
+                  <p style="color: red;" v-if="showError">
+                    Something went wrong
+                  </p>
                 </v-form>
 
                 <v-card-actions>
@@ -249,6 +255,8 @@ import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 import moment from "moment";
 import axios from "axios";
 
+import api from "../api";
+
 import {
   ArrowRightCircleIcon,
   ZapIcon,
@@ -277,6 +285,7 @@ export default {
   data() {
     return {
       name: "",
+      showError: false,
       nameRules: [
         (v) => !!v || "Name is required",
         (v) => (v && v.length <= 30) || "Name must be less than 10 characters",
@@ -423,18 +432,20 @@ export default {
       }
     },
 
-    sendEmail() {
+    async sendEmail() {
       const validate = this.$refs.form.validate();
       const payload = {
         name: this.name,
         email: this.email,
       };
-      axios({
-        method: "post",
-        url: "http://admin.zkteco-wa.com/maillists",
-        data: payload,
-      });
-      this.dialog = false;
+      try {
+        const response = await api.subscriberEmail(payload);
+        if (response) {
+          this.dialog = false;
+        }
+      } catch (error) {
+        this.showError = true;
+      }
     },
   },
 };
