@@ -16,7 +16,7 @@
 
         <section class="flex pb-12 pt-10 justify-center">
           <div class="product-cat__container w-full ">
-            <ProductSidebar toggle="true" />
+            <ProductSidebar :toggleComponent="productCategory.slug" :toggle="true" />
             <div class="rightside-product">
               <div>
                 <div class="rightside-product__item">
@@ -103,16 +103,7 @@ export default {
     return {
       page: 1,
       todayDate: new Date(),
-      theTime: false,
-      products: [
-        { id: 1 },
-        { id: 2 },
-        { id: 3 },
-        { id: 4 },
-        { id: 5 },
-        { id: 6 },
-        { id: 7 },
-      ],
+      theTime: false
     };
   },
   methods: {

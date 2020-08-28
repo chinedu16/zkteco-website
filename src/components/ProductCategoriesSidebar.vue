@@ -1,5 +1,5 @@
 <template>
-  <div class="md:m-0 mb-10 leftside-product " id="product-categories" >
+  <div class="md:m-0 mb-10 leftside-product " id="product-categories">
     <div>
       <div class="border">
         <v-card class="mx-auto">
@@ -9,7 +9,10 @@
             v-for="item in productCategories"
             :key="item.id"
           >
-            <v-list-group style="color: #78bc27!important;">
+            <v-list-group
+              :value="getListName(item.node.slug, toggleComponent)"
+              style="color: #78bc27!important;"
+            >
               <template v-slot:activator>
                 <g-link :to="`/product-categories/${item.node.slug}`">
                   <v-list-item-title>{{
@@ -26,11 +29,11 @@
               >
                 <template v-slot:activator>
                   <v-list-item-content>
-                    <g-link
-                      :to="`/sub-categories/${product.slug}`"
-                      ><v-list-item-title>{{
-                        product.name
-                      }}</v-list-item-title></g-link
+                    <g-link :to="`/sub-categories/${product.slug}`"
+                      ><v-list-item-title
+                        >{{ product.name }}
+                        {{ toggleComponent }}</v-list-item-title
+                      ></g-link
                     >
                   </v-list-item-content>
                 </template>
@@ -64,11 +67,7 @@ query {
 
 <script>
 export default {
-  props: {
-    toggle: {
-      type: String,
-    },
-  },
+  props: ["toggle", "toggleComponent"],
   data() {
     return {};
   },
@@ -76,6 +75,19 @@ export default {
   computed: {
     productCategories() {
       return this.$static.allStrapiProductCategories.edges;
+    },
+  },
+  methods: {
+    getListName(name, itemProps) {
+      if (name && itemProps) {
+        if (name.toLowerCase() === itemProps.toLowerCase()) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        null;
+      }
     },
   },
 };
