@@ -15,8 +15,7 @@
             <div class="left-service">
               <div data-aos="fade-right" data-aos-duration="3000">
                 <div class="header-title">{{ about.title }}</div>
-                <p class="mt-5">
-                  {{ about.description }}
+                <p class="mt-5" v-html="about.description">
                 </p>
               </div>
             </div>
@@ -85,7 +84,7 @@
                 data-aos-duration="3000"
                 class="right-mission"
               >
-                <p>{{ about.our_missioin.description }}</p>
+                <p v-html="about.our_missioin.description"></p>
               </div>
             </div>
           </div>

@@ -60,8 +60,8 @@
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="3000"
                 class="description"
+                v-html="product.description"
               >
-                {{ product.description }}
               </p>
 
               <div

@@ -20,7 +20,7 @@
                         <Office />
                         <div class="ml-6">
                           <div class="font-bold text-xl">{{ item.name }}:</div>
-                          <span>{{ item.description }}</span>
+                          <span v-html="item.description"></span>
                         </div>
                       </div>
                     </div>
