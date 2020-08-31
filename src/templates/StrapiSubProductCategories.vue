@@ -30,7 +30,7 @@
                           class="w-full h-full object-contain"
                           width="201"
                           height="105"
-                          :src="product.images[0].url"
+                          :src="product.images[0] ? product.images[0].url : '../assets/Logo-2.png'"
                         >
                         </g-image>
                       </div>
