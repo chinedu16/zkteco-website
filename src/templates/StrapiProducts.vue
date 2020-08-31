@@ -18,10 +18,8 @@
                   <VueSlickCarousel
                     ref="c1"
                     :asNavFor="$refs.c2"
-                    :focusOnSelect="true"
                     :slidesToShow="1"
                     :autoplay="true"
-                    :cssEase="linear"
                     :speed="2000"
                     :autoplaySpeed="1000"
                     :infinite="true"
@@ -119,7 +117,7 @@
           </div>
         </section>
 
-      <section class="mt-10 flex">
+        <section class="mt-10 flex">
           <v-card class="max-w-screen-xxl w-full">
             <v-tabs background-color="white" color="#78bc27">
               <v-tab style="letter-spacing: 0px;" class="font-bold"
@@ -251,28 +249,16 @@ export default {
     return {
       page: 1,
       url: "",
-      features: [
-        {
-          id: 1,
-          title: "TIme Management",
-          src: require("../assets/Product/D2S 1.png"),
-        },
-        {
-          id: 2,
-          title: "Control Solution",
-          src: require("../assets/Product/D2S 1.png"),
-        },
-        {
-          id: 3,
-          title: "Time Solution",
-          src: require("../assets/Product/D2S 1.png"),
-        },
-      ],
     };
   },
   methods: {
     goBack() {
       this.$router.go(-1);
+    },
+    syncSliders(currentPosition, nextPosition) {
+      // console.log(this.$refs.c1)
+      this.$refs.c1.next();
+      this.$refs.c2.next();
     },
   },
   mounted() {

@@ -22,7 +22,7 @@
                 <div class="rightside-product__item">
                   <div
                     class="flex"
-                    v-for="product in allProduct"
+                    v-for="product in loadedPosts"
                     :key="product.node.id"
                   >
                     <div class="flex product-container relative">
@@ -57,6 +57,19 @@
                     </div>
                   </div>
                 </div>
+                <ClientOnly>
+                  <infinite-loading
+                    @infinite="infiniteHandler"
+                    spinner="spiral"
+                  >
+                    <div slot="no-more">
+                      You've scrolled through all the posts ;)
+                    </div>
+                    <div slot="no-results">
+                      Sorry, no posts yet :(
+                    </div>
+                  </infinite-loading>
+                </ClientOnly>
               </div>
             </div>
           </div>
@@ -67,8 +80,12 @@
 </template>
 
 <page-query>
-query {
-  allStrapiProducts {
+query ($page: Int) {
+  products: allStrapiProducts(perPage: 12, page: $page) @paginate{
+    pageInfo {
+      totalPages
+      currentPage
+    }
     edges {
       node {
         id
@@ -99,6 +116,8 @@ export default {
 
   data() {
     return {
+      loadedPosts: [],
+      currentPage: 1,
       page: 1,
       todayDate: new Date(),
       theTime: false,
@@ -118,13 +137,33 @@ export default {
       const checkDateWithinWeek = moment(date).isSame(new Date(), "week");
       return checkDateWithinWeek;
     },
+    async infiniteHandler($state) {
+      if (this.currentPage + 1 > this.$page.products.pageInfo.totalPages) {
+        $state.complete();
+      } else {
+        const { data } = await this.$fetch(`/product/${this.currentPage + 1}`);
+        if (data.products.edges.length) {
+          this.currentPage = data.products.pageInfo.currentPage;
+          this.loadedPosts.push(...data.products.edges);
+          $state.loaded();
+        } else {
+          $state.complete();
+        }
+      }
+    },
   },
   mounted() {
     this.theTime = moment().isoWeek();
   },
+  created() {
+    this.loadedPosts.push(...this.$page.products.edges);
+  },
   computed: {
     allProduct() {
-      return this.$page.allStrapiProducts.edges;
+      return this.$page.products.edges;
+    },
+    pageInfos() {
+      return this.$page.products.pageInfo.totalPages;
     },
   },
 };
@@ -200,7 +239,7 @@ export default {
   height: 151px;
 
   img {
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 

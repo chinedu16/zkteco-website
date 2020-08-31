@@ -12,9 +12,7 @@
           :to="`/category/${category.node.slug}`"
         >
           <h4>
-            <g-link :to="`/category/${category.node.slug}`" class="hover">{{
-              category.node.name
-            }}</g-link>
+            {{ category.node.name }}
           </h4>
           <span class="number-categories flex justify-center h-6 w-6">{{
             category.node.articles.length
@@ -152,8 +150,8 @@ export default {
           this.showResponseError = false;
         }
       } catch (error) {
-        this.showResponse = false
-        this.showResponseError = true
+        this.showResponse = false;
+        this.showResponseError = true;
       }
     },
   },

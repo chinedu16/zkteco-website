@@ -6,7 +6,7 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
-
+import InfiniteLoading from 'vue-infinite-loading'
 
 
 export default function(Vue, { appOptions, router, head, isClient }) {
@@ -44,6 +44,7 @@ export default function(Vue, { appOptions, router, head, isClient }) {
 
   const opts = {}; //opts includes, vuetify themes, icons, etc.
   Vue.use(Vuetify);
+  Vue.use(InfiniteLoading);
 
   appOptions.vuetify = new Vuetify(opts);
 }
