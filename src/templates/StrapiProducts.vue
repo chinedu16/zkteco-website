@@ -20,14 +20,15 @@
                     :asNavFor="$refs.c2"
                     :focusOnSelect="true"
                     :slidesToShow="1"
-                    :autoplay="true"
                     :cssEase="linear"
                     :speed="2000"
                     :autoplaySpeed="1000"
                     :infinite="true"
                   >
                     <div v-for="image in product.images" :key="image.id">
-                      <g-image :src="image.url" :alt="image.name"> </g-image>
+                      <div class="w-full carousel-image-container">
+                        <g-image :src="image.url" :alt="image.name"> </g-image>
+                      </div>
                     </div>
                   </VueSlickCarousel>
                 </div>
@@ -376,8 +377,13 @@ a {
     .slick-list {
       .slick-track {
         .slick-slide {
-          img {
-            width: unset !important;
+          .carousel-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+              width: unset !important;
+            }
           }
         }
       }

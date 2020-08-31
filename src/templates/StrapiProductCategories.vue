@@ -16,7 +16,10 @@
 
         <section class="flex pb-12 pt-10 justify-center">
           <div class="product-cat__container w-full ">
-            <ProductSidebar :toggleComponent="productCategory.slug" :toggle="true" />
+            <ProductSidebar
+              :toggleComponent="productCategory.slug"
+              :toggle="true"
+            />
             <div class="rightside-product">
               <div>
                 <div class="rightside-product__item">
@@ -31,7 +34,11 @@
                           class="w-full h-full object-contain"
                           width="201"
                           height="105"
-                          :src="product.node.images[0].url"
+                          :src="
+                            product.node.images[0]
+                              ? product.node.images[0].url
+                              : '../assets/Logo-2.png'
+                          "
                         >
                         </g-image>
                       </div>
@@ -55,7 +62,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </section>
       </div>
@@ -103,7 +109,7 @@ export default {
     return {
       page: 1,
       todayDate: new Date(),
-      theTime: false
+      theTime: false,
     };
   },
   methods: {

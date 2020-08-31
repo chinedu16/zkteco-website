@@ -91,7 +91,7 @@
           </div>
         </section>
 
-        <section  class="team-zk pt-10 pb-30 flex justify-center ">
+        <section class="team-zk pt-10 pb-30 flex">
           <div class="w-full max-w-screen-xxl">
             <div class="header-title mb-10">
               Our Team
@@ -99,20 +99,10 @@
 
             <div id="team-carousel" class="logos_carousel-1">
               <VueSlickCarousel v-bind="settings">
-                <div class="flex" v-for="team in about.the_team" :key="team.id">
-                  <div class="align-center flex justify-center flex-column team-container__item">
-                    <g-image
-                      class="rounded-full"
-                      src="../assets/Biola 1.png"
-                    ></g-image>
-                    <h4 class="text-color-zkteco-green mt-2">
-                      {{ team.name || "None" }}
-                    </h4>
-                    <span>{{ team.position || "None" }}</span>
-                  </div>
-                </div>
-                <div class="flex" v-for="team in about.the_team" :key="team.id">
-                  <div class="align-center flex justify-center flex-column team-container__item">
+                <div class="" v-for="team in about.the_team" :key="team.id">
+                  <div
+                    class="align-center flex justify-center flex-column team-container__item"
+                  >
                     <g-image
                       class="rounded-full"
                       src="../assets/Biola 1.png"
@@ -124,49 +114,6 @@
                   </div>
                 </div>
               </VueSlickCarousel>
-            </div>
-            <div class="team-container">
-              <!-- <VueSlickCarousel v-bind="settings">
-                <div
-                  data-aos="flip-left"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="2000"
-                  class="flex"
-                  v-for="team in about.the_team"
-                  :key="team.id"
-                >
-                  <div class="flex align-center team-container__item">
-                    <g-image
-                      class="rounded-full"
-                      src="../assets/Biola 1.png"
-                    ></g-image>
-                    <h4 class="text-color-zkteco-green mt-2">
-                      {{ team.name || "None" }}
-                    </h4>
-                    <span>{{ team.position || "None" }}</span>
-                  </div>
-                </div>
-              </VueSlickCarousel> -->
-
-              <!-- <div
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
-                class="flex"
-                v-for="team in about.the_team"
-                :key="team.id"
-              >
-                <div class="flex align-center team-container__item">
-                  <g-image
-                    class="rounded-full"
-                    src="../assets/Biola 1.png"
-                  ></g-image>
-                  <h4 class="text-color-zkteco-green mt-2">
-                    {{ team.name || "None" }}
-                  </h4>
-                  <span>{{ team.position || "None" }}</span>
-                </div>
-              </div> -->
             </div>
           </div>
         </section>
@@ -223,12 +170,22 @@ export default {
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        autoplay: true,
         autoplaySpeed: 2000,
         pauseOnDotsHover: true,
         pauseOnFocus: true,
         pauseOnHover: true,
+        initialSlide: 0,
       },
+      nnn: [
+        {id: 1},
+        {id: 24},
+        {id: 566},
+        {id: 44},
+        {id: 12},
+        {id: 1121},
+        {id: 132},
+        {id: 32},
+      ]
     };
   },
   components: {
@@ -265,9 +222,8 @@ export default {
 }
 
 .logos_carousel-1 {
-  // width: 500px;
-  // height: 250px;
   .slick-slider {
+    width: 100%;
     .slick-list {
       .slick-track {
         .slick-center {
