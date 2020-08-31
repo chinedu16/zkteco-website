@@ -20,6 +20,7 @@
                     :asNavFor="$refs.c2"
                     :focusOnSelect="true"
                     :slidesToShow="1"
+                    :autoplay="true"
                     :cssEase="linear"
                     :speed="2000"
                     :autoplaySpeed="1000"
@@ -32,6 +33,7 @@
                     </div>
                   </VueSlickCarousel>
                 </div>
+
                 <div id="navFor2">
                   <VueSlickCarousel
                     ref="c2"
@@ -117,7 +119,7 @@
           </div>
         </section>
 
-        <section class="mt-10 flex">
+      <section class="mt-10 flex">
           <v-card class="max-w-screen-xxl w-full">
             <v-tabs background-color="white" color="#78bc27">
               <v-tab style="letter-spacing: 0px;" class="font-bold"
@@ -336,7 +338,7 @@ a {
 
 <style lang="scss" scoped>
 .thumb-example {
-  height: 361px;
+  height: 471px;
   background-color: transparent;
 }
 

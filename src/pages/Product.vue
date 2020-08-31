@@ -190,7 +190,7 @@ export default {
 
 @media (min-width: 640px) {
   .rightside-product {
-    width: 70%;
+    width: 77%;
     background: white;
   }
 }
@@ -206,7 +206,7 @@ export default {
 
 .product-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 260px);
   grid-gap: 20px;
 
   a {

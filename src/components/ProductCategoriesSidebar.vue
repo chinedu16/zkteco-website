@@ -100,7 +100,7 @@ export default {
 
 @media (min-width: 640px) {
   .leftside-product {
-    width: 28%;
+    width: 22%;
   }
 }
 </style>

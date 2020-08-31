@@ -477,7 +477,6 @@
   }
 }
 
-
 #team-carousel {
   .slick-slider {
     .slick-dots {
@@ -517,8 +516,10 @@
     }
   }
   .left-product {
+
     @include mq(md) {
       width: 50%;
+      
     }
   }
 }
@@ -527,7 +528,7 @@
   .slick-slider {
     height: inherit;
     .slick-prev {
-      left: 25px!important;
+      left: 25px !important;
       z-index: 9;
       &::before {
         color: black;
@@ -535,14 +536,14 @@
       }
     }
     .slick-next {
-      right: 25px!important;
+      right: 25px !important;
       &::before {
         color: black;
         font-size: 40px;
       }
     }
     .slick-list {
-      height: 350px!important;
+      height: 350px !important;
       // width: 400px!important;
       .slick-track {
         .slick-slide {
@@ -561,6 +562,7 @@
   .slick-slider {
     height: inherit;
     .slick-list {
+      
       .slick-track {
         .slick-slide {
           img {
@@ -573,7 +575,6 @@
     }
   }
 }
-
 
 #slide-container {
   @include mq(md) {
