@@ -32,7 +32,7 @@
                     <g-link :to="`/sub-categories/${product.slug}`"
                       ><v-list-item-title
                         >{{ product.name }}
-                        {{ toggleComponent }}</v-list-item-title
+                        </v-list-item-title
                       ></g-link
                     >
                   </v-list-item-content>
@@ -79,6 +79,7 @@ export default {
   },
   methods: {
     getListName(name, itemProps) {
+      console.log(name + " "+ itemProps)
       if (name && itemProps) {
         if (name.toLowerCase() === itemProps.toLowerCase()) {
           return true;
@@ -100,7 +101,7 @@ export default {
 
 @media (min-width: 640px) {
   .leftside-product {
-    width: 22%;
+    width: 28%;
   }
 }
 </style>

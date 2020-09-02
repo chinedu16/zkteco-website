@@ -15,7 +15,7 @@
         </section>
         <section class="flex pb-12 pt-10 justify-center">
           <div class="product-cat__container w-full ">
-            <ProductSidebar toggle="true" />
+            <ProductSidebar :toggleComponent="productCategory.slug" />
             <div class="rightside-product">
               <div>
                 <div class="rightside-product__item">

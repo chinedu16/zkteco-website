@@ -21,12 +21,21 @@
               :toggle="true"
             />
             <div class="rightside-product">
+              <div
+                v-if="productAmount < 1"
+                class="h-full flex justify-center align-center"
+              >
+                <div>
+                  <h3 class="mb-10">No Product for {{ productCategory.name }}</h3>
+                  <EmptyState />
+                </div>
+              </div>
               <div>
                 <div class="rightside-product__item">
                   <div
                     class="flex"
                     v-for="product in allProduct"
-                    :key="product.node.id"
+                    :key="product.id"
                   >
                     <div class="flex product-container relative">
                       <div class="h-32 product-image-container">
@@ -35,8 +44,8 @@
                           width="201"
                           height="105"
                           :src="
-                            product.node.images[0]
-                              ? product.node.images[0].url
+                            product.images[0]
+                              ? product.images[0].url
                               : '../assets/Logo-2.png'
                           "
                         >
@@ -47,14 +56,14 @@
                         class="label-new"
                         ><img src="../assets/new.png" alt="BioTime 8.0"
                       /></span>
-                      <g-link :to="`/product/${product.node.slug}`">
+                      <g-link :to="`/product/${product.slug}`">
                         <v-btn
                           class="mt-8"
                           style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
-                          >{{ product.node.name }}</v-btn
+                          >{{ product.name }}</v-btn
                         >
                       </g-link>
-                      <g-link class="more" :to="`/product/${product.node.slug}`"
+                      <g-link class="more" :to="`/product/${product.slug}`"
                         >Learn more</g-link
                       >
                     </div>
@@ -75,6 +84,14 @@ query ProductCategories($path: String!) {
     id
     name
     slug
+    products {
+      id
+      name
+      slug
+      images {
+        url
+      }
+    }
   }
   allStrapiProducts {
     edges {
@@ -95,6 +112,7 @@ query ProductCategories($path: String!) {
 import Office from "../components/Vectors/Office";
 import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
+import EmptyState from "../components/Vectors/EmptyState";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
 import moment from "moment";
 export default {
@@ -103,6 +121,7 @@ export default {
     Message,
     Call,
     ProductSidebar,
+    EmptyState,
   },
 
   data() {
@@ -126,7 +145,10 @@ export default {
       return this.$page.strapiProductCategories;
     },
     allProduct() {
-      return this.$page.allStrapiProducts.edges;
+      return this.$page.strapiProductCategories.products;
+    },
+    productAmount() {
+      return this.$page.strapiProductCategories.products.length;
     },
   },
 };
