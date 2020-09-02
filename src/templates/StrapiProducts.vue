@@ -91,7 +91,7 @@
                   class="ml-8"
                   ><Facebook color="#777" width="34" height="34"
                 /></g-link>
-                <g-link to="https://www.instagram.com" class="ml-8"
+                <g-link to="https://www.instagram.com/zkteco_wa/" class="ml-8"
                   ><Instagram color="#777" width="34" height="34"
                 /></g-link>
                 <g-link

@@ -29,7 +29,7 @@
               <v-tooltip bottom>
                 <template v-slot:activator="{ on, attrs }">
                   <span dark v-bind="attrs" v-on="on" class="mx-2">
-                    <a href="https://wa.me/2348175555512?text=I'm%20interested">
+                    <a href=" https://api.whatsapp.com/send?phone=2348175555514&text=&source=&data=&app_absent=">
                   <User/></a>
                   </span>
                 </template>
@@ -73,11 +73,11 @@
             <div class="w-full">
               <div class="mb-5">Follow Us</div>
               <div class="flex align-center justify-between">
-                <Facebook color="white" height="24" width="20" />
-                <Twitter color="white" height="24" width="20" />
-                <Instagram color="white" height="24" width="20" />
-                <Whatsapp color="white" height="24" width="20" />
-                <Linkedin color="white" height="24" width="20" />
+                <g-link to="https://www.facebook.com/zktecowa"><Facebook color="white" height="24" width="20" /></g-link>
+                <g-link to="https://twitter.com/ZKTeco_WA"><Twitter color="white" height="24" width="20" /></g-link>
+                <g-link to="https://www.instagram.com/zkteco_wa/"><Instagram color="white" height="24" width="20" /></g-link>
+                <g-link to="https://api.whatsapp.com/send?phone=2348175555514&text=&source=&data=&app_absent="><Whatsapp color="white" height="24" width="20" /></g-link>
+                <g-link to="https://www.linkedin.com/company/zkteco-wa/?viewAsMember=true"><Linkedin color="white" height="24" width="20" /></g-link>
               </div>
               <button class="footer-cta" icon>
                 <MessageCircleIcon /> Online Consultation
