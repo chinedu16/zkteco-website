@@ -229,7 +229,7 @@ export default {
 
 @media (min-width: 640px) {
   .rightside-product {
-    width: 77%;
+    width: 70%;
     background: white;
   }
 }
