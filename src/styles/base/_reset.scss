@@ -317,6 +317,9 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
       }
+      .single__item {
+        border-bottom: 1px solid #eee;
+      }
     }
   }
 }
@@ -546,6 +549,7 @@
       height: 350px !important;
       // width: 400px!important;
       .slick-track {
+        // width: 100% !important;
         .slick-slide {
           img {
             width: unset !important;

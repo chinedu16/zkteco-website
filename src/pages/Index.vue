@@ -11,6 +11,7 @@
           :speed="2000"
           :autoplaySpeed="4000"
           :infinite="true"
+          :adaptiveHeight="false"
         >
           <div class="container-hero" v-for="(item, i) in sliders" :key="i">
             <g-image :src="item.image.url"> </g-image>

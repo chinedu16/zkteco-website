@@ -40,12 +40,8 @@
                         class="label-new"
                         ><img src="../assets/new.png" alt="BioTime 8.0"
                       /></span>
-                      <g-link :to="`/product/${product.slug}`">
-                        <v-btn
-                          class="mt-8"
-                          style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;"
-                          >{{ product.name }}</v-btn
-                        >
+                      <g-link :to="`/product/${product.slug}`" style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;">
+                        {{ product.name }}
                       </g-link>
                       <g-link class="more" :to="`/product/${product.slug}`"
                         >Learn more</g-link
@@ -197,7 +193,7 @@ export default {
   height: 151px;
 
   img {
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 </style>

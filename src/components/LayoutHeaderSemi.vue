@@ -333,7 +333,7 @@ export default {
 
 <style lang="scss">
 .custom-class {
-  color: black !important;
+  color: #78bc27 !important;
 }
 
 .search-input {
