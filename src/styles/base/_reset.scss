@@ -683,3 +683,20 @@
     box-shadow: none !important;
   }
 }
+
+
+.leftside-newsletter {
+  display: none;
+  @include mq(md) {
+    display: block;
+  } 
+}
+
+.rightside-newsletter {
+  width: 100%; 
+  padding: 2px 10px;
+  @include mq(md) {
+    width: 60%; 
+  }
+}
+

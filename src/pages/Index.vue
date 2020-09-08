@@ -131,7 +131,7 @@
               <div id="leftside-newsletter" style="">
                 <g-image src="../assets/Logo-2.png"></g-image>
               </div>
-              <div style="width: 60%; padding: 2px 10px;">
+              <div style="rightside-newsletter">
                 <v-card-title class="headline"
                   >Subscribe for Email Updates</v-card-title
                 >
