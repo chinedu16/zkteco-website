@@ -8,5 +8,5 @@ async function subscriberEmail (payload) {
 }
 
 export default {
-    subscriberEmail
+  subscriberEmail
 }

@@ -360,7 +360,7 @@ export default {
     };
   },
   metaInfo() {
-    const title = "ZkTeco";
+    const title = "ZKTeco";
     const description =
       "ZKTeco is a globally-renowned provider of security, access control and time management solutions";
 
