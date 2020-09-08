@@ -18,11 +18,7 @@
                   <VueSlickCarousel
                     ref="c1"
                     :asNavFor="$refs.c2"
-                    :slidesToShow="1"
-                    :autoplay="true"
-                    :speed="2000"
-                    :autoplaySpeed="1000"
-                    :infinite="true"
+                    v-bind="settings"
                   >
                     <div v-for="image in product.images" :key="image.id">
                       <div class="w-full carousel-image-container">
@@ -45,6 +41,15 @@
                   </VueSlickCarousel>
                 </div>
               </div>
+              <div id="navFor3">
+                <div
+                  v-for="image in product.images"
+                  :key="image.id"
+                  class="mobile-product-image"
+                >
+                  <g-image :src="image.url" :alt="image.name"> </g-image>
+                </div>
+              </div>
             </div>
             <div class="right-product">
               <h1
@@ -61,8 +66,7 @@
                 data-aos-duration="3000"
                 class="description"
                 v-html="product.description"
-              >
-              </p>
+              ></p>
 
               <div
                 data-aos="fade-left"
@@ -249,6 +253,22 @@ export default {
     return {
       page: 1,
       url: "",
+      settings: {
+        speed: 2000,
+        autoplaySpeed: 1000,
+        infinite: true,
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        responsive: [
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -320,9 +340,7 @@ a {
 ::-webkit-scrollbar-thumb {
   background: #78bc27;
 }
-</style>
 
-<style lang="scss" scoped>
 .thumb-example {
   height: 471px;
   background-color: transparent;

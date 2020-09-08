@@ -13,7 +13,10 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <g-link :to="`/category/${articles[0].node.slug}`" class="px-4 hover">
+              <g-link
+                :to="`/category/${articles[0].node.slug}`"
+                class="px-4 hover"
+              >
                 News Center </g-link
               >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
               <g-link class="pl-2 pr-2 hover"> <World class="mr-2" /> |</g-link>
@@ -45,86 +48,95 @@
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
-                  <v-menu open-on-hover offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        class="tracking-normal normal-case text-base"
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                      <g-link to="/product">Product </g-link>
-                        
-                      </v-btn>
-                    </template>
+                  <div class="text-center">
+                    <v-menu
+                      offset-y
+                      open-on-hover
+                      :close-on-content-click="false"
+                    >
+                      <template v-slot:activator="{ on }">
+                        <v-btn
+                          class="tracking-normal normal-case text-base"
+                          v-on="on"
+                        >
+                          <g-link to="/product">Product </g-link>
+                        </v-btn>
+                      </template>
 
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, index) in products"
-                        :key="index"
-                      >
-                        <g-link :to="`/product-categories/${item.node.slug}`">
+                      <v-list>
+                        <v-list-item
+                          v-for="(item, index) in products"
+                          :key="index"
+                        >
+                          <v-list-item-title>
+                            <g-link
+                              :to="`/product-categories/${item.node.slug}`"
+                            >
+                              {{ item.node.name }}
+                            </g-link>
+                          </v-list-item-title>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
+                  </div>
+
+                  <div class="text-center">
+                    <v-menu
+                      offset-y
+                      open-on-hover
+                      :close-on-content-click="false"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          class="tracking-normal normal-case text-base"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          Solution
+                        </v-btn>
+                      </template>
+
+                      <v-list>
+                        <v-list-item
+                          v-for="(item, index) in solution"
+                          :key="index"
+                        >
                           <v-list-item-title>{{
-                            item.node.name
+                            item.title
                           }}</v-list-item-title>
-                        </g-link>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
+                  </div>
 
-                  <v-menu open-on-hover offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        class="tracking-normal normal-case text-base"
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        Solution
-                      </v-btn>
-                    </template>
+                  <div class="text-center">
+                    <v-menu
+                      offset-y
+                      open-on-hover
+                      :close-on-content-click="false"
+                    >
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          class="tracking-normal normal-case text-base"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          Support
+                        </v-btn>
+                      </template>
 
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, index) in solution"
-                        :key="index"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-
-                  <v-menu open-on-hover offset-y>
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-btn
-                        class="tracking-normal normal-case text-base"
-                        v-bind="attrs"
-                        v-on="on"
-                      >
-                        Support
-                      </v-btn>
-                    </template>
-
-                    <v-list>
-                      <v-list-item
-                        v-for="(item, index) in support"
-                        :key="index"
-                      >
-                        <v-list-item-title>{{ item.title }}</v-list-item-title>
-                      </v-list-item>
-                    </v-list>
-                  </v-menu>
-
-                  <!-- <v-btn
-                  >
-                    <g-link to="/about" class="hover">About us </g-link>
-                  </v-btn>
-                  <v-btn>
-                    <g-link to="/contact" class="hover">Contact</g-link>
-                  </v-btn>
-                  <v-btn>
-                    <g-link to="/category/events" class=" hover">
-                      News Center
-                    </g-link>
-                  </v-btn> -->
+                      <v-list>
+                        <v-list-item
+                          v-for="(item, index) in support"
+                          :key="index"
+                        >
+                          <v-list-item-title>{{
+                            item.title
+                          }}</v-list-item-title>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
+                  </div>
                 </div>
               </div>
             </div>
@@ -264,6 +276,8 @@ export default {
 
   data() {
     return {
+      closeOnClick: true,
+      closeOnContentClick: true,
       drawer: null,
       product: [
         { title: "Time Management" },
@@ -297,7 +311,7 @@ export default {
     },
     articles() {
       return this.$static.allStrapiCategories.edges;
-    }
+    },
   },
   async mounted() {
     this.$nextTick(() => {
