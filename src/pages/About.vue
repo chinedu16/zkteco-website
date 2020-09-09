@@ -104,7 +104,7 @@
                   >
                     <g-image
                       class="rounded-full"
-                      src="../assets/Biola 1.png"
+                      :src="team.image.url"
                     ></g-image>
                     <h4 class="text-color-zkteco-green mt-2">
                       {{ team.name || "None" }}
