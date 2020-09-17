@@ -230,9 +230,6 @@ export default {
         }
         .slick-slide {
           width: 200px !important;
-          .flex {
-            // flex-direction: column;
-          }
           img {
             // width: unset !important;
             // height: 84px;
