@@ -46,17 +46,25 @@
               >
                 <VueSlickCarousel v-bind="settings">
                   <div v-for="feature in features" :key="feature.id">
-                    <div class="feature-text">
-                      <div class="icons"><Search /></div>
-                      <h1>{{ feature.title }}</h1>
-                    </div>
-                    <g-image
+                    <g-link :to="feature.url">
+                      <div class="feature-text">
+                        <div class="icons-container">
+                          <g-image :src="feature.icon">
+
+                          </g-image>
+                        </div>
+                        <h1>{{ feature.title }}</h1>
+                        </div>
+                    </g-link>
+                    <g-link :to="feature.url">
+                      <g-image
                       class="white--text align-end"
-                      height="200px"
-                      style="border-bottom: 10px solid #82bb31;"
+                      height="100px"
+                      style="border-bottom: 10px solid #82bb31; object-fit: contain;"
                       :src="feature.src"
                     >
                     </g-image>
+                    </g-link>
                   </div>
                 </VueSlickCarousel>
               </div>
@@ -328,33 +336,45 @@ export default {
       features: [
         {
           id: 1,
-          title: "TIme Management",
-          src: require("../assets/Feature/time management 1.png"),
+          icon: require("../assets/Feature/time attendance icon.png"),
+          title: "Time Attendance",
+          url: "/product-categories/time-attendance",
+          src: require("../assets/Feature/time attendance background.jpg"),
         },
         {
           id: 2,
-          title: "Control Solution",
-          src: require("../assets/Feature/elevator control 1.png"),
+          icon: require("../assets/Feature/access control icon.png"),
+          title: "Access Control",
+          url: "/product-categories/access-control",
+          src: require("../assets/Feature/access control background.jpg"),
         },
         {
           id: 3,
-          title: "Time Solution",
-          src: require("../assets/Feature/High availability 1.png"),
+          icon: require("../assets/Feature/smart lock icon.png"),
+          title: "Smart Lock",
+          url: '/product-categories/smart-lock',
+          src: require("../assets/Feature/smart lock back.jpg"),
         },
         {
           id: 4,
-          title: "TIme Management",
-          src: require("../assets/Feature/time management 1.png"),
+          icon: require("../assets/Feature/entrance control icon.png"),
+          title: "Entrance Control",
+          url: "/product-categories/entrance-control",
+          src: require("../assets/Feature/entrance control back.jpg"),
         },
         {
           id: 5,
-          title: "Control Solution",
-          src: require("../assets/Feature/elevator control 1.png"),
+          icon: require("../assets/Feature/security inspection icon.png"),
+          title: "Security Inspection",
+          url: "/product-categories/security-inspection",
+          src: require("../assets/Feature/security inspection icon back.jpg"),
         },
         {
           id: 6,
-          title: "Time Solution",
-          src: require("../assets/Feature/High availability 1.png"),
+          title: "CCTV",
+          url: '/product-categories/cctv',
+          icon: require("../assets/Feature/cctv icon.png"),
+          src: require("../assets/Feature/cctv background.jpg"),
         },
       ],
     };
@@ -492,6 +512,7 @@ export default {
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   align-items: center;
 
@@ -515,6 +536,7 @@ export default {
 
 #menu_feature_carousel {
   .slick-slider {
+    cursor: pointer;
     .slick-dots {
       li {
         button {
@@ -524,6 +546,7 @@ export default {
         }
       }
       .slick-active {
+        outline: none;
         button {
           &::before {
             color: #82bb31;
@@ -536,12 +559,27 @@ export default {
         .slick-slide {
           position: relative !important;
           img {
-            object-fit: cover;
-            width: inherit !important;
-            height: inherit;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
             border-bottom: 10px solid #82bb31;
           }
         }
+      }
+    }
+    .icons-container {
+      background: white;
+      height: 71px;
+      width: 71px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      img {
+        height: 31px !important;
+        width: 31px !important;
+        border-bottom: none !important;
+        object-fit: contain !important;
       }
     }
   }
