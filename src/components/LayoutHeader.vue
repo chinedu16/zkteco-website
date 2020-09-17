@@ -48,95 +48,30 @@
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-on="on"
-                        >
-                          <g-link to="/product">Product </g-link>
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in products"
-                          :key="index"
-                        >
-                          <v-list-item-title>
-                            <g-link
-                              :to="`/product-categories/${item.node.slug}`"
-                            >
-                              {{ item.node.name }}
-                            </g-link>
-                          </v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                <div class="dropdown">
+                  <button class="dropbtn">Products</button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in products" :key="index">
+                      <g-link :to="`/product-categories/${item.node.slug}`">{{item.node.name}}</g-link>
+                    </li>
                   </div>
-
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          Solution
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in solution"
-                          :key="index"
-                        >
-                          <v-list-item-title>{{
-                            item.title
-                          }}</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                </div>
+                <div class="dropdown">
+                  <button class="dropbtn">Solution</button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in solution" :key="index">
+                      <a href="#">{{item.title}}</a>
+                    </li>
                   </div>
-
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          Support
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in support"
-                          :key="index"
-                        >
-                          <v-list-item-title>{{
-                            item.title
-                          }}</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                </div>
+                <div class="dropdown">
+                  <button class="dropbtn">Support</button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in support" :key="index">
+                      <a href="#">{{item.title}}</a>
+                    </li>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -278,6 +213,7 @@ export default {
     return {
       closeOnClick: true,
       closeOnContentClick: true,
+      menuHover: false,
       drawer: null,
       product: [
         { title: "Time Management" },
@@ -343,7 +279,6 @@ export default {
         }
       }, 100);
     },
-
     googleTranslateElement: function(id) {
       new google.translate.TranslateElement(
         {
@@ -361,6 +296,60 @@ export default {
 <style lang="scss">
 .custom-class {
   color: #78bc27 !important;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.dropbtn:active,
+.dropbtn:focu {
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  opacity: 0.95;
+  border-radius: 4px;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  list-style-type: none;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #78bc27 !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: #78bc27;
 }
 
 .search-input {
