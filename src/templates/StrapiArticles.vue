@@ -30,7 +30,7 @@
                 </div>
               </div>
 
-              <div class="mt-10">
+              <!-- <div class="mt-10">
                 <div class="header-title">
                   2 Comments
                 </div>
@@ -70,8 +70,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mt-10">
+              </div> -->
+              <!-- <div class="mt-10">
                 <div class="header-title">
                   Leave a Comment
                 </div>
@@ -105,7 +105,7 @@
                     </v-row>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </section>
