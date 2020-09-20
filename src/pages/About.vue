@@ -4,55 +4,75 @@
       <img
         class="w-full object-cover"
         style="height: 20rem"
-        src="../assets/about.us.jpg"
+        src="../assets/about-us-1.jpg"
         alt=""
       />
     </div>
     <div class="flex justify-center align-center">
       <div class="breathing ">
-        <section class="about-zk flex justify-center " id="about-zk">
-          <div class="w-full service justify-between">
-            <div class="left-service">
-              <div data-aos="fade-right" data-aos-duration="3000">
-                <div class="header-title">{{ about.title }}</div>
-                <p class="mt-5" v-html="about.description">
-                </p>
-              </div>
+        <section class="breadcrumbs pt-4 flex">
+          <div class="position clearfix caseList-nav">
+            <div class="fl">
+              <a href="/">Home Page</a> &gt; <a href="/">About Us</a>
             </div>
-            <div
-              data-aos="fade-left"
-              data-aos-duration="4000"
-              class="right-service"
-            >
-              <div class="mb-4 justify-end">
-                <div class="flex items-end">
-                  <span class="small-circle swing bg-zkteco-black mr-4">
-                    <div class="flex align-center  flex-col text-center">
-                      <span class="font-black text-xl ">3500+</span>
-                      Global employees
-                    </div>
-                  </span>
-                  <span class="big-circle swing  bg-zkteco-green"
-                    ><div class="flex align-center flex-col text-center">
-                      <span class="font-black text-xl ">48+</span>
-                      Overseas Branches and Offices
-                    </div></span
+          </div>
+        </section>
+
+        <section
+          class=" pt-10 pb-30 about-zk flex justify-center"
+          id="about-zk"
+        >
+          <div class="culture w-full max-w-screen-xxl">
+            <p class="culture-title">Enterprise Vision</p>
+            <p class="culture-text">
+              <span>
+                We regard values as seeds, culture as trees and state of mind as
+                soil, without mind there is no seed, without core value there is
+                no culture.
+              </span>
+            </p>
+            <div class="culture-box">
+              <div class="culture-content">
+                <g-image src="../assets/responsibility.jpg"></g-image>
+                <div class="text">
+                  <span
+                    >Responsibility is a major indicator for ZKTeco to measure
+                    individual spiritual quality, which penetrates our mutual
+                    commitment to customers, partners, employees, shareholders
+                    and other stakeholders in social relations.</span
                   >
                 </div>
               </div>
-              <div>
-                <div class="flex items-end">
-                  <span class="big-circle swing bg-zkteco-green mr-4"
-                    ><div class="flex align-center flex-col text-center">
-                      <span class="font-black text-xl">80%+</span>
-                      Employee Expartriates overseas
-                    </div></span
+              <div class="culture-content">
+                <g-image src="../assets/integrity.jpg"></g-image>
+                <div class="text">
+                  <span
+                    >As for culture and self-discipline of ZKTeco, integrity is
+                    the most important guidance of common values and the
+                    cornerstone of all virtues. Integrity reminds us to insist
+                    on correct orientation, dare to</span
                   >
-                  <span class="small-circle swing  bg-zkteco-black "
-                    ><div class="flex align-center flex-col text-center">
-                      <span class="font-black text-xl">100+</span>
-                      Global employees
-                    </div></span
+                </div>
+              </div>
+              <div class="culture-content">
+                <g-image src="../assets/pragmatic.jpg"></g-image>
+                <div class="text">
+                  <span
+                    >Being practical-minded means to be down-to-earth, practical
+                    and realistic. Fundamentally, it is to proceed from reality,
+                    boldly upholding truth and science and dauntlessly
+                    correcting errors.</span
+                  >
+                </div>
+              </div>
+              <div class="culture-content">
+                <g-image src="../assets/excellence.jpg"></g-image>
+                <div class="text">
+                  <span
+                    >In ZKTeco, excellence means being a world-class enterprise
+                    and providing top-standard innovated products and services.
+                    The process of being a sustainable excellent enterprise with
+                    unremitting efforts and</span
                   >
                 </div>
               </div>
@@ -60,59 +80,68 @@
           </div>
         </section>
 
-        <section class="mission-zk py-10 flex justify-center">
-          <div class="w-full max-w-screen-xxl">
-            <div class="header-title">
-              Our Mission
-            </div>
+        <section
+          class=" pt-10 pb-30 about-zk flex justify-center"
+          id="about-zk"
+        >
+          <div class="culture w-full max-w-screen-xxl">
+            <p class="culture-title">Enterprise Mission</p>
+            <p class="culture-text">
+              <span>
+                ZKTeco's goal is to share our highly developed, revolutionary
+                biometric technology to benefit businesses and people.
+              </span>
+            </p>
 
-            <div class="mission justify-between mt-10 ">
-              <div
-                data-aos="fade-right"
-                data-aos-duration="3000"
-                class="left-mission"
-              >
-                <g-image
-                  class="h-full w-full object-cover"
-                  :src="about.our_missioin.image.url"
-                >
-                </g-image>
-              </div>
-
-              <div
-                data-aos="fade-left"
-                data-aos-duration="3000"
-                class="right-mission"
-              >
-                <p v-html="about.our_missioin.description"></p>
-              </div>
+            <div class="culture-top">
+              <g-image src="../assets/office.jpg"></g-image>
             </div>
           </div>
         </section>
 
-        <section class="team-zk pt-10 pb-30 flex">
-          <div class="w-full max-w-screen-xxl">
-            <div class="header-title mb-10">
-              Our Team
-            </div>
-
-            <div id="team-carousel" class="logos_carousel-1">
-              <VueSlickCarousel v-bind="settings">
-                <div class="" v-for="team in about.the_team" :key="team.id">
-                  <div
-                    class="align-center flex justify-center flex-column team-container__item"
-                  >
-                    <g-image
-                      class="rounded-full"
-                      :src="team.image.url"
-                    ></g-image>
-                    <h4 class="text-color-zkteco-green mt-2">
-                      {{ team.name || "None" }}
-                    </h4>
-                    <span>{{ team.position || "None" }}</span>
-                  </div>
+        <section
+          class=" pt-10 pb-10 about-zk flex justify-center"
+          id="about-zk"
+        >
+          <div class="culture w-full max-w-screen-xxl">
+            <p class="culture-title">Enterprise Vision</p>
+            <p class="culture-text-vision">
+              <span>
+                <div class="list">
+                  <span>Brand</span> : To become the world's recognized leader
+                  in outstanding innovation and pioneering technologies in
+                  security and time management solutions.
                 </div>
-              </VueSlickCarousel>
+                <div class="list">
+                  <span>Partners</span> : Cultivate a winning network of
+                  partners, maximize profit margins for our partners, provide
+                  richer solutions and create mutual enduring value.
+                </div>
+
+                <div class="list">
+                  <span>Efficiency</span>: Be a highly effective, fast-moving
+                  and nimble organization. Provide effective solutions that help
+                  organizations improve management efficiencies.
+                </div>
+                <div class="list">
+                  <span>Social Responsibility</span>: As a leading, worldwide
+                  solutions provider in the industry, it is our duty to give
+                  back to society. We will do our part to support worthy causes
+                  that contribute to a peaceful, environmentally sound and a
+                  sustainable planet.
+                </div>
+                <div class="list">
+                  <span>Responsibility</span>: Be mindful of our commitment to
+                  our customers and partners at all times. This means
+                  consistently responding to the needs of our customers and
+                  partners in a timely, courteous, professional and
+                  understanding manner.
+                </div>
+              </span>
+            </p>
+            <div class="culture-active clearfix">
+              <g-image src="../assets/podium.jpg"></g-image>
+              <g-image src="../assets/bike.jpg"></g-image>
             </div>
           </div>
         </section>
@@ -141,13 +170,20 @@ query {
             url
           }
         }
-        the_team {
+      }
+    }
+  }
+  allStrapiTeams {
+    edges {
+      node {
+        id
+        teams {
           id
-          name
-          position
           image {
             url
           }
+          position
+          name
         }
       }
     }
@@ -175,65 +211,139 @@ export default {
         pauseOnHover: true,
         initialSlide: 0,
       },
-      nnn: [
-        {id: 1},
-        {id: 24},
-        {id: 566},
-        {id: 44},
-        {id: 12},
-        {id: 1121},
-        {id: 132},
-        {id: 32},
-      ]
     };
   },
   components: {
     VueSlickCarousel,
   },
+  metaInfo: {
+    title:
+      "access control panel,access control,access control and security,access control and security providers in Nigeria,access control barriers,access control board,access control card reader,access control cards,access control companies,access control companies in lagos,access control companies in nigeria,Access Control Devices,access control door,access control door hardware,access control door lock,access control door system,access control equipment,access control equipments,access control exit button,access control facial recognition,access control fingerprint,access control for doors,access control for glass door,access control for glass doors,access control gates,access control glass door,access control hardware,access control hardware in Nigeria,access control in nigeria,access control keypad,access control kit,access control management software,access control non touch,access control non touch solutions,Access Control Panel,ACCESS CONTROL READER,access control security,access control system,access control technology,Access Control Terminal,access control terminal,access control training,access control training in nigeria,access control turnstiles,ALL-IN 1 ACCESS CONTROL,automatic turnstile,biometric access control,biometric access control system,biometric capture software,biometric data capture,biometric device cost,biometric Devices,biometric door lock,biometric door lock biometric,biometric fingerpint scanner price,biometric fingerprint device,biometric id card machine,biometric identification,biometric identification system,Biometric Scanner,Biometric System,Biometric Technology in Nigeria,door locks in lagos,door locks in nigeria,Drop Arm Tripod Standard,Drop Arm Tripod Turnstile,Dual-lane Full Height Turnstile Standard,entry access control gates,Exit Button,Exit Button No Touch,Exit Button push,face recognition access,facial recognition access control,facial recognition biometrics,facial recognition prices,facial recognition system,Fingerprint Access Control,FINGERPRINT ACCESS CONTROL,Fingerprint Access Control Terminal with ADMS,ID,fingerprint reader,fingerprint scanner,Flap Barrier,Full Height Turnstile,Full Height Turnstile Four Arms,gate control,gate turnstile,gate turnstile cost,Hand Held Metal Detector,hardware access control,METAL DETECTOR,Motorized tripod turnstile,Parking Control,Security solutions,Security solutions in nigeria,Security solutions training,security turnstiles prices,Speedgate,Standalone device Parking barrier,Swing Barrier,Time Attendance and Access Control Device,tripod turnstile,turnstile access control,turnstile door,turnstile entrance,turnstile entry system,turnstile for sale,turnstile gate atomated ,turnstile gate,turnstile gate barrier,turnstile gate price,turnstile gate with card reader,turnstile system,turnstiles prices in Nigeria,Walk Through Metal Detector,ZKteco in nigeria,ZKteco product in nigeria,ZKteco products in nigeria,,Touchless devices,Touchless biometrics,FACE RECOGNITION ATTENDANCE KIOSK,FACIAL ATTENDANCE DEVICE,FACIAL RECOGNITION,facial recognition algorithm,facial recognition app,facial recognition attendance system,facial recognition search,facial recognition software,facial recognition technology,palm action recognition,PALM ATTENDANCE DEVICE,palm print recognition advantages and disadvantages,PALM RECOGNITION,palm recognition biometrics,palm recognition devices in Nigeria,palm recognition system,palm recognition using image processing,palm vein recognition algorithm,palm vein recognition biometrics,palm vein recognition system abstract,secure palm vein recognition system,Touchless devices in Nigeria,non-touch door opener,no-touch door opener,no-touch devices,non-touch exit button,non touch machine,no touch machine,smart temperature measurement,fever alarm,fever detection,Indoor Human Disinfection Systems,Sterilizer Disinfection Equipment,Ultrasonic Sterilization Equipments,Mobile Temperature Measurement,,American Deadbolt Bluetooth Lock,American Deadbolt Bluetooth Lock price,American Standard Mortise Hotel Lock,Best smart locks,Bluetooth Lock,Bluetooth Lock in nigeria,door locks in nigeria,door locks prices,Electric Lock,Electric Lock Bracket,Electric Lock Bracket,Electric Lock in Nigeria,Electronic hotel lock,ELOCK KEY,European Standard Mortise Hotel Lock with 5 latches,Fingerprint Lock,Fingerprint Lock in nigeria,Glass door lock,Glass door lock in nigeria,Hotel lock,Hotel lock provider in nigeria,MAGNETIC LOCK,Secure Smart Lock providers in nigeria,Smart lock jiji,smart lock jumia,smart locks brands,smart locks compatible with ,smart locks deadbolt,smart locks digital keys,smart locks door locks,smart locks for doors,smart locks for hotels,smart locks for office,smart locks ghana,Smart locks nigeria,what is a smart locks,,Analog Camera,cctv,cctv camera,cctv camera accessories,cctv camera app,cctv camera bulb,cctv camera cable,cctv camera cable price,cctv camera circuit diagram,cctv camera companies in lagos,cctv camera company in nigeria,cctv camera components,cctv camera connection,cctv camera connection diagram,cctv camera cost,cctv camera images,cctv camera installation,cctv camera jumia,cctv camera meaning,cctv camera pictures,cctv camera price,cctv camera types,cctv connector,cctv control,cctv dealer,cctv dome camera,cctv jiji,CCTV konga,CCTV providers in Nigeria,CCTV Surveillance,Digital Camera,dvr recorder,HD Camera,hidden cctv camera,home security cameras,ip camera,Office security camera,outdoor security camera,security camera,Security Cameras for Banks,wireless cctv,wireless security camera,Zoom IP Camera,,best time and attendance system ,biometric attendance,biometric attendance machine,biometric attendance machine,biometric attendance software,Biometric Attendance system,biometric attendance system,biometric capture device,biometric fingerprint machine,facial recognition attendance system,fingerprint time attendance machine biometric,time & attendance management,time & attendance software,time & attendance solutions,time & attendance system,time and attendance in nigeria,time and attendance biometric system,time and attendance capture system,time and attendance collection system,time and attendance login,time and attendance policy,time and attendance software,time and attendance ghana,time and attendance system benefits,time and attendance system for small business,time and attendance system hardware,time and attendance systems for small businesses,TIME ATTENDANCE DEVICE,TIME ATTENDANCE,time attendance face machine,time attendance face recognition,time attendance form,time attendance free,time attendance free download,time attendance free software,time attendance machine battery,time attendance machine brands,time attendance system ,time attendance system face recognition,time attendance system free,TIME ATTENDANCE TERMINAL,,x ray machine price,x ray machine parts,x ray machine baggage scanner,x ray machine parts and functions,x ray machine for sale,x ray machine price in ghana,x ray machine price in nigeria,x ray machine definition,x ray machine airport,x ray machine function,x ray machine benefits,x ray machine brands,x ray machine buy,x ray machine buy online,x ray machine cost,x ray machine digital,x ray machine digital price,x ray machine for security,x ray machine healthcare,x ray machine components,x ray machine in airport,x ray machine dimensions,x ray machine description,x ray machine equipment,x ray machine in hospital,x ray machine how it works,x ray machine hospital,x ray machine repair jobs,x ray machine installation,x ray machine how to use,baggage scanner,Scanner,boom barrier",
+  },
   computed: {
     about() {
       return this.$page.allStrapiAboutUses.edges[0].node;
+    },
+    teams() {
+      return this.$page.allStrapiTeams.edges;
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-.small-circle {
-  color: white;
-  width: 165px;
-  height: 165px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style lang="scss">
+@import "../styles/base/_variable.scss";
+@import "../styles/base/mixins";
+
+.culture {
+  .culture-title {
+    font-size: 30px;
+    color: #484748;
+    margin: 50px 0 30px 0;
+    text-align: center;
+  }
+  .culture-text {
+    text-align: center;
+  }
+
+  .culture-active {
+    display: flex;
+    margin-top: 3rem;
+    img {
+      width: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .culture-top {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .culture-text-vision {
+    .list {
+      margin-bottom: 1rem;
+      span {
+        color: #99bb00;
+        font-size: 18px;
+      }
+    }
+  }
 }
 
-.big-circle {
-  width: 208px;
-  height: 208px;
-  left: 1162px;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.culture-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+
+  .culture-content {
+    float: left;
+    position: relative;
+    max-width: 700px;
+    max-height: 300px;
+    margin: 3px;
+    img {
+      // display: none;
+      width: 100%;
+    }
+    .text {
+      width: 90%;
+      position: absolute;
+      top: 44%;
+      left: 5%;
+      font-size: 18px;
+      color: #fff;
+      line-height: 20px;
+      height: 100px;
+      overflow: hidden;
+      text-align: left;
+
+      span {
+        text-align: justify;
+        font-size: 18px;
+        color: #ffffff;
+        line-height: 2;
+      }
+    }
+  }
 }
 
-.logos_carousel-1 {
+#team-carousel {
+  .big-team {
+    display: none;
+    @include mq(md) {
+      display: block;
+    }
+  }
+
+  .mobile-team {
+    display: block;
+    @include mq(md) {
+      display: none;
+    }
+    .team-container__item {
+      margin-bottom: 40px;
+      @include mq(md) {
+        margin-bottom: unset;
+      }
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
   .slick-slider {
     width: 100%;
     .slick-list {
       .slick-track {
-        .slick-center {
-          width: 200px;
-        }
+        width: unset !important;
         .slick-slide {
-          width: 200px !important;
+          margin-left: 2rem !important;
           img {
-            // width: unset !important;
-            // height: 84px;
             object-fit: cover;
+            width: 100%;
           }
         }
       }

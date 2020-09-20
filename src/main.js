@@ -6,8 +6,7 @@ import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
-import InfiniteLoading from 'vue-infinite-loading'
-
+import InfiniteLoading from "vue-infinite-loading";
 
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
@@ -40,6 +39,11 @@ export default function(Vue, { appOptions, router, head, isClient }) {
     src:
       "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
     body: true,
+  });
+
+  head.script.push({
+    id:"ze-snippet" ,
+    src: "https://static.zdassets.com/ekr/snippet.js?key=ebd1d5ac-b3c0-4bfe-a265-02e961779c67"
   });
 
   const opts = {}; //opts includes, vuetify themes, icons, etc.

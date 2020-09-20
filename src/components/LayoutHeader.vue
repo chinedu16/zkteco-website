@@ -13,6 +13,8 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
+              <g-link to="/teams" class="px-4 hover">Our Team </g-link>
+              |
               <g-link
                 :to="`/category/${articles[0].node.slug}`"
                 class="px-4 hover"
@@ -49,7 +51,7 @@
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
                 <div class="dropdown">
-                  <button class="dropbtn">Products</button>
+                  <button class="dropbtn"><g-link class="dropbtn" to="/product">Products</g-link></button>
                   <div class="dropdown-content">
                     <li v-for="(item, index) in products" :key="index">
                       <g-link :to="`/product-categories/${item.node.slug}`">{{item.node.name}}</g-link>
@@ -57,18 +59,18 @@
                   </div>
                 </div>
                 <div class="dropdown">
-                  <button class="dropbtn">Solution</button>
+                  <button class="dropbtn"><g-link class="dropbtn" to="/solution">Solutions</g-link></button>
                   <div class="dropdown-content">
-                    <li v-for="(item, index) in solution" :key="index">
-                      <a href="#">{{item.title}}</a>
+                    <li v-for="(item, index) in solutionsCat" :key="index">
+                      <g-link :to="`/solution-categories/${item.node.slug}`">{{item.node.name}}</g-link>
                     </li>
                   </div>
                 </div>
                 <div class="dropdown">
                   <button class="dropbtn">Support</button>
                   <div class="dropdown-content">
-                    <li v-for="(item, index) in support" :key="index">
-                      <a href="#">{{item.title}}</a>
+                    <li v-for="(item, index) in supports" :key="index">
+                      <g-link :to="`${item.path}`">{{item.title}}</g-link>
                     </li>
                   </div>
                 </div>
@@ -176,6 +178,23 @@ query {
       }
     }
   }
+  allStrapiSolutionCategories {
+    edges {
+      node {
+        id
+        name
+        slug
+        solutions {
+          id
+          slug
+          title
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
 }
 </static-query>
 
@@ -215,28 +234,13 @@ export default {
       closeOnContentClick: true,
       menuHover: false,
       drawer: null,
-      product: [
-        { title: "Time Management" },
-        { title: "Access Control" },
-        { title: "Green Label" },
-        { title: "Video Surveillance" },
-        { title: "Smart Lock" },
-        { title: "Multi-purpose Integration" },
-        { title: "POS" },
-        { title: "Biometrics" },
-        { title: "Entrance Control" },
-        { title: "Security Inspection" },
-        { title: "ECO Product" },
+      solutions: [
+        { title: "Classified by Industry", path: "/solution" },
+        { title: "Classified by Application", path: "/solution" },
       ],
-      solution: [
-        { title: "Classified by Industry" },
-        { title: "Classified by Application" },
-      ],
-      support: [
-        { title: "Training Center" },
-        { title: "Download Center" },
-        { title: "After-sales Service" },
-        { title: "Service & Bulletins" },
+      supports: [
+        { title: "Download Center", path: "/download-center" },
+        { title: "After Sales Service", path: "/after-sale" },
       ],
     };
   },
@@ -247,6 +251,9 @@ export default {
     },
     articles() {
       return this.$static.allStrapiCategories.edges;
+    },
+    solutionsCat() {
+      return this.$static.allStrapiSolutionCategories.edges;
     },
   },
   async mounted() {
@@ -321,7 +328,7 @@ export default {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #000000;
+  background: rgba(0, 0, 0, 0.7);
   opacity: 0.95;
   border-radius: 4px;
   min-width: 200px;
@@ -359,6 +366,9 @@ export default {
   height: 40px;
   overflow: hidden;
   padding: 0px 10px;
+  &:hover, &:focus {
+     outline: none;
+  }
 }
 .v-application {
   .v-menu__content {

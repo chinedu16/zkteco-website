@@ -4,10 +4,10 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
-
 module.exports = {
   siteName: "ZKTeco West Africa",
-  siteDescription: "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
+  siteDescription:
+    "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
   siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://example.com",
   titleTemplate: `%s | ZKTeco West Africa`,
   icon: {
@@ -29,6 +29,19 @@ module.exports = {
       },
     },
     {
+      use: "@gridsome/plugin-sitemap",
+      options: {
+        cacheTime: 600000, // default
+        exclude: ["/exclude-me"],
+        config: {
+          "/*": {
+            changefreq: "weekly",
+            priority: 0.5,
+          },
+        },
+      },
+    },
+    {
       use: "@gridsome/source-strapi",
       options: {
         apiURL: process.env.API_URL,
@@ -41,7 +54,13 @@ module.exports = {
           "home-pages",
           "about-uses",
           "contact-uses",
-          "sub-product-categories"
+          "sub-product-categories",
+          "solution-categories",
+          "solutions",
+          "warranty-policies",
+          "faqs",
+          "teams",
+          "download-centers",
         ],
         singleTypes: ["menu"],
       },
@@ -82,6 +101,16 @@ module.exports = {
     StrapiSubProductCategories: [
       {
         path: "/sub-categories/:slug",
+      },
+    ],
+    StrapiSolutions: [
+      {
+        path: "/solution-details/:slug",
+      },
+    ],
+    StrapiSolutionCategories: [
+      {
+        path: "/solution-categories/:slug",
       },
     ],
   },

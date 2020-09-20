@@ -79,9 +79,9 @@
                 <g-link to="https://api.whatsapp.com/send?phone=2348175555514&text=&source=&data=&app_absent="><Whatsapp color="white" height="24" width="20" /></g-link>
                 <g-link to="https://www.linkedin.com/company/zkteco-wa/?viewAsMember=true"><Linkedin color="white" height="24" width="20" /></g-link>
               </div>
-              <button class="footer-cta" icon>
+              <!-- <button class="footer-cta" icon>
                 <MessageCircleIcon /> Online Consultation
-              </button>
+              </button> -->
             </div>
           </div>
         </div>

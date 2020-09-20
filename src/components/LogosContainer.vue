@@ -20,30 +20,7 @@
                   ></g-image>
                 </div>
               </div>
-              <div v-for="logo in logoData" :key="logo.name">
-                <div class="flex justify-center align-center">
-                  <g-image
-                    class="white--text align-end"
-                    :src="logo.image.url"
-                  ></g-image>
-                </div>
-              </div>
-              <div v-for="logo in logoData" :key="logo.name">
-                <div class="flex justify-center align-center">
-                  <g-image
-                    class="white--text align-end"
-                    :src="logo.image.url"
-                  ></g-image>
-                </div>
-              </div>
-              <div v-for="logo in logoData" :key="logo.name">
-                <div class="flex justify-center align-center">
-                  <g-image
-                    class="white--text align-end"
-                    :src="logo.image.url"
-                  ></g-image>
-                </div>
-              </div>
+              
             </VueSlickCarousel>
           </div>
         </div>
@@ -73,8 +50,8 @@ export default {
         arrows: false,
         dots: true,
         infinite: true,
-        // autoplay: true,
-        slidesToShow: 5,
+        autoplay: true,
+        slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
           {
