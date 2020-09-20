@@ -88,7 +88,12 @@
                 v-for="article in articles"
                 :key="article.id"
               >
-                <v-card class=" img-hover-zoom--brightness">
+                <v-card
+                  class=" img-hover-zoom--brightness"
+                  data-aos="zoom-in"
+                  data-aos-easing="ease-out-cubic"
+                  data-aos-duration="3000"
+                >
                   <div class="image-hover-zoom">
                     <g-image
                       class="white--text align-end hover g-image-grow"
@@ -106,7 +111,7 @@
                           :to="`/blog/${article.node.slug}`"
                         >
                           <v-card-text class="text--primary">
-                            <div class="" style="font-weight: bold;">
+                            <div class="" style="font-size: 18px;">
                               {{ article.node.title }}
                             </div>
                           </v-card-text>
@@ -114,7 +119,7 @@
                           <v-card-actions class="absolute bottom-0">
                             <v-btn
                               class="tracking-normal hover capitalize"
-                              style="color: #333!important;"
+                              style="color: #333!important;font-weight: 900;"
                               text
                             >
                               Learn More <RightCaret />
@@ -638,7 +643,7 @@ export default {
 }
 
 .news-card__tile {
-  width: 74%;
+  width: 90%;
   height: 141px;
   background: white;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

@@ -194,12 +194,10 @@ query {
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   metaInfo: {
-    title:
-      "About ZKTeco west africa",
+    title: "About ZKTeco west africa",
   },
   computed: {
     about() {
@@ -254,37 +252,47 @@ export default {
 }
 
 .culture-box {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+  @include mq(md) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
 
   .culture-content {
-    float: left;
-    position: relative;
-    max-width: 700px;
-    max-height: 300px;
-    margin: 3px;
+    margin-bottom: 3rem;
+    @include mq(md) {
+      float: left;
+      position: relative;
+      max-width: 700px;
+      max-height: 300px;
+      margin: 3px;
+      margin-bottom: unset;
+    }
     img {
       // display: none;
       width: 100%;
     }
     .text {
-      width: 90%;
-      position: absolute;
-      top: 44%;
-      left: 5%;
-      font-size: 18px;
-      color: #fff;
-      line-height: 20px;
-      height: 100px;
-      overflow: hidden;
-      text-align: left;
+      @include mq(md) {
+        width: 90%;
+        position: absolute;
+        top: 44%;
+        left: 5%;
+        font-size: 18px;
+        color: #fff;
+        line-height: 20px;
+        height: 100px;
+        overflow: hidden;
+        text-align: left;
+      }
 
       span {
-        text-align: justify;
-        font-size: 18px;
-        color: #ffffff;
-        line-height: 2;
+        @include mq(md) {
+          text-align: justify;
+          font-size: 18px;
+          color: #ffffff;
+          line-height: 2;
+        }
       }
     }
   }

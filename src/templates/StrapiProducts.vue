@@ -14,7 +14,7 @@
           <div class="product-carousel-container justify-between w-full">
             <div class="product-images left-product">
               <div class="thumb-example" id="products_carousel">
-                <div id="navFor1">
+                <!-- <div id="navFor1">
                   <VueSlickCarousel
                     ref="c1"
                     :asNavFor="$refs.c2"
@@ -39,17 +39,44 @@
                       <g-image :src="image.url" :alt="image.name"> </g-image>
                     </div>
                   </VueSlickCarousel>
+                </div> -->
+
+                <div
+                  class="picture w3-display-container"
+                  style="display:none"
+                  v-for="image in product.images"
+                  :key="image.id"
+                  :id="image.name"
+                >
+                  <g-image :src="image.url" :alt="image.name"> </g-image>
+                </div>
+                <div class="w3-row-padding">
+                  <div
+                    class="w3-col s3 w3-container "
+                    v-for="image in product.images"
+                    :key="image.id"
+                  >
+                    <a
+                      href="javascript:void(0)"
+                      class="w3-hover-opacity"
+                      @click="openImg(image.name)"
+                    >
+                      <g-image :src="image.url" :alt="image.name"> </g-image>
+                    </a>
+                  </div>
                 </div>
               </div>
-              <div id="navFor3">
+
+              <!-- <div id="navFor3">
                 <div
                   v-for="image in product.images"
                   :key="image.id"
                   class="mobile-product-image"
+                  :id="image.name"
                 >
                   <g-image :src="image.url" :alt="image.name"> </g-image>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="right-product">
               <h1
@@ -122,7 +149,7 @@
         </section>
 
         <section class="mt-10 flex">
-          <v-card class="max-w-screen-xxl w-full">
+          <!-- <v-card class="max-w-screen-xxl w-full">
             <v-tabs background-color="white" color="#78bc27">
               <v-tab style="letter-spacing: 0px;" class="font-bold"
                 >Product Details</v-tab
@@ -178,7 +205,79 @@
                 </v-container>
               </v-tab-item>
             </v-tabs>
-          </v-card>
+          </v-card> -->
+          <div class="w3-container max-w-screen-xxl w-full">
+            <div class="w3-bar w3-black">
+              <button
+                class="w3-bar-item w3-button tablink w3-red"
+                @click="openCity($event, 'London')"
+              >
+                Product Details
+              </button>
+              <button
+                class="w3-bar-item w3-button tablink"
+                @click="openCity($event, 'Paris')"
+              >
+                Related Products
+              </button>
+              <button
+                class="w3-bar-item w3-button tablink"
+                @click="openCity($event, 'Tokyo')"
+              >
+                Download
+              </button>
+            </div>
+
+            <div id="London" class="w3-container w3-border city">
+              <p v-html="product.product_details"></p>
+            </div>
+
+            <div
+              id="Paris"
+              class="w3-container w3-border city"
+              style="display:none"
+            >
+              <v-container fluid>
+                <v-row>
+                  <v-col cols="12" sm="6" md="3" v-for="n in 6" :key="n">
+                    <g-image height="200px" src="../assets/Product/D2S 1.png">
+                    </g-image>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </div>
+
+            <div
+              id="Tokyo"
+              class="w3-container w3-border city"
+              style="display:none"
+            >
+              <v-container fluid>
+                <v-row
+                  class="border-b mb-5"
+                  v-for="download in product.downloads"
+                  :key="download.id"
+                >
+                  <div class="flex w-5/12 justify-between">
+                    <div class="flex">
+                      <Pdf />
+                      <h4 class="ml-4">{{ download.name }}</h4>
+                    </div>
+                    <div
+                      class="flex ml-5"
+                      v-for="item in download.file"
+                      :key="item.id"
+                    >
+                      <g-link :to="item.url" download>
+                        <span class="mr-5">{{ item.size }}MB</span>
+                        <Download />
+                      </g-link>
+                    </div>
+                  </div>
+                </v-row>
+              </v-container>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -254,6 +353,7 @@ export default {
     return {
       page: 1,
       url: "",
+      mountedProduct: "",
       settings: {
         speed: 2000,
         autoplaySpeed: 1000,
@@ -281,9 +381,32 @@ export default {
       this.$refs.c1.next();
       this.$refs.c2.next();
     },
+    openCity(evt, cityName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("city");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " w3-red";
+    },
+    openImg(imgName) {
+      var i, x;
+      x = document.getElementsByClassName("picture");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      document.getElementById(imgName).style.display = "block";
+    },
   },
   mounted() {
     this.url = window.location.href;
+    // this.openCity();
+    this.openImg(this.$page.strapiProducts.images[0].name);
   },
   computed: {
     product() {
@@ -310,11 +433,37 @@ a {
   }
 }
 
+.s3 {
+  width: 100% !important;
+    border: 1px solid #ccc !important;
+    padding: 10px;
+  img {
+    object-fit: contain;
+    width: 100%;
+  }
+}
+.w3-row-padding {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  height: 8rem;
+  margin-top: 2rem;
+}
+
 .description {
   height: 200px;
   overflow-y: scroll;
 }
 
+.picture {
+  height: 300px;
+  width: 560px;
+  img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+  }
+}
 .share {
   &::after {
     content: "";
@@ -325,6 +474,44 @@ a {
     position: absolute;
     top: 50%;
   }
+}
+
+.w3-red,
+.w3-hover-red:hover {
+  color: #fff !important;
+  background-color: #484748 !important;
+}
+
+.w3-container {
+  width: 100%;
+}
+
+.w3-bar {
+  width: 100%;
+  overflow: hidden;
+}
+.w3-center .w3-bar {
+  display: inline-block;
+  width: auto;
+}
+.w3-bar .w3-bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+}
+
+.w3-border {
+  border: 1px solid #ccc !important;
+  padding: 20px;
+}
+
+.w3-black,
+.w3-hover-black:hover {
+  color: #fff !important;
+  background-color: rgb(124, 189, 39) !important;
 }
 
 /* width */

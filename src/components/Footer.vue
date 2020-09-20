@@ -155,10 +155,8 @@ export default {
         {
           title: "Support",
           items: [
-            { title: "Training Center" },
-            { title: "Guidelines on the Use of Biometric Data" },
             { title: "Download Center" },
-            { title: "Service & Bulletins" },
+            { title: "After Sales Service" },
           ],
         },
         {

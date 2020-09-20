@@ -643,7 +643,7 @@
 
     .slick-prev {
       left: 1rem;
-      z-index: 1000000;
+      z-index: 10;
       @media only screen and (max-width: 600px) {
         left: 0rem;
       }
