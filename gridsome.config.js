@@ -8,7 +8,7 @@ module.exports = {
   siteName: "ZKTeco West Africa",
   siteDescription:
     "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
-  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://example.com",
+  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://zkteco-wa.com/",
   titleTemplate: `%s | ZKTeco West Africa`,
   icon: {
     favicon: "./src/assets/favicon.png",
