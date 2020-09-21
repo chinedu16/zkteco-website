@@ -297,46 +297,4 @@ export default {
     }
   }
 }
-
-#team-carousel {
-  .big-team {
-    display: none;
-    @include mq(md) {
-      display: block;
-    }
-  }
-
-  .mobile-team {
-    display: block;
-    @include mq(md) {
-      display: none;
-    }
-    .team-container__item {
-      margin-bottom: 40px;
-      @include mq(md) {
-        margin-bottom: unset;
-      }
-    }
-    img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-    }
-  }
-  .slick-slider {
-    width: 100%;
-    .slick-list {
-      .slick-track {
-        width: unset !important;
-        .slick-slide {
-          margin-left: 2rem !important;
-          img {
-            object-fit: cover;
-            width: 100%;
-          }
-        }
-      }
-    }
-  }
-}
 </style>

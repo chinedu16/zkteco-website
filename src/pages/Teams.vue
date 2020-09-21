@@ -12,9 +12,9 @@
             </div>
           </div>
         </section>
-        <section class="team-zk pt-10 pb-30 flex">
+        <section class="pt-10 pb-30 flex">
           <div class="w-full max-w-screen-xxl">
-            <div id="team-carousel" class="logos_carousel-1">
+            <div id="team-carousel">
               <div class="mobile-team" v-for="item in teams" :key="item.id">
                 <div class="department-name">
                   <h2>
@@ -27,10 +27,10 @@
                     v-for="singleTeam in item.node.teams"
                     :key="singleTeam.id"
                   >
-                    <!-- <g-image
+                    <g-image
                       class="rounded-full"
                       :src="singleTeam.image.url"
-                    ></g-image> -->
+                    ></g-image>
                     <h2 class="text-color-zkteco-green mt-2" style="font-size: 18px;">
                       {{ singleTeam.name || "None" }}
                     </h2>
