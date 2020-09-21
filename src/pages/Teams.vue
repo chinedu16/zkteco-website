@@ -48,11 +48,12 @@
 
 <page-query>
 query {
-	allStrapiTeams {
+	allStrapiTeams(sortBy: "created_at", order: ASC) {
     edges {
       node {
         id
         titlt
+        created_at
         teams {
           id
           image {

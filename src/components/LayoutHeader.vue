@@ -155,12 +155,13 @@
 
 <static-query>
 query {
-  allStrapiProductCategories {
+  allStrapiProductCategories(sortBy: "created_at", order: ASC) {
     edges {
       node {
         id
         name
         slug
+        created_at
         product_sub_categories {
           id
           name
