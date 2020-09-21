@@ -13,33 +13,33 @@
         <section class="breadcrumbs pt-4 flex">
           <div class="position clearfix caseList-nav">
             <div class="fl">
-              <a href="/">Home Page</a> &gt; <a href="/">Team</a>
+              <a href="/">Home Page</a> &gt; <a href="/teams">Team</a>
             </div>
           </div>
         </section>
         <section class="team-zk pt-10 pb-30 flex">
           <div class="w-full max-w-screen-xxl">
             <div id="team-carousel" class="logos_carousel-1">
-              <div class="mobile-team" v-for="team in teams" :key="team.id">
+              <div class="mobile-team" v-for="item in teams" :key="item.id">
                 <div class="department-name">
-                  <h2 class="">
-                    {{ team.node.titlt }}
+                  <h2>
+                    {{ item.node.titlt }}
                   </h2>
                 </div>
                 <div class="align-center team-container__item">
                   <div
                     class="align-center flex justify-center flex-column"
-                    v-for="team in team.node.teams"
-                    :key="team.id"
+                    v-for="singleTeam in item.node.teams"
+                    :key="singleTeam.id"
                   >
                     <g-image
                       class="rounded-full"
-                      :src="team.image.url"
+                      :src="singleTeam.image.url"
                     ></g-image>
-                    <h2 class="text-color-zkteco-green mt-2">
-                      {{ team.name || "None" }}
+                    <h2 class="text-color-zkteco-green mt-2" style="font-size: 18px;">
+                      {{ singleTeam.name || "None" }}
                     </h2>
-                    <span>{{ team.position || "None" }}</span>
+                    <span style="font-size: 16px;" >{{ singleTeam.position || "None" }}</span>
                   </div>
                 </div>
               </div>
@@ -53,27 +53,6 @@
 
 <page-query>
 query {
-  allStrapiAboutUses {
-    edges {
-      node {
-        id
-        title
-        description
-        infos {
-          id
-          name
-          figure
-        }
-        our_missioin {
-          id
-          description
-          image {
-            url
-          }
-        }
-      }
-    }
-  }
 	allStrapiTeams {
     edges {
       node {
@@ -102,9 +81,6 @@ export default {
     title: "ZkTeco west africa team",
   },
   computed: {
-    about() {
-      return this.$page.allStrapiAboutUses.edges[0].node;
-    },
     teams() {
       return this.$page.allStrapiTeams.edges;
     },
