@@ -10,7 +10,7 @@
     </div>
     <div class="flex justify-center align-center">
       <div class="breathing ">
-				<section class="breadcrumbs pt-4 flex">
+        <section class="breadcrumbs pt-4 flex">
           <div class="position clearfix caseList-nav">
             <div class="fl">
               <a href="/">Home Page</a> &gt; <a href="/">Team</a>
@@ -34,11 +34,7 @@
                   >
                     <g-image
                       class="rounded-full"
-                      :src="
-                        team.image
-                          ? team.image.url
-                          : 'https://storage.googleapis.com/zkteco_website_bucket/Biola_1_5f84b3566c/Biola-1.png_Biola_1_5f84b3566c.png'
-                      "
+                      :src="team.image.url"
                     ></g-image>
                     <h2 class="text-color-zkteco-green mt-2">
                       {{ team.name || "None" }}
@@ -103,8 +99,7 @@ export default {
     return {};
   },
   metaInfo: {
-    title:
-      "ZkTeco west africa team",
+    title: "ZkTeco west africa team",
   },
   computed: {
     about() {
@@ -133,17 +128,17 @@ export default {
     img {
       width: 200px;
       height: 200px;
-			object-fit: cover;
-			border-style: solid;
-			border-width: 3px 3px 3px 3px;
-			border-color: #7CBD27;
+      object-fit: cover;
+      border-style: solid;
+      border-width: 3px 3px 3px 3px;
+      border-color: #7cbd27;
     }
   }
 }
 
 .team-container__item {
-	display: grid;
-	grid-gap: 40px;
+  display: grid;
+  grid-gap: 40px;
   @include mq(md) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

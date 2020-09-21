@@ -377,7 +377,6 @@ export default {
       this.$router.go(-1);
     },
     syncSliders(currentPosition, nextPosition) {
-      // console.log(this.$refs.c1)
       this.$refs.c1.next();
       this.$refs.c2.next();
     },

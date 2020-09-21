@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     getListName(name, itemProps) {
-      console.log(name + " "+ itemProps)
       if (name && itemProps) {
         if (name.toLowerCase() === itemProps.toLowerCase()) {
           return true;

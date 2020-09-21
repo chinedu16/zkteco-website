@@ -15,13 +15,14 @@
         </section>
 
         <div class="download_search pt-10 flex align-center">
-          <div class="title">Anti-counterfeit Enquiry：</div>
+          <div class="__title">Anti-counterfeit Enquiry：</div>
           <input
             type="text"
             v-model="name"
             placeholder="Please Input SN "
             class="search-input w-full"
           />
+          <button>Search</button>
           <p></p>
         </div>
         <div class="conterfeit-table mt-10">
@@ -31,16 +32,16 @@
                 <tr>
                   <th class="text-left">SN</th>
                   <th class="text-left">Model</th>
-									<th class="text-left">Manufacture Date</th>
-									<th class="text-left">Exclusive Area</th>
+                  <th class="text-left">Manufacture Date</th>
+                  <th class="text-left">Exclusive Area</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="item in desserts" :key="item.name">
                   <td>{{ item.name }}</td>
                   <td>{{ item.calories }}</td>
-									<td>{{ item.calories }}</td>
-									<td>{{ item.calories }}</td>
+                  <td>{{ item.calories }}</td>
+                  <td>{{ item.calories }}</td>
                 </tr>
               </tbody>
             </template>
@@ -68,21 +69,18 @@ export default {
   },
 
   metaInfo: {
-    title:
-      "Anti-Counterfeiting",
+    title: "Anti-Counterfeiting",
   },
 
   data() {
     return {
-      desserts: [
-        
-      ],
+      desserts: [],
     };
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../styles/base/_variable.scss";
 @import "../styles/base/mixins";
 .allproduct-headline-image {
@@ -94,21 +92,44 @@ export default {
   z-index: 1;
 }
 
-.v-btn {
-  color: #82bb31 !important;
-}
-
-.v-application .primary--text {
-  color: #82bb31 !important;
-}
-
 #counterfeit {
   margin-bottom: 4rem;
 
+  .conterfeit-table {
+    .v-data-table {
+      table {
+        thead {
+          tr {
+            th {
+              font-size: 16px;
+              background: #78bc27;
+              color: white
+            }
+          }
+        }
+      }
+    }
+  }
   .download_search {
+    .__title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    button {
+      background: #82bb31;
+      color: white;
+      height: 50px;
+      width: 142px;
+      &:hover, &:focus {
+        background: darken($color: #82bb31, $amount: 10%);
+        outline: none;
+      }
+    }
     input {
+      height: 50px;
       width: 30%;
       color: inherit;
+      border-radius: inherit;
     }
   }
 }

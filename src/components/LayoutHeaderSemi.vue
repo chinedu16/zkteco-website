@@ -13,7 +13,12 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <g-link to="/category/events" class="px-4 hover">
+              <g-link to="/teams" class="px-4 hover">Our Team </g-link>
+              |
+              <g-link
+                :to="`/category/${articles[0].node.slug}`"
+                class="px-4 hover"
+              >
                 News Center </g-link
               >| <g-link to="/contact" class="px-4 hover">Contact us </g-link> |
               <g-link class="pl-2 pr-2 hover"> <World class="mr-2" /> |</g-link>
@@ -45,94 +50,30 @@
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          <g-link to="/product">Product </g-link>
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in products"
-                          :key="index"
-                        >
-                          <g-link :to="`/product-categories/${item.node.slug}`">
-                            <v-list-item-title>{{
-                              item.node.name
-                            }}</v-list-item-title>
-                          </g-link>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                <div class="dropdown">
+                  <button class="dropbtn"><g-link class="dropbtn" to="/product">Products</g-link></button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in products" :key="index">
+                      <g-link :to="`/product-categories/${item.node.slug}`">{{item.node.name}}</g-link>
+                    </li>
                   </div>
-
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          Solution
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in solution"
-                          :key="index"
-                        >
-                          <v-list-item-title>{{
-                            item.title
-                          }}</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                </div>
+                <div class="dropdown">
+                  <button class="dropbtn"><g-link class="dropbtn" to="/solution">Solutions</g-link></button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in solutionsCat" :key="index">
+                      <g-link :to="`/solution-categories/${item.node.slug}`">{{item.node.name}}</g-link>
+                    </li>
                   </div>
-
-                  <div class="text-center">
-                    <v-menu
-                      offset-y
-                      open-on-hover
-                      :close-on-content-click="false"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn
-                          class="tracking-normal normal-case text-base"
-                          v-bind="attrs"
-                          v-on="on"
-                        >
-                          Support
-                        </v-btn>
-                      </template>
-
-                      <v-list>
-                        <v-list-item
-                          v-for="(item, index) in support"
-                          :key="index"
-                        >
-                          <v-list-item-title>{{
-                            item.title
-                          }}</v-list-item-title>
-                        </v-list-item>
-                      </v-list>
-                    </v-menu>
+                </div>
+                <div class="dropdown">
+                  <button class="dropbtn">Support</button>
+                  <div class="dropdown-content">
+                    <li v-for="(item, index) in supports" :key="index">
+                      <g-link :to="`${item.path}`">{{item.title}}</g-link>
+                    </li>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -228,6 +169,32 @@ query {
       }
     } 
   }
+  allStrapiCategories {
+    edges{
+      node{
+        id
+        name
+        slug
+      }
+    }
+  }
+  allStrapiSolutionCategories {
+    edges {
+      node {
+        id
+        name
+        slug
+        solutions {
+          id
+          slug
+          title
+          image {
+            url
+          }
+        }
+      }
+    }
+  }
 }
 </static-query>
 
@@ -263,29 +230,17 @@ export default {
 
   data() {
     return {
+      closeOnClick: true,
+      closeOnContentClick: true,
+      menuHover: false,
       drawer: null,
-      product: [
-        { title: "Time Management" },
-        { title: "Access Control" },
-        { title: "Green Label" },
-        { title: "Video Surveillance" },
-        { title: "Smart Lock" },
-        { title: "Multi-purpose Integration" },
-        { title: "POS" },
-        { title: "Biometrics" },
-        { title: "Entrance Control" },
-        { title: "Security Inspection" },
-        { title: "ECO Product" },
+      solutions: [
+        { title: "Classified by Industry", path: "/solution" },
+        { title: "Classified by Application", path: "/solution" },
       ],
-      solution: [
-        { title: "Classified by Industry" },
-        { title: "Classified by Application" },
-      ],
-      support: [
-        { title: "Training Center" },
-        { title: "Download Center" },
-        { title: "After-sales Service" },
-        { title: "Service & Bulletins" },
+      supports: [
+        { title: "Download Center", path: "/download-center" },
+        { title: "After Sales Service", path: "/after-sale" },
       ],
     };
   },
@@ -293,6 +248,12 @@ export default {
   computed: {
     products() {
       return this.$static.allStrapiProductCategories.edges;
+    },
+    articles() {
+      return this.$static.allStrapiCategories.edges;
+    },
+    solutionsCat() {
+      return this.$static.allStrapiSolutionCategories.edges;
     },
   },
   async mounted() {
@@ -325,7 +286,6 @@ export default {
         }
       }, 100);
     },
-
     googleTranslateElement: function(id) {
       new google.translate.TranslateElement(
         {
@@ -345,6 +305,60 @@ export default {
   color: #78bc27 !important;
 }
 
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.dropbtn:active,
+.dropbtn:focu {
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0.95;
+  border-radius: 4px;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  list-style-type: none;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  color: #78bc27 !important;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: #78bc27;
+}
+
 .search-input {
   color: #78bc27;
   border: 1px solid #78bc27;
@@ -352,6 +366,9 @@ export default {
   height: 40px;
   overflow: hidden;
   padding: 0px 10px;
+  &:hover, &:focus {
+     outline: none;
+  }
 }
 .v-application {
   .v-menu__content {

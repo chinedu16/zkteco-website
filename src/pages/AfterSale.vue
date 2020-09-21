@@ -16,55 +16,31 @@
 
         <div class="solution_title pt-10 pb-10">
           <h2>After Sales Services</h2>
-          <div class="txt">
-            <p style="text-align:justify;">
-              <span style="font-size:14px;font-family:Tahoma;"> </span>
-            </p>
-            <p class="MsoNormal">
-              <span style="font-family:Tahoma;font-size:16px;line-height:2;"
-                >Global learning service to enhance your skills and industry
-                expertise.</span
-              ><span style="font-family:宋体;font-size:10.5000pt;"></span>
-            </p>
-            <p class="MsoNormal">
-              <span style="font-family:Tahoma;font-size:16px;line-height:2;"
-                >Collect your course requirements to establish a complete
-                training system.</span
-              ><span style="font-family:宋体;font-size:10.5000pt;"></span>
-            </p>
-            <p class="MsoNormal">
-              <span style="font-family:Tahoma;font-size:16px;line-height:2;"
-                >Ready for more? Push the envelope to increase your knowledge,
-                or be in the path to become a ZKTeco Certified
-                Professional.</span
-              ><span style="font-family:宋体;font-size:10.5000pt;"></span>
-            </p>
-
-            <p></p>
-            <p style="text-align:justify;">
-              <span
-                style="line-height:2;font-size:14px;font-family:Tahoma;"
-              ></span>
-            </p>
-          </div>
         </div>
 
         <div class="after_sales">
           <div class="after_sales_cat">
             <div class="after_card">
-              <g-image src="../assets/policy-card.jpg"></g-image>
+              <div class="after-sales-animate">
+                <Policy />
+              </div>
               <g-link class="txt textHidden" to="/product-warranty">
                 Warranty Policy
               </g-link>
             </div>
             <div class="after_card">
-              <g-image src="../assets/faqs-card.jpg"></g-image>
-               <g-link class="txt textHidden" to="/faq">
+              <div class="after-sales-animate">
+                <Faq />
+              </div>
+
+              <g-link class="txt textHidden" to="/faq">
                 FAQs
               </g-link>
             </div>
             <div class="after_card">
-              <g-image src="../assets/anticounterfiet.jpg"></g-image>
+              <div class="after-sales-animate">
+                <Counterfeit />
+              </div>
               <g-link class="txt textHidden" to="/anti-counterfeiting">
                 Anti-counterfeiting Enquiry
               </g-link>
@@ -77,30 +53,20 @@
 </template>
 
 <script>
-import Office from "../components/Vectors/Office";
-import Message from "../components/Vectors/Message";
-import Call from "../components/Vectors/Call";
-import EmptyState from "../components/Vectors/EmptyState";
-import ProductSidebar from "../components/ProductCategoriesSidebar";
-import moment from "moment";
+import Policy from "../components/Vectors/Policy";
+import Counterfeit from "../components/Vectors/Counterfeit";
+import Faq from "../components/Vectors/Faq";
 export default {
   components: {
-    Office,
-    Message,
-    Call,
-    ProductSidebar,
-    EmptyState,
+    Policy,
+    Counterfeit,
+    Faq,
   },
   metaInfo: {
-    title:
-      "After Sales Service",
+    title: "After Sales Service",
   },
   data() {
-    return {
-      page: 1,
-      todayDate: new Date(),
-      theTime: false,
-    };
+    return {};
   },
 };
 </script>
@@ -131,12 +97,21 @@ export default {
   .after_sales {
     .after_sales_cat {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 20px;
+      grid-gap: 60px;
+
+      @include mq(md) {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+      }
       .after_card {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #eee;
+        padding: 10px;
+        cursor: pointer;
         &:hover {
           a {
-            color: #78bc27!important;
+            color: #78bc27 !important;
             transition: 0.5s ease;
           }
         }
@@ -146,11 +121,12 @@ export default {
           width: 100%;
         }
         a {
-          font-size: 18px;
+          font-size: 16px;
           width: 100%;
           text-align: center;
           line-height: 50px;
           transition: all 0.8s;
+          font-weight: 600;
         }
       }
     }
