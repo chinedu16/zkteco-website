@@ -8,7 +8,7 @@
         <section class="breadcrumbs pt-4 flex">
           <div class="position clearfix caseList-nav">
             <div class="fl">
-              <a href="/">Home Page</a> &gt; <a href="/">Support</a> &gt; FAQs
+              <a href="/">Home Page</a> &gt;  <g-link to="/after-sale">After Sales Service</g-link> &gt; FAQs
             </div>
           </div>
         </section>
@@ -16,18 +16,18 @@
         <div class="download_search pt-10">
           <input
             type="text"
-            v-model="name"
+            v-model="search"
             placeholder="Please Input Keyword "
             class="search-input w-full"
           />
           <p></p>
         </div>
         <div class="">
-          <div class="faq-item mt-10" v-for="faq in faqs" :key="faq.id">
-            <h2 style="text-transform: capitalize;" class="mb-4">{{faq.node.name}}</h2>
+          <div class="faq-item mt-10" v-for="faq in filteredList" :key="faq.id">
+            <h2 style="text-transform: capitalize; color: #78bc27;" class="mb-4">{{faq.node.name}}</h2>
             <v-expansion-panels>
               <v-expansion-panel v-for="(item, i) in faq.node.content" :key="i">
-                <v-expansion-panel-header style="font-weight: bold;">{{item.title}}</v-expansion-panel-header>
+                <v-expansion-panel-header style="font-weight: 500;font-size: 1.1rem;">{{item.title}}</v-expansion-panel-header>
                 <v-expansion-panel-content style="padding: 16px 24px;background: #f8fcf5;" v-html="item.description">
                 </v-expansion-panel-content>
               </v-expansion-panel>
@@ -80,15 +80,18 @@ export default {
 
   data() {
     return {
-      page: 1,
-      todayDate: new Date(),
-      theTime: false,
+       search: '',
     };
   },
   computed: {
     faqs() {
       return this.$static.allStrapiFaqs.edges;
     },
+    filteredList() {
+      return this.$static.allStrapiFaqs.edges.filter(res => {
+        return res.node.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
   },
 };
 </script>
@@ -103,14 +106,6 @@ export default {
   background-position: center center;
   position: relative;
   z-index: 1;
-}
-
-.v-btn {
-  color: #82bb31 !important;
-}
-
-.v-application .primary--text {
-  color: #82bb31 !important;
 }
 
 #faq {

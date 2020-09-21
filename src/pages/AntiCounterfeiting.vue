@@ -8,7 +8,7 @@
         <section class="breadcrumbs pt-4 flex">
           <div class="position clearfix caseList-nav">
             <div class="fl">
-              <a href="/">Home Page</a> &gt; <a href="/">Support</a> &gt; Anti
+              <a href="/">Home Page</a> &gt; <g-link to="/after-sale">After Sales Service</g-link> &gt; Anti
               Counterfeit Enquiry
             </div>
           </div>
@@ -95,6 +95,17 @@ export default {
 #counterfeit {
   margin-bottom: 4rem;
 
+  .breadcrumbs {
+    .position {
+      .fl {
+        a {
+          &:hover {
+            color: #78bc27;
+          }
+        }
+      }
+    }
+  }
   .conterfeit-table {
     .v-data-table {
       table {
