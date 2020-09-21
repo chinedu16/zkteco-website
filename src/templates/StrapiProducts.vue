@@ -238,12 +238,12 @@
               style="display:none"
             >
               <v-container fluid>
-                <v-row>
+                <!-- <v-row>
                   <v-col cols="12" sm="6" md="3" v-for="n in 6" :key="n">
                     <g-image height="200px" src="../assets/Product/D2S 1.png">
                     </g-image>
                   </v-col>
-                </v-row>
+                </v-row> -->
               </v-container>
             </div>
 

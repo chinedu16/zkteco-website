@@ -15,35 +15,62 @@
         </section>
 
         <div class="download_search pt-10 pb-10">
-          <input
+          <!-- <input
             type="text"
             v-model="name"
             placeholder="Please Input Keyword "
             class="search-input mt-5 w-full"
-          />
+          /> -->
           <p></p>
         </div>
 
         <div class="educational_details">
-          <v-card>
-            <v-tabs v-model="tab" background-color="#f7f7f7">
-              <v-tabs-slider color="#78bc27"></v-tabs-slider>
-              <v-tab
-                style="color: #484748 !important;"
-                v-for="item in downloads"
-                :key="item.id"
-              >
+          <v-card color="basil">
+            <v-tabs
+              v-model="tab"
+              background-color="transparent"
+              color="basil"
+              grow
+            >
+              <v-tab v-for="item in downloads" :key="item.id">
                 {{ item.node.name }}
               </v-tab>
             </v-tabs>
 
-            <!-- <v-tabs-items v-model="tab">
-                <v-tab-item v-for="notes in item.node.download" :key="notes.id">
-                  <v-card flat>
-                    <v-card-text>{{ notes.name }}</v-card-text>
-                  </v-card>
-                </v-tab-item>
-              </v-tabs-items> -->
+            <v-tabs-items style="padding: 45px;" v-model="tab">
+              <v-tab-item v-for="item in downloads" :key="item.id">
+                <v-card
+                  color="basil"
+                  flat
+                  v-for="notes in item.node.download"
+                  :key="notes.id"
+                >
+                  <div class="downloads_container">
+                    <div class="download_left">
+                      <div style="align-items: center; display: flex;">
+                        <div class="ms">
+                          <g-image
+                            src="../assets/download-2.png"
+                            alt="Download"
+                          />
+                        </div>
+                        <div class="tit" style="margin-left: 20px;">
+                          {{ notes.name }}
+                        </div>
+                      </div>
+                      <div class="size">Size: {{ notes.file[0].size }}MB</div>
+                    </div>
+                    <div class="download_right">
+                      <g-link download :to="notes.file[0].size"
+                        >Download</g-link
+                      >
+
+                      <div class="date">Update Time：{{ getTime(notes.file[0].updated_at) }}</div>
+                    </div>
+                  </div>
+                </v-card>
+              </v-tab-item>
+            </v-tabs-items>
           </v-card>
         </div>
       </div>
@@ -65,6 +92,7 @@ query {
             id
             name
             updated_by
+            updated_at
             size
             url
             ext
@@ -78,46 +106,17 @@ query {
 </static-query>
 
 <script>
-import Office from "../components/Vectors/Office";
-import Message from "../components/Vectors/Message";
-import Call from "../components/Vectors/Call";
-import EmptyState from "../components/Vectors/EmptyState";
-import ProductSidebar from "../components/ProductCategoriesSidebar";
 import moment from "moment";
 export default {
-  components: {
-    Office,
-    Message,
-    Call,
-    ProductSidebar,
-    EmptyState,
-  },
+  components: {},
 
   metaInfo: {
-    title:
-      "Download Center",
+    title: "Download Center",
   },
 
   data() {
     return {
       tab: null,
-      items: [
-        { tab: "One", content: "Tab 1 Content" },
-        { tab: "Two", content: "Tab 2 Content" },
-        { tab: "Three", content: "Tab 3 Content" },
-        { tab: "Four", content: "Tab 4 Content" },
-        { tab: "Five", content: "Tab 5 Content" },
-        { tab: "Six", content: "Tab 6 Content" },
-        { tab: "Seven", content: "Tab 7 Content" },
-        { tab: "Eight", content: "Tab 8 Content" },
-        { tab: "Nine", content: "Tab 9 Content" },
-        { tab: "Ten", content: "Tab 10 Content" },
-        { tab: "Six", content: "Tab 6 Content" },
-        { tab: "Seven", content: "Tab 7 Content" },
-        { tab: "Eight", content: "Tab 8 Content" },
-        { tab: "Nine", content: "Tab 9 Content" },
-        { tab: "Ten", content: "Tab 10 Content" },
-      ],
     };
   },
   computed: {
@@ -125,6 +124,11 @@ export default {
       return this.$static.allStrapiDownloadCenters.edges;
     },
   },
+  methods: {
+    getTime(date) {
+      return moment(date).format('MMMM Do YYYY' );
+    },
+  }
 };
 </script>
 
@@ -141,14 +145,6 @@ export default {
   z-index: 1;
 }
 
-.v-btn {
-  color: #82bb31 !important;
-}
-
-.v-application .primary--text {
-  color: #82bb31 !important;
-}
-
 #download-center {
   margin-bottom: 4rem;
 
@@ -156,6 +152,39 @@ export default {
     input {
       width: 30%;
       color: inherit;
+    }
+  }
+
+  .downloads_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 25px 0;
+    border-bottom: 1px dashed #e6e6e6;
+
+    .download_right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      a {
+        display: block;
+        width: 120px;
+        height: 40px;
+        line-height: 38px;
+        border: 1px solid #e6e6e6;
+        text-align: center;
+        margin-bottom: 10px;
+        float: right;
+        transition: all 0.5s;
+
+        &:hover {
+          color: white!important;
+          background: #7cbd27;
+          border: none;
+        }
+      }
     }
   }
   .educational_details {
