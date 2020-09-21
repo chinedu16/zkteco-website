@@ -1,12 +1,7 @@
 <template>
   <layout>
-    <div class="headline">
-      <img
-        class="w-full object-cover"
-        style="height: 20rem"
-        src="../assets/team-top-back.jpg"
-        alt=""
-      />
+     <div class="allproduct-headline-image headline" style="height: 300px;">
+      <div class="footer-image-overlay"></div>
     </div>
     <div class="flex justify-center align-center">
       <div class="breathing ">
@@ -32,10 +27,10 @@
                     v-for="singleTeam in item.node.teams"
                     :key="singleTeam.id"
                   >
-                    <g-image
+                    <!-- <g-image
                       class="rounded-full"
                       :src="singleTeam.image.url"
-                    ></g-image>
+                    ></g-image> -->
                     <h2 class="text-color-zkteco-green mt-2" style="font-size: 18px;">
                       {{ singleTeam.name || "None" }}
                     </h2>
@@ -91,6 +86,16 @@ export default {
 <style lang="scss">
 @import "../styles/base/_variable.scss";
 @import "../styles/base/mixins";
+@import "../styles/base/_reset.scss";
+
+.allproduct-headline-image {
+  background-image: url("../assets/team-top-back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  z-index: 1;
+}
 
 #team-carousel {
   .mobile-team {
