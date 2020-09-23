@@ -162,7 +162,7 @@ export default {
           right: 0;
           height: 100%;
           width: 100%;
-          opacity: 0;
+          opacity: 1;
           transition: 0.5s ease;
           background: rgba(0, 0, 0, 0.5);
         }

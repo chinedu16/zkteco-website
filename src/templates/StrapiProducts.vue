@@ -229,7 +229,11 @@
             </div>
 
             <div id="London" class="w3-container w3-border city">
-              <p v-html="product.product_details"></p>
+              <p
+                class="binding-text"
+                style="overflow: scroll;"
+                v-html="product.product_details"
+              ></p>
             </div>
 
             <div
@@ -415,7 +419,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .v-tab {
   :not(:first-child) {
     padding: 0px !important;
@@ -432,10 +436,20 @@ a {
   }
 }
 
+#London {
+  .binding-text {
+    .table {
+      table {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .s3 {
   width: 100% !important;
-    border: 1px solid #ccc !important;
-    padding: 10px;
+  border: 1px solid #ccc !important;
+  padding: 10px;
   img {
     object-fit: contain;
     width: 100%;
@@ -450,7 +464,7 @@ a {
 }
 
 .description {
-  height: 200px;
+  height: 290px;
   overflow-y: scroll;
 }
 
