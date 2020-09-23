@@ -426,15 +426,6 @@ export default {
   }
 }
 
-a {
-  &:hover {
-    svg {
-      path {
-        fill: yellow !important;
-      }
-    }
-  }
-}
 
 #London {
   .binding-text {
