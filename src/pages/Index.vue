@@ -13,14 +13,15 @@
           :infinite="true"
           :adaptiveHeight="false"
         >
-          <g-link
+          <a
             class="container-hero"
             v-for="(item, i) in sliders"
             :key="i"
-            :to="item.url"
+            to
+            @click="openSlider(item.url)"
           >
             <g-image :src="item.image.url"> </g-image>
-          </g-link>
+          </a>
         </VueSlickCarousel>
       </div>
 
@@ -467,6 +468,11 @@ export default {
     }
   },
   methods: {
+    openSlider(url) {
+      if (process.isClient) {
+        window.open(url, '_blank');
+      }
+    },
     fetchEventsList() {
       this.dialog = true;
       clearInterval(this.timer);
