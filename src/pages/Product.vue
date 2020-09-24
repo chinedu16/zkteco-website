@@ -77,7 +77,7 @@
 
 <page-query>
 query ($page: Int) {
-  products: allStrapiProducts(perPage: 12, page: $page) @paginate{
+  products: allStrapiProducts(perPage: 12, page: $page, sortBy: "created_at", order: DESC) @paginate{
     pageInfo {
       totalPages
       currentPage
@@ -87,6 +87,7 @@ query ($page: Int) {
         id
         name
         slug
+        created_at
         images {
           url
         }

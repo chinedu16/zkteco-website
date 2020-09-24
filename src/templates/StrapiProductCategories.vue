@@ -83,18 +83,20 @@ query ProductCategories($path: String!) {
     products {
       id
       name
+      created_at
       slug
       images {
         url
       }
     }
   }
-  allStrapiProducts {
+  allStrapiProducts(sortBy: "created_at", order: DESC) {
     edges {
       node {
         id
         name
         slug
+        created_at
         images {
           url
         }
