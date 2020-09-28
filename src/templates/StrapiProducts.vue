@@ -14,39 +14,12 @@
           <div class="product-carousel-container justify-between w-full">
             <div class="product-images left-product">
               <div class="thumb-example" id="products_carousel">
-                <!-- <div id="navFor1">
-                  <VueSlickCarousel
-                    ref="c1"
-                    :asNavFor="$refs.c2"
-                    v-bind="settings"
-                  >
-                    <div v-for="image in product.images" :key="image.id">
-                      <div class="w-full carousel-image-container">
-                        <g-image :src="image.url" :alt="image.name"> </g-image>
-                      </div>
-                    </div>
-                  </VueSlickCarousel>
-                </div>
-
-                <div id="navFor2">
-                  <VueSlickCarousel
-                    ref="c2"
-                    :asNavFor="$refs.c1"
-                    :slidesToShow="3"
-                    :focusOnSelect="true"
-                  >
-                    <div v-for="image in product.images" :key="image.id">
-                      <g-image :src="image.url" :alt="image.name"> </g-image>
-                    </div>
-                  </VueSlickCarousel>
-                </div> -->
-
                 <div
                   class="picture w3-display-container"
-                  style="display:none"
                   v-for="image in product.images"
                   :key="image.id"
                   :id="image.name"
+                  style="width: 100%;"
                 >
                   <g-image :src="image.url" :alt="image.name"> </g-image>
                 </div>

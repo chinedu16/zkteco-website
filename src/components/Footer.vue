@@ -155,8 +155,8 @@ export default {
         {
           title: "Support",
           items: [
-            { title: "Download Center" },
-            { title: "After Sales Service" },
+            { title: "Download Center", path: "download-center" },
+            { title: "After Sales Service", path: "after-sale" },
           ],
         },
         {

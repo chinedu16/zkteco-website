@@ -172,6 +172,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/base/_variable.scss";
+@import "../styles/base/mixins";
 .allproduct-headline-image {
   background-image: url("../assets/allProductImage.jpg");
   background-repeat: no-repeat;
@@ -181,8 +183,13 @@ export default {
   z-index: 1;
 }
 .product-container {
+
+  @include mq(md) {
+    border: none;
+  }
   width: 100%;
   border-radius: 5px;
+  border: 1px solid #78bc27;
   height: 260px;
   display: flex !important;
   flex-direction: column;

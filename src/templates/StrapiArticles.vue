@@ -1,8 +1,14 @@
 <template>
   <SemiLayout>
-    <div class="h-32 "></div>
-    <div class="flex justify-center align-center">
+    <div id="article-details" class="flex justify-center align-center">
       <div class="breathing">
+        <section class="breadcrumbs pt-4 flex">
+          <div class="position clearfix caseList-nav">
+            <div class="fl">
+              <g-link to="/">Home Page</g-link> &gt; <g-link to="/category/events">Articles</g-link> &gt; blog
+            </div>
+          </div>
+        </section>
         <section class="flex justify-center">
           <div class="" id="categories-blogs-details">
             <CategoriesSidebar class="article__sidebar" />
@@ -167,10 +173,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/base/_variable.scss";
+@import "../styles/base/mixins";
 .number-categories {
   background: gainsboro;
 }
 
+
+#article-details {
+  .breadcrumbs {
+      display: block;
+      @include mq(md){
+        display: none;
+      }
+    }
+}
 .card-blog {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -210,7 +227,11 @@ export default {
 
 
 .article-body {
-  padding: 40px;
+  padding: 20px;
+  @include mq(md) {
+    padding: 40px;
+  }
+  
 }
 
 .theme--light.v-input:not(.v-input--is-disabled) input{

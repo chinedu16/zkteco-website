@@ -121,30 +121,70 @@
             <v-list-tile-content class="grid">
               <v-list-tile-title>
                 <g-link :to="`/product-categories/${products[0].node.slug}`"
-                  >Product</g-link
+                  ><h4>Products</h4></g-link
                 >
               </v-list-tile-title>
+
               <v-list-tile-title>
-                Solution
+                <h4>Solution</h4>
+                <div
+                  style="margin: 0.5rem 2rem;"
+                  v-for="(item, index) in solutionsCat"
+                  :key="index"
+                >
+                  <g-link :to="`/solution-categories/${item.node.slug}`">{{
+                    item.node.name
+                  }}</g-link>
+                </div>
               </v-list-tile-title>
               <v-list-tile-title>
-                Support
+                <h4>Support</h4>
+                <div
+                  style="margin: 0.5rem 2rem;"
+                  v-for="(item, index) in supports"
+                  :key="index"
+                >
+                  <g-link :to="item.path">{{ item.title }}</g-link>
+                </div>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/about">About us</g-link>
+                <g-link to="/teams">
+                  <h4>Our Teams</h4>
+                </g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/category/events"> News Center </g-link>
+                <g-link to="/about">
+                  <h4>About Us</h4>
+                </g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/contact">Contact us</g-link>
+                <g-link to="/category/events"> <h4>News Center</h4></g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                Login
+                <g-link to="/contact"> <h4>Contact us</h4></g-link>
               </v-list-tile-title>
-              <v-list-tile-title>
-                Register
-              </v-list-tile-title>
+
+              <!-- <v-list>
+                <v-list-group>
+                  <template v-slot:activator>
+                    <v-list-item-content>
+                      <v-list-item-title>Support</v-list-item-title>
+                    </v-list-item-content>
+                  </template>
+
+                  <v-list-item
+                    v-for="([title, icon], i) in cruds"
+                    :key="i"
+                    link
+                  >
+                    <v-list-item-title v-text="title"></v-list-item-title>
+
+                    <v-list-item-icon>
+                      <v-icon v-text="icon"></v-icon>
+                    </v-list-item-icon>
+                  </v-list-item>
+                </v-list-group>
+              </v-list> -->
             </v-list-tile-content>
           </v-list-tile>
         </v-list>

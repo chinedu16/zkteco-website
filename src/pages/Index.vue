@@ -93,7 +93,7 @@
                   class=" img-hover-zoom--brightness"
                   data-aos="zoom-in"
                   data-aos-easing="ease-out-cubic"
-                  data-aos-duration="3000"
+                  data-aos-duration="1000"
                 >
                   <div class="image-hover-zoom">
                     <g-image

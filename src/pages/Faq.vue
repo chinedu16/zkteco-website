@@ -112,8 +112,12 @@ export default {
   margin-bottom: 4rem;
   .download_search {
     input {
-      width: 30%;
+      width: 100%;
       color: inherit;
+
+      @include mq(md) {
+        width: 30%;
+      }
     }
   }
 }

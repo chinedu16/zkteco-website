@@ -50,30 +50,39 @@
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
-                <div class="dropdown">
-                  <button class="dropbtn"><g-link class="dropbtn" to="/product">Products</g-link></button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in products" :key="index">
-                      <g-link :to="`/product-categories/${item.node.slug}`">{{item.node.name}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <g-link class="dropbtn" to="/product">Products</g-link>
+                    </button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in products" :key="index">
+                        <g-link :to="`/product-categories/${item.node.slug}`">{{
+                          item.node.name
+                        }}</g-link>
+                      </li>
+                    </div>
                   </div>
-                </div>
-                <div class="dropdown">
-                  <button class="dropbtn"><g-link class="dropbtn" to="/solution">Solutions</g-link></button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in solutionsCat" :key="index">
-                      <g-link :to="`/solution-categories/${item.node.slug}`">{{item.node.name}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <g-link class="dropbtn" to="/solution">Solutions</g-link>
+                    </button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in solutionsCat" :key="index">
+                        <g-link
+                          :to="`/solution-categories/${item.node.slug}`"
+                          >{{ item.node.name }}</g-link
+                        >
+                      </li>
+                    </div>
                   </div>
-                </div>
-                <div class="dropdown">
-                  <button class="dropbtn">Support</button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in supports" :key="index">
-                      <g-link :to="`${item.path}`">{{item.title}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Support</button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in supports" :key="index">
+                        <g-link :to="`${item.path}`">{{ item.title }}</g-link>
+                      </li>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
@@ -121,30 +130,70 @@
             <v-list-tile-content class="grid">
               <v-list-tile-title>
                 <g-link :to="`/product-categories/${products[0].node.slug}`"
-                  >Product</g-link
+                  ><h4>Products</h4></g-link
                 >
               </v-list-tile-title>
+
               <v-list-tile-title>
-                Solution
+                <h4>Solution</h4>
+                <div
+                  style="margin: 0.5rem 2rem;"
+                  v-for="(item, index) in solutionsCat"
+                  :key="index"
+                >
+                  <g-link :to="`/solution-categories/${item.node.slug}`">{{
+                    item.node.name
+                  }}</g-link>
+                </div>
               </v-list-tile-title>
               <v-list-tile-title>
-                Support
+                <h4>Support</h4>
+                <div
+                  style="margin: 0.5rem 2rem;"
+                  v-for="(item, index) in supports"
+                  :key="index"
+                >
+                  <g-link :to="item.path">{{ item.title }}</g-link>
+                </div>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/about">About us</g-link>
+                <g-link to="/teams">
+                  <h4>Our Teams</h4>
+                </g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/category/events"> News Center </g-link>
+                <g-link to="/about">
+                  <h4>About Us</h4>
+                </g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                <g-link to="/contact">Contact us</g-link>
+                <g-link to="/category/events"> <h4>News Center</h4></g-link>
               </v-list-tile-title>
               <v-list-tile-title>
-                Login
+                <g-link to="/contact"> <h4>Contact us</h4></g-link>
               </v-list-tile-title>
-              <v-list-tile-title>
-                Register
-              </v-list-tile-title>
+
+              <!-- <v-list>
+                <v-list-group>
+                  <template v-slot:activator>
+                    <v-list-item-content>
+                      <v-list-item-title>Support</v-list-item-title>
+                    </v-list-item-content>
+                  </template>
+
+                  <v-list-item
+                    v-for="([title, icon], i) in cruds"
+                    :key="i"
+                    link
+                  >
+                    <v-list-item-title v-text="title"></v-list-item-title>
+
+                    <v-list-item-icon>
+                      <v-icon v-text="icon"></v-icon>
+                    </v-list-item-icon>
+                  </v-list-item>
+                </v-list-group>
+              </v-list> -->
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -231,6 +280,12 @@ export default {
 
   data() {
     return {
+      // cruds: [
+      //   ["Create", "mdi-plus-outline"],
+      //   ["Read", "mdi-file-outline"],
+      //   ["Update", "mdi-update"],
+      //   ["Delete", "mdi-delete"],
+      // ],
       closeOnClick: true,
       closeOnContentClick: true,
       menuHover: false,
@@ -333,7 +388,7 @@ export default {
   opacity: 0.95;
   border-radius: 4px;
   min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -367,8 +422,9 @@ export default {
   height: 40px;
   overflow: hidden;
   padding: 0px 10px;
-  &:hover, &:focus {
-     outline: none;
+  &:hover,
+  &:focus {
+    outline: none;
   }
 }
 .v-application {

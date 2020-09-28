@@ -95,6 +95,7 @@ export default {
   margin-bottom: 4rem;
 
   .after_sales {
+
     .after_sales_cat {
       display: grid;
       grid-gap: 60px;
