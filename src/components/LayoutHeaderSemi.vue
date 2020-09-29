@@ -13,8 +13,8 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <g-link to="/teams" class="px-4 hover">Our Team </g-link>
-              |
+              <!-- <g-link to="/teams" class="px-4 hover">Our Team </g-link>
+              | -->
               <g-link
                 :to="`/category/${articles[0].node.slug}`"
                 class="px-4 hover"
@@ -78,16 +78,21 @@
               </div>
             </div>
 
-            <div class="search-header">
+           <div class="search-header" style="position: relative;">
               <input
                 class="search-input"
-                type="search"
+                type="text"
+                placeholder="Search.."
                 name="search"
-                placeholder="Search"
+                v-model="search_query"
               />
-              <v-btn>
-                <div id="google_translate_element"></div>
-              </v-btn>
+              <button
+                style="position: absolute; right: 8px; top: 9px;"
+                type="submit"
+                @click="searchEntry"
+              >
+                <SearchIcon />
+              </button>
             </div>
 
             <button
@@ -147,11 +152,11 @@
                   <g-link :to="item.path">{{ item.title }}</g-link>
                 </div>
               </v-list-tile-title>
-              <v-list-tile-title>
+              <!-- <v-list-tile-title>
                 <g-link to="/teams">
                   <h4>Our Teams</h4>
                 </g-link>
-              </v-list-tile-title>
+              </v-list-tile-title> -->
               <v-list-tile-title>
                 <g-link to="/about">
                   <h4>About Us</h4>
@@ -163,7 +168,12 @@
               <v-list-tile-title>
                 <g-link to="/contact"> <h4>Contact us</h4></g-link>
               </v-list-tile-title>
-
+              <v-list-tile-title>
+                <g-link to="/"> <h4>Login</h4></g-link>
+              </v-list-tile-title>
+              <v-list-tile-title>
+                <g-link to="/"> <h4>Register</h4></g-link>
+              </v-list-tile-title>
               <!-- <v-list>
                 <v-list-group>
                   <template v-slot:activator>
@@ -270,6 +280,7 @@ export default {
 
   data() {
     return {
+      search_query: '',
       closeOnClick: true,
       closeOnContentClick: true,
       menuHover: false,
@@ -314,6 +325,9 @@ export default {
     };
   },
   methods: {
+    searchEntry () {
+      this.$router.push({name: 'search' , params: {search: this.search_query }})
+    },
     googleTranslateInit: function() {
       let checkIfGoogleLoaded = setInterval(() => {
         if (google) {

@@ -130,7 +130,7 @@ export default {
           items: [
             { title: "We give the best Services", path: "about" },
             { title: "Our Mission", path: "about" },
-            { title: "Our Team", path: "about" },
+            // { title: "Our Team", path: "about" },
           ],
         },
         {

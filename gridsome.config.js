@@ -3,12 +3,44 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+// const collections = [
+//   {
+//     query: `{
+//       allStrapiProducts {
+//         edges {
+//           node {
+//             id
+//             name
+//             slug
+//             modified
+//             images {
+//               url
+//             }
+//           }
+//         }
+//       }
+//     }`,
+//     transformer: ({ data }) => data.allStrapiProducts.edges.map(({ node }) => node),
+//     indexName: process.env.ALGOLIA_INDEX_NAME || "posts", // Algolia index name
+//     itemFormatter: (item) => {
+//       return {
+//         objectID: item.id,
+//         title: item.name,
+//         slug: item.slug,
+//         modified: String(item.modified),
+//       };
+//     }, // optional
+//     matchFields: ["slug", "modified"], // Array<String> required with PartialUpdates
+//   },
+// ];
 
 module.exports = {
   siteName: "ZKTeco West Africa",
   siteDescription:
     "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
-  siteUrl: process.env.SITE_URL ? process.env.SITE_URL : "https://zkteco-wa.com/",
+  siteUrl: process.env.SITE_URL
+    ? process.env.SITE_URL
+    : "https://zkteco-wa.com/",
   titleTemplate: `%s | ZKTeco West Africa`,
   icon: {
     favicon: "./src/assets/favicon.png",
@@ -28,6 +60,16 @@ module.exports = {
         },
       },
     },
+    // {
+    //   use: `gridsome-plugin-algolia`,
+    //   options: {
+    //     appId: process.env.ALGOLIA_APP_ID,
+    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
+    //     collections,
+    //     chunkSize: 10000, // default: 1000
+    //     enablePartialUpdates: true, // default: false
+    //   },
+    // },
     {
       use: "@gridsome/plugin-sitemap",
       options: {

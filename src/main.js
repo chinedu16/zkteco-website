@@ -7,12 +7,16 @@ import "vuetify/dist/vuetify.min.css";
 import DefaultLayout from "~/layouts/Default.vue";
 import "aos/dist/aos.css";
 import InfiniteLoading from "vue-infinite-loading";
+import InstantSearch from 'vue-instantsearch';
+
+
 
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
     // const Zopim = require("./zopim");
     const AOS = require("aos");
     Vue.use(AOS.init({ once: true }));
+    Vue.use(InstantSearch);
     // Vue.use(Zopim)
   }
 

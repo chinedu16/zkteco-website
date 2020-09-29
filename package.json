@@ -11,11 +11,15 @@
   "dependencies": {
     "@dansmaculotte/vue-zendesk": "^0.4.1",
     "@gridsome/source-strapi": "^0.1.0",
+    "algoliasearch": "^4.5.1",
     "aos": "^2.3.4",
     "axios": "^0.19.2",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-algolia": "^2.1.4",
+    "instantsearch.css": "^7.4.5",
     "vue-aos": "^1.0.1",
     "vue-infinite-loading": "^2.4.5",
+    "vue-instantsearch": "^3.3.0",
     "vue-slick-carousel": "^1.0.6",
     "vuetify": "^2.2.23"
   },
