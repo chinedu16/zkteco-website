@@ -13,8 +13,6 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <!-- <g-link to="/teams" class="px-4 hover">Our Team </g-link>
-              | -->
               <g-link
                 :to="`/category/${articles[0].node.slug}`"
                 class="px-4 hover"
@@ -326,7 +324,11 @@ export default {
   },
   methods: {
     searchEntry () {
-      this.$router.push({name: 'search' , params: {search: this.search_query }})
+      if (this.search_query !== "") {
+        this.$router.push({path: '/search/' , query: {search: this.search_query }})
+      } else {
+        return;
+      }
     },
     googleTranslateInit: function() {
       let checkIfGoogleLoaded = setInterval(() => {

@@ -86,7 +86,7 @@
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
-                v-for="article in articles"
+                v-for="article in articles.slice(0, 4)"
                 :key="article.id"
               >
                 <v-card

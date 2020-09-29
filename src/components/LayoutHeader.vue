@@ -13,8 +13,6 @@
             <div class="flex" style="justify-content: flex-end;">
               <g-link to="/about" class="px-4 hover">About us </g-link>
               |
-              <!-- <g-link to="/teams" class="px-4 hover">Our Team </g-link>
-              | -->
               <g-link
                 :to="`/category/${articles[0].node.slug}`"
                 class="px-4 hover"
@@ -103,19 +101,6 @@
                 <SearchIcon />
               </button>
             </div>
-
-            <!-- <div class="search-header">
-              <input
-                class="search-input"
-                type="search"
-                name="search"
-                placeholder="Search"
-              />
-              <v-btn>
-                <div id="google_translate_element"></div>
-              </v-btn>
-            </div> -->
-
             <button
               class="hamburger-header"
               data-target="#navigation"
@@ -173,11 +158,6 @@
                   <g-link :to="item.path">{{ item.title }}</g-link>
                 </div>
               </v-list-tile-title>
-              <!-- <v-list-tile-title>
-                <g-link to="/teams">
-                  <h4>Our Teams</h4>
-                </g-link>
-              </v-list-tile-title> -->
               <v-list-tile-title>
                 <g-link to="/about">
                   <h4>About Us</h4>
@@ -195,28 +175,6 @@
               <v-list-tile-title>
                 <g-link to="/"> <h4>Register</h4></g-link>
               </v-list-tile-title>
-
-              <!-- <v-list>
-                <v-list-group>
-                  <template v-slot:activator>
-                    <v-list-item-content>
-                      <v-list-item-title>Support</v-list-item-title>
-                    </v-list-item-content>
-                  </template>
-
-                  <v-list-item
-                    v-for="([title, icon], i) in cruds"
-                    :key="i"
-                    link
-                  >
-                    <v-list-item-title v-text="title"></v-list-item-title>
-
-                    <v-list-item-icon>
-                      <v-icon v-text="icon"></v-icon>
-                    </v-list-item-icon>
-                  </v-list-item>
-                </v-list-group>
-              </v-list> -->
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -349,7 +307,11 @@ export default {
   },
   methods: {
     searchEntry () {
-      this.$router.push({name: 'search' , params: {search: this.search_query }})
+      if (this.search_query !== "") {
+        this.$router.push({path: '/search/' , query: {search: this.search_query }})
+      } else {
+        return;
+      }
     },
     googleTranslateInit: function() {
       let checkIfGoogleLoaded = setInterval(() => {

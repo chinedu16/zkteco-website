@@ -110,7 +110,7 @@ export default {
     };
   },
   mounted() {
-    this.search = this.$route.params.search;
+    this.search = this.$route.query.search;
   },
   computed: {
     faqs() {
@@ -157,6 +157,9 @@ export default {
             border-radius: 5px;
             height: 40px;
             width: 25%;
+            &:focus, &:hover {
+              outline: none;
+            }
           }
         }
         .ais-Hits {
