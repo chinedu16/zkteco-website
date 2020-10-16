@@ -418,6 +418,10 @@ export default {
           content: description,
         },
         {
+          name: "google-site-verification",
+          content: "b_hQhu9bPlTRugn9qlUdgUutm1u8kX7bvGnkWI3qcZI",
+        },
+        {
           key: "og:title",
           name: "og:title",
           content: title,

@@ -3,36 +3,6 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-// const collections = [
-//   {
-//     query: `{
-//       allStrapiProducts {
-//         edges {
-//           node {
-//             id
-//             name
-//             slug
-//             modified
-//             images {
-//               url
-//             }
-//           }
-//         }
-//       }
-//     }`,
-//     transformer: ({ data }) => data.allStrapiProducts.edges.map(({ node }) => node),
-//     indexName: process.env.ALGOLIA_INDEX_NAME || "posts", // Algolia index name
-//     itemFormatter: (item) => {
-//       return {
-//         objectID: item.id,
-//         title: item.name,
-//         slug: item.slug,
-//         modified: String(item.modified),
-//       };
-//     }, // optional
-//     matchFields: ["slug", "modified"], // Array<String> required with PartialUpdates
-//   },
-// ];
 
 module.exports = {
   siteName: "ZKTeco West Africa",
@@ -60,20 +30,10 @@ module.exports = {
         },
       },
     },
-    // {
-    //   use: `gridsome-plugin-algolia`,
-    //   options: {
-    //     appId: process.env.ALGOLIA_APP_ID,
-    //     apiKey: process.env.ALGOLIA_ADMIN_KEY,
-    //     collections,
-    //     chunkSize: 10000, // default: 1000
-    //     enablePartialUpdates: true, // default: false
-    //   },
-    // },
     {
       use: "@gridsome/plugin-sitemap",
       options: {
-        cacheTime: 600000, // default
+        cacheTime: 600000,
         exclude: ["/exclude-me"],
         config: {
           "/*": {
@@ -110,7 +70,7 @@ module.exports = {
     {
       use: "@gridsome/plugin-google-analytics",
       options: {
-        id: process.env.GA_ID ? process.env.GA_ID : "XX-999999999-9",
+        id: process.env.GA_ID ? process.env.GA_ID : "'UA-168147757-1",
       },
     },
     {
