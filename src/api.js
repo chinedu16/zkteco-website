@@ -7,6 +7,13 @@ async function subscriberEmail (payload) {
   return response
 }
 
+async function contactForm (payload) {
+  const response = await axios.post(`${baseUrl}/contact-pages`, payload)
+  return response
+}
+
+
 export default {
-  subscriberEmail
+  subscriberEmail,
+  contactForm
 }
