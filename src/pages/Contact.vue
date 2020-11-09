@@ -11,21 +11,26 @@
                   <span>Reach out to us from</span>
                 </div>
                 <div class="form-control">
-                  <input type="text" placeholder="Full name" />
+                  <input v-model="name" type="text" placeholder="Full name" />
                 </div>
                 <div class="form-control">
-                  <input type="text" placeholder="Your email name" />
+                  <input
+                    v-model="email"
+                    type="text"
+                    placeholder="Your email name"
+                  />
                 </div>
                 <div class="form-control">
                   <textarea
                     name=""
                     id=""
+                    v-model="message"
                     placeholder="Message"
                     rows="5"
                   ></textarea>
                 </div>
                 <div class="form-control">
-                  <button>Submit</button>
+                  <button @click="sendContact()">Submit</button>
                 </div>
               </div>
               <div class="right">
@@ -37,6 +42,30 @@
             </div>
           </div>
         </section>
+        <v-alert
+          v-model="alert"
+          border="left"
+          close-text="Close Alert"
+          dismissible
+          dense
+          text
+          type="success"
+        >
+          Your request has been <strong>sent</strong> to our team. we will
+          <strong>get in touch</strong> as soon as possible
+        </v-alert>
+
+        <v-alert
+          v-model="showError"
+          border="left"
+          close-text="Close Alert"
+          dismissible
+          dense
+          text
+          type="warning"
+        >
+        Email must be a valid email
+        </v-alert>
       </div>
     </div>
   </SemiLayout>
@@ -63,6 +92,7 @@ query {
 </page-query>
 
 <script>
+import api from "../api";
 import SemiLayout from "../layouts/SemiDefault";
 import Office from "../components/Vectors/Office";
 import Message from "../components/Vectors/Message";
@@ -75,12 +105,42 @@ export default {
     SemiLayout,
   },
   metaInfo: {
-    title: "Contact Us at ZKTeco west africa",
+    title: "Contact Us",
   },
   data() {
     return {
       name: "",
+      email: "",
+      message: "",
+      alert: false,
+      showError: false,
     };
+  },
+  methods: {
+    async sendContact() {
+      const payload = {
+        full_name: this.name,
+        email: this.email,
+        message: this.message,
+      };
+      try {
+        if (
+          /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+            payload.email
+          )
+        ) {
+          const response = await api.contactForm(payload);
+          if (response) {
+            this.alert = true;
+          }
+        } else {
+          this.showError = true;
+        }
+      } catch (error) {
+        console.log(error);
+        this.showError = true;
+      }
+    },
   },
   computed: {
     contact() {
@@ -115,7 +175,7 @@ export default {
   @include mq(md) {
     margin-top: 12rem;
     width: 100%;
-    margin-bottom: 4rem ;
+    margin-bottom: 4rem;
   }
 
   .left {
@@ -165,6 +225,7 @@ export default {
       &:focus,
       &:active {
         border: 1px solid #78bc27 !important;
+        outline: none;
       }
     }
     textarea {
@@ -183,6 +244,9 @@ export default {
       &:hover,
       &:active {
         background: darken($color: #78bc27, $amount: 10%);
+
+        border: none;
+        outline: none;
       }
     }
   }

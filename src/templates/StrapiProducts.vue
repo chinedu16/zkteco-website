@@ -202,11 +202,13 @@
             </div>
 
             <div id="London" class="w3-container w3-border city">
-              <p
-                class="binding-text"
-                style="overflow: scroll;"
-                v-html="product.product_details"
-              ></p>
+              <v-container fluid v-html="product.product_details">
+                <!-- <p
+                  class="binding-text"
+                  style="overflow: scroll;"
+                  v-html="product.product_details"
+                ></p> -->
+              </v-container>
             </div>
 
             <div
@@ -398,7 +400,6 @@ export default {
     padding: 0px !important;
   }
 }
-
 
 #London {
   .binding-text {
