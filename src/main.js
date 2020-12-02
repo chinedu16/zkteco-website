@@ -9,15 +9,11 @@ import "aos/dist/aos.css";
 import InfiniteLoading from "vue-infinite-loading";
 import InstantSearch from 'vue-instantsearch';
 
-
-
 export default function(Vue, { appOptions, router, head, isClient }) {
   if (isClient) {
-    // const Zopim = require("./zopim");
     const AOS = require("aos");
     Vue.use(AOS.init({ once: true }));
     Vue.use(InstantSearch);
-    // Vue.use(Zopim)
   }
 
   Vue.component("Layout", DefaultLayout);
@@ -50,7 +46,7 @@ export default function(Vue, { appOptions, router, head, isClient }) {
     src: "https://static.zdassets.com/ekr/snippet.js?key=ebd1d5ac-b3c0-4bfe-a265-02e961779c67"
   });
 
-  const opts = {}; //opts includes, vuetify themes, icons, etc.
+  const opts = {};
   Vue.use(Vuetify);
   Vue.use(InfiniteLoading);
 

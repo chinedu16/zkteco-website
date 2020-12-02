@@ -14,16 +14,18 @@
             <CategoriesSidebar class="article__sidebar" />
             <div class="w-full article__item rightside-article">
               <div class="border">
-                <g-image
-                  data-aos="zoom-in"
-                  data-aos-easing="ease-out-cubic"
-                  data-aos-duration="3000"
-                  class="w-full"
-                  :src="article.image[0].url"
-                  width="821"
-                  height="384px"
-                  style="height: 30rem; object-fit: cover;"
-                ></g-image>
+                <div>
+                    <g-image
+                    data-aos="zoom-in"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="3000"
+                    class="w-full"
+                    :src="article.image[0].url"
+                    width="821"
+                    height="384px"
+                    style="height: 30rem; object-fit: cover;"
+                  ></g-image>
+                </div>
                 <div class="article-body">
                   <h3 style="margin-bottom: 2rem;">{{ article.title }}</h3>
                   <p
@@ -35,83 +37,6 @@
                   ></p>
                 </div>
               </div>
-
-              <!-- <div class="mt-10">
-                <div class="header-title">
-                  2 Comments
-                </div>
-
-                <div class="mt-10">
-                  
-                  <div class="flex mb-7 justify-between align-center">
-                    <g-image
-                      src="../assets/North Africa 1.png"
-                      class="rounded-full"
-                      width="71"
-                      height="71"
-                    ></g-image>
-                    <div class="border py-3 px-7 ml-10">
-                      <h5 class="text-bold">Sarah Bright</h5>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed aliquam, enim at laoreet malesuada, arcu ligula
-                        hendrerit risus, sed iaculis quam justo eget enim.
-                      </span>
-                    </div>
-                  </div>
-                  <div class="flex mb-7 justify-between align-center">
-                    <g-image
-                      src="../assets/North Africa 1.png"
-                      class="rounded-full"
-                      width="71"
-                      height="71"
-                    ></g-image>
-                    <div class="border py-3 px-7 ml-10">
-                      <h5 class="text-bold">Sarah Bright</h5>
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed aliquam, enim at laoreet malesuada, arcu ligula
-                        hendrerit risus, sed iaculis quam justo eget enim.
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-              <!-- <div class="mt-10">
-                <div class="header-title">
-                  Leave a Comment
-                </div>
-                <div>
-                  <div class="mt-10">
-                    <v-row>
-                      <v-col cols="12" md="12">
-                        <v-textarea
-                          outlined
-                          name="input-7-4"
-                          label="Comments"
-                        ></v-textarea>
-                      </v-col>
-                      <v-col cols="12" md="6">
-                        <v-text-field
-                          outlined
-                          label="Name"
-                          required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="6">
-                        <v-text-field
-                          outlined
-                          label="E-mail"
-                          required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" md="6">
-                        <v-btn class="w-full" dark>Post Comments</v-btn>
-                      </v-col>
-                    </v-row>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
         </section>
@@ -122,13 +47,22 @@
 
 <page-query>
 query Articles($path: String!) {
-  strapiArticles (path: $path) {
+  post: strapiArticles (path: $path) {
     id
     title
+    slug
     body
+    created_at
+    excerpt
+    created_by{
+      lastname
+      firstname
+    }
     image {
       url
       name
+      width
+      height
     }
   }
 }
@@ -138,7 +72,10 @@ query Articles($path: String!) {
 import SemiLayout from "../layouts/SemiDefault";
 import MailOpen from "../components/Vectors/MailOpen";
 import CategoriesSidebar from "../components/CategoriesSidebar";
+import PostSeo from '../mixins/SEO'
+
 export default {
+  mixins: [PostSeo],
   components: {
     MailOpen,
     CategoriesSidebar,
@@ -146,27 +83,11 @@ export default {
   },
   data() {
     return {
-      page: 1,
-      categories: [
-        { title: "News", total: "4" },
-        { title: "Notice", total: "4" },
-        { title: "Security Bulletins", total: "4" },
-        { title: "Events", total: "4" },
-        { title: "Newsletter", total: "4" },
-        { title: "New Release", total: "4" },
-      ],
-      blogs: [
-        { title: "News", total: "4" },
-        { title: "Notice", total: "4" },
-        { title: "Security Bulletins", total: "4" },
-        { title: "New Release", total: "4" },
-      ],
     };
   },
-
   computed: {
     article() {
-      return this.$page.strapiArticles;
+      return this.$page.post;
     },
   },
 };

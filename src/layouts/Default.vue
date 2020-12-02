@@ -14,6 +14,13 @@
 query {
   metadata {
     siteName
+    siteDescription
+    siteUrl
+    author
+    twitter {
+      site
+      creator
+    }
   }
 }
 </static-query>
@@ -23,6 +30,15 @@ import LayoutHeader from "@/components/LayoutHeader";
 import Footer from "@/components/Footer";
 
 export default {
+  metaInfo () {
+    return {
+      meta: [
+        { key: 'author', name: 'author', content: this.$static.metadata.author },
+        { key: 'twitter:site', name: 'twitter:site', content: this.$static.metadata.twitter.site },
+        { key: 'twitter:creator', name: 'twitter:creator', content: this.$static.metadata.twitter.creator }
+      ]
+    }
+  },
   components: {
     LayoutHeader,
     Footer,

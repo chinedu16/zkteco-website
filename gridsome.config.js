@@ -7,7 +7,7 @@
 module.exports = {
   siteName: "ZKTeco West Africa",
   siteDescription:
-    "ZKTeco is a globally-renowned provider of security, access control and time management solutions",
+    "ZKTeco is a globally-renowned provider of security, access control and time management solutions. ZKTeco focus on Biometrics of fingerprint, face recognition, finger vein and iris recognition, provides products of time attendance, access control, Video survelliance ...",
   siteUrl: process.env.SITE_URL
     ? process.env.SITE_URL
     : "https://zkteco-wa.com/",
@@ -15,6 +15,13 @@ module.exports = {
   icon: {
     favicon: "./src/assets/favicon.png",
     touchicon: "./src/assets/favicon.png",
+  },
+  metadata: {
+    author: "Chinedu Ohagwu",
+    twitter: {
+      site: "ZKTeco West Africa",
+      creator: "ZKTeco West Africa",
+    },
   },
   plugins: [
     {
