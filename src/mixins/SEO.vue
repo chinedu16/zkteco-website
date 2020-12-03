@@ -69,11 +69,7 @@ export default {
           name: "twitter:description",
           content: this.$page.post.body,
         },
-        {
-          key: "twitter:card",
-          name: "twitter:card",
-          content: imagePath ? this.$page.post.excerpt : this.$page.post.body,
-        },
+        { name: "twitter:card", content: "summary_large_image" },
         {
           key: "twitter:image",
           property: "twitter:image",
@@ -84,9 +80,13 @@ export default {
           property: "twitter:title",
           content: this.$page.post.title,
         },
+        { name: "twitter:site", content: siteUrl },
+        { name: "twitter:creator", content: "Zkteco" }
       ],
       script: [
         {
+          src: "https://platform.twitter.com/widgets.js", 
+          async: true,
           type: "application/ld+json",
           json: {
             "@context": "http://schema.org",
