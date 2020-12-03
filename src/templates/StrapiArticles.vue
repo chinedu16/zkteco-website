@@ -64,6 +64,11 @@ query Articles($path: String!) {
       width
       height
     }
+    SEO {
+      id
+      description
+      title
+    }
   }
 }
 </page-query>

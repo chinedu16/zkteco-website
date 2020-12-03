@@ -15,17 +15,18 @@ export default {
     const siteUrl = this.$static.metadata.siteUrl;
     const postPath = `${siteUrl}/blog/${this.$page.post.slug}`;
     const imagePath = this.$page.post.image[0];
-
+    const keywordsArray = this.$page.post.SEO ? this.$page.post.SEO.description :  this.$page.post.excerpt;
+    const tagsArray = this.$page.post.SEO ? this.$page.post.SEO.title :  this.$page.post.excerpt;
     return {
       title: this.$page.post.title,
       meta: [
         {
           name: "tags",
-          content: this.$page.post.excerpt,
+          content: tagsArray,
         },
         {
-          name: "Keywords",
-          content: this.$page.post.excerpt,
+          name: "keywords",
+          content: keywordsArray,
         },
         {
           key: "description",

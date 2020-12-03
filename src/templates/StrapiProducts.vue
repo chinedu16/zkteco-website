@@ -56,7 +56,7 @@
                 data-aos="fade-left"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
-                style="color: #7cbd27; font-size: 47px; font-weight: bolder;"
+                style=""
               >
                 {{ product.name }}
               </h1>
@@ -395,6 +395,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../styles/base/_variable.scss";
+@import "../styles/base/mixins";
 .v-tab {
   :not(:first-child) {
     padding: 0px !important;
@@ -411,25 +413,46 @@ export default {
   }
 }
 
+.product-carousel-container {
+  .right-product {
+    h1 {
+      color: rgb(124, 189, 39);
+      font-size: 48px;
+      margin-top: 1rem;
+      font-weight: 900;
+      line-height: normal;
+      font-style: italic;
+      margin-bottom: 1rem;
+      @include mq(md) {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
 .s3 {
   width: 100% !important;
+  height: 125px;
   border: 1px solid #ccc !important;
   padding: 10px;
+
   img {
     object-fit: contain;
     width: 100%;
+    height: 100%;
   }
 }
 .w3-row-padding {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  height: 8rem;
-  margin-top: 2rem;
+  grid-gap: 10px;
+  height: 17rem;
+  overflow: scroll;
+  margin-top: 1rem;
 }
 
 .description {
-  height: 290px;
+  height: 200px;
   overflow-y: scroll;
 }
 

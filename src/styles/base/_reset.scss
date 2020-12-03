@@ -286,15 +286,21 @@
   margin-top: 4rem;
 
   .news-container {
+
+    padding: 20px;
+
     @include mq(md) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 40px;
+      padding: unset;
+
     }
     @include mq(lg) {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 40px;
+      padding: unset;
     }
     .news-container__item {
     }
@@ -486,7 +492,6 @@
 
   @include mq(md) {
     flex-direction: row;
-    margin: 2rem 0rem 9rem;
   }
   .right-product {
     @include mq(md) {

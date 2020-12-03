@@ -79,7 +79,7 @@
 
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
-          <div class="w-full breathing">
+          <div class="w-full">
             <h1 class="heading flex justify-center" data-aos="fade-left">
               News Center
             </h1>
@@ -112,7 +112,7 @@
                           :to="`/blog/${article.node.slug}`"
                         >
                           <v-card-text class="text--primary">
-                            <div class="" style="font-size: 18px;">
+                            <div class="" style="font-size: 18px; font-weight: 600;">
                               {{ article.node.title }}
                             </div>
                           </v-card-text>
@@ -120,7 +120,7 @@
                           <v-card-actions class="absolute bottom-0">
                             <v-btn
                               class="tracking-normal hover capitalize"
-                              style="color: #333!important;font-weight: 900;"
+                              style="color: #333!important; font-weight: 400;"
                               text
                             >
                               Learn More <RightCaret />
