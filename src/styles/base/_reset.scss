@@ -1,5 +1,5 @@
 .v-application {
-  font-family: "Lato" !important;
+  font-family: 'Lato', sans-serif !important;
   color: #484748 !important;
 
   .primary--text {
@@ -382,10 +382,22 @@
     .card-info {
       padding: 15px;
       @include mq(md) {
-        padding: 40px;
+        padding: 20px 10px 20px 20px;
       }
       h4 {
-        margin-bottom: 4px;
+        margin-bottom: 16px;
+        font-size: 18px;
+        font-weight: 800;
+        color: darken($color: #82bb31, $amount: 5%);
+      }
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 182px;
+        text-overflow: ellipsis;
+        @include mq(md) {
+          width: 400px;
+        }
       }
     }
     @include mq(md) {

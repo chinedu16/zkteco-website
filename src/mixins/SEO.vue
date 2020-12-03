@@ -1,4 +1,3 @@
-
 <static-query>
   query {
     metadata {
@@ -12,84 +11,96 @@
 
 <script>
 export default {
-  metaInfo () {
-    const siteUrl = this.$static.metadata.siteUrl
-    const postPath = `${siteUrl}/blog/${this.$page.post.slug}` 
-    const imagePath = this.$page.post.image[0]
-    
+  metaInfo() {
+    const siteUrl = this.$static.metadata.siteUrl;
+    const postPath = `${siteUrl}/blog/${this.$page.post.slug}`;
+    const imagePath = this.$page.post.image[0];
+
     return {
       title: this.$page.post.title,
       meta: [
-        { key: 'description', name: 'description', content: this.$page.post.body },
-        { key: 'og:url', property: 'og:url', content: `${postPath}` },
         {
-          key: 'og:title',
-          property: 'og:title',
-          content: this.$page.post.title
+          name: "tags",
+          content: this.$page.post.excerpt,
         },
         {
-          key: 'og:type',
-          property: 'og:type',
-          content: 'article'
+          name: "Keywords",
+          content: this.$page.post.excerpt,
         },
         {
-          key: 'og:description',
-          property: 'og:description',
-          content: this.$page.post.body
+          key: "description",
+          name: "description",
+          content: this.$page.post.body,
+        },
+        { key: "og:url", property: "og:url", content: `${postPath}` },
+        {
+          key: "og:title",
+          property: "og:title",
+          content: this.$page.post.title,
         },
         {
-          key: 'og:image',
-          property: 'og:image',
-          content: imagePath.url
+          key: "og:type",
+          property: "og:type",
+          content: "article",
         },
         {
-          key: 'og:image:width',
-          property: 'og:image:width',
-          content: (imagePath && imagePath.width) || ''
+          key: "og:description",
+          property: "og:description",
+          content: this.$page.post.body,
         },
         {
-          key: 'og:image:height',
-          property: 'og:image:height',
-          content: (imagePath && imagePath.height) || ''
+          key: "og:image",
+          property: "og:image",
+          content: imagePath.url,
         },
         {
-          key: 'twitter:description',
-          name: 'twitter:description',
-          content: this.$page.post.body
+          key: "og:image:width",
+          property: "og:image:width",
+          content: (imagePath && imagePath.width) || "",
         },
         {
-          key: 'twitter:card',
-          name: 'twitter:card',
-          content: imagePath ? this.$page.post.excerpt : this.$page.post.body
+          key: "og:image:height",
+          property: "og:image:height",
+          content: (imagePath && imagePath.height) || "",
         },
         {
-          key: 'twitter:image',
-          property: 'twitter:image',
-          content: imagePath.url
+          key: "twitter:description",
+          name: "twitter:description",
+          content: this.$page.post.body,
         },
         {
-          key: 'twitter:title',
-          property: 'twitter:title',
-          content: this.$page.post.title
-        }
+          key: "twitter:card",
+          name: "twitter:card",
+          content: imagePath ? this.$page.post.excerpt : this.$page.post.body,
+        },
+        {
+          key: "twitter:image",
+          property: "twitter:image",
+          content: imagePath.url,
+        },
+        {
+          key: "twitter:title",
+          property: "twitter:title",
+          content: this.$page.post.title,
+        },
       ],
       script: [
         {
-          type: 'application/ld+json',
+          type: "application/ld+json",
           json: {
-            '@context': 'http://schema.org',
-            '@type': 'BlogPosting',
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
             description: this.$page.post.body,
             datePublished: this.$page.post.created_at,
             author: {
-              name: this.$static.metadata.author
+              name: this.$static.metadata.author,
             },
             headline: this.$page.post.title,
-            image: imagePath.url
-          }
-        }
-      ]
-    }
-  }
-}
+            image: imagePath.url,
+          },
+        },
+      ],
+    };
+  },
+};
 </script>

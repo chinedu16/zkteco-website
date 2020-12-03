@@ -43,8 +43,12 @@
               data-aos-duration="2000"
               class="flex logo-menu"
             >
-              <g-link to="/" title="Home">
+              <!-- <g-link to="/" title="Home">
                 <Logo :width="40" color1="white" />
+              </g-link> -->
+               <g-link class="logo_image_container" to="/" title="Home">
+                <!-- <Logo :width="40" color1="white" /> -->
+                <g-image :src="logo.url"></g-image>
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
@@ -226,6 +230,15 @@ query {
       }
     }
   }
+   allStrapiHomePages {
+    edges {
+      node{
+        logo {
+          url
+        }
+      }
+    }
+  }
   allStrapiSolutionCategories {
     edges {
       node {
@@ -300,6 +313,9 @@ export default {
     },
     articles() {
       return this.$static.allStrapiCategories.edges;
+    },
+    logo() {
+      return this.$static.allStrapiHomePages.edges[0].node.logo;
     },
     solutionsCat() {
       return this.$static.allStrapiSolutionCategories.edges;

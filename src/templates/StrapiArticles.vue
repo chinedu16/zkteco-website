@@ -14,7 +14,7 @@
             <CategoriesSidebar class="article__sidebar" />
             <div class="w-full article__item rightside-article">
               <div class="border">
-                <div>
+                <div style="height: 20rem;">
                     <g-image
                     data-aos="zoom-in"
                     data-aos-easing="ease-out-cubic"
@@ -23,7 +23,7 @@
                     :src="article.image[0].url"
                     width="821"
                     height="384px"
-                    style="height: 30rem; object-fit: cover;"
+                    style="width: 100%; height: 100%; object-fit: cover;"
                   ></g-image>
                 </div>
                 <div class="article-body">
@@ -93,7 +93,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../styles/base/_variable.scss";
 @import "../styles/base/mixins";
 .number-categories {
@@ -152,6 +152,30 @@ export default {
   @include mq(md) {
     padding: 40px;
   }
+  h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    color: #82bb31;
+    text-align: center;
+  }
+  p {
+    a{
+      display: none;
+    }
+    .image {
+      height: 320px;
+      width: 100%;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
   
 }
 

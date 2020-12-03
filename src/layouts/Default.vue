@@ -92,6 +92,6 @@ input {
 }
 
 .font-sans {
-  font-family: "Lato" !important;
+  font-family: 'Lato', sans-serif !important;
 }
 </style>
