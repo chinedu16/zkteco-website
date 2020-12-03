@@ -50,7 +50,6 @@ import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import EmptyState from "../components/Vectors/EmptyState";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
-import moment from "moment";
 export default {
   components: {
     Office,
@@ -104,10 +103,12 @@ export default {
   margin-bottom: 4rem;
 
   .guarantee-box {
-    padding: 50px;
+    padding: 15px;
     border: 1px solid #e6e6e6;
     margin-top: 15px;
-
+    @include mq(md) {
+      padding: 50px;
+    }
     h2 {
       text-align: center;
     }

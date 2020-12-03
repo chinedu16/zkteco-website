@@ -72,7 +72,6 @@ import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import EmptyState from "../components/Vectors/EmptyState";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
-import moment from "moment";
 export default {
   components: {
     Office,

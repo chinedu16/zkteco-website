@@ -267,39 +267,20 @@ query {
 </page-query>
 
 <script>
-import Logo from "@/components/Logo";
 import Search from "../components/Vectors/Call";
 import RightCaret from "../components/Vectors/RightCaret";
 import LogoContainer from "../components/LogosContainer";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
-import moment from "moment";
-import axios from "axios";
-
 import api from "../api";
-
-import {
-  ArrowRightCircleIcon,
-  ZapIcon,
-  CodeIcon,
-  MoonIcon,
-  SearchIcon,
-} from "vue-feather-icons";
 
 export default {
   components: {
-    Logo,
-    RightCaret,
-    ArrowRightCircleIcon,
-    ZapIcon,
-    CodeIcon,
-    MoonIcon,
-    SearchIcon,
     LogoContainer,
     Search,
     VueSlickCarousel,
+    RightCaret
   },
   metaInfo: {
     title:
@@ -406,9 +387,10 @@ export default {
     },
   },
   created() {
+    var dayjs = require('dayjs')
     const areYouSubscribed = this.hasInStorage();
     const hoursCreated = areYouSubscribed
-      ? moment().diff(moment(areYouSubscribed.timeSaved), "hours")
+      ? dayjs().diff(dayjs(areYouSubscribed.timeSaved), "hours")
       : null;
 
     if (areYouSubscribed) {
@@ -449,7 +431,8 @@ export default {
 
     writeToStorage(preferNotification) {
       if (process.isClient) {
-        let timeFrame = moment().format();
+        var dayjs = require('dayjs')
+        let timeFrame = dayjs().format();
         let subcriberData = {
           timeSaved: timeFrame,
           dataSaved: preferNotification,

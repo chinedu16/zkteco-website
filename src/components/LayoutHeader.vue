@@ -244,15 +244,6 @@ import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from "@/components/Logo";
 import World from "@/components/Vectors/World";
 import SearchIcon from "@/components/Vectors/Search";
-import {
-  SunIcon,
-  MoonIcon,
-  GlobeIcon,
-  GithubIcon,
-  TwitterIcon,
-  AlignJustifyIcon,
-  XIcon,
-} from "vue-feather-icons";
 
 export default {
   components: {
@@ -260,13 +251,6 @@ export default {
     World,
     SearchIcon,
     ToggleDarkMode,
-    SunIcon,
-    MoonIcon,
-    AlignJustifyIcon,
-    XIcon,
-    GlobeIcon,
-    GithubIcon,
-    TwitterIcon,
   },
 
   data() {

@@ -10,7 +10,7 @@
       <div class=" breathing" style="background: #f5f5f5;">
         <section class=" pt-4 flex justify-center">
           <div class="pro-search  w-full max-w-screen-xxl clearfix">
-            <img class="w-full" src="../assets/roadmap.png" alt="" />
+            <g-image class="w-full" src="../assets/roadmap.png" alt="" />
           </div>
         </section>
 
@@ -43,9 +43,9 @@
                         </g-image>
                       </div>
                       <span
-                        v-if="dateWithinWeek(product.updated_at)"
+                        v-if="dateWithinWeek(product.node.updated_at)"
                         class="label-new"
-                        ><img src="../assets/new.png" alt="BioTime 8.0"
+                        ><g-image src="../assets/new.png" alt="BioTime 8.0"
                       /></span>
                       <g-link :to="`/product/${product.node.slug}`" style="margin-bottom: 10px; font-size: 23px; font-weight: bolder;letter-spacing: 0px;color: #78bc27!important;">
                         {{ product.node.name }}
@@ -89,6 +89,7 @@ query ($page: Int) {
       node {
         id
         name
+        updated_at
         slug
         created_at
         images {
@@ -106,7 +107,6 @@ import Office from "../components/Vectors/Office";
 import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
-import moment from "moment";
 export default {
   components: {
     Office,
@@ -126,7 +126,6 @@ export default {
       currentPage: 1,
       page: 1,
       todayDate: new Date(),
-      theTime: false,
       products: [
         { id: 1 },
         { id: 2 },
@@ -140,7 +139,8 @@ export default {
   },
   methods: {
     dateWithinWeek(date) {
-      const checkDateWithinWeek = moment(date).isSame(new Date(), "week");
+      var dayjs = require('dayjs')
+      const checkDateWithinWeek = dayjs(date).isSame(new Date(), "week");
       return checkDateWithinWeek;
     },
     async infiniteHandler($state) {
@@ -157,9 +157,6 @@ export default {
         }
       }
     },
-  },
-  mounted() {
-    this.theTime = moment().isoWeek();
   },
   created() {
     this.loadedPosts.push(...this.$page.products.edges);

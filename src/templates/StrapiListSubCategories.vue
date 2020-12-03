@@ -62,7 +62,6 @@ query ProductCategories($path: String!) {
 
 <script>
 import Linkedin from "../components/Vectors/POS";
-import moment from "moment";
 export default {
   components: {
     Linkedin,

@@ -15,12 +15,6 @@
         </section>
 
         <div class="download_search pt-10 pb-10">
-          <!-- <input
-            type="text"
-            v-model="name"
-            placeholder="Please Input Keyword "
-            class="search-input mt-5 w-full"
-          /> -->
           <p></p>
         </div>
 
@@ -106,7 +100,6 @@ query {
 </static-query>
 
 <script>
-import moment from "moment";
 export default {
   components: {},
 
@@ -126,7 +119,8 @@ export default {
   },
   methods: {
     getTime(date) {
-      return moment(date).format('MMMM Do YYYY' );
+      var dayjs = require('dayjs')
+      return dayjs(date).format('DD/MM/YYYY');
     },
   }
 };

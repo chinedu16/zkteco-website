@@ -1,7 +1,7 @@
 <template>
   <layout>
     <div class="headline">
-      <img
+      <g-image
         class="w-full object-cover"
         style="height: 20rem"
         src="../assets/about-us-1.jpg"

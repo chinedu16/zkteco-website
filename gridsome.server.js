@@ -4,19 +4,17 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 
 module.exports = function (api) {
 
-  // api.chainWebpack((config, { isServer }) => {
-  //   if (isServer) {
-  //     config.externals([
-  //       nodeExternals({
-  //         allowlist: [/^vuetify/]
-  //       })
-  //     ])
-  //   }
-  // })
-
+  api.chainWebpack((config, { isServer }) => {
+    config
+      .plugin('BundleAnalyzerPlugin')
+      .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
+  })
+  
   api.loadSource(store => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api
   })

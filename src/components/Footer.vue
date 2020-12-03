@@ -79,9 +79,6 @@
                 <g-link to="https://api.whatsapp.com/send?phone=2348175555514&text=&source=&data=&app_absent="><Whatsapp color="white" height="24" width="20" /></g-link>
                 <g-link to="https://www.linkedin.com/company/zkteco-wa/?viewAsMember=true"><Linkedin color="white" height="24" width="20" /></g-link>
               </div>
-              <!-- <button class="footer-cta" icon>
-                <MessageCircleIcon /> Online Consultation
-              </button> -->
             </div>
           </div>
         </div>
@@ -103,18 +100,9 @@ import Twitter from "../components/Vectors/Twitter";
 import Instagram from "../components/Vectors/Instagram";
 import Whatsapp from "../components/Vectors/Whatsapp";
 import Linkedin from "../components/Vectors/Linkedin";
-import { MessageCircleIcon } from "vue-feather-icons";
 import Call from "../components/Vectors/light/Call";
 import Consultation from "../components/Vectors/light/Consultation";
 import User from "../components/Vectors/light/User";
-
-import {
-  SunIcon,
-  MoonIcon,
-  GlobeIcon,
-  GithubIcon,
-  TwitterIcon,
-} from "vue-feather-icons";
 
 const Search = () =>
   import(/* webpackChunkName: "search" */ "@/components/Search").catch(
@@ -169,15 +157,8 @@ export default {
     };
   },
   components: {
-    MessageCircleIcon,
     Logo,
     Search,
-    ToggleDarkMode,
-    SunIcon,
-    MoonIcon,
-    GlobeIcon,
-    GithubIcon,
-    TwitterIcon,
     Facebook,
     Instagram,
     Linkedin,
