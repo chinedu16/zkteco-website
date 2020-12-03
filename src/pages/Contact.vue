@@ -37,6 +37,7 @@
                 <g-image
                   style="width: 100%;"
                   src="../assets/full-map copy.png"
+                  alt="Zkteco Location Map"
                 ></g-image>
               </div>
             </div>

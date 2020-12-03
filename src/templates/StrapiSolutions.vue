@@ -22,7 +22,7 @@
         <div class="educational_details">
           <div class="description">
             <p class="desc" v-html="solution.description"></p>
-            <g-image :src="solution.image[0].url" alt="" />
+            <g-image :src="solution.image[0].url" :alt="solution.title" />
           </div>
           <div id="content" v-html="solution.content"></div>
         </div>
@@ -40,6 +40,7 @@ query Solutions($path: String!) {
     description
     image {
       url
+      name
     }
     content
   }
@@ -105,16 +106,23 @@ export default {
     box-shadow: 0px 0px 7px 3px #f4f4f4;
     padding: 30px;
     .description {
-      display: flex;
+      @include mq(md) {
+        display: flex;
+      }
       margin-bottom: 20px;
       align-items: flex-start;
 
       .desc {
-        width: 50%;
+        @include mq(md) {
+          width: 50%;
+        }
       }
 
       img {
-        width: 50%;
+        width: 100%;
+        @include mq(md) {
+          width: 50%;
+        }
       }
     }
   }

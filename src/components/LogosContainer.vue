@@ -17,6 +17,7 @@
                   <g-image
                     class="white--text align-end"
                     :src="logo.image.url"
+                    :alt="logo.name"
                   ></g-image>
                 </div>
               </div>

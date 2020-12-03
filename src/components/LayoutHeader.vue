@@ -45,7 +45,7 @@
             >
               <g-link class="logo_image_container" to="/" title="Home">
                 <!-- <Logo :width="40" color1="white" /> -->
-                <g-image :src="logo.url"></g-image>
+                <g-image :src="logo.url" alt="zkteco west africa logo"></g-image>
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">

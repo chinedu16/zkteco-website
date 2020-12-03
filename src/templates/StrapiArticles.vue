@@ -21,6 +21,7 @@
                     data-aos-duration="3000"
                     class="w-full"
                     :src="article.image[0].url"
+                    :alt="article.image[0].name"
                     width="821"
                     height="384px"
                     style="width: 100%; height: 100%; object-fit: cover;"

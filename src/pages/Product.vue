@@ -36,6 +36,9 @@
                               ? product.node.images[0].url
                               : '../assets/Logo-2.png'
                           "
+                          :alt="product.node.images[0]
+                              ? product.node.images[0].name
+                              : product.node.name"
                         >
                         </g-image>
                       </div>
@@ -90,6 +93,7 @@ query ($page: Int) {
         created_at
         images {
           url
+          name
         }
       }
     }

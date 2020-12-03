@@ -33,6 +33,7 @@
                         <div v-if="item.images" class="template-image">
                           <g-image
                             :src="item.images[0] ? item.images[0].url : ''"
+                            :alt="item.slug
                           ></g-image>
                         </div>
 

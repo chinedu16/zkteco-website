@@ -48,6 +48,10 @@
                               ? product.images[0].url
                               : '../assets/Logo-2.png'
                           "
+                          :alt="product.images[0]
+                              ? product.images[0].url
+                              : product.name
+                          "
                         >
                         </g-image>
                       </div>
@@ -60,7 +64,7 @@
                         {{ product.name }}
                       </g-link>
                       <g-link class="more" :to="`/product/${product.slug}`"
-                        >Learn more</g-link
+                        >Read Details</g-link
                       >
                     </div>
                   </div>

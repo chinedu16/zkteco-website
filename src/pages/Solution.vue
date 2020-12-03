@@ -23,14 +23,23 @@
         </div>
 
         <div class="section_cards">
-          <div class="section_card" v-for="solution in allSolution" :key="solution.id">
+          <div
+            class="section_card"
+            v-for="solution in allSolution"
+            :key="solution.id"
+          >
             <div class="container">
               <div class="overlay"></div>
-              <g-image :src="solution.node.image[0].url" alt="" />
+              <g-image
+                :src="solution.node.image[0].url"
+                :alt="solution.node.title"
+              />
               <div class="text">
-                <h3>{{solution.node.title}}</h3>
+                <h3>{{ solution.node.title }}</h3>
                 <div class="cases_content"></div>
-                <g-link :to="`/solution-details/${solution.node.slug}`">Learn More</g-link>
+                <g-link :to="`/solution-details/${solution.node.slug}`"
+                  >Learn More</g-link
+                >
               </div>
             </div>
           </div>
@@ -39,7 +48,6 @@
     </div>
   </layout>
 </template>
-
 
 <static-query>
 query {
@@ -77,13 +85,12 @@ export default {
   metaInfo: {},
 
   data() {
-    return {
-    };
+    return {};
   },
   computed: {
     allSolution() {
       return this.$static.allStrapiSolutions.edges;
-    }
+    },
   },
 };
 </script>
@@ -118,15 +125,13 @@ export default {
   }
 
   .section_cards {
+    display: grid;
+    grid-gap: 20px;
     @include mq(md) {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
-		}
-		@include mq(lg) {
-      display: grid;
+    }
+    @include mq(lg) {
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 20px;
     }
 
     .section_card {
@@ -138,6 +143,8 @@ export default {
             opacity: 1;
           }
           .text {
+            width: 100%;
+            
             a {
               opacity: 1;
             }
@@ -174,6 +181,12 @@ export default {
           position: absolute;
           z-index: 1;
           height: 100%;
+          width: 100%;
+          h3 {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+          }
 
           .cases_content {
             height: 88px;

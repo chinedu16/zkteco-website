@@ -30,12 +30,12 @@
           >
             <div class="container">
               <div class="overlay"></div>
-              <g-image :src="solution.image[0].url" alt="" />
+              <g-image :src="solution.image[0].url" :alt="solution.title" />
               <div class="text">
                 <h3>{{ solution.title }}</h3>
                 <div class="cases_content"></div>
                 <g-link :to="`/solution-details/${solution.slug}`"
-                  >Learn More</g-link
+                  >Details</g-link
                 >
               </div>
             </div>
@@ -61,6 +61,7 @@ query Solutions($path: String!) {
           title
           image {
             url
+            name
           }
         }
   }
@@ -123,15 +124,13 @@ export default {
   }
 
   .section_cards {
+    display: grid;
+    grid-gap: 20px;
     @include mq(md) {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
     }
     @include mq(lg) {
-      display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 20px;
     }
 
     .section_card {
@@ -179,7 +178,12 @@ export default {
           position: absolute;
           z-index: 1;
           height: 100%;
-
+          width: 100%;
+          h3 {
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+          }
           .cases_content {
             height: 88px;
             overflow: hidden;
@@ -204,6 +208,8 @@ export default {
             opacity: 0;
             line-height: 40px;
             margin-top: 20px;
+            position: absolute;
+            top: 17rem;
           }
         }
       }

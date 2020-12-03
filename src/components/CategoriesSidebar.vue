@@ -36,6 +36,7 @@
               class="rounded-full rounded-image "
               width="71"
               height="71"
+              :alt="article.node.image[0].name"
             ></g-image>
             <p class="ml-5">{{ article.node.title }}</p>
           </g-link>

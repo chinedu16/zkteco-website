@@ -31,6 +31,7 @@
                           width="201"
                           height="105"
                           :src="product.images[0] ? product.images[0].url : '../assets/Logo-2.png'"
+                          :alt="product.images[0] ? product.images[0].name : product.name"
                         >
                         </g-image>
                       </div>
@@ -44,7 +45,7 @@
                         {{ product.name }}
                       </g-link>
                       <g-link class="more" :to="`/product/${product.slug}`"
-                        >Learn more</g-link
+                        >Details</g-link
                       >
                     </div>
                   </div>
@@ -70,6 +71,7 @@ query SubProductCategories($path: String!) {
       slug
       images {
         url
+        name
       }
     }
   }

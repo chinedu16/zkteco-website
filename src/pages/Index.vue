@@ -20,7 +20,7 @@
             to
             @click="openSlider(item.url)"
           >
-            <g-image :src="item.image.url"> </g-image>
+            <g-image :src="item.image.url" :alt="item.image.name"> </g-image>
           </a>
         </VueSlickCarousel>
       </div>
@@ -55,7 +55,7 @@
                     <g-link :to="feature.url">
                       <div class="feature-text">
                         <div class="icons-container">
-                          <g-image :src="feature.icon"> </g-image>
+                          <g-image :src="feature.icon" :alt="feature.title"> </g-image>
                         </div>
                         <h1>{{ feature.title }}</h1>
                       </div>
@@ -66,6 +66,7 @@
                         height="100px"
                         style="border-bottom: 10px solid #82bb31; object-fit: contain;"
                         :src="feature.src"
+                        :alt="feature.title"
                       >
                       </g-image>
                     </g-link>
@@ -80,7 +81,7 @@
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full">
-            <h1 class="heading flex justify-center" data-aos="fade-left">
+            <h1 class="heading flex justify-center" style="text-align: center;" data-aos="fade-left">
               News Center
             </h1>
             <div class="news-container">
@@ -100,6 +101,7 @@
                       class="white--text align-end hover g-image-grow"
                       height="200px"
                       :src="article.node.image[0].formats.thumbnail.url"
+                      :alt="article.node.image[0].name"
                     >
                     </g-image>
                   </div>
@@ -123,7 +125,7 @@
                               style="color: #333!important; font-weight: 400;"
                               text
                             >
-                              Learn More <RightCaret />
+                              Read Article  <RightCaret />
                             </v-btn>
                           </v-card-actions>
                         </g-link>
@@ -146,7 +148,7 @@
           <v-card sytle="background: white;!important;">
             <div class="flex">
               <div id="leftside-newsletter" style="">
-                <g-image src="../assets/Logo-2.png"></g-image>
+                <g-image src="../assets/Logo-2.png" alt="Zkteco Logo-2"></g-image>
               </div>
               <div class="rightside-newsletter">
                 <v-card-title class="headline"
@@ -242,6 +244,7 @@ query {
           url
           image {
             url
+            name
             formats {
               large {
                 height

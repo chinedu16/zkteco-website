@@ -30,6 +30,7 @@
                     <g-image
                       class="rounded-full"
                       :src="singleTeam.image.url"
+                      :alt="singleTeam.name"
                     ></g-image>
                     <h2 class="text-color-zkteco-green mt-2" style="font-size: 18px;">
                       {{ singleTeam.name || "None" }}
