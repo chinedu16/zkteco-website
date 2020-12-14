@@ -102,7 +102,7 @@
               data-target="#navigation"
               @click.stop="drawer = true"
             >
-              <AlignJustifyIcon size="2x" class="custom-class" />
+              <Hamburger />
             </button>
           </div>
         </div>
@@ -119,7 +119,7 @@
         <v-toolbar flat color="">
           <v-spacer></v-spacer>
           <v-btn icon @click.native="drawer = false">
-            <XIcon size="2x" class="custom-class" />
+            <XIcon/>
           </v-btn>
         </v-toolbar>
 
@@ -264,6 +264,9 @@ import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from "@/components/Logo";
 import World from "@/components/Vectors/World";
 import SearchIcon from "@/components/Vectors/Search";
+import Hamburger from "@/components/Vectors/Hamburger";
+import XIcon from "@/components/Vectors/XIcon"
+
 
 export default {
   components: {
@@ -271,6 +274,8 @@ export default {
     World,
     SearchIcon,
     ToggleDarkMode,
+    Hamburger,
+    XIcon
   },
 
   data() {

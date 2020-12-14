@@ -19,6 +19,7 @@
     "gridsome-plugin-algolia": "^2.1.4",
     "instantsearch.css": "^7.4.5",
     "vue-aos": "^1.0.1",
+    "vue-burger-menu": "^2.0.5",
     "vue-infinite-loading": "^2.4.5",
     "vue-instantsearch": "^3.3.0",
     "vue-slick-carousel": "^1.0.6",
