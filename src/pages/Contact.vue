@@ -35,8 +35,10 @@
               </div>
               <div class="right">
                 <g-image
-                  style="width: 100%;"
-                  src="../assets/full-map copy.png"
+                  width="1040" 
+                  height="360"
+                  quality="70"
+                  src="../assets/full-map.webp"
                   alt="Zkteco Location Map"
                 ></g-image>
               </div>
@@ -93,6 +95,8 @@ query {
 </page-query>
 
 <script>
+import { VAlert } from 'vuetify/lib'
+
 import api from "../api";
 import SemiLayout from "../layouts/SemiDefault";
 import Office from "../components/Vectors/Office";
@@ -104,6 +108,7 @@ export default {
     Message,
     Call,
     SemiLayout,
+    VAlert
   },
   metaInfo: {
     title: "Contact Us",
@@ -205,7 +210,7 @@ export default {
     margin-bottom: 30px;
     h3 {
       border-bottom: 4px solid #78bc27;
-      width: 92px;
+      width: 94px;
       padding-bottom: 5px;
       margin-bottom: 5px;
     }

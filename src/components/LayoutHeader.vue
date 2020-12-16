@@ -23,15 +23,16 @@
               <div id="google_translate_element"></div>
               <g-link class="pl-2 pr-2 hover">Login</g-link>
               <g-link class="pl-2 pr-2 hover">Register</g-link>
-              <ToggleDarkMode class="ml-2 hover sm:ml-8">
+              <!-- <ToggleDarkMode class="ml-2 hover sm:ml-8">
                 <template slot="default" slot-scope="{ dark }">
                   <MoonIcon v-if="dark" size="1.5x" />
                   <SunIcon v-else size="1.5x" />
                 </template>
-              </ToggleDarkMode>
+              </ToggleDarkMode> -->
             </div>
           </div>
         </div>
+        
       </div>
 
       <div id="globalnav" class="header-fixed ">
@@ -45,8 +46,9 @@
             >
               <g-link class="logo_image_container" to="/" title="Home">
                 <!-- <Logo :width="40" color1="white" /> -->
-                <g-image :src="logo.url" alt="zkteco west africa logo"></g-image>
+                <g-image :src="logo.url" alt="zkteco west africa logo" quality="75"></g-image>
               </g-link>
+
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
                   <div class="dropdown">
@@ -240,21 +242,20 @@ query {
 </static-query>
 
 <script>
-import ToggleDarkMode from "@/components/ToggleDarkMode";
+// import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from "@/components/Logo";
 import World from "@/components/Vectors/World";
 import SearchIcon from "@/components/Vectors/Search";
 import Hamburger from "@/components/Vectors/Hamburger";
-import XIcon from "@/components/Vectors/XIcon"
+import XIcon from "@/components/Vectors/XIcon";
 
 export default {
   components: {
     Logo,
     World,
     SearchIcon,
-    ToggleDarkMode,
     Hamburger,
-    XIcon
+    XIcon,
   },
 
   data() {
@@ -291,7 +292,7 @@ export default {
   },
   async mounted() {
     this.$nextTick(() => {
-      this.googleTranslateInit();
+      // this.googleTranslateInit();
     });
     window.onscroll = function() {
       "use strict";

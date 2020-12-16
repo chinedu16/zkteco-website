@@ -23,12 +23,12 @@
               <div id="google_translate_element"></div>
               <g-link class="pl-2 pr-2 hover">Login</g-link>
               <g-link class="pl-2 pr-2 hover">Register</g-link>
-              <ToggleDarkMode class="ml-2 hover sm:ml-8">
+              <!-- <ToggleDarkMode class="ml-2 hover sm:ml-8">
                 <template slot="default" slot-scope="{ dark }">
                   <MoonIcon v-if="dark" size="1.5x" />
                   <SunIcon v-else size="1.5x" />
                 </template>
-              </ToggleDarkMode>
+              </ToggleDarkMode> -->
             </div>
           </div>
         </div>
@@ -46,41 +46,56 @@
               <!-- <g-link to="/" title="Home">
                 <Logo :width="40" color1="white" />
               </g-link> -->
-               <g-link class="logo_image_container" to="/" title="Home">
+              <g-link class="logo_image_container" to="/" title="Home">
                 <!-- <Logo :width="40" color1="white" /> -->
-                <g-image :src="logo.url" alt="zkteco west africa logo"></g-image>
+                <g-image
+                  :src="logo.url"
+                  quality="70"
+                  width="640" 
+                  height="360"
+                  alt="zkteco west africa logo"
+                ></g-image>
               </g-link>
               <div class="top-navbar logo-menu__menu" id="navigation">
                 <div class="flex items-start ml-5 navigation-dropdown">
-                <div class="dropdown">
-                  <button class="dropbtn"><g-link class="dropbtn" to="/product">Products</g-link></button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in products" :key="index">
-                      <g-link :to="`/product-categories/${item.node.slug}`">{{item.node.name}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <g-link class="dropbtn" to="/product">Products</g-link>
+                    </button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in products" :key="index">
+                        <g-link :to="`/product-categories/${item.node.slug}`">{{
+                          item.node.name
+                        }}</g-link>
+                      </li>
+                    </div>
                   </div>
-                </div>
-                <div class="dropdown">
-                  <button class="dropbtn"><g-link class="dropbtn" to="/solution">Solutions</g-link></button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in solutionsCat" :key="index">
-                      <g-link :to="`/solution-categories/${item.node.slug}`">{{item.node.name}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <g-link class="dropbtn" to="/solution">Solutions</g-link>
+                    </button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in solutionsCat" :key="index">
+                        <g-link
+                          :to="`/solution-categories/${item.node.slug}`"
+                          >{{ item.node.name }}</g-link
+                        >
+                      </li>
+                    </div>
                   </div>
-                </div>
-                <div class="dropdown">
-                  <button class="dropbtn">Support</button>
-                  <div class="dropdown-content">
-                    <li v-for="(item, index) in supports" :key="index">
-                      <g-link :to="`${item.path}`">{{item.title}}</g-link>
-                    </li>
+                  <div class="dropdown">
+                    <button class="dropbtn">Support</button>
+                    <div class="dropdown-content">
+                      <li v-for="(item, index) in supports" :key="index">
+                        <g-link :to="`${item.path}`">{{ item.title }}</g-link>
+                      </li>
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
 
-           <div class="search-header" style="position: relative;">
+            <div class="search-header" style="position: relative;">
               <input
                 class="search-input"
                 type="text"
@@ -119,7 +134,7 @@
         <v-toolbar flat color="">
           <v-spacer></v-spacer>
           <v-btn icon @click.native="drawer = false">
-            <XIcon/>
+            <XIcon />
           </v-btn>
         </v-toolbar>
 
@@ -260,27 +275,26 @@ query {
 </static-query>
 
 <script>
-import ToggleDarkMode from "@/components/ToggleDarkMode";
+// import ToggleDarkMode from "@/components/ToggleDarkMode";
 import Logo from "@/components/Logo";
 import World from "@/components/Vectors/World";
 import SearchIcon from "@/components/Vectors/Search";
 import Hamburger from "@/components/Vectors/Hamburger";
-import XIcon from "@/components/Vectors/XIcon"
-
+// import XIcon from "@/components/Vectors/XIcon"
 
 export default {
   components: {
     Logo,
     World,
     SearchIcon,
-    ToggleDarkMode,
+    // ToggleDarkMode,
     Hamburger,
-    XIcon
+    // XIcon
   },
 
   data() {
     return {
-      search_query: '',
+      search_query: "",
       closeOnClick: true,
       closeOnContentClick: true,
       menuHover: false,
@@ -311,9 +325,7 @@ export default {
     },
   },
   async mounted() {
-    this.$nextTick(() => {
-      this.googleTranslateInit();
-    });
+    // this.googleTranslateInit();
     window.onscroll = function() {
       "use strict";
       const myHeader = document.getElementById("globalnav");
@@ -327,25 +339,34 @@ export default {
       }
     };
   },
+  
   methods: {
-    searchEntry () {
+    searchEntry() {
       if (this.search_query !== "") {
-        this.$router.push({path: '/search/' , query: {search: this.search_query }})
+        this.$router.push({
+          path: "/search/",
+          query: { search: this.search_query },
+        });
       } else {
         return;
       }
     },
     googleTranslateInit: function() {
-      let checkIfGoogleLoaded = setInterval(() => {
-        if (google) {
-          if (google.translate.TranslateElement != null) {
-            clearInterval(checkIfGoogleLoaded);
-            this.googleTranslateElement("google_translate_element");
+      if (google) {
+        let checkIfGoogleLoaded = setInterval(() => {
+          if (google) {
+            if (google.translate.TranslateElement != null) {
+              clearInterval(checkIfGoogleLoaded);
+              this.googleTranslateElement("google_translate_element");
+            }
+          } else {
+            return;
           }
-        } else {
-          return;
-        }
-      }, 100);
+        }, 100);
+      } else {
+        console.log('No google')
+        return;
+      }
     },
     googleTranslateElement: function(id) {
       new google.translate.TranslateElement(
@@ -393,7 +414,7 @@ export default {
   opacity: 0.95;
   border-radius: 4px;
   min-width: 200px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -427,8 +448,9 @@ export default {
   height: 40px;
   overflow: hidden;
   padding: 0px 10px;
-  &:hover, &:focus {
-     outline: none;
+  &:hover,
+  &:focus {
+    outline: none;
   }
 }
 .v-application {

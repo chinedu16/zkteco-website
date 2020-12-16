@@ -1,6 +1,7 @@
 <template>
   <section id="footer-main" class="footer-main w-full  b-0">
     <div class="footer-image">
+      <g-image src="../assets/Footer-image (1).webp" width="640" height="360" quality="70"/>
       <div class="footer-image-overlay">
         <div class="flex justify-center h-full align-center">
           <div class="footer-icon-container breathing w-full">
@@ -173,21 +174,22 @@ export default {
 
 <style lang="scss">
 .footer-image {
-  background-image: url("../assets/pens-near-keyboard-and-paper-clips-1558690 1.png");
   height: 361px;
-  object-fit: cover;
   position: relative;
   text-align: center;
-  background-position: center center;
-  background-size: cover;
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .footer-image-overlay {
     background-color: rgba(0, 0, 0, 0.7);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    position: relative;
+    position: absolute;
     z-index: 1;
 
     .footer-icon-container {

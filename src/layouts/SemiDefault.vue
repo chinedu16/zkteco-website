@@ -7,8 +7,6 @@
       </div>
       <!-- <Footer /> -->
       <Footer />
-
-      <!-- End of Mobile Navigation Bar -->
     </v-main>
   </v-app>
 </template>
@@ -22,6 +20,7 @@ query {
 </static-query>
 
 <script>
+
 import LayoutHeader from "@/components/LayoutHeaderSemi";
 import Footer from "@/components/Footer";
 

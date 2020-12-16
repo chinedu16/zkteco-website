@@ -41,7 +41,7 @@ export default {
   },
   components: {
     LayoutHeader,
-    Footer,
+    Footer
   },
   data() {
     return {};
