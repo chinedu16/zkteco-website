@@ -4,8 +4,8 @@
       <g-image
         class="w-full object-cover"
         style="height: 20rem"
-        src="../assets/about-us-1.jpg"
-        alt=""
+        src="@/assets/about-us-1.jpg"
+        alt="Zkteco about us"
       />
     </div>
     <div class="flex justify-center align-center">
@@ -33,7 +33,7 @@
             </p>
             <div class="culture-box">
               <div class="culture-content">
-                <g-image src="../assets/responsibility.jpg" alt="Zkteco Responsibility"></g-image>
+                <g-image src="@/assets/responsibility.jpg" alt="Zkteco Responsibility"></g-image>
                 <div class="text">
                   <span
                     >Responsibility is a major indicator for ZKTeco to measure
@@ -44,7 +44,7 @@
                 </div>
               </div>
               <div class="culture-content">
-                <g-image src="../assets/integrity.jpg" alt="Zkteco Integrity"></g-image>
+                <g-image src="@/assets/integrity.jpg" alt="Zkteco Integrity"></g-image>
                 <div class="text">
                   <span
                     >As for culture and self-discipline of ZKTeco, integrity is
@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="culture-content">
-                <g-image src="../assets/pragmatic.jpg" alt="Zkteco Pragmatic"></g-image>
+                <g-image src="@/assets/pragmatic.jpg" alt="Zkteco Pragmatic"></g-image>
                 <div class="text">
                   <span
                     >Being practical-minded means to be down-to-earth, practical
@@ -66,7 +66,7 @@
                 </div>
               </div>
               <div class="culture-content">
-                <g-image src="../assets/excellence.jpg" alt="Zkteco Excellence"></g-image>
+                <g-image src="@/assets/excellence.jpg" alt="Zkteco Excellence"></g-image>
                 <div class="text">
                   <span
                     >In ZKTeco, excellence means being a world-class enterprise
@@ -94,7 +94,7 @@
             </p>
 
             <div class="culture-top">
-              <g-image src="../assets/office.jpg" alt="Zkteco Mission"></g-image>
+              <g-image src="@/assets/office.jpg" alt="Zkteco Mission"></g-image>
             </div>
           </div>
         </section>
@@ -140,8 +140,8 @@
               </span>
             </p>
             <div class="culture-active clearfix">
-              <g-image src="../assets/podium.jpg" alt="Zkteco Podium"></g-image>
-              <g-image src="../assets/bike.jpg" alt="Zkteco Walk"></g-image>
+              <g-image src="@/assets/podium.jpg" alt="Zkteco Podium"></g-image>
+              <g-image src="@/assets/bike.jpg" alt="Zkteco Walk"></g-image>
             </div>
           </div>
         </section>
@@ -173,21 +173,6 @@ query {
       }
     }
   }
-  allStrapiTeams {
-    edges {
-      node {
-        id
-        teams {
-          id
-          image {
-            url
-          }
-          position
-          name
-        }
-      }
-    }
-  }
 }
 </page-query>
 
@@ -202,10 +187,7 @@ export default {
   computed: {
     about() {
       return this.$page.allStrapiAboutUses.edges[0].node;
-    },
-    teams() {
-      return this.$page.allStrapiTeams.edges;
-    },
+    }
   },
 };
 </script>
@@ -269,7 +251,6 @@ export default {
       margin-bottom: unset;
     }
     img {
-      // display: none;
       width: 100%;
     }
     .text {

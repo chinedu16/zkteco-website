@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import Office from "../components/Vectors/Office";
-import Message from "../components/Vectors/Message";
-import Call from "../components/Vectors/Call";
-import EmptyState from "../components/Vectors/EmptyState";
-import ProductSidebar from "../components/ProductCategoriesSidebar";
+import Office from "@/components/Vectors/Office";
+import Message from "@/components/Vectors/Message";
+import Call from "@/components/Vectors/Call";
+import EmptyState from "@/components/Vectors/EmptyState";
+import ProductSidebar from "@/components/ProductCategoriesSidebar";
 export default {
   components: {
     Office,

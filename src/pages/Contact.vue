@@ -95,20 +95,17 @@ query {
 </page-query>
 
 <script>
-import { VAlert } from 'vuetify/lib'
-
-import api from "../api";
-import SemiLayout from "../layouts/SemiDefault";
-import Office from "../components/Vectors/Office";
-import Message from "../components/Vectors/Message";
-import Call from "../components/Vectors/Call";
+import api from "@/api";
+import SemiLayout from "@/layouts/SemiDefault";
+import Office from "@/components/Vectors/Office";
+import Message from "@/components/Vectors/Message";
+import Call from "@/components/Vectors/Call";
 export default {
   components: {
     Office,
     Message,
     Call,
     SemiLayout,
-    VAlert
   },
   metaInfo: {
     title: "Contact Us",

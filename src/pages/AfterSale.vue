@@ -53,9 +53,9 @@
 </template>
 
 <script>
-import Policy from "../components/Vectors/Policy";
-import Counterfeit from "../components/Vectors/Counterfeit";
-import Faq from "../components/Vectors/Faq";
+import Policy from "@/components/Vectors/Policy";
+import Counterfeit from "@/components/Vectors/Counterfeit";
+import Faq from "@/components/Vectors/Faq";
 export default {
   components: {
     Policy,
@@ -64,9 +64,6 @@ export default {
   },
   metaInfo: {
     title: "After Sales Service",
-  },
-  data() {
-    return {};
   },
 };
 </script>

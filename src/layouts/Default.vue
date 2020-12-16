@@ -1,12 +1,15 @@
 <template>
   <v-app>
-    <v-main>
+    <Hydrate ssr-only>
+      <v-main>
       <LayoutHeader />
       <div class="w-full pb-1">
         <slot />
       </div>
       <Footer />
     </v-main>
+    </Hydrate>
+    
   </v-app>
 </template>
 
@@ -28,6 +31,7 @@ query {
 <script>
 import LayoutHeader from "@/components/LayoutHeader";
 import Footer from "@/components/Footer";
+import Hydrate from 'lazy-hydration';
 
 export default {
   metaInfo () {
@@ -41,7 +45,8 @@ export default {
   },
   components: {
     LayoutHeader,
-    Footer
+    Footer,
+    Hydrate
   },
   data() {
     return {};

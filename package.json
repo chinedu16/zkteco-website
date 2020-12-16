@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dansmaculotte/vue-zendesk": "^0.4.1",
+    "@gridsome/plugin-critical": "^0.2.0",
     "@gridsome/source-strapi": "^0.1.0",
     "algoliasearch": "^4.5.1",
     "aos": "^2.3.4",
@@ -18,6 +19,7 @@
     "gridsome": "^0.7.23",
     "gridsome-plugin-algolia": "^2.1.4",
     "instantsearch.css": "^7.4.5",
+    "lazy-hydration": "^1.0.5",
     "vue-aos": "^1.0.1",
     "vue-infinite-loading": "^2.4.5",
     "vue-instantsearch": "^3.3.0",

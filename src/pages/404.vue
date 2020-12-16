@@ -1,15 +1,8 @@
 <template>
   <semiLayout>
-    <!-- <div class="pt-8 md:pt-16">
-      <h1 class="text-center font-bold text-4xl text-ui-primary">Oh no! There is nothing here.</h1>
-    </div>
-    <div class="mb-10 flex items-center justify-center">
-      <g-link to="/" class="font-bold border-b border-ui-primary text-xl">Go back</g-link>.
-    </div> -->
     <div id="four_o_four" class="flex justify-center align-center">
       <div class="breathing">
         <section class="flex justify-center">
-          
           <div class="error-container">
             <fourOfour/>
             <h1>Oops!</h1>
@@ -27,8 +20,8 @@
 </template>
 
 <script>
-import semiLayout from "../layouts/SemiDefault";
-import fourOfour from "../components/Vectors/404";
+import semiLayout from "@/layouts/SemiDefault";
+import fourOfour from "@/components/Vectors/404";
 export default {
   components: {
     semiLayout,

@@ -1,13 +1,14 @@
 <template>
   <v-app>
+    <Hydrate ssr-only>
     <v-main>
       <LayoutHeader />
       <div class="w-full pb-1">
         <slot />
       </div>
-      <!-- <Footer /> -->
       <Footer />
     </v-main>
+    </Hydrate>
   </v-app>
 </template>
 
@@ -23,11 +24,13 @@ query {
 
 import LayoutHeader from "@/components/LayoutHeaderSemi";
 import Footer from "@/components/Footer";
+import Hydrate from 'lazy-hydration';
 
 export default {
   components: {
     LayoutHeader,
     Footer,
+    Hydrate
   },
   data() {
     return {};
