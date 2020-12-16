@@ -81,6 +81,9 @@ import CategoriesSidebar from "../components/CategoriesSidebar";
 import PostSeo from '../mixins/SEO'
 
 export default {
+  metaInfo: {
+    title: "Articles Blog",
+  },
   mixins: [PostSeo],
   components: {
     MailOpen,

@@ -2,6 +2,17 @@
   <layout>
     <div class="allproduct-headline-image headline" style="height: 28rem;">
       <div class="footer-image-overlay"></div>
+      <div class="overlay">
+        <div class="page-header_wrap">
+          <div class="page-heading">
+            <h1>Products</h1>
+          </div>
+          <ul class="coustom-breadcrumb">
+            <li><g-link to="/">Home</g-link></li> |
+            <li>Products</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div
       class="flex justify-center align-center w-full"
@@ -118,7 +129,11 @@ import Message from "../components/Vectors/Message";
 import Call from "../components/Vectors/Call";
 import EmptyState from "../components/Vectors/EmptyState";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
+
 export default {
+  metaInfo: {
+    title: "Products Categories",
+  },
   components: {
     Office,
     Message,

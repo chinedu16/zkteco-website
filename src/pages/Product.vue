@@ -2,6 +2,17 @@
   <layout>
     <div class="allproduct-headline-image headline" style="height: 28rem;">
       <div class="footer-image-overlay"></div>
+      <div class="overlay">
+        <div class="page-header_wrap">
+          <div class="page-heading">
+            <h1>Products</h1>
+          </div>
+          <ul class="coustom-breadcrumb">
+            <li><g-link to="/">Home</g-link></li> |
+            <li>Products</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div
       class="flex justify-center align-center w-full"

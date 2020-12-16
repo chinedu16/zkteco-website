@@ -7,6 +7,17 @@
         src="@/assets/about-us-1.jpg"
         alt="Zkteco about us"
       />
+      <div class="overlay">
+        <div class="page-header_wrap">
+          <div class="page-heading">
+            <h1>About us</h1>
+          </div>
+          <ul class="coustom-breadcrumb">
+            <li><g-link to="/">Home</g-link></li> |
+            <li>About Us</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="flex justify-center align-center">
       <div class="breathing ">
@@ -200,8 +211,10 @@ export default {
   .culture-title {
     font-size: 30px;
     color: #484748;
-    margin: 50px 0 30px 0;
+    margin: 10px 0 30px 0;
     text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
   }
   .culture-text {
     text-align: center;

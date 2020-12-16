@@ -72,24 +72,6 @@ export default function(Vue, { head, isClient, appOptions }) {
   Vue.component("Layout", DefaultLayout);
   Vue.use(InfiniteLoading);
 
-  head.link.push({
-    rel: "stylesheet",
-    href:
-      "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap",
-  });
-
-  head.script.push({
-    src:
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
-    body: true,
-  });
-
-  head.script.push({
-    id: "ze-snippet",
-    src:
-      "https://static.zdassets.com/ekr/snippet.js?key=ebd1d5ac-b3c0-4bfe-a265-02e961779c67",
-  });
-
   Vue.use(Vuetify, {
     components: {
       VApp,

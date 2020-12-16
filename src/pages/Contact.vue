@@ -7,7 +7,7 @@
             <div class="w-full justify-between contact_container ">
               <div class="left">
                 <div class="reach-us">
-                  <h3>Contact Us</h3>
+                  <h1>Contact Us</h1>
                   <span>Reach out to us from</span>
                 </div>
                 <div class="form-control">
@@ -205,9 +205,9 @@ export default {
 
   .reach-us {
     margin-bottom: 30px;
-    h3 {
+    h1 {
       border-bottom: 4px solid #78bc27;
-      width: 94px;
+      width: 125px;
       padding-bottom: 5px;
       margin-bottom: 5px;
     }
