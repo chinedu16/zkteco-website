@@ -386,7 +386,7 @@ export default {
       return this.$page.allStrapiHomePages.edges[0].node.partners;
     },
   },
-  created() {
+  mounted() {
     var dayjs = require('dayjs')
     const areYouSubscribed = this.hasInStorage();
     const hoursCreated = areYouSubscribed
@@ -394,13 +394,13 @@ export default {
       : null;
 
     if (areYouSubscribed) {
-      if (hoursCreated < 5) {
+      if (hoursCreated < 7) {
         return;
       } else {
         this.clearInStorage();
       }
     } else {
-      this.timer = setInterval(this.fetchEventsList, 1000);
+      this.timer = setInterval(this.fetchEventsList, 5000);
     }
   },
   methods: {
