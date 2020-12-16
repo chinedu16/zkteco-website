@@ -122,10 +122,10 @@
                           <v-card-actions class="absolute bottom-0">
                             <v-btn
                               class="tracking-normal hover capitalize"
-                              style="color: #333!important; font-weight: 400;"
+                              style="color: #333!important;font-weight: 400;background-color: transparent!important;"
                               text
                             >
-                              Read Article  <RightCaret />
+                              Read Article <RightCaret />
                             </v-btn>
                           </v-card-actions>
                         </g-link>
