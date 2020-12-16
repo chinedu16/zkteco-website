@@ -28,14 +28,14 @@
       <div id="feature_container" class="">
         <div class="flex justify-center align-center">
           <div class="breathing w-full ">
-            <h2
+            <h1
               class="text-center heading"
               data-aos="fade-up"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             >
               ZKTeco Insight into the Market
-            </h2>
+            </h1>
             <div class="index-ms text-center my-5">
               <span
                 style="font-size:18px;"
@@ -57,7 +57,7 @@
                         <div class="icons-container">
                           <g-image :src="feature.icon" :alt="feature.title"> </g-image>
                         </div>
-                        <h1>{{ feature.title }}</h1>
+                        <h2>{{ feature.title }}</h2>
                       </div>
                     </g-link>
                     <g-link :to="feature.url">
@@ -81,9 +81,9 @@
       <section class="w-full" id="news-container__section">
         <div class="flex justify-center ">
           <div class="w-full">
-            <h1 class="heading flex justify-center" style="text-align: center;" data-aos="fade-left">
+            <h2 class="heading flex justify-center" style="text-align: center;" data-aos="fade-left">
               News Center
-            </h1>
+            </h2>
             <div class="news-container">
               <div
                 style="height: 400px; margin-top: 40px;"
@@ -484,7 +484,7 @@ export default {
   flex-direction: column;
   align-items: center;
 
-  h1 {
+  h2 {
     color: white;
     font-weight: 600;
     font-size: 26px !important;
@@ -552,24 +552,6 @@ export default {
     }
   }
 }
-
-// #slide-container {
-//   .slick-slider {
-//     .slick-list {
-//       .slick-track {
-//         display: flex !important;
-//         .slick-slide {
-//           height: inherit;
-//           img {
-//             object-fit: cover;
-//             width: inherit !important;
-//             height: inherit;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
 
 .slick-track {
   display: flex !important;

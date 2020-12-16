@@ -4,16 +4,16 @@
       <div class="blogs-headline-image headline" style="height: 20rem;">
         <div class="footer-image-overlay"></div>
         <div class="overlay">
-        <div class="page-header_wrap">
-          <div class="page-heading">
-            <h1>Blogs</h1>
+          <div class="page-header_wrap">
+            <div class="page-heading">
+              <h1>Blogs</h1>
+            </div>
+            <ul class="coustom-breadcrumb">
+              <li><g-link to="/">Home</g-link></li> |
+              <li>Blogs</li>
+            </ul>
           </div>
-          <ul class="coustom-breadcrumb">
-            <li><g-link to="/">Home</g-link></li> |
-            <li>Blogs</li>
-          </ul>
         </div>
-      </div>
       </div>
       <div class="w-full flex justify-center align-center">
         <div class="breathing">

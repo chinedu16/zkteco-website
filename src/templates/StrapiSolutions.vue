@@ -68,6 +68,12 @@ export default {
       theTime: false,
     };
   },
+  metaInfo() {
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.strapiSolutions.title,  // <-- "this" is the Vue instance with $static
+    }
+  },
   computed: {
     solution() {
       return this.$page.strapiSolutions;

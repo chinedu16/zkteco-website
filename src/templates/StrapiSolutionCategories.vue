@@ -12,7 +12,7 @@
         </section>
 
         <div class="solution_title pt-10">
-          <h2>ZKTeco Solutions</h2>
+          <h1>ZKTeco Solutions</h1>
           <p v-if="allSolutionCategories.length > 0">
             <span
               >ZKTeco has developed professional industry solutions for
@@ -81,6 +81,12 @@ export default {
     Call,
     ProductSidebar,
     EmptyState,
+  },
+  metaInfo() {
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.strapiSolutionCategories.name,  // <-- "this" is the Vue instance with $static
+    }
   },
   data() {
     return {};

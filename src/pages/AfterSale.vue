@@ -15,7 +15,7 @@
         </section>
 
         <div class="solution_title pt-10 pb-10">
-          <h2>After Sales Services</h2>
+          <h1>After Sales Services</h1>
         </div>
 
         <div class="after_sales">

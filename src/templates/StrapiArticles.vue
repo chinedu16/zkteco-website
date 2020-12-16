@@ -28,7 +28,7 @@
                   ></g-image>
                 </div>
                 <div class="article-body">
-                  <h3 style="margin-bottom: 2rem;">{{ article.title }}</h3>
+                  <h1 style="margin-bottom: 2rem;">{{ article.title }}</h1>
                   <p
                     data-aos="fade-up"
                     data-aos-duration="4000"
@@ -81,18 +81,17 @@ import CategoriesSidebar from "../components/CategoriesSidebar";
 import PostSeo from '../mixins/SEO'
 
 export default {
-  metaInfo: {
-    title: "Articles Blog",
+  metaInfo() {
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.post.title,  // <-- "this" is the Vue instance with $static
+    }
   },
   mixins: [PostSeo],
   components: {
     MailOpen,
     CategoriesSidebar,
     SemiLayout,
-  },
-  data() {
-    return {
-    };
   },
   computed: {
     article() {
@@ -161,7 +160,7 @@ export default {
   @include mq(md) {
     padding: 40px;
   }
-  h3 {
+  h1 {
     font-size: 20px;
     text-transform: uppercase;
     margin-bottom: 2rem;

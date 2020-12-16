@@ -131,8 +131,11 @@ import EmptyState from "../components/Vectors/EmptyState";
 import ProductSidebar from "../components/ProductCategoriesSidebar";
 
 export default {
-  metaInfo: {
-    title: "Products Categories",
+  metaInfo() {
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.strapiProductCategories.name,  // <-- "this" is the Vue instance with $static
+    }
   },
   components: {
     Office,

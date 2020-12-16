@@ -2,6 +2,17 @@
   <layout>
     <div class="allproduct-headline-image headline" style="height: 300px;">
       <div class="footer-image-overlay"></div>
+      <div class="overlay">
+        <div class="page-header_wrap">
+          <div class="page-heading">
+            <h1>Download</h1>
+          </div>
+          <ul class="coustom-breadcrumb">
+            <li><g-link to="/">Home</g-link></li> |
+            <li>Download Center</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="flex align-center" id="download-center">
       <div class="breathing w-full">

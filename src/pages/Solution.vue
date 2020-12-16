@@ -12,7 +12,7 @@
         </section>
 
         <div class="solution_title pt-10">
-          <h2>ZKTeco Solutions</h2>
+          <h1>ZKTeco Solutions</h1>
           <p>
             <span
               >ZKTeco has developed professional industry solutions for
@@ -80,8 +80,10 @@ export default {
     ProductSidebar,
     EmptyState,
   },
-
-  metaInfo: {},
+  metaInfo: {
+    title:
+      "Solution",
+  },
 
   data() {
     return {};
