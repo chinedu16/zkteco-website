@@ -86,7 +86,7 @@ export default {
       {
         key: "description",
         name: "description",
-        content: "ZKTeco has developed professional industry solutions for different industries' properties and scale",
+        content: "ZKTeco West Africa has developed professional industry solutions for different industries properties and scale",
       }
     ]
   },

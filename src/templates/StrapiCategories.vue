@@ -6,7 +6,7 @@
         <div class="overlay">
           <div class="page-header_wrap">
             <div class="page-heading">
-              <h1>Blogs</h1>
+              <h1>{{category.name}}</h1>
             </div>
             <ul class="coustom-breadcrumb">
               <li><g-link to="/">Home</g-link></li> |

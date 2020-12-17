@@ -2,6 +2,7 @@
   <layout>
     <div class="allproduct-headline-image headline" style="height: 300px;">
       <div class="footer-image-overlay"></div>
+      
     </div>
     <div class="flex align-center" id="solutions">
       <div class="breathing w-full">
@@ -12,7 +13,7 @@
         </section>
 
         <div class="solution_title pt-10">
-          <h1>ZKTeco Solutions</h1>
+          <h1>{{this.$page.strapiSolutionCategories.name}}</h1>
           <p v-if="allSolutionCategories.length > 0">
             <span
               >ZKTeco has developed professional industry solutions for
@@ -55,6 +56,7 @@ query Solutions($path: String!) {
     id
     slug
     name
+    path
     solutions {
           id
           slug
@@ -90,7 +92,7 @@ export default {
         {
           key: "description",
           name: "description",
-          content: this.$page.strapiSolutionCategories.name + " - Solution Categories",
+          content: this.$page.strapiSolutionCategories.name + " for ZkTeco west africa solution. " + " The " + this.$page.strapiSolutionCategories.name+ " solution has been build to serve professional industries ",
         }
       ]
     }
