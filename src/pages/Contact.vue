@@ -109,6 +109,13 @@ export default {
   },
   metaInfo: {
     title: "Contact Us",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "Contact us at ZKteco West Africa",
+      }
+    ]
   },
   data() {
     return {

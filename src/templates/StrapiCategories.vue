@@ -100,8 +100,18 @@ import MailOpen from "../components/Vectors/MailOpen";
 import RightCaret from "../components/Vectors/RightCaret";
 import CategoriesSidebar from "../components/CategoriesSidebar";
 export default {
-   metaInfo: {
-    title: "Articles Categories",
+  metaInfo() {
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.strapiCategories.name,
+       meta: [
+        {
+          key: "description",
+          name: "description",
+          content: this.$page.strapiCategories.name + " - Blog Categories",
+        }
+      ]
+    }
   },
   components: {
     MailOpen,

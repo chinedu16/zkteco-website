@@ -194,6 +194,13 @@ export default {
   },
   metaInfo: {
     title: "About ZKTeco west africa",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "In ZKTeco, excellence means being a world-class enterprise and providing top-standard innovated products and services.",
+      },
+    ]
   },
   computed: {
     about() {

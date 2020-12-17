@@ -81,8 +81,14 @@ export default {
     EmptyState,
   },
   metaInfo: {
-    title:
-      "Solution",
+    title: "Solution",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "ZKTeco has developed professional industry solutions for different industries' properties and scale",
+      }
+    ]
   },
 
   data() {

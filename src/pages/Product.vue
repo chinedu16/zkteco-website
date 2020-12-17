@@ -127,9 +127,16 @@ export default {
   },
 
   metaInfo: {
-    title:
-      "Products",
+    title: "Products",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "ZKTeco has many products for industries with security in mind",
+      }
+    ]
   },
+  
   
   data() {
     return {

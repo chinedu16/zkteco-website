@@ -116,6 +116,13 @@ export default {
 
   metaInfo: {
     title: "Download Center",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "ZKTeco resources download center",
+      }
+    ]
   },
 
   data() {

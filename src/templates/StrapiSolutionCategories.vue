@@ -85,7 +85,14 @@ export default {
   metaInfo() {
     return {
       title: 'Index',
-      titleTemplate: this.$page.strapiSolutionCategories.name,  // <-- "this" is the Vue instance with $static
+      titleTemplate: this.$page.strapiSolutionCategories.name,
+      meta: [
+        {
+          key: "description",
+          name: "description",
+          content: this.$page.strapiSolutionCategories.name + " - Solution Categories",
+        }
+      ]
     }
   },
   data() {

@@ -2,9 +2,9 @@
   <section id="customer__logo" class=" ">
     <div class="flex justify-center">
       <div class="breathing w-full">
-        <h1 class="heading mb-10 flex justify-center" data-aos="fade-left">
+        <h2 class="heading mb-10 flex justify-center" data-aos="fade-left">
           Our Clients
-        </h1>
+        </h2>
         <div
           data-aos="zoom-in"
           data-aos-duration="3000"

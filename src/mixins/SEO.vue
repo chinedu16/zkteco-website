@@ -17,6 +17,7 @@ export default {
     const imagePath = this.$page.post.image[0];
     const keywordsArray = this.$page.post.SEO ? this.$page.post.SEO.description :  this.$page.post.excerpt;
     const tagsArray = this.$page.post.SEO ? this.$page.post.SEO.title :  this.$page.post.excerpt;
+    
     return {
       title: this.$page.post.title,
       meta: [

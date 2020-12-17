@@ -64,6 +64,13 @@ export default {
   },
   metaInfo: {
     title: "After Sales Service",
+    meta: [
+      {
+        key: "description",
+        name: "description",
+        content: "Zkteco west africa - After Sales Service",
+      },
+    ]
   },
 };
 </script>

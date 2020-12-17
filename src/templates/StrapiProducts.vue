@@ -263,14 +263,26 @@
   </SemiLayout>
 </template>
 
+<static-query>
+  query {
+    metadata {
+      siteName
+      siteDescription
+      siteUrl
+      author
+    }
+  }
+</static-query>
+
 <page-query>
 query Products($path: String!) {
-  strapiProducts (path: $path) {
+  product: strapiProducts (path: $path) {
     id
     name
     slug
     description
     product_details
+    created_at
     downloads {
       id
       name
@@ -285,6 +297,8 @@ query Products($path: String!) {
       id
       name
       url
+      width
+      height
     }
   }
 }
@@ -308,10 +322,92 @@ import Whatsapp from "../components/Vectors/Whatsapp";
 
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
-// optional style for arrows & dots
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
+  metaInfo() {
+    const siteUrl = this.$static.metadata.siteUrl;
+    const postPath = `${siteUrl}/product/${this.$page.product.slug}`;
+    const imagePath = this.$page.product.images[0];
+    return {
+      title: 'Index',
+      titleTemplate: this.$page.product.name,
+      meta: [
+        {
+          key: "description",
+          name: "description",
+          content: this.$page.product.description,
+        },
+        { key: "og:url", property: "og:url", content: `${postPath}` },
+        {
+          key: "og:title",
+          property: "og:title",
+          content: this.$page.product.name,
+        },
+        {
+          key: "og:type",
+          property: "og:type",
+          content: "article",
+        },
+        {
+          key: "og:description",
+          property: "og:description",
+          content: this.$page.product.description,
+        },
+        {
+          key: "og:image",
+          property: "og:image",
+          content: imagePath.url,
+        },
+        {
+          key: "og:image:width",
+          property: "og:image:width",
+          content: (imagePath && imagePath.width) || "",
+        },
+        {
+          key: "og:image:height",
+          property: "og:image:height",
+          content: (imagePath && imagePath.height) || "",
+        },
+        {
+          key: "twitter:description",
+          name: "twitter:description",
+          content: this.$page.product.description,
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          key: "twitter:image",
+          property: "twitter:image",
+          content: imagePath.url,
+        },
+        {
+          key: "twitter:title",
+          property: "twitter:title",
+          content: this.$page.product.name,
+        },
+        { name: "twitter:site", content: siteUrl },
+        { name: "twitter:creator", content: "Zkteco" }
+      ],
+      script: [
+        {
+          src: "https://platform.twitter.com/widgets.js", 
+          async: true,
+          type: "application/ld+json",
+          json: {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            description: this.$page.product.description,
+            datePublished: this.$page.product.created_at,
+            author: {
+              name: this.$static.metadata.author,
+            },
+            headline: this.$page.product.title,
+            image: imagePath.url,
+          },
+        },
+      ],
+    }
+  },
   components: {
     Office,
     Message,
@@ -373,6 +469,7 @@ export default {
       evt.currentTarget.className += " w3-red";
     },
     openImg(imgName) {
+      
       var i, x;
       x = document.getElementsByClassName("picture");
       for (i = 0; i < x.length; i++) {
@@ -384,11 +481,11 @@ export default {
   mounted() {
     this.url = window.location.href;
     // this.openCity();
-    this.openImg(this.$page.strapiProducts.images[0].name);
+    this.openImg(this.$page.product.images[0].name);
   },
   computed: {
     product() {
-      return this.$page.strapiProducts;
+      return this.$page.product;
     },
   },
 };
