@@ -2,6 +2,27 @@
   <Layout>
     <div>
       <div id="slide-container">
+        <!-- <VueSlickCarousel
+          :edgeFriction="0.35"
+          :slidesToShow="1"
+          :slidesToScroll="1"
+          :autoplay="true"
+          :cssEase="linear"
+          :speed="2000"
+          :autoplaySpeed="4000"
+          :infinite="true"
+          :adaptiveHeight="false"
+        >
+          <div
+            class="container-hero"
+            v-for="(item, i) in sliders"
+            :key="i"
+            to
+            @click="openSlider(item.url)"
+          >
+            <g-image :src="item.image.url" :alt="item.image.name"> </g-image>
+          </div>
+        </VueSlickCarousel> -->
         <VueSlickCarousel
           :edgeFriction="0.35"
           :slidesToShow="1"
@@ -13,15 +34,16 @@
           :infinite="true"
           :adaptiveHeight="false"
         >
-          <a
+          <div
             class="container-hero"
-            v-for="(item, i) in sliders"
-            :key="i"
-            to
-            @click="openSlider(item.url)"
           >
-            <g-image :src="item.image.url" :alt="item.image.name"> </g-image>
-          </a>
+            <g-image src="../assets/cctv.png" alt="item.image.name"> </g-image>
+          </div>
+           <div
+            class="container-hero"
+          >
+            <g-image src="../assets/cctv.png" alt="item.image.name"> </g-image>
+          </div>
         </VueSlickCarousel>
       </div>
 

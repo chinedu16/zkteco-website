@@ -5,18 +5,16 @@
       <div class="footer-image-overlay">
         <div class="flex justify-center h-full align-center">
           <div class="footer-icon-container breathing w-full">
-            <h2 class="mb-10" data-aos="fade-down" data-aos-duration="3000">
+            <h2 class="mb-10">
               Learn how ZKTeco helps you
             </h2>
 
-            <p data-aos="zoom-out-up" data-aos-duration="4000">
+            <p>
               ZKTeco is a globally-renowned provider of security, access control
               and time management solutions
             </p>
 
             <div
-              data-aos="fade-up"
-              data-aos-duration="5000"
               class="footer-image-icon justify-center mt-10 flex"
             >
               <v-tooltip bottom>
