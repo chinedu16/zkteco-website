@@ -1,14 +1,12 @@
 <template>
   <v-app>
-
-      <v-main>
-      <!-- <LayoutHeader /> -->
+    <v-main>
+      <LayoutHeader />
       <div class="w-full pb-1">
         <slot />
       </div>
-      <!-- <Footer /> -->
+      <Footer />
     </v-main>
-    
   </v-app>
 </template>
 
@@ -32,18 +30,30 @@ import LayoutHeader from "@/components/LayoutHeader";
 import Footer from "@/components/Footer";
 
 export default {
-  metaInfo () {
+  metaInfo() {
     return {
       meta: [
-        { key: 'author', name: 'author', content: this.$static.metadata.author },
-        { key: 'twitter:site', name: 'twitter:site', content: this.$static.metadata.twitter.site },
-        { key: 'twitter:creator', name: 'twitter:creator', content: this.$static.metadata.twitter.creator }
-      ]
-    }
+        {
+          key: "author",
+          name: "author",
+          content: this.$static.metadata.author,
+        },
+        {
+          key: "twitter:site",
+          name: "twitter:site",
+          content: this.$static.metadata.twitter.site,
+        },
+        {
+          key: "twitter:creator",
+          name: "twitter:creator",
+          content: this.$static.metadata.twitter.creator,
+        },
+      ],
+    };
   },
   components: {
     LayoutHeader,
-    Footer
+    Footer,
   },
   data() {
     return {};
@@ -94,6 +104,6 @@ input {
 }
 
 .font-sans {
-  font-family: 'Lato', sans-serif !important;
+  font-family: "Lato", sans-serif !important;
 }
 </style>

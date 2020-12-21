@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <Hydrate ssr-only>
     <v-main>
       <LayoutHeader />
       <div class="w-full pb-1">
@@ -8,7 +7,6 @@
       </div>
       <Footer />
     </v-main>
-    </Hydrate>
   </v-app>
 </template>
 
@@ -21,16 +19,13 @@ query {
 </static-query>
 
 <script>
-
 import LayoutHeader from "@/components/LayoutHeaderSemi";
 import Footer from "@/components/Footer";
-import Hydrate from 'lazy-hydration';
 
 export default {
   components: {
     LayoutHeader,
     Footer,
-    Hydrate
   },
   data() {
     return {};
@@ -77,6 +72,6 @@ input {
 }
 
 .font-sans {
-  font-family: 'Lato', sans-serif !important;
+  font-family: "Lato", sans-serif !important;
 }
 </style>
