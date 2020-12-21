@@ -25,7 +25,7 @@
         </VueSlickCarousel>
       </div>
 
-      <div id="feature_container" class="">
+      <!-- <div id="feature_container" class="">
         <div class="flex justify-center align-center">
           <div class="breathing w-full">
             <h1
@@ -80,9 +80,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <section class="w-full breathing" id="news-container__section">
+      <!-- <section class="w-full breathing" id="news-container__section">
         <div class="flex justify-center">
           <div class="w-full">
             <h2
@@ -147,13 +147,13 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section>
+      <!-- <section>
         <LogoContainer :logoData="partners" />
-      </section>
+      </section> -->
 
-      <div id="newletter-modal">
+      <!-- <div id="newletter-modal">
         <v-dialog v-model="dialog" persistent max-width="600px">
           <v-card sytle="background: white;!important;">
             <div class="flex">
@@ -220,7 +220,7 @@
             </div>
           </v-card>
         </v-dialog>
-      </div>
+      </div> -->
     </div>
   </Layout>
 </template>
