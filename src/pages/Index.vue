@@ -27,7 +27,7 @@
 
       <div id="feature_container" class="">
         <div class="flex justify-center align-center">
-          <div class="breathing w-full ">
+          <div class="breathing w-full">
             <h1
               class="text-center heading"
               data-aos="fade-up"
@@ -38,7 +38,7 @@
             </h1>
             <div class="index-ms text-center my-5">
               <span
-                style="font-size:18px;"
+                style="font-size: 18px"
                 data-aos="fade-down"
                 data-aos-easing="ease-out-cubic"
                 data-aos-duration="2000"
@@ -55,7 +55,8 @@
                     <g-link :to="feature.url">
                       <div class="feature-text">
                         <div class="icons-container">
-                          <g-image :src="feature.icon" :alt="feature.title"> </g-image>
+                          <g-image :src="feature.icon" :alt="feature.title">
+                          </g-image>
                         </div>
                         <h2>{{ feature.title }}</h2>
                       </div>
@@ -64,7 +65,10 @@
                       <g-image
                         class="white--text align-end"
                         height="100px"
-                        style="border-bottom: 10px solid #82bb31; object-fit: contain;"
+                        style="
+                          border-bottom: 10px solid #82bb31;
+                          object-fit: contain;
+                        "
                         :src="feature.src"
                         :alt="feature.title"
                       >
@@ -78,22 +82,23 @@
         </div>
       </div>
 
-      <section class="w-full" id="news-container__section">
-        <div class="flex justify-center ">
+      <section class="w-full breathing" id="news-container__section">
+        <div class="flex justify-center">
           <div class="w-full">
-            <h2 class="heading flex justify-center" style="text-align: center;" data-aos="fade-left">
+            <h2
+              class="heading flex justify-center"
+              style="text-align: center"
+              data-aos="fade-left"
+            >
               News Center
             </h2>
             <div class="news-container">
               <div
-                style="height: 400px; margin-top: 40px;"
+                style="height: 400px; margin-top: 40px"
                 v-for="article in articles.slice(0, 4)"
                 :key="article.id"
               >
-                <v-card
-                  class=" img-hover-zoom--brightness"
-                  
-                >
+                <v-card class="img-hover-zoom--brightness">
                   <div class="image-hover-zoom">
                     <g-image
                       class="white--text align-end hover g-image-grow"
@@ -112,7 +117,10 @@
                           :to="`/blog/${article.node.slug}`"
                         >
                           <v-card-text class="text--primary">
-                            <div class="" style="font-size: 18px; font-weight: 600;">
+                            <div
+                              class=""
+                              style="font-size: 18px; font-weight: 600"
+                            >
                               {{ article.node.title }}
                             </div>
                           </v-card-text>
@@ -120,7 +128,11 @@
                           <v-card-actions class="absolute bottom-0">
                             <v-btn
                               class="tracking-normal hover capitalize"
-                              style="color: #333!important;font-weight: 400;background-color: transparent!important;"
+                              style="
+                                color: #333 !important;
+                                font-weight: 400;
+                                background-color: transparent !important;
+                              "
                               text
                             >
                               Read Article <RightCaret />
@@ -146,7 +158,10 @@
           <v-card sytle="background: white;!important;">
             <div class="flex">
               <div id="leftside-newsletter" style="">
-                <g-image src="../assets/Logo-2.png" alt="Zkteco Logo-2"></g-image>
+                <g-image
+                  src="../assets/Logo-2.png"
+                  alt="Zkteco Logo-2"
+                ></g-image>
               </div>
               <div class="rightside-newsletter">
                 <v-card-title class="headline"
@@ -179,12 +194,12 @@
                     ></v-text-field>
                   </v-col>
                   <div class="my-2">
-                    <v-btn @click="sendEmail" style="width: 100%;" color="green"
+                    <v-btn @click="sendEmail" style="width: 100%" color="green"
                       >Subscribe</v-btn
                     >
                   </div>
 
-                  <p style="color: red;" v-if="showError">
+                  <p style="color: red" v-if="showError">
                     Something went wrong
                   </p>
                 </v-form>
@@ -193,7 +208,7 @@
                   <v-spacer></v-spacer>
 
                   <span
-                    style="cursor: pointer;"
+                    style="cursor: pointer"
                     color="green darken-1"
                     text
                     @click="dialog = false"
@@ -278,11 +293,10 @@ export default {
     LogoContainer,
     Search,
     VueSlickCarousel,
-    RightCaret
+    RightCaret,
   },
   metaInfo: {
-    title:
-      "Home",
+    title: "Home",
   },
   data() {
     return {
@@ -385,7 +399,7 @@ export default {
     },
   },
   mounted() {
-    var dayjs = require('dayjs')
+    var dayjs = require("dayjs");
     const areYouSubscribed = this.hasInStorage();
     const hoursCreated = areYouSubscribed
       ? dayjs().diff(dayjs(areYouSubscribed.timeSaved), "hours")
@@ -404,7 +418,7 @@ export default {
   methods: {
     openSlider(url) {
       if (process.isClient) {
-        window.open(url, '_blank');
+        window.open(url, "_blank");
       }
     },
     fetchEventsList() {
@@ -429,7 +443,7 @@ export default {
 
     writeToStorage(preferNotification) {
       if (process.isClient) {
-        var dayjs = require('dayjs')
+        var dayjs = require("dayjs");
         let timeFrame = dayjs().format();
         let subcriberData = {
           timeSaved: timeFrame,
