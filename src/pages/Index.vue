@@ -28,7 +28,7 @@
           :slidesToShow="1"
           :slidesToScroll="1"
           :autoplay="true"
-          :cssEase="linear"
+          cssEase="linear"
           :speed="2000"
           :autoplaySpeed="4000"
           :infinite="true"
@@ -42,7 +42,12 @@
            <div
             class="container-hero"
           >
-            <g-image src="../assets/cctv.png" alt="item.image.name"> </g-image>
+            <g-image src="../assets/zpad.png" alt="item.image.name"> </g-image>
+          </div>
+           <div
+            class="container-hero"
+          >
+            <g-image src="../assets/TIME ATTENDANCE BANNER.png" alt="item.image.name"> </g-image>
           </div>
         </VueSlickCarousel>
       </div>
