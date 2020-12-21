@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <!-- <Layout> -->
     <div>
       <div id="slide-container">
         <!-- <VueSlickCarousel
@@ -249,7 +249,7 @@
         </v-dialog>
       </div> -->
     </div>
-  </Layout>
+  <!-- </Layout> -->
 </template>
 
 <page-query>
