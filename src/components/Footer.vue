@@ -1,6 +1,6 @@
 <template>
   <section id="footer-main" class="footer-main w-full  b-0">
-    <!-- <div class="footer-image">
+    <div class="footer-image">
       <g-image src="../assets/Footer-image (1).webp" width="640" height="360" quality="70"/>
       <div class="footer-image-overlay">
         <div class="flex justify-center h-full align-center">
@@ -47,9 +47,9 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="footer-container">
+    <div class="footer-container">
       <div class="flex align-center justify-center">
         <div class="breathing w-full footer-item-container">
           <div class="left-side">
@@ -82,12 +82,12 @@
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <div
+    </div>
+    <div
       class="bottom-0 text-base md:h-16 footer-copy xl:w-full text-center pt-5 pb-5 "
     >
       Copyright © 2020 ZKTECO CO. LTD. All rights reserved
-    </div> -->
+    </div>
   </section>
 </template>
 

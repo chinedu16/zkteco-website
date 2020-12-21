@@ -1,8 +1,8 @@
 <template>
-  <!-- <Layout> -->
+  <Layout>
     <div>
       <div id="slide-container">
-        <!-- <VueSlickCarousel
+        <VueSlickCarousel
           :edgeFriction="0.35"
           :slidesToShow="1"
           :slidesToScroll="1"
@@ -22,37 +22,10 @@
           >
             <g-image :src="item.image.url" :alt="item.image.name"> </g-image>
           </div>
-        </VueSlickCarousel> -->
-        <VueSlickCarousel
-          :edgeFriction="0.35"
-          :slidesToShow="1"
-          :slidesToScroll="1"
-          :autoplay="true"
-          cssEase="linear"
-          :speed="2000"
-          :autoplaySpeed="4000"
-          :infinite="true"
-          :adaptiveHeight="false"
-        >
-          <div
-            class="container-hero"
-          >
-            <g-image src="../assets/cctv.png" alt="item.image.name"> </g-image>
-          </div>
-           <div
-            class="container-hero"
-          >
-            <g-image src="../assets/zpad.png" alt="item.image.name"> </g-image>
-          </div>
-           <div
-            class="container-hero"
-          >
-            <g-image src="../assets/TIME ATTENDANCE BANNER.png" alt="item.image.name"> </g-image>
-          </div>
         </VueSlickCarousel>
       </div>
 
-      <!-- <div id="feature_container" class="">
+      <div id="feature_container" class="">
         <div class="flex justify-center align-center">
           <div class="breathing w-full">
             <h1
@@ -107,9 +80,9 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <!-- <section class="w-full breathing" id="news-container__section">
+      <section class="w-full breathing" id="news-container__section">
         <div class="flex justify-center">
           <div class="w-full">
             <h2
@@ -174,13 +147,13 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
 
-      <!-- <section>
+      <section>
         <LogoContainer :logoData="partners" />
-      </section> -->
+      </section>
 
-      <!-- <div id="newletter-modal">
+      <div id="newletter-modal">
         <v-dialog v-model="dialog" persistent max-width="600px">
           <v-card sytle="background: white;!important;">
             <div class="flex">
@@ -247,9 +220,9 @@
             </div>
           </v-card>
         </v-dialog>
-      </div> -->
+      </div>
     </div>
-  <!-- </Layout> -->
+  </Layout>
 </template>
 
 <page-query>

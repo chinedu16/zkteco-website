@@ -2,7 +2,7 @@
   <v-app>
     <Hydrate ssr-only>
       <v-main>
-      <LayoutHeader />
+      <!-- <LayoutHeader /> -->
       <div class="w-full pb-1">
         <slot />
       </div>
