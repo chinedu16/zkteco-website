@@ -6,8 +6,6 @@
           Our Clients
         </h2>
         <div
-          data-aos="zoom-in"
-          data-aos-duration="3000"
           class="customer-logos mt-10 flex items-center justify-center"
         >
           <div class="logos_carousel customer-logos__content w-full flex">
